@@ -1,0 +1,28 @@
+{
+  "account_id": "210987654321",
+  "actors": [
+    {"id": "attacker", "role": "attacker", "principal": "arn:aws:iam::210987654321:user/dev-priya", "source_ip": "185.220.101.42", "user_agent": "aws-cli/2.15.30 Python/3.11.8", "mfa": false},
+    {"id": "ops", "role": "background", "principal": "arn:aws:iam::210987654321:role/OpsAutomation", "source_ip": "10.20.4.17"},
+    {"id": "secops", "role": "responder", "principal": "arn:aws:iam::210987654321:role/SecurityAdmin", "source_ip": "198.51.100.23"}
+  ],
+  "events": [
+    {"time": "2023-10-01T10:05:00Z", "actor": "ops", "event_name": "DescribeInstances", "event_source": "ec2.amazonaws.com", "result": "Success"},
+    {"time": "2023-10-01T10:11:02Z", "actor": "attacker", "event_name": "ConsoleLogin", "event_source": "signin.amazonaws.com", "result": "Failure", "mfa": "false", "turn": 1, "suspicious": true},
+    {"time": "2023-10-01T10:12:10Z", "actor": "attacker", "event_name": "CheckMfa", "event_source": "signin.amazonaws.com", "result": "Failure", "turn": 1, "suspicious": true},
+    {"time": "2023-10-01T10:13:40Z", "actor": "attacker", "event_name": "GetCallerIdentity", "event_source": "sts.amazonaws.com", "result": "Success", "suspicious": false},
+    {"time": "2023-10-01T10:14:05Z", "actor": "attacker", "event_name": "ListBuckets", "event_source": "s3.amazonaws.com", "result": "Success", "suspicious": false},
+    {"time": "2023-10-01T10:15:30Z", "actor": "ops", "event_name": "GetObject", "event_source": "s3.amazonaws.com", "result": "Success", "resource": "ops-reports/daily.csv"},
+    {"time": "2023-10-01T10:18:44Z", "actor": "attacker", "event_name": "ListUsers", "event_source": "iam.amazonaws.com", "result": "Success", "turn": 2, "suspicious": true},
+    {"time": "2023-10-01T10:21:35Z", "actor": "attacker", "event_name": "CreateAccessKey", "event_source": "iam.amazonaws.com", "result": "Success", "resource": "dev-priya", "turn": 2, "suspicious": true},
+    {"time": "2023-10-01T10:24:02Z", "actor": "attacker", "event_name": "StopLogging", "event_source": "cloudtrail.amazonaws.com", "result": "Success", "resource": "prod-org-trail", "turn": 3, "suspicious": true},
+    {"time": "2023-10-01T10:26:11Z", "actor": "attacker", "event_name": "AttachUserPolicy", "event_source": "iam.amazonaws.com", "result": "Success", "resource": "AdministratorAccess", "turn": 3, "suspicious": true},
+    {"time": "2023-10-01T10:30:00Z", "actor": "ops", "event_name": "PutMetricData", "event_source": "monitoring.amazonaws.com", "result": "Success"},
+    {"time": "2023-10-01T10:33:15Z", "actor": "attacker", "event_name": "RunInstances", "event_source": "ec2.amazonaws.com", "result": "Success", "resource": "c5.4xlarge", "turn": 4, "suspicious": true},
+    {"time": "2023-10-01T10:45:22Z", "actor": "secops", "event_name": "UpdateAccessKey", "event_source": "iam.amazonaws.com", "result": "Success", "resource": "dev-priya", "turn": 5},
+    {"time": "2023-10-01T11:08:17Z", "actor": "secops", "event_name": "StartLogging", "event_source": "cloudtrail.amazonaws.com", "result": "Success", "resource": "prod-org-trail", "turn": 5}
+  ],
+  "findings": [
+    {"finding_type": "UnauthorizedAccess:IAMUser/TorIPCaller", "severity": "High", "resource": "dev-priya", "description": "API calls were made from a Tor exit node IP address.", "turn": 3}
+  ],
+  "cost": {"baseline_daily_usd": 42.75, "incident_daily_usd": 61.30, "service": "EC2", "normal_service": "S3"}
+}

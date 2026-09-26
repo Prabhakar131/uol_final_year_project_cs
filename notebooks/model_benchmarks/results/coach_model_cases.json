@@ -1,0 +1,98 @@
+[
+  {
+    "task": "coach",
+    "case_id": "turn_1_cloudwatch_insights_query",
+    "source": "CloudWatch Log Insight Query",
+    "expected": "Strong Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_1_access_key_status",
+    "source": "Access Key Status Check",
+    "expected": "Partial Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_1_cloudtrail_event",
+    "source": "CloudTrail Event Review",
+    "expected": "Weak Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_1_unsupported_unrelated",
+    "source": "Unrelated Policy Note",
+    "expected": "Unsupported"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_2_access_key_status_check",
+    "source": "Access Key Status Check",
+    "expected": "Partial Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_2_cloudtrail_event_1",
+    "source": "IAM Activity - Cost Management Account",
+    "expected": "Strong Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_2_cloudwatch_log_insight_query_result",
+    "source": "CloudWatch Log Insight Query Result",
+    "expected": "Weak Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_2_unsupported_unrelated",
+    "source": "Unrelated Policy Note",
+    "expected": "Unsupported"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_3_cloudtrail_logging_recovery_check",
+    "source": "CloudTrail Scope Check",
+    "expected": "Partial Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_3_billing_impact_snapshot",
+    "source": "Billing Impact Snapshot",
+    "expected": "Weak Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_3_guardduty_scope_finding",
+    "source": "GuardDuty Scope Finding",
+    "expected": "Strong Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_3_unsupported_unrelated",
+    "source": "Unrelated Policy Note",
+    "expected": "Unsupported"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_4_containment_monitoring_check",
+    "source": "Containment Monitoring Check",
+    "expected": "Partial Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_4_containment_billing_context",
+    "source": "Containment Billing Context",
+    "expected": "Weak Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_4_access_key_containment_review",
+    "source": "Access Key Containment Review",
+    "expected": "Strong Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_4_unsupported_unrelated",
+    "source": "Unrelated Policy Note",
+    "expected": "Unsupported"
+  }
+]

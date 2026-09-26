@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "Recovery And Final Debrief",
+  "briefing": "Continue investigating the suspicious access key to understand its origin and usage. Ensure you have reviewed all related IAM policies and logs to prevent future incidents.",
+  "known_context": [
+    "An unauthorized access attempt was detected on admin-test's account in ap-southeast-1 region.",
+    "The access key AKIA4Z7EXAMPLE92K was created shortly after the suspicious login sequence.",
+    "The source IP address was 185.220.101.42, which matches the attacker's network traffic."
+  ],
+  "coach_guidance": "Focus on understanding the root cause of the suspicious access key and consider implementing stricter controls to prevent similar attacks in the future."
+}

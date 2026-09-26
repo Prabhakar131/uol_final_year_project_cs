@@ -1,0 +1,42 @@
+[
+  {
+    "task": "vlm",
+    "case_id": "turn_1_cloudwatch_insights_query",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudwatch_insights_query.png",
+    "expected": "strong",
+    "expected_template": "cloudwatch",
+    "expected_keywords": "cloudwatch, log, insight, query, execute, logs, insights, analyze"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_1_access_key_status",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/access_key_status.png",
+    "expected": "partial",
+    "expected_template": "access_key",
+    "expected_keywords": "access, key, status, check, review, the, keys, associated"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_1_cloudtrail_event",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudtrail_event.png",
+    "expected": "weak",
+    "expected_template": "cloudtrail",
+    "expected_keywords": "cloudtrail, event, review, logs, for, recent, events, involving"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_2_access_key_status_check",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/access_key_status_check.png",
+    "expected": "partial",
+    "expected_template": "access_key",
+    "expected_keywords": "access, key, status, check, keys, involved, the, iam"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_2_cloudtrail_event_1",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/cloudtrail_event_1.png",
+    "expected": "strong",
+    "expected_template": "cloudtrail",
+    "expected_keywords": "iam, activity, cost, management, account, logs, show, multiple"
+  }
+]

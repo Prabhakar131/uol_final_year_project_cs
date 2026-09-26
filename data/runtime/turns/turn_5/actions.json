@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_iam_permissions",
+    "title": "Examine IAM Permissions",
+    "description": "Review the IAM permissions associated with customer-api to understand their scope and usage.",
+    "recommended_next_focus": "Update IAM policies to restrict unnecessary access",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_pattern",
+    "title": "Verify Activity Around DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by SecurityAnalyst.",
+    "recommended_next_focus": "Identify potential modifications or disabling of logging activities",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_billing_spending",
+    "title": "Verify Daily Spending",
+    "description": "Check the daily spending pattern to confirm if the increase is consistent with expected usage.",
+    "recommended_next_focus": "Review billing activity for similar periods",
+    "choice_role": "partial"
+  }
+]

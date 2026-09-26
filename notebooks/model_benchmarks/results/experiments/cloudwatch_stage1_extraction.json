@@ -1,0 +1,92 @@
+{
+  "source_run": "t1-test-vlm-updated-partial",
+  "source_image": "data/runs/run-906029b52954449c852ee52deef09c37/checkpoints/cp-b89ad40698004c9fa28c6d7f70c554bf/evidence/turn_1/cloudwatch_insights_query.png",
+  "source_image_sha256": "b9db285d8d2fb01a9c6b0105ccfeac5e5eec669a81fa4528764f56a321f83919",
+  "device": "mps",
+  "scope": "Stage 1 only: live extraction from saved pixels. No security/coach/state calls.",
+  "configuration": {
+    "detail_crop": [
+      78,
+      406,
+      1130,
+      676
+    ],
+    "magnification": 2,
+    "minimum_max_new_tokens": 1400,
+    "do_sample": false
+  },
+  "elapsed_seconds": 52.981290375000754,
+  "output": {
+    "evidence_type": "cloudwatch",
+    "event_rows": [
+      {
+        "timestamp": "2023-10-01T10:12:10Z",
+        "log_stream": "auth/identity-center",
+        "message": "ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.10...",
+        "truncated": true
+      },
+      {
+        "timestamp": "2023-10-01T10:18:44Z",
+        "log_stream": "cloudtrail/audit",
+        "message": "ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42",
+        "truncated": false
+      },
+      {
+        "timestamp": "2023-10-01T10:21:35Z",
+        "log_stream": "cloudtrail/audit",
+        "message": "StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test",
+        "truncated": false
+      },
+      {
+        "timestamp": "2023-10-01T10:24:02Z",
+        "log_stream": "iam/credential-monitor",
+        "message": "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key stat...",
+        "truncated": true
+      }
+    ],
+    "query_text": "Insight query showing unauthorized access attempts across various regions.",
+    "time_range": "2023-10-01 10:10-10:30 UTC",
+    "log_group": "/aws/cloudtrail/organization/prod",
+    "matched_records": 5,
+    "visible_facts_extracted": [
+      "Event row 1: {\"timestamp\": \"2023-10-01T10:12:10Z\", \"log_stream\": \"auth/identity-center\", \"message\": \"ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.10...\", \"truncated\": true}",
+      "Event row 2: {\"timestamp\": \"2023-10-01T10:18:44Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42\", \"truncated\": false}",
+      "Event row 3: {\"timestamp\": \"2023-10-01T10:21:35Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test\", \"truncated\": false}",
+      "Event row 4: {\"timestamp\": \"2023-10-01T10:24:02Z\", \"log_stream\": \"iam/credential-monitor\", \"message\": \"CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key stat...\", \"truncated\": true}",
+      "time_range: 2023-10-01 10:10-10:30 UTC",
+      "log_group: /aws/cloudtrail/organization/prod",
+      "Matched records badge: 5 (not the displayed row count)"
+    ],
+    "important_visible_fields": [
+      "time_range: 2023-10-01 10:10-10:30 UTC",
+      "log_group: /aws/cloudtrail/organization/prod",
+      "Matched records badge: 5 (not the displayed row count)"
+    ],
+    "visible_evidence_summary": "Extracted 4 visible CloudWatch table rows.",
+    "extraction_warnings": [
+      "Row 1: message is truncated; hidden text was not extracted.",
+      "Row 4: message is truncated; hidden text was not extracted."
+    ]
+  },
+  "manual_check": {
+    "visible_rows": 4,
+    "extracted_rows": 4,
+    "timestamps": "All four match visible rows",
+    "log_streams": "All four match visible rows",
+    "messages": "Visible message text matches; row 1 and 4 ellipses preserved",
+    "truncated_flags": [
+      true,
+      false,
+      false,
+      true
+    ],
+    "time_range": "Correct: 2023-10-01 10:10-10:30 UTC",
+    "query_text": "Kept separate from event facts",
+    "matched_records": "5 badge records; no invented fifth row"
+  },
+  "limitations": [
+    "Single previously examined screenshot, not a held-out accuracy benchmark.",
+    "Security verdict, rewards and complete UI session were not retested.",
+    "Initial table-only crop recovered rows but misread the time range and marked all rows truncated; the final crop includes the metadata strip."
+  ]
+}

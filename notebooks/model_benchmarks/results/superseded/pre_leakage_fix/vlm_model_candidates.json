@@ -1,0 +1,54 @@
+[
+  {
+    "selected_for_run": true,
+    "stage": "vlm",
+    "used_in_application": true,
+    "name": "qwen2.5-vl-3b-instruct",
+    "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "family": "vision-language instruction model",
+    "benchmark_mode": "executed_when_included",
+    "metric": "field extraction and evidence-type alignment",
+    "cached": true,
+    "cache_size_gb": 15.042,
+    "notes": "Current application VLM. Strong screenshot/layout reader for evidence screenshots."
+  },
+  {
+    "selected_for_run": true,
+    "stage": "vlm",
+    "used_in_application": false,
+    "name": "qwen2-vl-2b-instruct",
+    "model_id": "Qwen/Qwen2-VL-2B-Instruct",
+    "family": "smaller vision-language instruction model",
+    "benchmark_mode": "executed_when_included",
+    "metric": "field extraction and latency",
+    "cached": true,
+    "cache_size_gb": 8.859,
+    "notes": "Smaller Qwen VLM baseline for comparing speed and evidence extraction."
+  },
+  {
+    "selected_for_run": true,
+    "stage": "vlm",
+    "used_in_application": false,
+    "name": "llava-onevision-0.5b",
+    "model_id": "llava-hf/llava-onevision-qwen2-0.5b-ov-hf",
+    "family": "small open VLM baseline",
+    "benchmark_mode": "executed_when_included",
+    "metric": "field extraction and hallucination rate",
+    "cached": true,
+    "cache_size_gb": 3.598,
+    "notes": "Lightweight multimodal baseline for screenshot interpretation."
+  },
+  {
+    "selected_for_run": true,
+    "stage": "vlm",
+    "used_in_application": false,
+    "name": "florence-2-base-ft",
+    "model_id": "microsoft/Florence-2-base-ft",
+    "family": "compact OCR/captioning vision-language model",
+    "benchmark_mode": "executed_when_included",
+    "metric": "OCR keyword recall and latency",
+    "cached": true,
+    "cache_size_gb": 0.932,
+    "notes": "Small Florence-2 candidate for screenshot text extraction; useful CPU-friendly baseline."
+  }
+]

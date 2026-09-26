@@ -1,0 +1,6 @@
+{
+  "strong_support": "Review IAM Policy Changes",
+  "partial_support": "Investigate Source IP Activity",
+  "weak_support": "Monitor Access Key Usage",
+  "unsupported": "No strong evidence found to justify the best action"
+}

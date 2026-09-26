@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "Focus on investigating the recent activity around the Invoke call by customer-api to determine the root cause of the stoplogging event.",
+  "known_context": [
+    "The user 'arn:aws:iam::123456789012:user/customer-api' initiated multiple API calls recently.",
+    "The account spent $48.10 against a $42.75 average daily spend; the largest service is EC2.",
+    "An IAM access key ASIA26FE14613C9A445F for CI-Deploy is active and last used on October 1st, 2023."
+  ],
+  "coach_guidance": "Continue analyzing the IAM activity logs around the time of the stoplogging event to identify any unusual or suspicious actions performed by the user 'arn:aws:iam::123456789012:user/customer-api'. This will help us understand if there were any attempts to modify or disable logging before the event occurred."
+}

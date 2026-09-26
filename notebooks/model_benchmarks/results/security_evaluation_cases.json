@@ -1,0 +1,182 @@
+[
+  {
+    "case_id": "turn_1_cloudwatch_insights_query",
+    "turn": 1,
+    "action": "Review Recent IAM Activities",
+    "evidence": "CloudWatch Log Insight Query",
+    "evidence_type": "cloudwatch",
+    "expected_support_role": "strong",
+    "expected_verdict": "Strong Support"
+  },
+  {
+    "case_id": "turn_1_access_key_status",
+    "turn": 1,
+    "action": "Review Recent IAM Activities",
+    "evidence": "Access Key Status Check",
+    "evidence_type": "access_key",
+    "expected_support_role": "partial",
+    "expected_verdict": "Partial Support"
+  },
+  {
+    "case_id": "turn_1_cloudtrail_event",
+    "turn": 1,
+    "action": "Review Recent IAM Activities",
+    "evidence": "CloudTrail Event Review",
+    "evidence_type": "cloudtrail",
+    "expected_support_role": "weak",
+    "expected_verdict": "Weak Support"
+  },
+  {
+    "case_id": "turn_1_unsupported_unrelated",
+    "turn": 1,
+    "action": "Review Recent IAM Activities",
+    "evidence": "Unrelated Policy Note",
+    "evidence_type": "unknown",
+    "expected_support_role": "unsupported",
+    "expected_verdict": "Unsupported"
+  },
+  {
+    "case_id": "turn_2_access_key_status_check",
+    "turn": 2,
+    "action": "Review CloudTrail Logs",
+    "evidence": "Access Key Status Check",
+    "evidence_type": "access_key",
+    "expected_support_role": "partial",
+    "expected_verdict": "Partial Support"
+  },
+  {
+    "case_id": "turn_2_cloudtrail_event_1",
+    "turn": 2,
+    "action": "Review CloudTrail Logs",
+    "evidence": "IAM Activity - Cost Management Account",
+    "evidence_type": "cloudtrail",
+    "expected_support_role": "strong",
+    "expected_verdict": "Strong Support"
+  },
+  {
+    "case_id": "turn_2_cloudwatch_log_insight_query_result",
+    "turn": 2,
+    "action": "Review CloudTrail Logs",
+    "evidence": "CloudWatch Log Insight Query Result",
+    "evidence_type": "cloudwatch",
+    "expected_support_role": "weak",
+    "expected_verdict": "Weak Support"
+  },
+  {
+    "case_id": "turn_2_unsupported_unrelated",
+    "turn": 2,
+    "action": "Review CloudTrail Logs",
+    "evidence": "Unrelated Policy Note",
+    "evidence_type": "unknown",
+    "expected_support_role": "unsupported",
+    "expected_verdict": "Unsupported"
+  },
+  {
+    "case_id": "turn_3_cloudtrail_logging_recovery_check",
+    "turn": 3,
+    "action": "Confirm Detection Scope",
+    "evidence": "CloudTrail Scope Check",
+    "evidence_type": "cloudtrail",
+    "expected_support_role": "partial",
+    "expected_verdict": "Partial Support"
+  },
+  {
+    "case_id": "turn_3_billing_impact_snapshot",
+    "turn": 3,
+    "action": "Confirm Detection Scope",
+    "evidence": "Billing Impact Snapshot",
+    "evidence_type": "billing",
+    "expected_support_role": "weak",
+    "expected_verdict": "Weak Support"
+  },
+  {
+    "case_id": "turn_3_guardduty_scope_finding",
+    "turn": 3,
+    "action": "Confirm Detection Scope",
+    "evidence": "GuardDuty Scope Finding",
+    "evidence_type": "guardduty",
+    "expected_support_role": "strong",
+    "expected_verdict": "Strong Support"
+  },
+  {
+    "case_id": "turn_3_unsupported_unrelated",
+    "turn": 3,
+    "action": "Confirm Detection Scope",
+    "evidence": "Unrelated Policy Note",
+    "evidence_type": "unknown",
+    "expected_support_role": "unsupported",
+    "expected_verdict": "Unsupported"
+  },
+  {
+    "case_id": "turn_4_containment_monitoring_check",
+    "turn": 4,
+    "action": "Contain Suspicious Credentials",
+    "evidence": "Containment Monitoring Check",
+    "evidence_type": "cloudwatch",
+    "expected_support_role": "partial",
+    "expected_verdict": "Partial Support"
+  },
+  {
+    "case_id": "turn_4_containment_billing_context",
+    "turn": 4,
+    "action": "Contain Suspicious Credentials",
+    "evidence": "Containment Billing Context",
+    "evidence_type": "billing",
+    "expected_support_role": "weak",
+    "expected_verdict": "Weak Support"
+  },
+  {
+    "case_id": "turn_4_access_key_containment_review",
+    "turn": 4,
+    "action": "Contain Suspicious Credentials",
+    "evidence": "Access Key Containment Review",
+    "evidence_type": "access_key",
+    "expected_support_role": "strong",
+    "expected_verdict": "Strong Support"
+  },
+  {
+    "case_id": "turn_4_unsupported_unrelated",
+    "turn": 4,
+    "action": "Contain Suspicious Credentials",
+    "evidence": "Unrelated Policy Note",
+    "evidence_type": "unknown",
+    "expected_support_role": "unsupported",
+    "expected_verdict": "Unsupported"
+  },
+  {
+    "case_id": "turn_5_final_identity_timeline",
+    "turn": 5,
+    "action": "Verify Recovery and Reporting",
+    "evidence": "Final Identity Timeline",
+    "evidence_type": "iam_activity",
+    "expected_support_role": "partial",
+    "expected_verdict": "Partial Support"
+  },
+  {
+    "case_id": "turn_5_final_billing_snapshot",
+    "turn": 5,
+    "action": "Verify Recovery and Reporting",
+    "evidence": "Final Billing Snapshot",
+    "evidence_type": "billing",
+    "expected_support_role": "weak",
+    "expected_verdict": "Weak Support"
+  },
+  {
+    "case_id": "turn_5_final_cloudtrail_recovery_record",
+    "turn": 5,
+    "action": "Verify Recovery and Reporting",
+    "evidence": "Final CloudTrail Recovery Record",
+    "evidence_type": "cloudtrail",
+    "expected_support_role": "strong",
+    "expected_verdict": "Strong Support"
+  },
+  {
+    "case_id": "turn_5_unsupported_unrelated",
+    "turn": 5,
+    "action": "Verify Recovery and Reporting",
+    "evidence": "Unrelated Policy Note",
+    "evidence_type": "unknown",
+    "expected_support_role": "unsupported",
+    "expected_verdict": "Unsupported"
+  }
+]

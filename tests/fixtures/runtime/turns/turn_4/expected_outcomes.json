@@ -1,0 +1,6 @@
+{
+  "strong_support": "Immediate containment measures should be implemented to prevent unauthorized access.",
+  "partial_support": "Additional IAM activities and remote IPs should be reviewed for unauthorized access.",
+  "weak_support": "No strong evidence exists to support immediate containment steps.",
+  "unsupported": "Insufficient evidence to justify containment steps."
+}

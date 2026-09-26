@@ -1,0 +1,6 @@
+{
+  "strong_support": "Provide detailed IAM policy analysis and confirm the user identity, which strengthens the case for further investigation.",
+  "partial_support": "Offer insights into the user's activity and related CloudTrail events, which helps in understanding the threat landscape.",
+  "weak_support": "Present basic IAM policy details and some CloudTrail-related events, which provides limited context but does not justify the best action.",
+  "unsupported": "Fail to provide sufficient evidence to justify the best action, focusing on unrelated aspects of the user's identity and activity."
+}

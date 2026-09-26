@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CloudIR Trainer</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23173D2B'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23D9F99D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Instrument+Sans:wght@400..700&family=Martian+Mono:wdth,wght@75..100,400..600&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="bar" id="bar">
+  <div class="wrap barrow">
+    <button class="brand" data-go="landing">CloudIR Trainer</button>
+    <span class="turn" id="barTurn"></span>
+    <div class="pills" id="barPills" hidden>
+      <span class="pill run" title="Background motion pauses while the models run">Models running</span>
+      <span class="pill">Containment <b id="pC">--</b></span>
+      <span class="pill">Visibility <b id="pV">--</b></span>
+      <span class="pill">Risk <b id="pR">--</b></span>
+    </div>
+    <span class="pill rest">Idle · animations asleep</span>
+    <button class="toggle" data-go="tutorial">Guide</button>
+    <button class="toggle calmbtn" id="calmBtn" data-calm aria-pressed="false">Reduce motion</button>
+    <button class="toggle" id="testModeToggleBtn" aria-pressed="false">Test Mode</button>
+    <button class="toggle skipbtn" id="skipNextTurnBtn" aria-pressed="false" title="Test Mode only: skip generating the next turn so verdicts arrive faster. The run cannot continue afterwards.">Skip next turn</button>
+  </div>
+  <div class="testbar hidden" id="runToolbar">
+    <div class="wrap">
+      <span class="tm-tag">Test Mode</span>
+      <div class="tm-run"><strong id="activeRunLabel">No active run</strong><span id="runSaveStatus" role="status" aria-live="polite">Saved runs preserve your scenario and results.</span></div>
+      <div class="tm-actions">
+        <label for="runNameInput">Run name <input id="runNameInput" maxlength="200" placeholder="e.g. Weak IAM evidence"></label>
+        <button class="tbtn" id="saveRunBtn">Save Run</button>
+        <button class="tbtn" id="leaveRunBtn">Save &amp; Leave</button>
+        <button class="tbtn" id="repeatTurnBtn">Retry This Turn</button>
+        <button class="tbtn primary" id="savedRunsBtn">Saved Runs</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- LANDING -->
+<section class="page p-landing" data-page="landing">
+  <header class="lnav"><div class="wrap">
+    <button class="brand" data-scroll="top">CloudIR Trainer</button>
+    <nav aria-label="Sections"><button data-scroll="about">What it is</button><button data-scroll="how">How it works</button><button data-scroll="models">The models</button><button data-scroll="verdicts">Verdicts</button><button data-scroll="cases">Cases</button><button data-go="tutorial">Tutorial</button></nav>
+    <button class="toggle calmbtn" data-calm aria-pressed="false">Reduce motion</button>
+    <button class="btn small" data-go="case">Open trainer</button>
+  </div></header>
+  <div class="hero" id="top" data-io>
+    <svg class="rosette" data-rosette="7,13,0.62" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Cloud incident response · five turns at a time</p>
+        <h1><span>Prove</span> <span>it</span><span class="dot">.</span></h1>
+        <p class="lede">CloudIR Trainer is a hands-on simulator for cloud incident response. Pick a response, pick the screenshot that backs it, and say why. <b>A vision model reads your evidence, a security model rates it, and your coach explains what it proved and what it didn't.</b></p>
+        <div class="resume" id="resumeCard" hidden>
+          <div><p class="eyebrow">Continue where you left off</p><strong id="resumeTitle"></strong><span id="resumeSub"></span></div>
+          <button class="btn" id="resumeBtn">Continue</button>
+        </div>
+        <div class="cta-row"><button class="btn ghost" data-go="case">Start training</button><button class="btn ghost" data-scroll="about" style="border-color:transparent">What is CloudIR Trainer? ↓</button></div>
+      </div>
+      <div class="side">
+        <div class="bubble"><span class="eyebrow">Coach</span><span id="heroLine">Name the exact visible fields that support each response action.</span></div>
+        <div data-av="coach" id="heroBot"></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="roster">
+        <div><div data-av="lens"></div><span>Vision</span><strong>Qwen2.5-VL-3B</strong><small>Reads the screenshot</small></div>
+        <div><div data-av="warden"></div><span>Security</span><strong>Foundation-Sec-8B · Q8</strong><small>Rates the evidence</small></div>
+        <div><div data-av="coach"></div><span>Coach</span><strong>Qwen2.5-1.5B</strong><small>Explains and writes the next turn</small></div>
+        <div><div data-av="echo"></div><span>Speech</span><strong>Whisper base</strong><small>Transcribes your answer</small></div>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+  </div>
+
+  <section class="lsec" id="about">
+    <div class="wrap">
+      <div class="lhead"><div><p class="eyebrow">What is CloudIR Trainer?</p><h2>A flight simulator for cloud incidents.</h2></div><p>CloudIR Trainer drops you into an AWS security incident and walks you through it one decision at a time. There are no multiple-choice answers to guess. Every response you choose has to be backed by a screenshot you can point to and an explanation in your own words, and three AI models running on your Mac check that the evidence really proves it.</p></div>
+      <div class="versus">
+        <div class="vs-card quiz"><p class="eyebrow">A quiz asks</p><p class="vs-q">Which AWS service records API calls?</p><ul><li>GuardDuty</li><li class="ok">CloudTrail ✓</li><li>Billing</li></ul><p class="vs-foot">You can guess and still be right.</p></div>
+        <div class="vs-card cir"><p class="eyebrow">CloudIR Trainer asks</p><p class="vs-q">s.brennan called AssumeRole from 198.51.100.1. What do you do next, and what proves it?</p><ol><li><b>Action</b><span>Investigate the AssumeRole call by s.brennan</span></li><li><b>Evidence</b><span>CloudTrail event: AssumeRole</span></li><li><b>Why</b><span>The event name, user identity and source IP match the alert, but they don't prove the call was malicious.</span></li></ol><p class="vs-foot">Your action, your evidence and every statement you make are checked.</p></div>
+      </div>
+      <div class="facts4">
+        <div><span class="eyebrow">Who it's for</span><h3>Learners</h3><p>Students and early-career analysts who know the AWS basics and want practice making incident calls.</p></div>
+        <div><span class="eyebrow">What you practise</span><h3>Evidence</h3><p>Reading CloudTrail, IAM, GuardDuty, CloudWatch, access-key and billing evidence, and saying what it proves and what it doesn't.</p></div>
+        <div><span class="eyebrow">How you're marked</span><h3>Verdicts</h3><p>Each turn gets a Strong, Partial or Weak verdict against a marking scheme built for that turn, and each statement you make is checked for overclaiming.</p></div>
+        <div><span class="eyebrow">What you take away</span><h3>A report</h3><p>A full incident response report: performance level, timeline, indicators, scorecard, recommendations and sign-off.</p></div>
+      </div>
+      <div class="cta-row"><button class="btn ink" data-go="tutorial">Take the tour</button><span class="fine">Eight stops, about three minutes.</span></div>
+    </div>
+  </section>
+
+  <section class="lsec" id="how" data-io>
+    <div class="wrap">
+      <div class="lhead"><div><p class="eyebrow">How a turn works</p><h2>Decide. Show. Explain.</h2></div><p>Every turn asks for a response action and the one screenshot that proves it. Then you say why, in writing or out loud, and three local models check your work.</p></div>
+      <div class="steps4">
+        <article class="step4"><div class="ill"><div class="mini-choices"><i></i><i></i><i></i></div></div><span class="no">01</span><h3>Choose an action</h3><p>Three response actions. The coach asks questions, but it won't tell you which one is right.</p></article>
+        <article class="step4"><div class="ill"><div class="mini-ex"><span class="tag">EXHIBIT</span></div></div><span class="no">02</span><h3>Pick the evidence</h3><p>AWS-style screenshots of CloudTrail, IAM, GuardDuty, CloudWatch, access keys and billing.</p></article>
+        <article class="step4"><div class="ill"><div data-av="echo" class="io-work"></div></div><span class="no">03</span><h3>Explain why</h3><p>Type your reasoning, or record it and let Whisper transcribe it. Name the fields you can see.</p></article>
+        <article class="step4"><div class="ill"><div class="mini-cast"><div data-av="lens"></div><div data-av="warden"></div><div data-av="coach"></div><i class="bt"></i></div></div><span class="no">04</span><h3>Get the verdict</h3><p>Vision reads the screenshot, Security rates the evidence, and the Coach explains the result.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="lsec plate2" id="models" data-io>
+    <div class="wrap">
+      <div class="lhead"><div><p class="eyebrow">The models</p><h2>Four specialists. One laptop.</h2></div><p>Each model has one job and its own character, so you always know who is working. Hover a card to watch it work.</p></div>
+      <div class="models">
+        <article class="mcard"><div class="mstage"><div data-av="lens"></div></div><p class="mid">Qwen/Qwen2.5-VL-3B-Instruct</p><h3>Vision</h3><p>Reads the evidence screenshot and lists the fields it can see. Also reads the architecture diagram when a case is built.</p><p class="runs">Apple GPU · bfloat16</p></article>
+        <article class="mcard"><div class="mstage"><div data-av="warden"></div></div><p class="mid">fdtn-ai/Foundation-Sec-8B-Instruct · Q8 GGUF</p><h3>Security</h3><p>Judges whether those facts support your action against a marking scheme built for each turn, then checks every statement you made.</p><p class="runs">llama.cpp with Metal · about 9–10 GB</p></article>
+        <article class="mcard"><div class="mstage"><div data-av="coach"></div></div><p class="mid">Qwen/Qwen2.5-1.5B-Instruct</p><h3>Coach</h3><p>Turns the verdict into feedback, writes the next turn of the incident, and prepares your final debrief.</p><p class="runs">Apple GPU · float16</p></article>
+        <article class="mcard"><div class="mstage"><div data-av="echo"></div></div><p class="mid">openai/whisper-base</p><h3>Speech</h3><p>Transcribes your spoken justification so you can check and edit it before you submit.</p><p class="runs">Runs locally · on request</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="lsec" id="verdicts" data-io>
+    <div class="wrap">
+      <div class="lhead"><div><p class="eyebrow">The verdict</p><h2>Same turn. Three verdicts.</h2></div><p>Turn 1 of the identity-management case, submitted with three different screenshots. These are the security model's own words.</p></div>
+      <div class="verdicts">
+        <article class="vcard"><div class="shot"><img src="assets/verdicts/cloudtrail_event_record.png" alt="CloudTrail event record for AssumeRole"><span class="vstamp vs-strong">Strong support</span></div><div class="vbody"><p class="eyebrow">CloudTrail Event: AssumeRole</p><blockquote class="vs-strong">The selected evidence shows the AssumeRole call by s.brennan from 198.51.100.1, which is the exact step the decision this turn depends on.</blockquote></div></article>
+        <article class="vcard"><div class="shot"><img src="assets/verdicts/iam_principal_activity.png" alt="IAM activity summary for s.brennan"><span class="vstamp vs-partial">Partial support</span></div><div class="vbody"><p class="eyebrow">IAM Activity: s.brennan</p><blockquote class="vs-partial">The selected evidence shows related activities by s.brennan, including GetBucketLocation, DescribeVolumes, and PutObject, but it does not show the specific AssumeRole call that is the focus of the investigation.</blockquote></div></article>
+        <article class="vcard"><div class="shot"><img src="assets/verdicts/billing_daily_spend.png" alt="Daily billing summary"><span class="vstamp vs-weak">Weak support</span></div><div class="vbody"><p class="eyebrow">Daily Billing Summary</p><blockquote class="vs-weak">This evidence does not show the AssumeRole call by s.brennan from 198.51.100.1, which is the critical event under investigation.</blockquote></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="lsec plate" id="life" data-io>
+    <svg class="rosette" data-rosette="6,17,0.55" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+    <div class="wrap" style="position:relative">
+      <div class="lhead"><div><p class="eyebrow">The incident lifecycle</p><h2>Five turns, one incident.</h2></div><p>The coach writes each new turn from your last decision, so the incident moves with you from first signal to recovery.</p></div>
+      <div class="life">
+        <ol class="phaselist">
+          <li><b>1</b><div><strong>Detection and initial triage</strong><span>Identify the first security signal and choose useful initial evidence.</span></div></li>
+          <li><b>2</b><div><strong>Correlation and scope</strong><span>Correlate identity activity, affected assets, credential risk, or logging gaps.</span></div></li>
+          <li><b>3</b><div><strong>Scope and blast radius</strong><span>Decide how far the incident may have spread across credentials, workloads, logs, or cost impact.</span></div></li>
+          <li><b>4</b><div><strong>Containment and remediation</strong><span>Choose a proportionate containment or remediation step using direct supporting evidence.</span></div></li>
+          <li><b>5</b><div><strong>Recovery and final debrief</strong><span>Verify recovery, residual risk, and final incident reporting evidence before closing.</span></div></li>
+        </ol>
+        <div class="chart"><p class="eyebrow">One strong run · identity management</p><svg id="lifeChart" viewBox="0 0 600 320" role="img" aria-label="Containment rises from 20 to 70 percent and visibility from 35 to 100 percent over five turns"></svg>
+          <div class="legend"><span><i style="background:#D9F99D"></i>Visibility</span><span><i style="background:#C9A24E"></i>Containment</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lsec" id="cases" data-io>
+    <div class="wrap">
+      <div class="lhead"><div><p class="eyebrow">ACSE-Eval</p><h2>Three real cases.</h2></div><p>Each case starts from an ACSE-Eval architecture and threat model. The vision model reads the diagram, the security model writes the incident timeline, and the coach writes Turn 1.</p></div>
+      <div class="grid3" id="landCases"></div>
+    </div>
+  </section>
+
+  <section class="lsec plate2" id="local">
+    <div class="wrap">
+      <div class="lhead"><div><p class="eyebrow">Runs on your Mac</p><h2>No cloud AI. No waiting room.</h2></div><p>Measured on a 24 GB Apple-silicon Mac. Models load one stage at a time and unload afterwards, and the interface calms its own motion while they run.</p></div>
+      <div class="stats">
+        <div><b>4</b><span>local models, loaded one stage at a time</span></div>
+        <div><b>9–10 GB</b><span>for the 8-bit security model through llama.cpp</span></div>
+        <div><b>18 s</b><span>to normalise the identity-management threat model</span></div>
+        <div><b>~15 GB</b><span>peak GPU memory, during the vision model's CloudWatch reading</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lsec final">
+    <div class="wrap">
+      <p class="eyebrow">Ready when you are</p>
+      <h2>Start your first incident.</h2>
+      <div class="cta-row"><button class="btn ink" data-go="case">Start training</button><button class="btn line" id="resumeBtn2" hidden>Continue your run</button></div>
+      <div class="micro" id="micro" aria-hidden="true"></div>
+      <div class="word">CloudIR</div>
+    </div>
+  </section>
+</section>
+
+<!-- CASE -->
+<section class="page" data-page="case" hidden>
+  <div class="wrap">
+    <div class="phead"><p class="eyebrow">ACSE-Eval dataset</p><h1>Choose a case</h1><p>Each case becomes a five-turn incident. Prepared cases start straight away.</p></div>
+    <div class="grid3" id="caseCards"></div>
+    <div class="case-detail sheet">
+      <button class="cd-img" id="cdZoom"><img id="cdImg" src="" alt=""><span>Enlarge</span></button>
+      <div class="cd-copy">
+        <p class="eyebrow" id="cdEyebrow"></p>
+        <h2 id="cdTitle">Case architecture</h2>
+        <p class="muted">The vision model reads this diagram while the case is built. You investigate the generated screenshots, not the diagram.</p>
+        <ul class="builds">
+          <li><b>Playable Turn 1</b><span>Incident briefing, known context, actions and evidence choices.</span></li>
+          <li><b>Scenario truth</b><span>ACSE case facts turned into the runtime files the trainer uses.</span></li>
+          <li><b>AWS-style evidence</b><span>Screenshots generated from the prepared case.</span></li>
+        </ul>
+        <div class="cta-row"><button class="btn ink" id="startCaseBtn">Start scenario</button><button class="btn line" id="rebuildBtn">Rebuild case</button></div>
+      </div>
+    </div>
+    <details class="maint sheet">
+      <summary><span class="eyebrow">Maintenance</span> Refresh status, clean restart and source files</summary>
+      <div class="maint-in">
+        <div class="cta-row" style="margin-top:0"><button class="btn line small" id="refreshBtn">Refresh status</button>
+          <label class="scope" for="cleanScope">Clean <select id="cleanScope"><option value="scenario">Selected case</option><option value="all">All generated files</option></select></label>
+          <button class="btn line small danger" id="cleanBtn">Clean restart</button></div>
+        <div class="confirm" id="cleanConfirm" hidden><p id="cleanMsg"></p><div class="cta-row" style="margin-top:12px"><button class="btn line small" id="cleanCancel">Cancel</button><button class="btn small danger line" id="cleanGo">Clean restart</button></div></div>
+        <p class="status-line" id="caseStatus" role="status" aria-live="polite"></p>
+        <ul class="files" id="files"></ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- PREPARING -->
+<section class="page" data-page="prep" hidden>
+  <div class="wrap">
+    <div class="phead"><p class="eyebrow" id="prepEyebrow">Building the case</p><h1>Preparing your case</h1><p>This runs once per case. Prepared cases skip this screen.</p></div>
+    <div class="prep-grid">
+      <div class="nowpanel">
+        <div class="nowhead"><div class="performers">
+          <div data-av="lens" data-who="lens" hidden></div><div data-av="warden" data-who="warden" hidden></div><div data-av="coach" data-who="coach" hidden></div>
+          <div class="codeglyph" data-who="code"><i></i><span>{ }</span></div>
+        </div>
+        <div><p class="eyebrow" id="nowWho">Code step</p>
+        <h2 id="nowLabel">Select ACSE case</h2>
+        <p id="nowMsg"></p></div></div>
+        <div class="bstage" id="bstage" aria-hidden="true"></div>
+        <div class="nowload" id="nowLoad"><div class="ld-top"><span class="ld-msg">Working</span><span class="ld-time" id="nowTime">0.0 s</span></div><div class="ld-bar"><i></i></div></div>
+        <div class="cta-row" id="nowDone" hidden><button class="btn" id="prepStart">Start scenario</button></div>
+        <div class="nowerr" id="nowError" hidden><p class="eyebrow">Build stopped</p><p id="nowErrorMsg" role="alert"></p><div class="cta-row"><button class="btn" id="prepRetry">Try the build again</button><button class="btn ghost" data-go="case">Back to cases</button></div></div>
+      </div>
+      <div>
+        <ol class="stages" id="stages"></ol>
+        <div class="overall"><div class="track"><i id="prepFill"></i></div><span id="prepPct" class="mono">0%</span></div>
+        <div class="cta-row" style="margin-top:14px"><button class="linkbtn" id="logBtn" aria-expanded="false" aria-controls="log">Show build log</button></div>
+        <pre class="log" id="log" hidden></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTION -->
+<section class="page" data-page="action" hidden>
+  <div class="wrap">
+    <div class="stepwrap" data-stepper="0"></div>
+    <div class="ws">
+      <div data-rail="action"></div>
+      <div class="ws-main">
+        <div class="phead"><p class="eyebrow">Decision point</p><h1>Select your next action</h1><p>Pick the response you want to take. You'll back it with evidence in the next step.</p></div>
+        <div class="testpanel" id="tpA"><p class="eyebrow">Test Mode</p><h2>Best Action Shortcut</h2><p>Selects the intended best action for this turn so the test run follows the designed scenario path.</p><div class="cta-row"><button class="btn line small" id="tpBest">Select Best Action</button></div></div>
+        <div id="actions" style="margin-top:16px"></div>
+        <div class="coachcard sheet"><div data-av="coach" id="coachA"></div><div><p class="eyebrow" id="coachALabel">Coach</p><p id="coachAMsg"></p></div></div>
+        <div class="navrow"><span></span><button class="btn ink" id="toEvidence" data-go="evidence">Choose evidence →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section class="page" data-page="evidence" hidden>
+  <div class="wrap">
+    <div class="stepwrap" data-stepper="1"></div>
+    <div class="ws">
+      <div data-rail="evidence"></div>
+      <div class="ws-main">
+        <div class="phead"><p class="eyebrow">Evidence workspace</p><h1>Choose your exhibit</h1><p>Select the screenshot that best proves your action.</p></div>
+        <div class="testpanel" id="tpE"><p class="eyebrow">Test Mode</p><h2>Strong Evidence Shortcut</h2><p>Selects the intended strongest evidence for the current action before you continue to justification.</p><div class="cta-row"><button class="btn line small" id="tpStrong">Select Strong Evidence</button></div></div>
+        <div class="grid3" id="exhibits" style="margin-top:20px"></div>
+        <div class="coachcard sheet"><div data-av="coach" id="coachE"></div><div><p class="eyebrow" id="coachELabel">Coach</p><p id="coachEMsg"></p></div></div>
+        <div class="navrow"><button class="btn line" data-go="action">← Action</button><button class="btn ink" id="toReasoning" data-go="reasoning">Explain your reasoning →</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONING -->
+<section class="page" data-page="reasoning" hidden>
+  <div class="wrap">
+    <div class="stepwrap" data-stepper="2"></div>
+    <div class="ws">
+      <div data-rail="reasoning"></div>
+      <div class="ws-main">
+        <div class="phead"><p class="eyebrow">Your reasoning</p><h1 id="promptTitle">Explain your decision</h1></div>
+        <div class="sheet">
+          <p class="eyebrow">Investigation prompt</p>
+          <p style="margin-top:8px" id="promptText"></p>
+          <div class="cues" id="cues"></div>
+          <div class="cta-row"><button class="btn line small" id="speakBtn">Read the prompt aloud</button></div>
+        </div>
+        <div class="sheet" id="voice">
+          <div class="voice"><button class="rec" id="recBtn" aria-pressed="false" aria-label="REC: record your answer">REC</button><div class="recwave" id="wave" aria-hidden="true"></div><span class="timer" id="timer" aria-hidden="true">45</span></div>
+          <div class="tr" id="trRow">
+            <div data-av="echo" id="echo"></div>
+            <div><p class="eyebrow">Speech · whisper-base</p><p class="trline"><span id="trMsg" role="status">Record your answer, then transcribe it. You can edit the text.</span> <span class="ld-time" id="trTime">0.0 s</span></p><div class="ld-bar"><i></i></div></div>
+            <button class="btn small ink" id="trBtn" disabled>Transcribe</button>
+          </div>
+          <label for="learnerJustificationInput" class="eyebrow" style="display:block;margin-top:16px">Response transcript</label>
+          <textarea id="learnerJustificationInput" rows="4" autocomplete="off" placeholder="Answer the investigation prompt here, or record and transcribe your spoken response."></textarea>
+        </div>
+        <div class="testpanel" id="tpR"><p class="eyebrow">Test Mode</p><h2>Justification Shortcut</h2><p>Fill a test transcript using the current action and evidence, then edit it if needed.</p><div class="cta-row"><button class="btn line small" id="tpFill">Auto-fill Test Script</button><button class="btn line small" id="tpClear">Clear Transcript</button></div><pre id="tpRPayload" tabindex="0" role="region" aria-label="Justification payload"></pre></div>
+        <div class="sheet submitbar">
+          <ul class="checks" id="checks"></ul>
+          <div class="navrow"><button class="btn line" data-go="evidence">← Evidence</button><div class="cta-row" style="margin-top:0"><span class="fine" id="submitHint"></span><button class="btn ink" id="submitBtn">Submit for AI evaluation →</button></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVALUATION -->
+<section class="page dark evpage" data-page="evaluation" hidden>
+  <svg class="rosette" data-rosette="8,19,0.58" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+  <div class="wrap" style="position:relative">
+    <div class="stepwrap" data-stepper="3"></div>
+    <div class="evtitle">
+      <div><p class="eyebrow" id="evEyebrow">AI evaluation</p><h1>Three models, one verdict</h1><ol class="vtrack" id="vtrack" aria-label="Verdicts so far"></ol></div>
+      <p class="ticker" id="ticker" role="status" aria-live="polite" aria-atomic="true"><b id="tkWho">Coach</b><span id="tkMsg"></span></p>
+      <button class="btn ghost small" id="showAll" hidden>Skip animations</button>
+    </div>
+    <div class="evgrid">
+      <div class="evleft">
+        <div class="flip" id="flip"><div class="frame" id="frame"><img id="frameImg" src="" alt=""><div class="scanline"></div><i class="focus"></i><div class="judge" aria-hidden="true"><i class="visor"></i></div><svg class="pen" id="pen" aria-hidden="true"></svg><i class="nib" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21l3.6-.9L18.5 8.2l-2.7-2.7L3.9 17.4z" fill="#D0342C"/><path d="M15.8 5.5l2.1-2.1a1.4 1.4 0 0 1 2 0l.7.7a1.4 1.4 0 0 1 0 2l-2.1 2.1z" fill="#10261B"/><path d="M3 21l1-3.2 2.3 2.3z" fill="#10261B"/></svg></i><div class="dzwrap" aria-hidden="true"><div class="dossier" id="dossier"></div></div><div class="flash"></div><i class="shock"></i><div class="bigstamp" id="bigstamp" aria-hidden="true"></div></div><div class="board" id="board"></div></div>
+        <div class="capline"><p class="fine" id="frameCap" style="color:var(--plate-ink2)"></p><button class="linkbtn" id="flipBtn" hidden></button></div>
+        <div class="next" id="nextStrip"></div>
+      </div>
+      <div class="stack" id="stack">
+        <article class="mx" id="M0">
+          <div class="mhead"><div data-av="lens"></div><button class="mtoggle" aria-expanded="false" aria-controls="MB0"><span class="mname"><b>Vision</b><small>Qwen2.5-VL-3B-Instruct</small></span><span class="mstat">Waiting</span><span class="chev" aria-hidden="true">▾</span></button></div>
+          <div class="mbody" id="MB0" tabindex="0" role="region" aria-label="Vision model output"><div class="mload" hidden><div class="ld-top"><span class="ld-msg">Working</span><span class="ld-time">0.0 s</span></div><div class="ld-bar"><i></i></div><div class="skel"><i></i><i></i><i></i><i></i></div></div><div class="lbody" id="B1"></div></div>
+        </article>
+        <article class="mx" id="M1">
+          <div class="mhead"><div data-av="warden"></div><button class="mtoggle" aria-expanded="false" aria-controls="MB1"><span class="mname"><b>Security</b><small>Foundation-Sec-8B-Instruct · Q8 GGUF · llama.cpp</small></span><span class="mstat">Waiting</span><span class="chev" aria-hidden="true">▾</span></button></div>
+          <div class="mbody" id="MB1" tabindex="0" role="region" aria-label="Security model output"><div class="mload" hidden><div class="ld-top"><span class="ld-msg">Working</span><span class="ld-time">0.0 s</span></div><div class="ld-bar"><i></i></div><div class="skel"><i></i><i></i><i></i><i></i></div></div><div class="lbody" id="B2"></div></div>
+        </article>
+        <article class="mx" id="M2">
+          <div class="mhead"><div data-av="coach"></div><button class="mtoggle" aria-expanded="false" aria-controls="MB2"><span class="mname"><b>Coach</b><small>Qwen2.5-1.5B-Instruct</small></span><span class="mstat">Waiting</span><span class="chev" aria-hidden="true">▾</span></button></div>
+          <div class="mbody" id="MB2" tabindex="0" role="region" aria-label="Coach model output"><div class="mload" hidden><div class="ld-top"><span class="ld-msg">Working</span><span class="ld-time">0.0 s</span></div><div class="ld-bar"><i></i></div><div class="skel"><i></i><i></i><i></i><i></i></div></div><div class="lbody" id="B3"></div></div>
+        </article>
+      </div>
+    </div>
+    <div class="testpanel" id="tpV"><p class="eyebrow">Test Mode</p><h2>Evaluation Payload</h2><p>This is the payload being sent through the real AI evaluation stream.</p><pre id="tpVPayload" tabindex="0" role="region" aria-label="Evaluation payload"></pre></div>
+  </div>
+</section>
+
+<!-- HAND-OFF -->
+<section class="page plate" data-page="handoff" hidden>
+  <svg class="rosette" data-rosette="6,17,0.55" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+  <div class="wrap" style="position:relative" id="handoffBody"></div>
+</section>
+
+<!-- DEBRIEF -->
+<section class="page" data-page="debrief" hidden>
+  <div class="wrap" id="debriefBody"></div>
+</section>
+
+<!-- TUTORIAL -->
+<section class="page" data-page="tutorial" hidden>
+  <div class="wrap">
+    <div class="tut-hero">
+      <div><p class="eyebrow">Tutorial</p><h1>How to use CloudIR Trainer</h1><p>Eight stops, about three minutes. Each stop is a real screen with numbered markers. Hover or tap a step to find it on the screen.</p>
+        <div class="cta-row"><button class="btn ink" data-go="case">Skip the tour and start</button></div></div>
+      <div class="tut-guide"><div class="bubble"><span class="eyebrow">Coach</span>Follow the route. I'll point out everything you need on each screen.</div><div data-av="coach" id="tutBot"></div></div>
+    </div>
+    <nav class="route" aria-label="Tutorial stops"><ol id="route"></ol></nav>
+    <div id="chapters"></div>
+    <div class="tut-end"><p class="eyebrow">Good to know</p>
+      <div class="tips">
+        <div><b>Reduce motion</b><span>Turns animations off everywhere. Your Mac's own Reduce Motion setting switches it on automatically.</span></div>
+        <div><b>Idle mode</b><span>After 45 seconds without input the avatars fall asleep and motion stops. Move the mouse to wake them.</span></div>
+        <div><b>Skip animations</b><span>Shows each model's output as soon as it arrives, without playing its animation.</span></div>
+        <div><b>Private by design</b><span>All four models run on your Mac. Your answers and recordings stay on it.</span></div>
+      </div>
+      <div class="cta-row"><button class="btn ink" data-go="case">Start training</button><button class="btn line" data-go="landing">Back to home</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAVED RUNS -->
+<section class="page" data-page="runs" hidden>
+  <div class="wrap">
+    <div class="phead"><p class="eyebrow">Test workspace</p><h1>Saved runs</h1><p>Resume an unfinished run, review its results, or start a new attempt from one of its checkpoints. Original results are kept.</p></div>
+    <div class="cta-row" style="margin:0 0 18px"><button class="btn line small" id="refreshRunsBtn">Refresh</button><button class="btn line small" id="runsToScenariosBtn">Back to cases</button></div>
+    <div class="runs-grid">
+      <div class="runlist" id="savedRunsList"></div>
+      <div class="rundetail sheet" id="savedRunDetails"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div class="mtoast" id="mtoast" role="status" aria-live="polite"></div>
+
+<div class="wipe" id="wipe" aria-hidden="true"><svg class="rosette" data-rosette="7,13,0.62" viewBox="-100 -100 200 200"></svg><span id="wipeLabel"></span></div>
+<dialog class="lightbox" id="lb" aria-label="Enlarged image">
+  <button class="btn line small" id="lbClose">Close</button>
+  <img id="lbImg" src="" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+
+<script src="/script.js"></script>
+<script src="/run_controls.js"></script>
+</body>
+</html>

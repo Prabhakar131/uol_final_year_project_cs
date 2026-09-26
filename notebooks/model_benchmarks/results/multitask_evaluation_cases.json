@@ -1,0 +1,26 @@
+[
+  {
+    "task": "vlm",
+    "case_id": "turn_1_cloudwatch_insights_query",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudwatch_insights_query.png",
+    "expected": "strong"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_1_cloudwatch_insights_query",
+    "source": "CloudWatch Log Insight Query",
+    "expected": "Strong Support"
+  },
+  {
+    "task": "coach",
+    "case_id": "turn_1_access_key_status",
+    "source": "Access Key Status Check",
+    "expected": "Partial Support"
+  },
+  {
+    "task": "stt",
+    "case_id": "audio_sample_limit",
+    "source": "notebooks/model_benchmarks/stt_audio_samples/audio_samples",
+    "expected": "2 samples"
+  }
+]

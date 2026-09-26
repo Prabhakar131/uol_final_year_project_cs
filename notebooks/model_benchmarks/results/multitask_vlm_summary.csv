@@ -1,0 +1,2 @@
+model_name,cases,support_role_accuracy,avg_keyword_recall,avg_latency_seconds,errors
+qwen2.5-vl-3b-instruct,1,0.0,0.625,54.658,0

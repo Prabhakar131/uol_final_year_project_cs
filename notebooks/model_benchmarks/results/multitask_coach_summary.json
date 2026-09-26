@@ -1,0 +1,10 @@
+[
+  {
+    "model_name": "qwen2.5-1.5b-instruct",
+    "cases": 2,
+    "avg_score_out_of_5": 4.0,
+    "avg_latency_seconds": 6.466,
+    "avg_word_count": 62.5,
+    "errors": 0
+  }
+]

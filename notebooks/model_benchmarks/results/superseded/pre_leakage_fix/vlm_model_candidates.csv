@@ -1,0 +1,5 @@
+selected_for_run,stage,used_in_application,name,model_id,family,benchmark_mode,metric,cached,cache_size_gb,notes
+True,vlm,True,qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,vision-language instruction model,executed_when_included,field extraction and evidence-type alignment,True,15.042,Current application VLM. Strong screenshot/layout reader for evidence screenshots.
+True,vlm,False,qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,smaller vision-language instruction model,executed_when_included,field extraction and latency,True,8.859,Smaller Qwen VLM baseline for comparing speed and evidence extraction.
+True,vlm,False,llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,small open VLM baseline,executed_when_included,field extraction and hallucination rate,True,3.598,Lightweight multimodal baseline for screenshot interpretation.
+True,vlm,False,florence-2-base-ft,microsoft/Florence-2-base-ft,compact OCR/captioning vision-language model,executed_when_included,OCR keyword recall and latency,True,0.932,Small Florence-2 candidate for screenshot text extraction; useful CPU-friendly baseline.

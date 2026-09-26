@@ -1,0 +1,42 @@
+[
+  {
+    "name": "qwen2.5-1.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct",
+    "cached": true,
+    "cache_size_bytes": 6197911376,
+    "cache_size_gb": 6.198
+  },
+  {
+    "name": "qwen2.5-0.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct",
+    "cached": false,
+    "cache_size_bytes": 0,
+    "cache_size_gb": 0.0
+  },
+  {
+    "name": "flan-t5-small",
+    "model_id": "google/flan-t5-small",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small",
+    "cached": false,
+    "cache_size_bytes": 0,
+    "cache_size_gb": 0.0
+  },
+  {
+    "name": "flan-t5-base",
+    "model_id": "google/flan-t5-base",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base",
+    "cached": false,
+    "cache_size_bytes": 0,
+    "cache_size_gb": 0.0
+  },
+  {
+    "name": "bart-large-mnli",
+    "model_id": "facebook/bart-large-mnli",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli",
+    "cached": false,
+    "cache_size_bytes": 0,
+    "cache_size_gb": 0.0
+  }
+]

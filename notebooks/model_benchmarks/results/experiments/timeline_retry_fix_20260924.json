@@ -1,0 +1,103 @@
+{
+  "date": "2026-09-24",
+  "question": "Why did automated-security-response preparation fail at the incident timeline stage, and do the fixes make it pass?",
+  "setup": {
+    "model": "fdtn-ai/Foundation-Sec-8B-Instruct-Q8_0-GGUF via llama-cpp-python (Metal)",
+    "inputs": "The user's prepared data/processed/automated_security_response files and data/runtime/scenario_config.json from the failed build (read only)",
+    "decoding": "attempt 1 greedy; retries sampled with seed = attempt number"
+  },
+  "before_user_build": [
+    "attempt 1: attacker steps did not use securityhub.amazonaws.com",
+    "attempt 2: resource 'MaliciousFinding' rejected as revealing; UpdateRolePolicy is not a real IAM API",
+    "attempt 3: 'MaliciousFinding', 'malicious-lambda', 'attack-trigger-rule' rejected as revealing -> preparation failed"
+  ],
+  "after_renaming_and_draft_retries": {
+    "attempts": [
+      {
+        "attempt": 1,
+        "seconds": 39,
+        "result": "The attacker's incident steps must use the scenario's own services (securityhub.amazonaws.com), following the threat model's attack path."
+      },
+      {
+        "attempt": 2,
+        "seconds": 38,
+        "result": "Invalid incident timeline: UpdateRemediationRole is not a real iam.amazonaws.com API; the closest real ones are UpdateRoleDescription, UpdateRole. DisableUser is not a real iam.amazonaws.com API; the closest real ones are DeleteUser, ListUsers."
+      },
+      {
+        "attempt": 3,
+        "seconds": 40,
+        "result": "valid"
+      }
+    ],
+    "problem": "valid, but Security Hub eventNames were invented because Security Hub had no name list",
+    "events": [
+      "2023-09-30T09:14:05Z attacker s3.amazonaws.com GetObject  turn=None",
+      "2023-09-30T09:37:16Z attacker s3.amazonaws.com ListObjectsV2  turn=None",
+      "2023-09-30T10:00:27Z attacker ec2.amazonaws.com DescribeInstances  turn=None",
+      "2023-10-01T10:12:10Z attacker sts.amazonaws.com AssumeRole RemediationRole turn=1",
+      "2023-10-01T10:15:20Z bg1 securityhub.amazonaws.com DescribeSecurityFindings SecurityHub turn=None",
+      "2023-10-01T10:17:30Z attacker securityhub.amazonaws.com CreateFinding SecurityFinding turn=2",
+      "2023-10-01T10:20:40Z bg2 securityhub.amazonaws.com DescribeSecurityControls SecurityControl turn=None",
+      "2023-10-01T10:23:50Z attacker iam.amazonaws.com AttachUserPolicy RemediationRole turn=3",
+      "2023-10-01T10:26:00Z bg1 securityhub.amazonaws.com ListSecurityFindings SecurityFinding turn=None",
+      "2023-10-01T10:28:10Z attacker securityhub.amazonaws.com PutFindingsFeedback SecurityFinding turn=4",
+      "2023-10-01T10:31:20Z responder iam.amazonaws.com DetachUserPolicy j.moreno turn=5",
+      "2023-10-01T10:34:30Z bg2 securityhub.amazonaws.com DescribeSecurityHubConfiguration SecurityHub turn=None"
+    ]
+  },
+  "after_service_name_lists": {
+    "automated_security_response": {
+      "attempts": [
+        {
+          "attempt": 1,
+          "seconds": 41,
+          "result": "valid"
+        }
+      ],
+      "events": [
+        "2023-09-30T09:14:05Z alice s3.amazonaws.com GetBucketLocation  turn=None",
+        "2023-09-30T09:37:16Z alice ec2.amazonaws.com DescribeVolumes  turn=None",
+        "2023-09-30T10:00:27Z alice s3.amazonaws.com PutObject  turn=None",
+        "2023-10-01T10:12:10Z alice iam.amazonaws.com CreateAccessKey j.moreno turn=1",
+        "2023-10-01T10:15:20Z bob ec2.amazonaws.com DescribeInstances prod-instances turn=None",
+        "2023-10-01T10:20:30Z alice securityhub.amazonaws.com BatchImportFindings ops-findings turn=2",
+        "2023-10-01T10:25:40Z bob s3.amazonaws.com GetObject billing-reports turn=None",
+        "2023-10-01T10:30:50Z alice iam.amazonaws.com AttachUserPolicy j.moreno turn=3",
+        "2023-10-01T10:35:00Z charlie securityhub.amazonaws.com GetFindings security-findings turn=5",
+        "2023-10-01T10:40:10Z alice securityhub.amazonaws.com UpdateSecurityHubConfiguration hub-config turn=4",
+        "2023-10-01T10:45:20Z bob s3.amazonaws.com ListObjectsV2 log-bucket turn=None",
+        "2023-10-01T10:50:30Z alice ec2.amazonaws.com RunInstances data-ec2 turn=4",
+        "2023-10-01T10:55:40Z charlie iam.amazonaws.com DetachUserPolicy j.moreno turn=5"
+      ]
+    },
+    "identity_management": {
+      "attempts": [
+        {
+          "attempt": 1,
+          "seconds": 38,
+          "result": "valid"
+        }
+      ],
+      "events": [
+        "2023-09-30T09:14:05Z alice s3.amazonaws.com GetObject  turn=None",
+        "2023-09-30T09:37:16Z alice s3.amazonaws.com GetBucketLocation  turn=None",
+        "2023-09-30T10:00:27Z alice ec2.amazonaws.com DescribeVolumes  turn=None",
+        "2023-09-30T22:02:30Z bob monitoring.amazonaws.com PutMetricData  turn=None",
+        "2023-10-01T10:12:10Z alice sts.amazonaws.com AssumeRole role/prod-access turn=1",
+        "2023-10-01T10:15:20Z bob ec2.amazonaws.com DescribeInstances instance/prod-web-1 turn=None",
+        "2023-10-01T10:20:30Z alice iam.amazonaws.com AttachUserPolicy user/j.moreno turn=2",
+        "2023-10-01T10:25:40Z alice iam.amazonaws.com CreateAccessKey user/j.moreno turn=3",
+        "2023-10-01T10:30:50Z charlie cloudtrail.amazonaws.com StartLogging trail/audit-trail turn=5",
+        "2023-10-01T10:35:00Z alice iam.amazonaws.com UpdateAccessKey access-key/akiaxxxx turn=4",
+        "2023-10-01T10:40:10Z bob s3.amazonaws.com ListObjectsV2 bucket/prod-data turn=None",
+        "2023-10-01T10:45:20Z charlie iam.amazonaws.com DetachUserPolicy user/j.moreno turn=5",
+        "2023-10-01T10:50:30Z alice iam.amazonaws.com DeleteLoginProfile user/j.moreno turn=4"
+      ]
+    }
+  },
+  "limitations": [
+    "Retries are deterministic, so identical inputs reproduce the same attempts on a rebuild.",
+    "Story quality is not validated: for example the identity attacker calls UpdateAccessKey and DeleteLoginProfile.",
+    "Automated-security-response evidence was not graded by the VLM and judge in this check."
+  ]
+}

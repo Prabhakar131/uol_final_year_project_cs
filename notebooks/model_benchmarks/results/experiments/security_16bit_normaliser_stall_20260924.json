@@ -1,0 +1,159 @@
+{
+  "date": "2026-09-24",
+  "purpose": "Reproduce slow/failing threat-model normalisation with the 16-bit security model",
+  "model": "fdtn-ai/Foundation-Sec-8B-Instruct via transformers, float16 on MPS",
+  "scenario": "identity_management",
+  "load_s": 61.9,
+  "mps_after_load_gb": 16.11,
+  "outcome": "Stopped by the user after more than 3 minutes of generation; no reply was produced (a successful reply is about 200 tokens).",
+  "manual_observations_during_generation": {
+    "source": "top/ps/sysctl read by hand, not recorded by the script",
+    "process_memory_top_mem_gb": 26,
+    "process_resident_mb": 160,
+    "process_cpu_percent": 17.5,
+    "swap_used_mb": 7445,
+    "swap_total_mb": 8192
+  },
+  "recorded_samples": [
+    {
+      "t": 0.0,
+      "mps_gb": 0.0,
+      "swap_mb": 2184.69
+    },
+    {
+      "t": 2.0,
+      "mps_gb": 0.0,
+      "swap_mb": 2184.69
+    },
+    {
+      "t": 4.0,
+      "mps_gb": 0.0,
+      "swap_mb": 2184.69
+    },
+    {
+      "t": 6.1,
+      "mps_gb": 0.0,
+      "swap_mb": 2184.69
+    },
+    {
+      "t": 8.1,
+      "mps_gb": 0.0,
+      "swap_mb": 2184.69
+    },
+    {
+      "t": 10.1,
+      "mps_gb": 0.0,
+      "swap_mb": 2184.69
+    },
+    {
+      "t": 12.1,
+      "mps_gb": 0.0,
+      "swap_mb": 3356.62
+    },
+    {
+      "t": 14.1,
+      "mps_gb": 0.0,
+      "swap_mb": 5048.31
+    },
+    {
+      "t": 16.2,
+      "mps_gb": 2.1,
+      "swap_mb": 6391.88
+    },
+    {
+      "t": 21.5,
+      "mps_gb": 2.25,
+      "swap_mb": 5679.88
+    },
+    {
+      "t": 23.6,
+      "mps_gb": 3.33,
+      "swap_mb": 6618.06
+    },
+    {
+      "t": 26.1,
+      "mps_gb": 3.33,
+      "swap_mb": 5898.06
+    },
+    {
+      "t": 28.2,
+      "mps_gb": 4.4,
+      "swap_mb": 5164.38
+    },
+    {
+      "t": 30.4,
+      "mps_gb": 5.39,
+      "swap_mb": 4444.38
+    },
+    {
+      "t": 32.5,
+      "mps_gb": 6.55,
+      "swap_mb": 3698.62
+    },
+    {
+      "t": 34.7,
+      "mps_gb": 7.62,
+      "swap_mb": 3461.88
+    },
+    {
+      "t": 37.3,
+      "mps_gb": 7.62,
+      "swap_mb": 2725.88
+    },
+    {
+      "t": 39.5,
+      "mps_gb": 8.7,
+      "swap_mb": 4977.62
+    },
+    {
+      "t": 41.6,
+      "mps_gb": 8.61,
+      "swap_mb": 4289.62
+    },
+    {
+      "t": 43.6,
+      "mps_gb": 9.77,
+      "swap_mb": 3561.56
+    },
+    {
+      "t": 45.6,
+      "mps_gb": 10.76,
+      "swap_mb": 3803.5
+    },
+    {
+      "t": 47.7,
+      "mps_gb": 10.84,
+      "swap_mb": 3043.5
+    },
+    {
+      "t": 49.9,
+      "mps_gb": 11.92,
+      "swap_mb": 3454.69
+    },
+    {
+      "t": 52.0,
+      "mps_gb": 12.99,
+      "swap_mb": 4787.75
+    },
+    {
+      "t": 54.2,
+      "mps_gb": 12.99,
+      "swap_mb": 4035.75
+    },
+    {
+      "t": 56.5,
+      "mps_gb": 14.1,
+      "swap_mb": 3308.12
+    },
+    {
+      "t": 58.6,
+      "mps_gb": 15.17,
+      "swap_mb": 3401.56
+    },
+    {
+      "t": 60.9,
+      "mps_gb": 17.16,
+      "swap_mb": 3912.38
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "Scope and Blast Radius",
+  "briefing": "The investigation has linked identity activity and credential risk. Now determine whether the same signal appears in threat-detection, logging, or impact evidence before choosing containment.",
+  "known_context": [
+    "Suspicious identity activity and credential activity have appeared in the same investigation window.",
+    "The next step is to confirm whether monitoring or detection systems show wider incident scope.",
+    "The previous evidence was assessed as Strong Support, so this turn should separate confirmed scope from assumptions."
+  ],
+  "coach_guidance": "Look for evidence that confirms blast radius, affected principal, source IP, severity, or monitored impact."
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "foundation-sec-8b-instruct",
+    "model_id": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--fdtn-ai--Foundation-Sec-8B-Instruct",
+    "cached": true,
+    "cache_size_bytes": 32162981114,
+    "cache_size_gb": 32.163
+  },
+  {
+    "name": "qwen2.5-1.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct",
+    "cached": true,
+    "cache_size_bytes": 6197911376,
+    "cache_size_gb": 6.198
+  },
+  {
+    "name": "qwen2.5-0.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct",
+    "cached": true,
+    "cache_size_bytes": 1999172734,
+    "cache_size_gb": 1.999
+  },
+  {
+    "name": "flan-t5-small",
+    "model_id": "google/flan-t5-small",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small",
+    "cached": true,
+    "cache_size_bytes": 622178152,
+    "cache_size_gb": 0.622
+  },
+  {
+    "name": "flan-t5-base",
+    "model_id": "google/flan-t5-base",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base",
+    "cached": true,
+    "cache_size_bytes": 1987134180,
+    "cache_size_gb": 1.987
+  },
+  {
+    "name": "bart-large-mnli",
+    "model_id": "facebook/bart-large-mnli",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli",
+    "cached": true,
+    "cache_size_bytes": 3264298700,
+    "cache_size_gb": 3.264
+  }
+]

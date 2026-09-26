@@ -1,0 +1,5513 @@
+{
+ "label_filter": "AUTO TEST",
+ "screenshots": 61,
+ "facts_found": "618/821 (75%)",
+ "by_field_type": {
+  "amount": "36/36 (100%)",
+  "other": "194/305 (64%)",
+  "principal": "142/150 (95%)",
+  "time": "105/140 (75%)",
+  "event": "47/70 (67%)",
+  "ip": "84/84 (100%)",
+  "prose": "7/27 (26%)",
+  "key_id": "3/9 (33%)"
+ },
+ "by_screenshot_type": {
+  "billing": "60/60 (100%)",
+  "cloudwatch": "144/198 (73%)",
+  "cloudtrail": "260/372 (70%)",
+  "iam_activity": "42/64 (66%)",
+  "access_key": "57/63 (90%)",
+  "guardduty": "55/64 (86%)"
+ },
+ "screenshots_with_invented_details": 6,
+ "cases": [
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$48.10",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "EC2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+13%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/customer-api\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:12-10:26 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "AttachUserPolicy success by arn:aws:iam::123456789012:user/customer-api from 203.0.113.10; resource=customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "GetFunctionConfiguration20150331v2 success by arn:aws:iam::123456789012:user/customer-api from 203.0.113.10; resource=Lambda-CostCollector",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:25:40Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "Invoke success by arn:aws:iam::123456789012:user/customer-api from 203.0.113.10; resource=Lambda-CostCollector",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 strong evidence path \u00b7 25 Sep \u00b7 rerun after fix",
+   "turn": 1,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$48.10",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "EC2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+13%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 strong evidence path \u00b7 25 Sep \u00b7 rerun after fix",
+   "turn": 2,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/customer-api\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:12-10:26 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "AttachUserPolicy success by arn:aws:iam::123456789012:user/customer-api from 203.0.113.10; resource=customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "GetFunctionConfiguration20150331v2 success by arn:aws:iam::123456789012:user/customer-api from 203.0.113.10; resource=Lambda-CostCollector",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:25:40Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "Invoke success by arn:aws:iam::123456789012:user/customer-api from 203.0.113.10; resource=Lambda-CostCollector",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 strong evidence path \u00b7 25 Sep \u00b7 rerun after fix",
+   "turn": 3,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$48.10",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "EC2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+13%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 strong evidence path \u00b7 25 Sep \u00b7 rerun after fix",
+   "turn": 4,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "CreateAccessKey",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "iam.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.10",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "false",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-10-01T10:50:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "9d7a68a7-8a8b-4827-ad64-aab470dbdeb3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "resource=customer-api",
+     "kind": "prose",
+     "found": true
+    },
+    {
+     "key": "resources",
+     "value": "customer-api",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:25:40Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "Invoke",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.10",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:30:50Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "UpdateAccessKey",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.10",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:40:10Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DetachUserPolicy",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.10",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:50:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "CreateAccessKey",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.10",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 strong evidence path \u00b7 25 Sep \u00b7 rerun after fix",
+   "turn": 5,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:role/SecurityAnalyst\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.7 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:35-10:56 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:35:00Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "ListUsers success by arn:aws:iam::123456789012:role/SecurityAnalyst from 198.51.100.4; resource=SecurityAnalyst",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:55:40Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DeleteAccessKey success by arn:aws:iam::123456789012:role/SecurityAnalyst from 198.51.100.4; resource=customer-api",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "iam_activity",
+   "evidence_id": "iam_principal_activity",
+   "facts": [
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "policy_change",
+     "value": "None in this window",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "access_key_status",
+     "value": "2 active",
+     "kind": "prose",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "GetBucketLocation",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "DescribeVolumes",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "PutObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "AKIA6BA26EFDCBD2Q5C5",
+     "kind": "key_id",
+     "found": false
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": [
+    "key_id: AKIA6BA26FDCBD2Q5C5"
+   ]
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "GetBucketLocation",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "84145377-c5cb-4bd5-a95a-3aca74e2994a",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "GetBucketLocation",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DescribeVolumes",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "PutObject",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/s.brennan\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-09-30 09:14-10:01 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetBucketLocation success by arn:aws:iam::123456789012:user/s.brennan from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DescribeVolumes success by arn:aws:iam::123456789012:user/s.brennan from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "PutObject success by arn:aws:iam::123456789012:user/s.brennan from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "iam_activity",
+   "evidence_id": "iam_principal_activity",
+   "facts": [
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "policy_change",
+     "value": "None in this window",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "access_key_status",
+     "value": "1 active",
+     "kind": "prose",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "GetBucketLocation",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "DescribeVolumes",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "PutObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "Persistence:IAMUser/AnomalousBehavior",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "severity",
+     "value": "High",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Unusual Lambda function execution patterns detected.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/d.okafor\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.7 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:12-10:21 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "PutRule success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=rule/CheckStateTrigger",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "UpdateFunctionCode20150331v2 success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=function/CheckStateLambda",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "PutEvents",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "events.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "false",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-10-01T10:30:50Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "55a1a6af-6fd0-459f-a2d7-53ed63a155c8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "resource=target/ExecuteRemediationTrigger",
+     "kind": "prose",
+     "found": true
+    },
+    {
+     "key": "resources",
+     "value": "target/ExecuteRemediationTrigger",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "PutRule",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "UpdateFunctionCode20150331v2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:30:50Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "PutEvents",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "AKIA5CDQ3A695EC617EF",
+     "kind": "key_id",
+     "found": false
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "lambda.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-10-01T10:40:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": [
+    "key_id: AKIAODQQA695EC617EF"
+   ]
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:role/security-ops\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:35-11:01 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:35:00Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetFindings success by arn:aws:iam::123456789012:role/security-ops from 204.152.16.3; resource=finding/HighConfidence",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "UpdateFunctionCode20150331v2 success by arn:aws:iam::123456789012:role/security-ops from 204.152.16.3; resource=function/CheckStateLambda",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T11:00:00Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DeleteAccessKey success by arn:aws:iam::123456789012:role/security-ops from 204.152.16.3; resource=user/d.okafor",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.03",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "S3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+3%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:role/log-shipper\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:15-10:46 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:15:20Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DescribeInstances success by arn:aws:iam::123456789012:role/log-shipper from 203.0.113.2; resource=instance/prod-web",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:25:40Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "ListObjectsV2 success by arn:aws:iam::123456789012:role/log-shipper from 203.0.113.2; resource=bucket/logs",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetObject success by arn:aws:iam::123456789012:role/log-shipper from 203.0.113.2; resource=bucket/config",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.03",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "S3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+3%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.03",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "S3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+3%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.03",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "S3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+3%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "Persistence:IAMUser/AnomalousBehavior",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "severity",
+     "value": "High",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Unusual Lambda function execution patterns detected.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/d.okafor\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.7 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:12-10:21 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "PutRule success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=rule/CheckStateTrigger",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "UpdateFunctionCode20150331v2 success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=function/CheckStateLambda",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "PutMetricData",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "monitoring.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "Unknown",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T22:05:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "037243c5-e8d6-420c-a60c-b087860ed761",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "Boto3/1.34.69 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T22:05:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "PutMetricData",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:15:20Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "ListFunctions20150331",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "GetObject",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "Recon:EC2/PortProbeUnprotectedPort",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "severity",
+     "value": "Low",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "i-0a3fb6fce114a107e",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "203.0.113.31",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-09-30T22:05:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Port 22 on i-0a3fb6fce114a107e was probed by a known scanner.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "ASIA26FE14613C9A445F",
+     "kind": "key_id",
+     "found": false
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": [
+    "key_id: ASIA2FE14613C9A45F"
+   ]
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "ASIA26FE14613C9A445F",
+     "kind": "key_id",
+     "found": false
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": [
+    "key_id: ASIA2FE14613C9A45F"
+   ]
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "iam_activity",
+   "evidence_id": "iam_principal_activity",
+   "facts": [
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "Unknown",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "policy_change",
+     "value": "None in this window",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "access_key_status",
+     "value": "1 active",
+     "kind": "prose",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-09-30T22:05:05Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "PutMetricData",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-10-01T10:15:20Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "ListFunctions20150331",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:role/CI-Deploy",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "198.51.100.5",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "Persistence:IAMUser/AnomalousBehavior",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "severity",
+     "value": "High",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Unusual Lambda function execution patterns detected.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/d.okafor\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.7 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:12-10:21 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "PutRule success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=rule/CheckStateTrigger",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "UpdateFunctionCode20150331v2 success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=function/CheckStateLambda",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "PutEvents",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "events.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "false",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-10-01T10:30:50Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "55a1a6af-6fd0-459f-a2d7-53ed63a155c8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "resource=target/ExecuteRemediationTrigger",
+     "kind": "prose",
+     "found": true
+    },
+    {
+     "key": "resources",
+     "value": "target/ExecuteRemediationTrigger",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "PutRule",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "UpdateFunctionCode20150331v2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:30:50Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "PutEvents",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "AKIA5CDQ3A695EC617EF",
+     "kind": "key_id",
+     "found": false
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "lambda.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-10-01T10:40:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": [
+    "key_id: AKIAODQQA695EC617EF"
+   ]
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:role/security-ops\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-10-01 10:35-11:01 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:35:00Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetFindings success by arn:aws:iam::123456789012:role/security-ops from 204.152.16.3; resource=finding/HighConfidence",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T10:45:20Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "UpdateFunctionCode20150331v2 success by arn:aws:iam::123456789012:role/security-ops from 204.152.16.3; resource=function/CheckStateLambda",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-10-01T11:00:00Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DeleteAccessKey success by arn:aws:iam::123456789012:role/security-ops from 204.152.16.3; resource=user/d.okafor",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "6d50d431-071e-4b9d-a2ad-30f53fd72f4a",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "ListObjectsV2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DescribeInstances",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "6d50d431-071e-4b9d-a2ad-30f53fd72f4a",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "ListObjectsV2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DescribeInstances",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/d.okafor\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-09-30 09:14-10:01 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetObject success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "ListObjectsV2 success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DescribeInstances success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "Discovery:IAMUser/AnomalousBehavior",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "severity",
+     "value": "Low",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Read-only API calls by d.okafor differed from its usual pattern.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "AssumeRole",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "sts.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "false",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "4957d75a-a924-488d-a05b-4cf2df222b85",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "resource=role/developer-access",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "resources",
+     "value": "role/developer-access",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "AssumeRole",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "AKIA6BA26EFDCBD2Q5C5",
+     "kind": "key_id",
+     "found": true
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "6d50d431-071e-4b9d-a2ad-30f53fd72f4a",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "ListObjectsV2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DescribeInstances",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/customer-api\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-09-30 09:14-10:01 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "ListObjectsV2 success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DescribeInstances success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetBucketLocation success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.62",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "EC2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+4%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/customer-api\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-09-30 09:14-10:01 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "ListObjectsV2 success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DescribeInstances success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetBucketLocation success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "Discovery:IAMUser/AnomalousBehavior",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "severity",
+     "value": "Low",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "arn:aws:iam::123456789012:user/customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/customer-api",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "198.51.100.44",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Read-only API calls by customer-api differed from its usual pattern.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 cost-management \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.62",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "EC2",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+4%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "ASIADE13333F8C2F195A",
+     "kind": "key_id",
+     "found": true
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:role/etl-runner",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "lambda.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-10-01T10:50:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.2",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "ASIADE13333F8C2F195A",
+     "kind": "key_id",
+     "found": true
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:role/etl-runner",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "lambda.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-10-01T10:50:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.2",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.03",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "S3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+3%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.03",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "S3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+3%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 weak evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "billing",
+   "evidence_id": "billing_daily_spend",
+   "facts": [
+    {
+     "key": "current_spend",
+     "value": "$44.03",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "previous_average",
+     "value": "$42.75",
+     "kind": "amount",
+     "found": true
+    },
+    {
+     "key": "largest_service",
+     "value": "S3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "change",
+     "value": "+3%",
+     "kind": "amount",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "AssumeRole",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "sts.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "false",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "4957d75a-a924-488d-a05b-4cf2df222b85",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "resource=role/developer-access",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "resources",
+     "value": "role/developer-access",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "AssumeRole",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "iam_activity",
+   "evidence_id": "iam_principal_activity",
+   "facts": [
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "false",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "policy_change",
+     "value": "None in this window",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "access_key_status",
+     "value": "2 active",
+     "kind": "prose",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "AssumeRole",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "2023-10-01T10:20:30Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "activity_rows",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "CreateAccessKey",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "activity_rows",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "severity",
+     "value": "High",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-10-01T10:12:10Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-10-01T10:30:50Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Unauthorized access attempt detected from an unusual IP address.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "access_key",
+   "evidence_id": "access_key_details",
+   "facts": [
+    {
+     "key": "access_key_id",
+     "value": "AKIA4Q3EQ222B99534QQ",
+     "kind": "key_id",
+     "found": false
+    },
+    {
+     "key": "owner",
+     "value": "arn:aws:iam::123456789012:user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "status",
+     "value": "Active",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_service",
+     "value": "iam.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "last_used_time",
+     "value": "2023-10-01T10:50:30Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "198.51.100.1",
+     "kind": "ip",
+     "found": true
+    }
+   ],
+   "invented": [
+    "key_id: AKIAQ3EQ222B99534QQ"
+   ]
+  },
+  {
+   "run": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "DeleteAccessKey",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "iam.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:role/security-analyst",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "204.152.16.3",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "Unknown",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-10-01T10:55:40Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "3d066117-c0f1-4589-a2c1-8751ed6909b3",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "user_agent",
+     "value": "console.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "resource=user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "resources",
+     "value": "user/s.brennan",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:35:00Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "StartLogging",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:role/security-analyst",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "204.152.16.3",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-10-01T10:55:40Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "DeleteAccessKey",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:role/security-analyst",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "204.152.16.3",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 1,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "6d50d431-071e-4b9d-a2ad-30f53fd72f4a",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "ListObjectsV2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DescribeInstances",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 2,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "6d50d431-071e-4b9d-a2ad-30f53fd72f4a",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "ListObjectsV2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DescribeInstances",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 3,
+   "template": "cloudwatch",
+   "evidence_id": "cloudwatch_logs_query",
+   "facts": [
+    {
+     "key": "query",
+     "value": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/d.okafor\" | sort @timestamp asc",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_group",
+     "value": "aws-cloudtrail-logs-123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "matched_records",
+     "value": "3",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "scanned_bytes",
+     "value": "0.9 MB",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "time_range",
+     "value": "2023-09-30 09:14-10:01 UTC",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "alarm_state",
+     "value": "Complete",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "GetObject success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "ListObjectsV2 success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "log_rows",
+     "value": "123456789012_CloudTrail_ap-southeast-1",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "log_rows",
+     "value": "DescribeInstances success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41",
+     "kind": "principal",
+     "found": true
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 4,
+   "template": "guardduty",
+   "evidence_id": "guardduty_finding",
+   "facts": [
+    {
+     "key": "finding_type",
+     "value": "Discovery:IAMUser/AnomalousBehavior",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "severity",
+     "value": "Low",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "resource",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "principal",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "remote_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "first_seen",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "last_seen",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "summary",
+     "value": "Read-only API calls by d.okafor differed from its usual pattern.",
+     "kind": "prose",
+     "found": false
+    }
+   ],
+   "invented": []
+  },
+  {
+   "run": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+   "turn": 5,
+   "template": "cloudtrail",
+   "evidence_id": "cloudtrail_event_record",
+   "facts": [
+    {
+     "key": "event_name",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "event_source",
+     "value": "s3.amazonaws.com",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "source_ip",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "mfa",
+     "value": "true",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "event_time",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "region",
+     "value": "ap-southeast-1",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "error_code",
+     "value": "-",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "event_id",
+     "value": "6d50d431-071e-4b9d-a2ad-30f53fd72f4a",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "user_agent",
+     "value": "aws-cli/2.15.30 Python/3.11.8",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "recipient_account_id",
+     "value": "123456789012",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "request_parameters",
+     "value": "-",
+     "kind": "prose",
+     "found": false
+    },
+    {
+     "key": "resources",
+     "value": "None recorded",
+     "kind": "other",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:14:05Z",
+     "kind": "time",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "GetObject",
+     "kind": "event",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T09:37:16Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "ListObjectsV2",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "2023-09-30T10:00:27Z",
+     "kind": "time",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "DescribeInstances",
+     "kind": "event",
+     "found": false
+    },
+    {
+     "key": "related_events",
+     "value": "arn:aws:iam::123456789012:user/d.okafor",
+     "kind": "principal",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "203.0.113.41",
+     "kind": "ip",
+     "found": true
+    },
+    {
+     "key": "related_events",
+     "value": "Success",
+     "kind": "other",
+     "found": false
+    }
+   ],
+   "invented": []
+  }
+ ]
+}

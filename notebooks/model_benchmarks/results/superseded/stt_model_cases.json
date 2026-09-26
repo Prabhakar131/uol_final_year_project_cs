@@ -1,0 +1,8 @@
+[
+  {
+    "task": "stt",
+    "case_id": "audio_sample_limit",
+    "source": "notebooks/model_benchmarks/stt_audio_samples/audio_samples",
+    "expected": "2 samples"
+  }
+]

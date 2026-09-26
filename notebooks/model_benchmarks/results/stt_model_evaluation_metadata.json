@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-16T11:36:41",
+  "batch_name": "stt-full-8sample-run",
+  "task": "stt",
+  "project_root": "/Users/karunanidhiprabhakar/Desktop/FYP",
+  "python": "3.11.8",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "torch": "2.5.1",
+  "cuda_available": false,
+  "mps_available": true,
+  "allow_downloads": true,
+  "metadata_only": false,
+  "case_count": 0,
+  "selected_models": [
+    {
+      "name": "whisper-tiny-en",
+      "model_id": "openai/whisper-tiny.en",
+      "family": "small English speech recognition model"
+    },
+    {
+      "name": "whisper-base",
+      "model_id": "openai/whisper-base",
+      "family": "encoder-decoder speech recognition model"
+    },
+    {
+      "name": "whisper-base-en",
+      "model_id": "openai/whisper-base.en",
+      "family": "English speech recognition model"
+    },
+    {
+      "name": "whisper-small",
+      "model_id": "openai/whisper-small",
+      "family": "larger speech recognition model"
+    }
+  ],
+  "verified_artifacts": [
+    {
+      "artifact": "stt_model_candidates.csv",
+      "exists": true,
+      "size_bytes": 1120
+    },
+    {
+      "artifact": "stt_model_cases.csv",
+      "exists": true,
+      "size_bytes": 125
+    },
+    {
+      "artifact": "stt_model_results.csv",
+      "exists": true,
+      "size_bytes": 16432
+    },
+    {
+      "artifact": "stt_model_summary.csv",
+      "exists": true,
+      "size_bytes": 473
+    },
+    {
+      "artifact": "stt_model_evaluation_metadata.json",
+      "exists": true,
+      "size_bytes": 1529
+    }
+  ]
+}

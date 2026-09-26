@@ -1,0 +1,5 @@
+selected_for_run,stage,used_in_application,name,model_id,family,benchmark_mode,metric,cached,cache_size_gb,notes
+True,coach,True,qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,instruction-tuned causal LM,executed,5-point feedback rubric and latency,True,6.198,
+True,coach,False,qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,small instruction-tuned causal LM,executed,5-point feedback rubric and latency,False,0.0,
+True,coach,False,flan-t5-small,google/flan-t5-small,small sequence-to-sequence instruction model,executed,5-point feedback rubric and latency,False,0.0,
+True,coach,False,flan-t5-base,google/flan-t5-base,sequence-to-sequence instruction model,executed,5-point feedback rubric and latency,False,0.0,

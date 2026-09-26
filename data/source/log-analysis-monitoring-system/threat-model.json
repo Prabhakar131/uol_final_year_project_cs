@@ -1,0 +1,369 @@
+[
+  {
+    "threatID": "THREAT-001",
+    "threatName": "Unauthorized Access to Raw Logs S3 Bucket",
+    "description": "Despite configured bucket policies, attackers might attempt to access sensitive log data stored in the raw logs S3 bucket through misconfigured IAM permissions, leaked credentials, or SSRF vulnerabilities in the processing Lambda functions.",
+    "affectedComponents": [
+      "s3_raw",
+      "firehose",
+      "lambda_processor"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control",
+        "A05:2021-Security Misconfiguration"
+      ],
+      "mitreATT&CK": [
+        "T1530 - Data from Cloud Storage Object",
+        "T1078.004 - Valid Accounts: Cloud Accounts"
+      ]
+    },
+    "cwe": "CWE-284",
+    "vulnerabilityDetails": {
+      "howItWorks": "Attackers could exploit overly permissive IAM roles, misconfigured bucket policies, or use stolen credentials to access sensitive log data. The system uses S3-managed encryption but access control vulnerabilities could bypass this protection.",
+      "exploitationScenario": "An attacker compromises a Lambda function's execution role through a vulnerability, then uses the role's permissions to access the raw logs bucket and exfiltrate sensitive data."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "Medium",
+      "availability": "Low"
+    },
+    "likelihood": "Medium",
+    "attackerPerspective": "The raw logs bucket is a high-value target containing potentially sensitive information from various sources. Compromising access could provide valuable intelligence about the organization's systems and data.",
+    "defenderPerspective": "Raw logs may contain sensitive information including PII, system details, and security events. Unauthorized access could lead to data breaches and compliance violations.",
+    "recommendations": [
+      {
+        "recommendationID": "REC-001-A",
+        "description": "Implement least privilege access for all IAM roles interacting with the S3 bucket",
+        "implementationDetails": "Review and restrict IAM roles, especially the Firehose delivery role and Lambda processor role, to minimum required permissions. Implement S3 bucket policies that explicitly deny access from unauthorized sources.",
+        "awsServiceContext": [
+          "S3",
+          "IAM",
+          "KMS"
+        ]
+      },
+      {
+        "recommendationID": "REC-001-B",
+        "description": "Enable additional S3 security controls",
+        "implementationDetails": "Enable S3 Object Lock for critical logs, implement VPC endpoints for S3 access, use AWS KMS customer managed keys instead of S3-managed encryption, and enable S3 event notifications for security-relevant actions.",
+        "awsServiceContext": [
+          "S3",
+          "VPC",
+          "KMS",
+          "CloudWatch"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "The current implementation uses S3-managed encryption and relies on IAM roles for access control. Consider implementing S3 Object Lock, VPC endpoints, and AWS KMS customer managed keys for enhanced security."
+  },
+  {
+    "threatID": "THREAT-002",
+    "threatName": "Kinesis Stream Data Tampering",
+    "description": "Attackers could attempt to modify or inject malicious data into the Kinesis streams, potentially affecting log integrity and downstream analysis.",
+    "affectedComponents": [
+      "kinesis_streams",
+      "kinesis_agent",
+      "lambda_processor",
+      "kinesis_analytics"
+    ],
+    "frameworks": {
+      "stride": [
+        "Tampering",
+        "Repudiation"
+      ],
+      "owaspTop10": [
+        "A03:2021-Injection",
+        "A08:2021-Software and Data Integrity Failures"
+      ],
+      "mitreATT&CK": [
+        "T1565 - Data Manipulation",
+        "T1565.001 - Stored Data Manipulation"
+      ]
+    },
+    "cwe": "CWE-345",
+    "vulnerabilityDetails": {
+      "howItWorks": "An attacker with access to the Kinesis stream's write permissions could inject malformed or malicious log entries, potentially causing processing errors or corrupting analytics results.",
+      "exploitationScenario": "A compromised EC2 instance running the Kinesis Agent could be used to inject manipulated log data into the stream, affecting downstream analytics and alerting systems."
+    },
+    "impact": {
+      "confidentiality": "Low",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "Medium",
+    "attackerPerspective": "Manipulating log data could help cover tracks of other attacks or create false alerts that could distract security teams.",
+    "defenderPerspective": "Log integrity is crucial for security monitoring and compliance. Data tampering could lead to missed security events or false conclusions.",
+    "recommendations": [
+      {
+        "recommendationID": "REC-002-A",
+        "description": "Implement strong data validation and integrity checks",
+        "implementationDetails": "Add checksum validation in Lambda processors, implement strict schema validation in Kinesis Analytics applications, and use KMS encryption for data-at-rest and in-transit.",
+        "awsServiceContext": [
+          "Kinesis",
+          "Lambda",
+          "KMS"
+        ]
+      },
+      {
+        "recommendationID": "REC-002-B",
+        "description": "Enhance monitoring and alerting for data integrity",
+        "implementationDetails": "Set up CloudWatch metrics and alerts for unusual patterns in data flow, implement logging for all Kinesis API calls through CloudTrail, and create alerts for suspicious changes in data patterns.",
+        "awsServiceContext": [
+          "CloudWatch",
+          "CloudTrail",
+          "SNS"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "The system uses KMS encryption for Kinesis streams but could benefit from enhanced monitoring and data validation controls."
+  },
+  {
+    "threatID": "THREAT-003",
+    "threatName": "OpenSearch Domain Exposure and Data Leakage",
+    "description": "The OpenSearch domain could be exposed to unauthorized access through misconfigured security groups, VPC settings, or compromised IAM credentials.",
+    "affectedComponents": [
+      "opensearch",
+      "lambda_processor",
+      "vpc",
+      "security_groups"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Tampering",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control",
+        "A05:2021-Security Misconfiguration",
+        "A07:2021-Identification and Authentication Failures"
+      ],
+      "mitreATT&CK": [
+        "T1040 - Network Sniffing",
+        "T1552 - Unsecured Credentials"
+      ]
+    },
+    "cwe": "CWE-306",
+    "vulnerabilityDetails": {
+      "howItWorks": "Despite being deployed in a VPC, misconfigured security groups or IAM policies could allow unauthorized access to the OpenSearch domain. Fine-grained access control is enabled but master user credentials could be exposed.",
+      "exploitationScenario": "An attacker gains access to the VPC through a compromised EC2 instance and uses it to access the OpenSearch domain, potentially extracting sensitive log data or modifying index settings."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "Medium",
+    "attackerPerspective": "OpenSearch contains processed log data and could provide valuable insights into system behavior and potential vulnerabilities.",
+    "defenderPerspective": "Unauthorized access to OpenSearch could expose sensitive data and allow manipulation of log analysis results.",
+    "recommendations": [
+      {
+        "recommendationID": "REC-003-A",
+        "description": "Strengthen OpenSearch access controls",
+        "implementationDetails": "Implement strict security group rules, use AWS Secrets Manager for master user credentials, enable audit logging, and implement IP-based access restrictions through VPC endpoints.",
+        "awsServiceContext": [
+          "OpenSearch",
+          "VPC",
+          "Secrets Manager",
+          "CloudWatch"
+        ]
+      },
+      {
+        "recommendationID": "REC-003-B",
+        "description": "Enhance monitoring and implement additional security controls",
+        "implementationDetails": "Enable all OpenSearch audit logs, implement alerts for suspicious search patterns, and use AWS Private Link for secure access from other VPCs.",
+        "awsServiceContext": [
+          "OpenSearch",
+          "CloudWatch",
+          "VPC"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "The current implementation uses VPC deployment and security groups, but could benefit from AWS Secrets Manager integration and enhanced audit logging."
+  },
+  {
+    "threatID": "THREAT-004",
+    "threatName": "Lambda Function Code Injection",
+    "description": "The Lambda function processing logs could be vulnerable to code injection through malformed log entries or environment variable manipulation.",
+    "affectedComponents": [
+      "lambda_processor",
+      "kinesis_streams",
+      "opensearch",
+      "s3_processed"
+    ],
+    "frameworks": {
+      "stride": [
+        "Tampering",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A03:2021-Injection",
+        "A10:2021-Server-Side Request Forgery"
+      ],
+      "mitreATT&CK": [
+        "T1562.001 - Impair Defenses: Disable or Modify Tools",
+        "T1574 - Hijack Execution Flow"
+      ]
+    },
+    "cwe": "CWE-94",
+    "vulnerabilityDetails": {
+      "howItWorks": "Maliciously crafted log entries could exploit vulnerabilities in the Lambda function's parsing logic, potentially leading to code execution or data exfiltration.",
+      "exploitationScenario": "An attacker injects a specially crafted log entry containing malicious code that exploits a vulnerability in the JSON parsing library used by the Lambda function."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "attackerPerspective": "Compromising the Lambda function could provide access to multiple data sources and potentially allow privilege escalation.",
+    "defenderPerspective": "The Lambda function has broad permissions to access multiple services, making it a critical security component.",
+    "recommendations": [
+      {
+        "recommendationID": "REC-004-A",
+        "description": "Implement robust input validation and sanitization",
+        "implementationDetails": "Implement strict JSON schema validation, use safe parsing libraries, sanitize all inputs, and implement proper error handling to prevent information disclosure.",
+        "awsServiceContext": [
+          "Lambda"
+        ]
+      },
+      {
+        "recommendationID": "REC-004-B",
+        "description": "Enhance Lambda security controls",
+        "implementationDetails": "Use AWS Lambda layers for trusted dependencies, implement function URL authorization if used, and consider implementing AWS Lambda PowerTools for enhanced security features.",
+        "awsServiceContext": [
+          "Lambda",
+          "IAM"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Consider using AWS Lambda PowerTools for enhanced logging and security features, and implement function URL authorization if exposed via URLs."
+  },
+  {
+    "threatID": "THREAT-005",
+    "threatName": "Denial of Service Through Log Flooding",
+    "description": "Attackers could overwhelm the system by generating excessive logs or triggering resource-intensive processing.",
+    "affectedComponents": [
+      "kinesis_streams",
+      "firehose",
+      "lambda_processor",
+      "opensearch",
+      "s3_raw",
+      "s3_processed"
+    ],
+    "frameworks": {
+      "stride": [
+        "Denial of Service"
+      ],
+      "owaspTop10": [
+        "A04:2021-Insecure Design"
+      ],
+      "mitreATT&CK": [
+        "T1498 - Network Denial of Service",
+        "T1499 - Endpoint Denial of Service"
+      ]
+    },
+    "cwe": "CWE-400",
+    "vulnerabilityDetails": {
+      "howItWorks": "Attackers could generate a massive volume of logs or create logs that trigger expensive processing operations, potentially exhausting system resources or hitting service quotas.",
+      "exploitationScenario": "An attacker compromises multiple EC2 instances and uses them to flood the Kinesis streams with logs, causing processing delays and potential data loss."
+    },
+    "impact": {
+      "confidentiality": "Low",
+      "integrity": "Medium",
+      "availability": "High"
+    },
+    "likelihood": "High",
+    "attackerPerspective": "Disrupting log processing could help cover other attacks or create general service disruption.",
+    "defenderPerspective": "System availability is crucial for maintaining security monitoring and compliance capabilities.",
+    "recommendations": [
+      {
+        "recommendationID": "REC-005-A",
+        "description": "Implement rate limiting and throttling",
+        "implementationDetails": "Configure Kinesis stream limits, implement rate limiting in log collection agents, and set up alarms for unusual traffic patterns.",
+        "awsServiceContext": [
+          "Kinesis",
+          "CloudWatch",
+          "Lambda"
+        ]
+      },
+      {
+        "recommendationID": "REC-005-B",
+        "description": "Enhance scalability and implement circuit breakers",
+        "implementationDetails": "Implement backpressure mechanisms, configure DLQs for failed processing, and set up automatic scaling policies with upper limits.",
+        "awsServiceContext": [
+          "Lambda",
+          "SQS",
+          "Kinesis"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Consider using AWS Shield Advanced for additional DDoS protection and implement AWS Service Quotas monitoring."
+  },
+  {
+    "threatID": "THREAT-006",
+    "threatName": "Insufficient Audit Trail for System Changes",
+    "description": "Lack of comprehensive audit logging for system configuration changes could allow unauthorized modifications to go undetected.",
+    "affectedComponents": [
+      "iam",
+      "lambda_processor",
+      "opensearch",
+      "kinesis_streams",
+      "s3_raw",
+      "s3_processed"
+    ],
+    "frameworks": {
+      "stride": [
+        "Repudiation",
+        "Information Disclosure"
+      ],
+      "owaspTop10": [
+        "A09:2021-Security Logging and Monitoring Failures"
+      ],
+      "mitreATT&CK": [
+        "T1562 - Impair Defenses",
+        "T1070 - Indicator Removal on Host"
+      ]
+    },
+    "cwe": "CWE-778",
+    "vulnerabilityDetails": {
+      "howItWorks": "Insufficient logging of configuration changes and access patterns could allow attackers to modify system components without detection.",
+      "exploitationScenario": "An attacker modifies Lambda function configurations or IAM roles without detection due to inadequate audit logging or log retention settings."
+    },
+    "impact": {
+      "confidentiality": "Medium",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "Medium",
+    "attackerPerspective": "Lack of audit trails makes it easier to perform attacks without detection and cover tracks afterward.",
+    "defenderPerspective": "Comprehensive audit logging is essential for security investigations and compliance requirements.",
+    "recommendations": [
+      {
+        "recommendationID": "REC-006-A",
+        "description": "Enhance audit logging across all components",
+        "implementationDetails": "Enable CloudTrail logging for all services, implement AWS Config rules for configuration monitoring, and set up centralized logging with appropriate retention periods.",
+        "awsServiceContext": [
+          "CloudTrail",
+          "Config",
+          "S3"
+        ]
+      },
+      {
+        "recommendationID": "REC-006-B",
+        "description": "Implement automated compliance monitoring",
+        "implementationDetails": "Use AWS Config rules to monitor for compliance violations, implement automated remediation actions, and set up alerts for security-relevant changes.",
+        "awsServiceContext": [
+          "Config",
+          "Lambda",
+          "SNS"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Enable AWS CloudTrail with log file validation and use AWS Config for resource monitoring."
+  }
+]

@@ -1,0 +1,305 @@
+{
+  "experiment": "learner_evidence_choice_behaviour",
+  "description": "Same action (review_iam_activities), same starting scenario state, three different evidence choices of differing expected support role, run through the real production pipeline (VLM -> security reasoning -> coach -> deterministic state update).",
+  "cases": [
+    {
+      "scenario_id": "cost-management",
+      "turn": 1,
+      "selected_action": {
+        "id": "review_iam_activities",
+        "title": "Review Recent IAM Activities",
+        "choice_role": "best"
+      },
+      "selected_evidence": {
+        "id": "cloudwatch_insights_query",
+        "title": "CloudWatch Log Insight Query",
+        "template": "cloudwatch",
+        "expected_support_role": "strong"
+      },
+      "learner_justification": "I selected CloudWatch Log Insight Query because it may be relevant to reviewing recent IAM activity for this incident.",
+      "model_config": {
+        "vlm": "Qwen2.5-VL-3B-Instruct",
+        "security": "Foundation-Sec-8B-Instruct",
+        "coach": "Qwen2.5-1.5B-Instruct"
+      },
+      "elapsed_seconds": 271.0,
+      "error": null,
+      "vlm_output": {
+        "evidence_type": "cloudwatch",
+        "visible_facts_extracted": [
+          "2023-10-01T12:00:00Z - INFO - aws_cost_management",
+          "2023-10-01T11:59:59Z - ERROR - aws_cost_management",
+          "2023-10-01T10:21:35Z - StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test",
+          "2023-10-01T10:24:02Z - CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active",
+          "2023-10-01T10:26:11Z - Same source IP 185.220.101.42 observed across authentication and credential events"
+        ],
+        "security_relevance": "strong",
+        "not_proven_by_this_evidence": [],
+        "visible_evidence_summary": "Logs from the 'cost-management' log group showing various AWS operations and security alerts.",
+        "important_visible_fields": [
+          "2023-10-01T12:00:00Z",
+          "aws_cost_management",
+          "INFO",
+          "2023-10-01T11:59:59Z",
+          "aws_cost_management",
+          "ERROR",
+          "2023-10-01T10:21:35Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test",
+          "2023-10-01T10:24:02Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active",
+          "2023-10-01T10:26:11Z",
+          "185.220.101.42"
+        ],
+        "supports_selected_action": "strong",
+        "reason": "The screenshot shows several suspicious activities related to the 'cost-management' account, including unauthorized access attempts and suspicious authentication events."
+      },
+      "security_output": {
+        "verdict": "Strong Support",
+        "reasoning": "The evidence directly supports the selected action by providing specific log entries related to the 'cost-management' account, including an ERROR log, a StopLogging event, and a CreateAccessKey event, which are all relevant to reviewing IAM activities.",
+        "justification_assessment": "The learner's transcript correctly connects the evidence to the action by stating that the CloudWatch Log Insight Query may be relevant to reviewing recent IAM activity, which aligns with the selected action's goal.",
+        "recommended_next_focus": "Investigate the anomalous IAM activities identified in the logs, such as the StopLogging event and the CreateAccessKey event, to understand their context and potential impact.",
+        "risk_of_wrong_interpretation": "The learner might overread the evidence and assume that all activities involving the 'cost-management' account are malicious without further investigation, which could lead to false positives or negatives."
+      },
+      "coach_output": {
+        "feedback": "Great work identifying the CloudWatch Log Insight Query! You're correct that this evidence suggests suspicious activities related to the 'cost-management' account. However, you didn't explicitly link these findings back to the review of IAM activities. To strengthen your case, consider focusing more on how these anomalies relate to the overall IAM environment. For example, discuss if there are any new users created recently or if existing accounts have been accessed unexpectedly. This will help ensure a comprehensive understanding of the situation.",
+        "next_turn_guidance": "Reflect on how the anomalies in the IAM activities can be linked to the cost management account. Think about whether these changes indicate a need for additional monitoring or policy adjustments. Consider discussing the implications of these findings within the broader context of the organization\u2019s security posture."
+      },
+      "state_before": {
+        "currentTurn": 1,
+        "maxTurns": 5,
+        "containment": 20,
+        "visibility": 35,
+        "risk": "High",
+        "phase": "Initial Triage",
+        "actionHistory": [
+          {
+            "turn": 1,
+            "action": "Review Recent IAM Activities",
+            "evidence": "CloudWatch Log Insight Query",
+            "verdict": "Strong Support"
+          }
+        ],
+        "pendingTurn": null,
+        "completed": false
+      },
+      "state_after": {
+        "currentTurn": 1,
+        "maxTurns": 5,
+        "containment": 30,
+        "visibility": 50,
+        "risk": "High",
+        "phase": "Initial Triage",
+        "actionHistory": [
+          {
+            "turn": 1,
+            "action": "Review Recent IAM Activities",
+            "evidence": "CloudWatch Log Insight Query",
+            "verdict": "Strong Support"
+          }
+        ],
+        "pendingTurn": null,
+        "completed": false
+      }
+    },
+    {
+      "scenario_id": "cost-management",
+      "turn": 1,
+      "selected_action": {
+        "id": "review_iam_activities",
+        "title": "Review Recent IAM Activities",
+        "choice_role": "best"
+      },
+      "selected_evidence": {
+        "id": "access_key_status",
+        "title": "Access Key Status Check",
+        "template": "access_key",
+        "expected_support_role": "partial"
+      },
+      "learner_justification": "I selected Access Key Status Check because it may be relevant to reviewing recent IAM activity for this incident.",
+      "model_config": {
+        "vlm": "Qwen2.5-VL-3B-Instruct",
+        "security": "Foundation-Sec-8B-Instruct",
+        "coach": "Qwen2.5-1.5B-Instruct"
+      },
+      "elapsed_seconds": 203.6,
+      "error": null,
+      "vlm_output": {
+        "evidence_type": "access_key",
+        "visible_facts_extracted": [
+          "Access key ID: AKIA4Z7EXAMPLE92K",
+          "Status: Active",
+          "Last used service: iam.amazonaws.com",
+          "Last used region: us-west-2",
+          "Last used time: 2023-10-01T11:59:59Z",
+          "Owner: arn:aws:iam::123456789012:user/CostAdmin",
+          "Source IP: 185.220.101.42",
+          "Rotation status: Review required"
+        ],
+        "security_relevance": "partial",
+        "not_proven_by_this_evidence": [
+          "Credential review status"
+        ],
+        "visible_evidence_summary": "Access key details for the IAM user CostAdmin, including status, last used service, region, last used time, and owner information.",
+        "important_visible_fields": [
+          "Access key ID",
+          "Status",
+          "Last used service",
+          "Last used region",
+          "Last used time",
+          "Owner",
+          "Source IP",
+          "Rotation status"
+        ],
+        "supports_selected_action": "partial",
+        "reason": "The screenshot provides detailed information about the access key's status, last used service, region, and owner, which can help identify potential security risks but does not directly prove the presence of anomalous activities."
+      },
+      "security_output": {
+        "verdict": "Partial Support",
+        "reasoning": "The evidence provides partial support for the action as it confirms the access key is active and provides details about its usage. However, it does not directly identify anomalous activities or their sources, which is the next focus.",
+        "justification_assessment": "The learner's transcript correctly identifies the relevance of reviewing access key status to the incident response action but does not directly connect the evidence to the identification of anomalous activities, which is the recommended next step.",
+        "recommended_next_focus": "Investigate the 'last used service', 'last used region', and'source IP' to identify any unusual or unauthorized activities.",
+        "risk_of_wrong_interpretation": "The learner might overread the evidence as providing full support for identifying anomalous activities when it only confirms the access key's status and usage details. It's important to remember that while this evidence is useful, it does not directly prove the presence of anomalous activities."
+      },
+      "coach_output": {
+        "feedback": "```json\n{\n  \"feedback\": \"Great observation! You noticed the access key status check could be relevant to your current task. While you're correct that this evidence supports the need to investigate anomalous activities, it doesn't directly point to where those anomalies might be coming from. To move forward effectively, think about checking the 'last used service', 'last used region', and 'source IP'. This will help pinpoint if there are any unusual or unauthorized activities occurring. Remember, just because something is active doesn\u2019t mean it\u2019s safe; we need to look deeper into who is using it and where.\"\n\n  \"next_turn_guidance\": \"Next, let's explore the 'last used service', 'last used region', and 'source IP' fields to see if anything stands out. This will help us understand if there are any suspicious patterns in how the access key is being used.\"\n}\n```",
+        "next_turn_guidance": "Continue by reviewing the next most relevant evidence before choosing a containment action."
+      },
+      "state_before": {
+        "currentTurn": 1,
+        "maxTurns": 5,
+        "containment": 20,
+        "visibility": 35,
+        "risk": "High",
+        "phase": "Initial Triage",
+        "actionHistory": [
+          {
+            "turn": 1,
+            "action": "Review Recent IAM Activities",
+            "evidence": "Access Key Status Check",
+            "verdict": "Partial Support"
+          }
+        ],
+        "pendingTurn": null,
+        "completed": false
+      },
+      "state_after": {
+        "currentTurn": 1,
+        "maxTurns": 5,
+        "containment": 24,
+        "visibility": 43,
+        "risk": "High",
+        "phase": "Initial Triage",
+        "actionHistory": [
+          {
+            "turn": 1,
+            "action": "Review Recent IAM Activities",
+            "evidence": "Access Key Status Check",
+            "verdict": "Partial Support"
+          }
+        ],
+        "pendingTurn": null,
+        "completed": false
+      }
+    },
+    {
+      "scenario_id": "cost-management",
+      "turn": 1,
+      "selected_action": {
+        "id": "review_iam_activities",
+        "title": "Review Recent IAM Activities",
+        "choice_role": "best"
+      },
+      "selected_evidence": {
+        "id": "cloudtrail_event",
+        "title": "CloudTrail Event Review",
+        "template": "cloudtrail",
+        "expected_support_role": "weak"
+      },
+      "learner_justification": "I selected CloudTrail Event Review because it may be relevant to reviewing recent IAM activity for this incident.",
+      "model_config": {
+        "vlm": "Qwen2.5-VL-3B-Instruct",
+        "security": "Foundation-Sec-8B-Instruct",
+        "coach": "Qwen2.5-1.5B-Instruct"
+      },
+      "elapsed_seconds": 150.6,
+      "error": null,
+      "vlm_output": {
+        "evidence_type": "cloudtrail",
+        "visible_facts_extracted": [
+          "Event Name: ConsoleLogin",
+          "User Identity: arn:aws:iam::123456789012:user/CostAdmin",
+          "Source IP: 185.220.101.42",
+          "MFA: false",
+          "Event Time: 2023-10-01T12:00:00Z",
+          "Region: ap-southeast-1",
+          "Risk Signal: Attempted login attempt from untrusted IP"
+        ],
+        "security_relevance": "strong",
+        "not_proven_by_this_evidence": [
+          "Details of the related events (console logins) and their timestamps."
+        ],
+        "visible_evidence_summary": "CloudTrail event details for a ConsoleLogin operation showing the user identity, source IP, event time, region, and risk signal.",
+        "important_visible_fields": [
+          "Event Name",
+          "User Identity",
+          "Source IP",
+          "MFA",
+          "Event Time",
+          "Region",
+          "Risk Signal"
+        ],
+        "supports_selected_action": "strong",
+        "reason": "The screenshot provides detailed information about a CloudTrail event, including the user identity, source IP, event time, region, and a risk signal indicating an attempted login from an untrusted IP address. This aligns with the learner's goal of reviewing recent IAM activities and identifying potential unauthorized access attempts."
+      },
+      "security_output": {
+        "verdict": "Strong Support",
+        "reasoning": "The CloudTrail event provides specific details about a ConsoleLogin attempt from an untrusted IP address, which directly supports the action of reviewing IAM activities for the 'cost-management' account. The risk signal indicates a potential security concern, aligning with the goal of identifying anomalous activities.",
+        "justification_assessment": "The learner's transcript correctly connects the evidence to the action by mentioning the potential relevance of CloudTrail logs in reviewing recent IAM activities. However, the transcript does not explicitly mention the risk signal or the untrusted IP, which are critical details supporting the action.",
+        "recommended_next_focus": "Investigate the source of the untrusted IP and correlate this activity with other logs to determine if it's part of a larger pattern of unauthorized access attempts.",
+        "risk_of_wrong_interpretation": "The learner might overread the evidence by assuming that the related events and their timestamps are visible in the provided screenshot, which they are not. It's important to verify all details directly visible in the evidence before making conclusions."
+      },
+      "coach_output": {
+        "feedback": "Great work selecting CloudTrail Event Review! You've identified a strong link between the evidence and the action. However, you didn't mention the risk signal or the untrusted IP address, which are crucial pieces of information. To strengthen your analysis, focus on correlating this event with other logs to see if it fits into a pattern of unauthorized access attempts. Remember, always double-check the details in the evidence before drawing conclusions.",
+        "next_turn_guidance": "Next, review the related CloudTrail events and correlate them with other AWS logs to identify any suspicious patterns. This will help you better understand the context and assess the severity of the situation."
+      },
+      "state_before": {
+        "currentTurn": 1,
+        "maxTurns": 5,
+        "containment": 20,
+        "visibility": 35,
+        "risk": "High",
+        "phase": "Initial Triage",
+        "actionHistory": [
+          {
+            "turn": 1,
+            "action": "Review Recent IAM Activities",
+            "evidence": "CloudTrail Event Review",
+            "verdict": "Strong Support"
+          }
+        ],
+        "pendingTurn": null,
+        "completed": false
+      },
+      "state_after": {
+        "currentTurn": 1,
+        "maxTurns": 5,
+        "containment": 30,
+        "visibility": 50,
+        "risk": "High",
+        "phase": "Initial Triage",
+        "actionHistory": [
+          {
+            "turn": 1,
+            "action": "Review Recent IAM Activities",
+            "evidence": "CloudTrail Event Review",
+            "verdict": "Strong Support"
+          }
+        ],
+        "pendingTurn": null,
+        "completed": false
+      }
+    }
+  ]
+}

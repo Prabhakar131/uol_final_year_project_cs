@@ -1,0 +1,54 @@
+[
+  {
+    "selected_for_run": true,
+    "stage": "coach",
+    "used_in_application": true,
+    "name": "qwen2.5-1.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "family": "instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "metric": "5-point feedback rubric and latency",
+    "cached": true,
+    "cache_size_gb": 6.198,
+    "notes": ""
+  },
+  {
+    "selected_for_run": true,
+    "stage": "coach",
+    "used_in_application": false,
+    "name": "qwen2.5-0.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "family": "small instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "metric": "5-point feedback rubric and latency",
+    "cached": false,
+    "cache_size_gb": 0.0,
+    "notes": ""
+  },
+  {
+    "selected_for_run": true,
+    "stage": "coach",
+    "used_in_application": false,
+    "name": "flan-t5-small",
+    "model_id": "google/flan-t5-small",
+    "family": "small sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "metric": "5-point feedback rubric and latency",
+    "cached": false,
+    "cache_size_gb": 0.0,
+    "notes": ""
+  },
+  {
+    "selected_for_run": true,
+    "stage": "coach",
+    "used_in_application": false,
+    "name": "flan-t5-base",
+    "model_id": "google/flan-t5-base",
+    "family": "sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "metric": "5-point feedback rubric and latency",
+    "cached": false,
+    "cache_size_gb": 0.0,
+    "notes": ""
+  }
+]

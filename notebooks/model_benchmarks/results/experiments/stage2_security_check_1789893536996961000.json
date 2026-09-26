@@ -1,0 +1,156 @@
+{
+  "model_id": "fdtn-ai/Foundation-Sec-8B-Instruct",
+  "device": "mps",
+  "source": "notebooks/model_benchmarks/results/experiments/cloudwatch_stage1_extraction.json",
+  "source_sha256": "517e89ffc101a317bfee3f524fc093d2418e742ff4d5259d46bfacf62ee2bc8a",
+  "scope": "Security-only diagnostic; controlled second/third inputs are not screenshot extractions.",
+  "cases": [
+    {
+      "name": "verified_saved_cloudwatch",
+      "input": {
+        "evidence_type": "cloudwatch",
+        "event_rows": [
+          {
+            "timestamp": "2023-10-01T10:12:10Z",
+            "log_stream": "auth/identity-center",
+            "message": "ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.10...",
+            "truncated": true
+          },
+          {
+            "timestamp": "2023-10-01T10:18:44Z",
+            "log_stream": "cloudtrail/audit",
+            "message": "ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42",
+            "truncated": false
+          },
+          {
+            "timestamp": "2023-10-01T10:21:35Z",
+            "log_stream": "cloudtrail/audit",
+            "message": "StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test",
+            "truncated": false
+          },
+          {
+            "timestamp": "2023-10-01T10:24:02Z",
+            "log_stream": "iam/credential-monitor",
+            "message": "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key stat...",
+            "truncated": true
+          }
+        ],
+        "query_text": "Insight query showing unauthorized access attempts across various regions.",
+        "time_range": "2023-10-01 10:10-10:30 UTC",
+        "log_group": "/aws/cloudtrail/organization/prod",
+        "matched_records": 5,
+        "visible_facts_extracted": [
+          "Event row 1: {\"timestamp\": \"2023-10-01T10:12:10Z\", \"log_stream\": \"auth/identity-center\", \"message\": \"ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.10...\", \"truncated\": true}",
+          "Event row 2: {\"timestamp\": \"2023-10-01T10:18:44Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42\", \"truncated\": false}",
+          "Event row 3: {\"timestamp\": \"2023-10-01T10:21:35Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test\", \"truncated\": false}",
+          "Event row 4: {\"timestamp\": \"2023-10-01T10:24:02Z\", \"log_stream\": \"iam/credential-monitor\", \"message\": \"CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key stat...\", \"truncated\": true}",
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "important_visible_fields": [
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "visible_evidence_summary": "Extracted 4 visible CloudWatch table rows.",
+        "extraction_warnings": [
+          "Row 1: message is truncated; hidden text was not extracted.",
+          "Row 4: message is truncated; hidden text was not extracted."
+        ]
+      },
+      "output": {
+        "verdict": "Partial Support",
+        "reasoning": "The evidence shows recent IAM activities, including a successful console login, a ListTrails call, a StopLogging action, and a CreateAccessKey event. However, due to message truncation in rows 1 and 4, some details are missing. The learner's action of reviewing recent IAM activities is supported by these events, particularly the console login and the subsequent actions performed by the same user. However, without the full context of the truncated messages, we cannot confirm the nature of the activities fully.",
+        "justification_assessment": "The learner's transcript correctly identifies the need to review IAM activities based on the provided evidence. However, it does not explicitly mention the truncation issue or the incomplete information in rows 1 and 4, which could lead to an overestimation of the evidence's completeness.",
+        "recommended_next_focus": "The learner should investigate the full details of the truncated messages to understand the full context of the IAM activities. Additionally, they should look for any other related logs or alerts that might provide a more complete picture.",
+        "risk_of_wrong_interpretation": "The learner might incorrectly assume that the truncated messages do not contain critical information, leading to an incomplete understanding of the incident. They should be cautious not to draw conclusions based on incomplete data.",
+        "supporting_row_numbers": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "elapsed_seconds": 82.45160195900098
+    },
+    {
+      "name": "controlled_unrelated_event_same_query",
+      "input": {
+        "evidence_type": "cloudwatch",
+        "event_rows": [
+          {
+            "timestamp": "2023-10-01T10:12:10Z",
+            "log_stream": "app/health",
+            "message": "Public status endpoint returned HTTP 200; no identity activity recorded in this row.",
+            "truncated": false
+          }
+        ],
+        "query_text": "Insight query showing unauthorized access attempts across various regions.",
+        "time_range": "2023-10-01 10:10-10:30 UTC",
+        "log_group": "/aws/cloudtrail/organization/prod",
+        "matched_records": 1,
+        "visible_facts_extracted": [
+          "Event row 1: {\"timestamp\": \"2023-10-01T10:12:10Z\", \"log_stream\": \"auth/identity-center\", \"message\": \"ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.10...\", \"truncated\": true}",
+          "Event row 2: {\"timestamp\": \"2023-10-01T10:18:44Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42\", \"truncated\": false}",
+          "Event row 3: {\"timestamp\": \"2023-10-01T10:21:35Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test\", \"truncated\": false}",
+          "Event row 4: {\"timestamp\": \"2023-10-01T10:24:02Z\", \"log_stream\": \"iam/credential-monitor\", \"message\": \"CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key stat...\", \"truncated\": true}",
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "important_visible_fields": [
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "visible_evidence_summary": "Extracted 4 visible CloudWatch table rows.",
+        "extraction_warnings": []
+      },
+      "output": {
+        "verdict": "Weak Support",
+        "reasoning": "The screenshot shows a single log entry with no identity activity recorded, and the query metadata indicates a search for unauthorized access attempts across various regions. However, the query result shows only one matched record, and the actual event_rows do not provide concrete evidence of unauthorized activity. The learner's transcript mentions reviewing IAM activities to identify potential threats, but the provided evidence does not directly establish unauthorized IAM activity. The lack of a complete IP address and the absence of specific IAM-related events make it difficult to directly support the action of reviewing IAM activities based on this evidence.",
+        "justification_assessment": "The learner's transcript correctly identifies the need to review IAM activities but does not fully connect the provided evidence to the action. The learner mentions checking for identity, source IP, event time, service, status, and risk signal, but the provided evidence does not contain these details.",
+        "recommended_next_focus": "The learner should investigate further by reviewing other log entries or using different queries to find more concrete evidence of IAM activities, especially focusing on events that include identity information and potential unauthorized access attempts.",
+        "risk_of_wrong_interpretation": "The learner might incorrectly assume that the lack of unauthorized activity in the provided log entry means there is no threat, when in fact, the evidence is too limited to draw such a conclusion. It's also possible to overread the query metadata as direct evidence of unauthorized activity, which it is not.",
+        "supporting_row_numbers": [
+          1
+        ]
+      },
+      "elapsed_seconds": 30.092563416001212
+    },
+    {
+      "name": "missing_rows_must_block",
+      "input": {
+        "evidence_type": "cloudwatch",
+        "event_rows": [],
+        "query_text": "Insight query showing unauthorized access attempts across various regions.",
+        "time_range": "2023-10-01 10:10-10:30 UTC",
+        "log_group": "/aws/cloudtrail/organization/prod",
+        "matched_records": 5,
+        "visible_facts_extracted": [
+          "Event row 1: {\"timestamp\": \"2023-10-01T10:12:10Z\", \"log_stream\": \"auth/identity-center\", \"message\": \"ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.10...\", \"truncated\": true}",
+          "Event row 2: {\"timestamp\": \"2023-10-01T10:18:44Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42\", \"truncated\": false}",
+          "Event row 3: {\"timestamp\": \"2023-10-01T10:21:35Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test\", \"truncated\": false}",
+          "Event row 4: {\"timestamp\": \"2023-10-01T10:24:02Z\", \"log_stream\": \"iam/credential-monitor\", \"message\": \"CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key stat...\", \"truncated\": true}",
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "important_visible_fields": [
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "visible_evidence_summary": "Extracted 4 visible CloudWatch table rows.",
+        "extraction_warnings": [
+          "Row 1: message is truncated; hidden text was not extracted.",
+          "Row 4: message is truncated; hidden text was not extracted."
+        ]
+      },
+      "error": "No event rows were read; an empty results table was not established.",
+      "error_type": "ExtractionQualityError",
+      "elapsed_seconds": 1.716699989628978e-05
+    }
+  ]
+}

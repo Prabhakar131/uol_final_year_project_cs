@@ -1,0 +1,5 @@
+selected_for_run,stage,used_in_application,name,model_id,family,benchmark_mode,metric,cached,cache_size_gb,notes
+True,stt,False,whisper-tiny-en,openai/whisper-tiny.en,small English speech recognition model,executed_when_recordings_exist,"keyword recall, meaning preservation, latency",False,0.0,Fast English-only baseline for learner voice recordings.
+True,stt,True,whisper-base,openai/whisper-base,encoder-decoder speech recognition model,executed_when_recordings_exist,keyword recall and meaning preservation,True,0.59,Configured locally. The benchmark auto-discovers recorded learner audio samples.
+True,stt,False,whisper-base-en,openai/whisper-base.en,English speech recognition model,executed_when_recordings_exist,"keyword recall, meaning preservation, latency",False,0.0,English-only base model for comparing against multilingual Whisper Base.
+True,stt,False,whisper-small,openai/whisper-small,larger speech recognition model,executed_when_recordings_exist,"keyword recall, meaning preservation, latency",False,0.0,Larger Whisper baseline to test whether quality improves enough to justify slower inference.

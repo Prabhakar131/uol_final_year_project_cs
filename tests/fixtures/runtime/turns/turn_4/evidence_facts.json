@@ -1,0 +1,80 @@
+[
+  {
+    "id": "containment_monitoring_check",
+    "title": "Containment Monitoring Check",
+    "type": "cloudwatch",
+    "summary": "CloudWatch logs show identity-monitoring alerts after the access key was flagged.",
+    "why_it_may_matter": "This supports containment monitoring, but active key status is stronger for the direct response decision.",
+    "support_role": "partial",
+    "template": "cloudwatch",
+    "facts": {
+      "query": "fields @timestamp, @message | filter @message like /access key|containment|admin-test/",
+      "log_group": "/aws/cloudtrail/organization/prod",
+      "matched_records": "4",
+      "scanned_bytes": "1.2 MB",
+      "time_range": "2023-10-01 10:24-10:45 UTC",
+      "alarm_state": "Containment recommended",
+      "log_rows": [
+        [
+          "2023-10-01T10:24:02Z",
+          "iam/credential-monitor",
+          "CreateAccessKey succeeded for admin-test"
+        ],
+        [
+          "2023-10-01T10:31:18Z",
+          "security/correlation",
+          "Credential risk linked to suspicious source IP 185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:38:50Z",
+          "ir/containment",
+          "Key rotation or disablement recommended"
+        ],
+        [
+          "2023-10-01T10:24:02Z",
+          "iam/credential-monitor",
+          "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active"
+        ],
+        [
+          "2023-10-01T10:26:11Z",
+          "security/correlation",
+          "Same source IP 185.220.101.42 observed across authentication and credential events"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "containment_billing_context",
+    "title": "Containment Billing Context",
+    "type": "billing",
+    "summary": "Billing shows a modest spend increase during the incident window.",
+    "why_it_may_matter": "This is weak support because cost context does not prove which credential to contain.",
+    "support_role": "weak",
+    "template": "billing",
+    "facts": {
+      "current_spend": "$184.20",
+      "previous_average": "$42.75",
+      "largest_service": "EC2",
+      "region": "ap-southeast-1",
+      "change": "+331%"
+    }
+  },
+  {
+    "id": "access_key_containment_review",
+    "title": "Access Key Containment Review",
+    "type": "access_key",
+    "summary": "The affected principal has an active access key used shortly after the suspicious login sequence.",
+    "why_it_may_matter": "This directly supports disabling, rotating, or reviewing credentials during containment.",
+    "support_role": "strong",
+    "template": "access_key",
+    "facts": {
+      "access_key_id": "AKIA4Z7EXAMPLE92K",
+      "owner": "arn:aws:iam::123456789012:user/admin-test",
+      "status": "Active",
+      "last_used_service": "iam.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-10-01T10:24:02Z",
+      "source_ip": "185.220.101.42"
+    }
+  }
+]

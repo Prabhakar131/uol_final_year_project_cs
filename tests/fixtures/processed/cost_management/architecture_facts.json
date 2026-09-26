@@ -1,0 +1,59 @@
+{
+  "cloud_provider": "multi-cloud",
+  "visible_services": [
+    "Cost Management API",
+    "Lambda Functions",
+    "Data Storage (S3)",
+    "Cost Dashboard"
+  ],
+  "identity_components": [
+    "IAM",
+    "Users",
+    "Roles",
+    "Policies"
+  ],
+  "compute_components": [
+    "Compute Services (Lambda)",
+    "Workloads (Lambda)"
+  ],
+  "storage_components": [
+    "Storage Services (S3)"
+  ],
+  "network_components": [
+    "VPCs",
+    "Subnets",
+    "Internet Gateways",
+    "NAT Gateways",
+    "Load Balancers",
+    "Firewalls"
+  ],
+  "logging_components": [
+    "CloudWatch"
+  ],
+  "security_components": [
+    "Security Controls"
+  ],
+  "external_entities": [
+    "Cloud Admins"
+  ],
+  "trust_boundaries": [
+    "AWS Account Boundary"
+  ],
+  "data_flows": [
+    "API Request -> Cost Management API -> Lambda Functions -> Data Storage -> Cost Dashboard"
+  ],
+  "identity_flows": [
+    "Cloud Admins -> AWS Account Boundary -> IAM -> Authentication -> Cost Management API"
+  ],
+  "security_observations": [
+    "Multi-cloud environment with multiple compute services and storage solutions."
+  ],
+  "possible_investigation_evidence": [
+    "CloudTrail Logs",
+    "IAM Activity Logs",
+    "Access Keys",
+    "GuardDuty Alerts",
+    "CloudWatch Metrics"
+  ],
+  "architecture_summary": "A multi-cloud cost management system with AWS services, including compute, storage, and logging, managed by IAM and accessed via the AWS Management Console."
+}

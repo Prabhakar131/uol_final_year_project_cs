@@ -1,0 +1,281 @@
+[
+  {
+    "threatID": "THREAT-001",
+    "threatName": "Overly Permissive IAM Roles",
+    "affectedComponents": [
+      "Lambda Functions",
+      "Lake Formation",
+      "IAM Roles",
+      "QuickSight"
+    ],
+    "frameworks": {
+      "stride": [
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control"
+      ],
+      "mitreATT&CK": [
+        "T1078 - Valid Accounts",
+        "T1548 - Abuse Elevation Control Mechanism"
+      ]
+    },
+    "cwe": "CWE-269",
+    "vulnerabilityDetails": {
+      "howItWorks": "The Lambda execution role combines multiple broad permissions including AWSLakeFormationDataAdmin and AmazonAthenaFullAccess, along with extensive QuickSight permissions. If compromised, an attacker could access and modify sensitive security data across multiple services.",
+      "exploitationScenario": "An attacker who compromises a Lambda function could leverage the broad permissions to access sensitive data in Lake Formation, modify QuickSight dashboards, or manipulate Athena queries to extract or tamper with security insights data."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-001-A",
+        "description": "Implement fine-grained IAM roles following the principle of least privilege",
+        "implementationDetails": "Split the Lambda execution role into separate roles for each Lambda function based on their specific needs:\n- CreateLfPermsLambda: Limit to specific Lake Formation permissions needed\n- CreateQsDatasetsLambda: Restrict to specific Athena and QuickSight dataset operations\n- CreateRefreshSchedulesLambda: Limit to QuickSight refresh schedule operations\n- UserGroupManagerLambda: Restrict to QuickSight user/group management operations",
+        "awsServiceContext": [
+          "IAM",
+          "Lambda",
+          "Lake Formation",
+          "QuickSight",
+          "Athena"
+        ]
+      },
+      {
+        "recommendationID": "REC-001-B",
+        "description": "Implement IAM permission boundaries",
+        "implementationDetails": "Apply permission boundaries to Lambda execution roles to prevent privilege escalation even if the role policies are modified:\n```typescript\nconst permissionBoundary = new iam.ManagedPolicy(this, 'LambdaPermissionBoundary', {\n  statements: [\n    new iam.PolicyStatement({\n      effect: iam.Effect.ALLOW,\n      actions: ['s3:GetObject', 's3:PutObject'],\n      resources: [athenaResultsBucket.arnForObjects('*')]\n    })\n  ]\n});\n\nconst lambdaRole = new iam.Role(this, 'LambdaRole', {\n  assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),\n  permissionsBoundary: permissionBoundary\n});```",
+        "awsServiceContext": [
+          "IAM"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS IAM Access Analyzer to continuously monitor for overly permissive or unused permissions. Consider implementing attribute-based access control (ABAC) using tags for more granular permission management."
+  },
+  {
+    "threatID": "THREAT-002",
+    "threatName": "Insecure OpenSearch Domain Configuration",
+    "affectedComponents": [
+      "OpenSearch Domain",
+      "VPC",
+      "Security Groups"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Tampering"
+      ],
+      "owaspTop10": [
+        "A07:2021-Identification and Authentication Failures"
+      ],
+      "mitreATT&CK": [
+        "T1190 - Exploit Public-Facing Application",
+        "T1552 - Unsecured Credentials"
+      ]
+    },
+    "cwe": "CWE-306",
+    "vulnerabilityDetails": {
+      "howItWorks": "The OpenSearch domain uses a master user role with root principal as the assumed role, and the security group configuration is not explicitly defined in terms of inbound rules.",
+      "exploitationScenario": "If the security group is misconfigured, unauthorized users within the VPC could access the OpenSearch domain. Additionally, the master user credentials, if compromised, would provide full administrative access to the domain."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-002-A",
+        "description": "Implement strict security group rules",
+        "implementationDetails": "Define explicit inbound rules in the OpenSearch security group:\n```typescript\nconst osSecurityGroup = new ec2.SecurityGroup(this, `${projectName}-OpenSearchSG`, {\n  vpc,\n  allowAllOutbound: true,\n  description: 'Security group for OpenSearch Domain',\n});\n\nosSecurityGroup.addIngressRule(\n  ec2.Peer.ipv4(vpc.vpcCidrBlock),\n  ec2.Port.tcp(443),\n  'Allow HTTPS from VPC'\n);```",
+        "awsServiceContext": [
+          "OpenSearch",
+          "VPC",
+          "Security Groups"
+        ]
+      },
+      {
+        "recommendationID": "REC-002-B",
+        "description": "Implement IAM-based fine-grained access control",
+        "implementationDetails": "Replace the master user role with IAM-based authentication and implement fine-grained access control:\n```typescript\nconst openSearchDomain = new opensearch.Domain(this, `${projectName}-OpenSearchDomain`, {\n  // ...\n  fineGrainedAccessControl: {\n    masterUserName: undefined, // Remove master user\n    masterUserPassword: undefined,\n  },\n  accessPolicies: new iam.PolicyDocument({\n    statements: [\n      new iam.PolicyStatement({\n        actions: ['es:ESHttp*'],\n        resources: ['*'],\n        principals: [new iam.ArnPrincipal(lambdaExecutionRole.roleArn)],\n        conditions: {\n          'IpAddress': {\n            'aws:SourceIp': vpc.vpcCidrBlock\n          }\n        }\n      })\n    ]\n  })\n});```",
+        "awsServiceContext": [
+          "OpenSearch",
+          "IAM"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Security Hub and AWS Config to monitor OpenSearch domain configuration. Enable OpenSearch audit logs and integrate with CloudWatch Logs for security monitoring."
+  },
+  {
+    "threatID": "THREAT-003",
+    "threatName": "Insufficient Data Protection Controls",
+    "affectedComponents": [
+      "S3 Buckets",
+      "VPC Flow Logs",
+      "Athena Results",
+      "Data Sources"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Tampering",
+        "Repudiation"
+      ],
+      "owaspTop10": [
+        "A05:2021-Security Misconfiguration"
+      ],
+      "mitreATT&CK": [
+        "T1530 - Data from Cloud Storage Object",
+        "T1485 - Data Destruction"
+      ]
+    },
+    "cwe": "CWE-404",
+    "vulnerabilityDetails": {
+      "howItWorks": "The S3 buckets are configured with RemovalPolicy.DESTROY and autoDeleteObjects: true, which could lead to accidental or malicious deletion of security-critical data.",
+      "exploitationScenario": "An attacker with access to the AWS account could destroy critical security data by deleting the CloudFormation stack, or an administrator could accidentally delete important audit trails during environment cleanup."
+    },
+    "impact": {
+      "confidentiality": "Medium",
+      "integrity": "High",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-003-A",
+        "description": "Implement proper S3 bucket retention controls",
+        "implementationDetails": "Modify S3 bucket configurations to protect security data:\n```typescript\nconst flowLogBucket = new s3.Bucket(this, `${projectName}-FlowLogBucket`, {\n  bucketName: `${projectName.toLowerCase()}-flow-logs-${envName}-${this.account}-${this.region}`,\n  removalPolicy: cdk.RemovalPolicy.RETAIN,\n  autoDeleteObjects: false,\n  blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,\n  encryption: s3.BucketEncryption.S3_MANAGED,\n  enforceSSL: true,\n  versioning: true,\n  objectLockEnabled: true,\n  lifecycleRules: [{\n    expiration: cdk.Duration.days(365),\n    transitions: [{\n      storageClass: s3.StorageClass.GLACIER,\n      transitionAfter: cdk.Duration.days(90)\n    }]\n  }]\n});```",
+        "awsServiceContext": [
+          "S3"
+        ]
+      },
+      {
+        "recommendationID": "REC-003-B",
+        "description": "Implement S3 object lock and versioning",
+        "implementationDetails": "Enable object lock and versioning on security-critical buckets and implement retention policies:\n```typescript\nconst bucket = new s3.Bucket(this, 'SecurityDataBucket', {\n  versioned: true,\n  objectLockEnabled: true\n});\n\nnew s3.CfnBucketPolicy(this, 'BucketPolicy', {\n  bucket: bucket.bucketName,\n  policyDocument: new iam.PolicyDocument({\n    statements: [\n      new iam.PolicyStatement({\n        effect: iam.Effect.DENY,\n        principals: [new iam.AnyPrincipal()],\n        actions: ['s3:DeleteObject', 's3:DeleteObjectVersion'],\n        resources: [bucket.arnForObjects('*')],\n        conditions: {\n          'NumericLessThan': {\n            's3:object-lock-retain-until-date': new Date().toISOString()\n          }\n        }\n      })\n    ]\n  })\n});```",
+        "awsServiceContext": [
+          "S3"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Backup to create cross-region backups of critical security data. Enable AWS CloudTrail data events for S3 buckets containing security data to track all object-level operations."
+  },
+  {
+    "threatID": "THREAT-004",
+    "threatName": "Insecure Lambda Function Configuration",
+    "affectedComponents": [
+      "Lambda Functions",
+      "CloudWatch Logs",
+      "SSM Parameter Store"
+    ],
+    "frameworks": {
+      "stride": [
+        "Spoofing",
+        "Tampering",
+        "Repudiation"
+      ],
+      "owaspTop10": [
+        "A02:2021-Cryptographic Failures",
+        "A09:2021-Security Logging and Monitoring Failures"
+      ],
+      "mitreATT&CK": [
+        "T1552.005 - Cloud Instance Metadata API",
+        "T1562.008 - Impair Defenses: Disable Cloud Logs"
+      ]
+    },
+    "cwe": "CWE-778",
+    "vulnerabilityDetails": {
+      "howItWorks": "Lambda functions use dummy code, have minimal logging configuration, and potentially expose sensitive information through environment variables.",
+      "exploitationScenario": "An attacker who gains access to a Lambda function could exploit insufficient logging to hide their activities, or extract sensitive information from environment variables."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "Medium",
+      "availability": "Low"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-004-A",
+        "description": "Implement secure Lambda function configuration",
+        "implementationDetails": "Enhance Lambda function security settings:\n```typescript\nconst lambda = new lambda.Function(this, 'SecureFunction', {\n  runtime: lambda.Runtime.NODEJS_18_X,\n  handler: 'index.handler',\n  code: lambda.Code.fromAsset('lambda'),\n  environment: {\n    POWERTOOLS_METRICS_NAMESPACE: 'SecurityInsights',\n    POWERTOOLS_SERVICE_NAME: 'SecurityDataProcessor',\n    LOG_LEVEL: 'INFO'\n  },\n  tracing: lambda.Tracing.ACTIVE,\n  logRetention: logs.RetentionDays.ONE_YEAR,\n  reservedConcurrentExecutions: 100,\n  timeout: cdk.Duration.minutes(5),\n  memorySize: 256,\n  vpc: vpc,\n  vpcSubnets: { subnetType: ec2.SubnetType.PRIVATE_WITH_EGRESS },\n  securityGroups: [lambdaSecurityGroup],\n  environmentEncryption: kms.Key.fromKeyArn(this, 'EnvKey', envKeyArn)\n});```",
+        "awsServiceContext": [
+          "Lambda",
+          "CloudWatch",
+          "KMS"
+        ]
+      },
+      {
+        "recommendationID": "REC-004-B",
+        "description": "Implement comprehensive logging and monitoring",
+        "implementationDetails": "Enhance logging and implement AWS Lambda Powertools:\n```typescript\n// Lambda function code example\nconst { Logger, Metrics, Tracer } = require('@aws-lambda-powertools/powertools');\n\nconst logger = new Logger();\nconst metrics = new Metrics();\nconst tracer = new Tracer();\n\nexports.handler = async (event) => {\n  try {\n    logger.info('Processing security event', { event });\n    metrics.addMetric('SecurityEventProcessed', 1);\n    \n    // Function logic\n    \n    logger.info('Security event processed successfully');\n    return response;\n  } catch (error) {\n    logger.error('Error processing security event', error);\n    metrics.addMetric('SecurityEventError', 1);\n    throw error;\n  }\n};```",
+        "awsServiceContext": [
+          "Lambda",
+          "CloudWatch"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Lambda Powertools for standardized logging, metrics, and tracing. Implement AWS X-Ray for distributed tracing of security data processing."
+  },
+  {
+    "threatID": "THREAT-005",
+    "threatName": "Insufficient Monitoring and Alerting",
+    "affectedComponents": [
+      "CloudWatch",
+      "EventBridge",
+      "CloudTrail",
+      "Security Hub"
+    ],
+    "frameworks": {
+      "stride": [
+        "Repudiation",
+        "Information Disclosure"
+      ],
+      "owaspTop10": [
+        "A09:2021-Security Logging and Monitoring Failures"
+      ],
+      "mitreATT&CK": [
+        "T1562 - Impair Defenses",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "cwe": "CWE-223",
+    "vulnerabilityDetails": {
+      "howItWorks": "While the system collects logs and metrics, it lacks comprehensive alerting and monitoring for security events, unauthorized access attempts, and suspicious activities.",
+      "exploitationScenario": "An attacker could perform reconnaissance or data exfiltration activities without detection due to insufficient monitoring and alerting."
+    },
+    "impact": {
+      "confidentiality": "Medium",
+      "integrity": "Medium",
+      "availability": "Medium"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-005-A",
+        "description": "Implement comprehensive CloudWatch alarms",
+        "implementationDetails": "Create CloudWatch alarms for security monitoring:\n```typescript\nnew cloudwatch.Alarm(this, 'SecurityEventAlarm', {\n  metric: new cloudwatch.Metric({\n    namespace: 'AWS/Lambda',\n    metricName: 'Errors',\n    dimensionsMap: {\n      FunctionName: createLfPermsLambda.functionName\n    },\n    statistic: 'sum',\n    period: cdk.Duration.minutes(5)\n  }),\n  threshold: 1,\n  evaluationPeriods: 1,\n  comparisonOperator: cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,\n  actionsEnabled: true,\n  alarmDescription: 'Alert on security permission management failures'\n});\n\nnew cloudwatch.Alarm(this, 'UnauthorizedAccessAlarm', {\n  metric: new cloudwatch.Metric({\n    namespace: 'AWS/OpenSearch',\n    metricName: 'UnauthorizedAccess',\n    dimensionsMap: {\n      DomainName: openSearchDomain.domainName\n    }\n  }),\n  threshold: 1,\n  evaluationPeriods: 1,\n  treatMissingData: cloudwatch.TreatMissingData.NOT_BREACHING,\n  alarmDescription: 'Alert on unauthorized access attempts'\n});```",
+        "awsServiceContext": [
+          "CloudWatch",
+          "SNS"
+        ]
+      },
+      {
+        "recommendationID": "REC-005-B",
+        "description": "Implement Security Hub integration and automated response",
+        "implementationDetails": "Enable Security Hub and implement automated response:\n```typescript\nconst securityEventsTopic = new sns.Topic(this, 'SecurityEventsTopic');\n\nconst securityEventsRule = new events.Rule(this, 'SecurityEventsRule', {\n  eventPattern: {\n    source: ['aws.securityhub'],\n    detailType: ['Security Hub Findings - Imported']\n  }\n});\n\nconst responseFunction = new lambda.Function(this, 'SecurityResponseFunction', {\n  runtime: lambda.Runtime.NODEJS_18_X,\n  handler: 'index.handler',\n  code: lambda.Code.fromAsset('lambda/security-response'),\n  environment: {\n    TOPIC_ARN: securityEventsTopic.topicArn\n  }\n});\n\nsecurityEventsRule.addTarget(new targets.LambdaFunction(responseFunction));```",
+        "awsServiceContext": [
+          "Security Hub",
+          "EventBridge",
+          "Lambda",
+          "SNS"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Integrate with AWS Security Hub for centralized security monitoring. Use AWS Config to track resource configuration changes and compliance."
+  }
+]

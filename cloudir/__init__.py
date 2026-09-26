@@ -1,0 +1,1 @@
+"""CloudIR Trainer application package."""

@@ -1,0 +1,5 @@
+name,model_id,reason,benchmark_mode
+foundation-sec-8b-base,fdtn-ai/Foundation-Sec-8B,not selected for this batch,candidate_not_downloaded
+cyberpal2-20b,cyber-pal-security/CyberPal2.0-20B,not selected for this batch,candidate_not_downloaded
+cybersecqwen-4b,athena129/CyberSecQwen-4B,not selected for this batch,candidate_not_downloaded
+lily-cybersecurity-7b-v0.2,segolilylabs/Lily-Cybersecurity-7B-v0.2,not selected for this batch,candidate_not_downloaded

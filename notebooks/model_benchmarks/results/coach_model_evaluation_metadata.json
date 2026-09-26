@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-16T11:37:31",
+  "batch_name": "coach-full-16case-run",
+  "task": "coach",
+  "project_root": "/Users/karunanidhiprabhakar/Desktop/FYP",
+  "python": "3.11.8",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "torch": "2.5.1",
+  "cuda_available": false,
+  "mps_available": true,
+  "allow_downloads": true,
+  "metadata_only": false,
+  "case_count": 16,
+  "selected_models": [
+    {
+      "name": "qwen2.5-1.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "family": "instruction-tuned causal LM"
+    },
+    {
+      "name": "qwen2.5-0.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "family": "small instruction-tuned causal LM"
+    },
+    {
+      "name": "flan-t5-small",
+      "model_id": "google/flan-t5-small",
+      "family": "small sequence-to-sequence instruction model"
+    },
+    {
+      "name": "flan-t5-base",
+      "model_id": "google/flan-t5-base",
+      "family": "sequence-to-sequence instruction model"
+    }
+  ],
+  "verified_artifacts": [
+    {
+      "artifact": "coach_model_candidates.csv",
+      "exists": true,
+      "size_bytes": 722
+    },
+    {
+      "artifact": "coach_model_cases.csv",
+      "exists": true,
+      "size_bytes": 1297
+    },
+    {
+      "artifact": "coach_model_results.csv",
+      "exists": true,
+      "size_bytes": 22306
+    },
+    {
+      "artifact": "coach_model_summary.csv",
+      "exists": true,
+      "size_bytes": 745
+    },
+    {
+      "artifact": "coach_model_evaluation_metadata.json",
+      "exists": true,
+      "size_bytes": 1563
+    }
+  ]
+}

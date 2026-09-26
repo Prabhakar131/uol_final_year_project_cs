@@ -1,0 +1,11 @@
+model_name,model_id,case_id,turn,expected_support_role,expected_verdict,predicted_verdict,correct,latency_seconds,output_text,error
+qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,turn_1_cloudwatch_insights_query,1,strong,Strong Support,Strong Support,True,0.71,Strong Support,
+qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,turn_1_access_key_status,1,partial,Partial Support,Partial Support,True,0.463,Partial Support,
+qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,turn_1_cloudwatch_insights_query,1,strong,Strong Support,Strong Support,True,0.244,Strong Support,
+qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,turn_1_access_key_status,1,partial,Partial Support,Partial Support,True,0.173,Partial Support,
+flan-t5-small,google/flan-t5-small,turn_1_cloudwatch_insights_query,1,strong,Strong Support,Strong Support,True,0.119,Strong Support,
+flan-t5-small,google/flan-t5-small,turn_1_access_key_status,1,partial,Partial Support,Unsupported,False,0.044,Unsupported,
+flan-t5-base,google/flan-t5-base,turn_1_cloudwatch_insights_query,1,strong,Strong Support,Strong Support,True,0.143,Strong Support,
+flan-t5-base,google/flan-t5-base,turn_1_access_key_status,1,partial,Partial Support,Partial Support,True,0.107,Partial Support,
+bart-large-mnli,facebook/bart-large-mnli,turn_1_cloudwatch_insights_query,1,strong,Strong Support,Strong Support,True,2.572,Strong Support,
+bart-large-mnli,facebook/bart-large-mnli,turn_1_access_key_status,1,partial,Partial Support,Partial Support,True,2.483,Partial Support,

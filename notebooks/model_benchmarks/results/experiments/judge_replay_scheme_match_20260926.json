@@ -1,0 +1,317 @@
+[
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Partial Support",
+  "before": "Strong Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Partial Support",
+  "before": "Weak Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 weak evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Strong Support",
+  "before": "Weak Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Partial Support",
+  "before": "Partial Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Strong Support",
+  "before": "Weak Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Partial Support",
+  "before": "Weak Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Weak Support",
+  "before": "Weak Support",
+  "after": "Weak Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Partial Support",
+  "before": "Weak Support",
+  "after": "Partial Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+  "turn": 1,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+  "turn": 2,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+  "turn": 3,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+  "turn": 4,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ },
+ {
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+  "turn": 5,
+  "expected": "Strong Support",
+  "before": "Strong Support",
+  "after": "Strong Support"
+ }
+]

@@ -1,0 +1,10 @@
+image,readable,width,height,latency_seconds,error
+output/generated_evidence/turn_1/access_key_info.png,True,1200,760,0.0084,
+output/generated_evidence/turn_1/cloudtrail_log_row.png,True,1200,760,0.0004,
+output/generated_evidence/turn_1/iam_activity_row.png,True,1200,760,0.0005,
+output/generated_evidence/turn_2/access_key_review.png,True,1200,760,0.0004,
+output/generated_evidence/turn_2/cloudwatch_correlation_logs.png,True,1200,760,0.0003,
+output/generated_evidence/turn_2/iam_scope_timeline.png,True,1200,760,0.0004,
+output/generated_evidence/turn_3/access_key_containment_review.png,True,1200,760,0.0004,
+output/generated_evidence/turn_3/billing_impact_snapshot.png,True,1200,760,0.0005,
+output/generated_evidence/turn_3/cloudtrail_logging_recovery_check.png,True,1200,760,0.0005,

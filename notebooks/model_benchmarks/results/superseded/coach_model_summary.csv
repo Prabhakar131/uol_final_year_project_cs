@@ -1,0 +1,5 @@
+model_name,cases,avg_score_out_of_5,avg_latency_seconds,avg_word_count,errors
+flan-t5-base,2,2.5,0.164,6.5,0
+flan-t5-small,2,0.5,0.77,7.0,0
+qwen2.5-0.5b-instruct,2,3.5,0.97,36.0,0
+qwen2.5-1.5b-instruct,2,4.0,3.274,62.5,0

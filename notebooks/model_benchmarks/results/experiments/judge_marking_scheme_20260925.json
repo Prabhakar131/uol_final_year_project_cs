@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-25",
+  "purpose": "Stop partial and weak evidence being graded Strong: give the security judge a per-turn marking scheme and require it to copy the facts it grades on. Compare with the judge without a marking scheme on the same screenshot readings.",
+  "code_version": "d13567ec (marking scheme, three levels, anchored actions); recorded before the separate bf16/memory check",
+  "models": {
+    "vlm": "Qwen/Qwen2.5-VL-3B-Instruct (float16 for these readings)",
+    "security": "fdtn-ai/Foundation-Sec-8B-Instruct-Q8_0-GGUF (llama.cpp, Metal)"
+  },
+  "method": "Identity-management scenario, saved incident timeline. Turn 1: the saved turn's three screenshots, judged with the coach-written best action ('Detect IAM Activity') and with the repaired best action ('Check GuardDuty Finding'). Turns 2-5: evidence rebuilt from the timeline with the current code, rendered, read once by the VLM (readings cached and reused for every judge run), judged with the code-written anchor action. Same one-sentence typed justification for every case. Expected verdict = the evidence's authored support role.",
+  "limitations": [
+    "One scenario (identity-management) and one incident timeline.",
+    "Turns 2-5 use the code-written anchor action, not coach-written actions.",
+    "The VLM and judge only; coach feedback and progress changes were not exercised.",
+    "Raw VLM outputs and full judge replies were kept in a temporary folder that was later cleared; the verdict tables below were copied from the run logs printed during the session."
+  ],
+  "before_no_marking_scheme": {
+    "correct": "11/18",
+    "graded_too_high": 4,
+    "graded_too_low": 2,
+    "vlm_failures": 1,
+    "cases": [
+      {"action": "repaired best", "turn": 1, "role": "strong", "template": "guardduty", "verdict": "Strong Support"},
+      {"action": "repaired best", "turn": 1, "role": "partial", "template": "cloudtrail", "verdict": "Partial Support"},
+      {"action": "repaired best", "turn": 1, "role": "weak", "template": "access_key", "verdict": "Strong Support", "note": "judge wrote that billing-sync's access key belonged to j.moreno"},
+      {"action": "coach best", "turn": 1, "role": "strong", "template": "guardduty", "verdict": "Strong Support"},
+      {"action": "coach best", "turn": 1, "role": "partial", "template": "cloudtrail", "verdict": "Partial Support"},
+      {"action": "coach best", "turn": 1, "role": "weak", "template": "access_key", "verdict": "Partial Support", "note": "key attributed to j.moreno"},
+      {"action": "anchor", "turn": 2, "role": "strong", "template": "cloudwatch", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 2, "role": "partial", "template": "cloudtrail", "verdict": "Partial Support"},
+      {"action": "anchor", "turn": 2, "role": "weak", "template": "access_key", "verdict": "Partial Support", "note": "key attributed to j.moreno"},
+      {"action": "anchor", "turn": 3, "role": "strong", "template": "cloudtrail", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 3, "role": "partial", "template": "cloudwatch", "verdict": "VLM FAILED", "note": "float16 overflow; see vlm_bf16_memory_20260925.json"},
+      {"action": "anchor", "turn": 3, "role": "weak", "template": "billing", "verdict": "Weak Support"},
+      {"action": "anchor", "turn": 4, "role": "strong", "template": "access_key", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 4, "role": "partial", "template": "guardduty", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 4, "role": "weak", "template": "billing", "verdict": "Weak Support"},
+      {"action": "anchor", "turn": 5, "role": "strong", "template": "cloudwatch", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 5, "role": "partial", "template": "cloudtrail", "verdict": "Unsupported"},
+      {"action": "anchor", "turn": 5, "role": "weak", "template": "billing", "verdict": "Unsupported"}
+    ]
+  },
+  "iterations_with_marking_scheme": [
+    {"change": "Marking scheme and copied facts; Unsupported checked before the scheme", "correct": "10/18", "graded_too_high": 0, "note": "every miss was partial or weak graded Unsupported"},
+    {"change": "Scheme checked before Unsupported", "correct": "11/18", "graded_too_high": 0},
+    {"change": "IP removed from the anchor action; Unsupported only when no description matches", "correct": "9/18", "graded_too_high": 0},
+    {"change": "Judge framed as an examiner grading against the scheme", "correct": "11/18", "graded_too_high": 0, "note": "3 billing weak items graded Unsupported, which has the same state effect as Weak"},
+    {"change": "Three levels only (Unsupported removed from the live judge)", "correct": "15/18", "graded_too_high": 0},
+    {"change": "Broader anchor action wording ('recent activity around the X call')", "correct": "15/18", "graded_too_high": 0, "note": "same two misses"}
+  ],
+  "after_final": {
+    "correct": "15/18 (15/17 excluding the VLM failure)",
+    "graded_too_high": 0,
+    "graded_too_low": 2,
+    "vlm_failures": 1,
+    "cases": [
+      {"action": "repaired best", "turn": 1, "role": "strong", "verdict": "Strong Support"},
+      {"action": "repaired best", "turn": 1, "role": "partial", "verdict": "Partial Support"},
+      {"action": "repaired best", "turn": 1, "role": "weak", "verdict": "Weak Support", "whose_evidence": "arn:aws:iam::123456789012:role/billing-sync"},
+      {"action": "coach best", "turn": 1, "role": "strong", "verdict": "Strong Support"},
+      {"action": "coach best", "turn": 1, "role": "partial", "verdict": "Partial Support"},
+      {"action": "coach best", "turn": 1, "role": "weak", "verdict": "Weak Support"},
+      {"action": "anchor", "turn": 2, "role": "strong", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 2, "role": "partial", "verdict": "Weak Support", "note": "day-before GetBucketLocation list judged as not showing the BatchImportFindings call"},
+      {"action": "anchor", "turn": 2, "role": "weak", "verdict": "Weak Support"},
+      {"action": "anchor", "turn": 3, "role": "strong", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 3, "role": "partial", "verdict": "VLM FAILED"},
+      {"action": "anchor", "turn": 3, "role": "weak", "verdict": "Weak Support"},
+      {"action": "anchor", "turn": 4, "role": "strong", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 4, "role": "partial", "verdict": "Partial Support"},
+      {"action": "anchor", "turn": 4, "role": "weak", "verdict": "Weak Support"},
+      {"action": "anchor", "turn": 5, "role": "strong", "verdict": "Strong Support"},
+      {"action": "anchor", "turn": 5, "role": "partial", "verdict": "Weak Support", "note": "arguably defensible: the suspect's routine calls do not help verify the responder's DetachUserPolicy"},
+      {"action": "anchor", "turn": 5, "role": "weak", "verdict": "Weak Support"}
+    ]
+  },
+  "conclusion": "Grading too high (the original problem) fell from 4 cases to 0 in every marking-scheme run. Remaining errors are under-grades: the partial 'suspect's normal day' list is graded Weak in turns whose key evidence is also a single call."
+}

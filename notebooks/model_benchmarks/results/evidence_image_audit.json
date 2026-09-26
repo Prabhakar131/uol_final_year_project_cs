@@ -1,0 +1,74 @@
+[
+  {
+    "image": "output/generated_evidence/turn_1/access_key_info.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0084,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_1/cloudtrail_log_row.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0004,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_1/iam_activity_row.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0005,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_2/access_key_review.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0004,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_2/cloudwatch_correlation_logs.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0003,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_2/iam_scope_timeline.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0004,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_3/access_key_containment_review.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0004,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_3/billing_impact_snapshot.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0005,
+    "error": ""
+  },
+  {
+    "image": "output/generated_evidence/turn_3/cloudtrail_logging_recovery_check.png",
+    "readable": true,
+    "width": 1200,
+    "height": 760,
+    "latency_seconds": 0.0005,
+    "error": ""
+  }
+]

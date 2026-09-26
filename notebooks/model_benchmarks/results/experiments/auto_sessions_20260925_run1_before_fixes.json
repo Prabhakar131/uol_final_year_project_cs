@@ -1,0 +1,188 @@
+[
+ {
+  "scenario": "automated-security-response",
+  "path": "strong",
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+  "turns": [
+   {
+    "turn": 1,
+    "action": "Investigate the GuardDuty Finding",
+    "evidence_id": "guardduty_finding",
+    "template": "guardduty",
+    "expected": "Strong Support",
+    "verdict": "Strong Support",
+    "correct": true,
+    "whose_evidence": "arn:aws:iam::123456789012:user/d.okafor",
+    "key_fact": "Persistence:IAMUser/AnomalousBehavior",
+    "reasoning": "The selected evidence shows a High-severity GuardDuty finding of 'Persistence:IAMUser/AnomalousBehavior' for the IAM user 'd.okafor', which directly aligns with the action of reviewing the GuardDuty finding for 'd.okafor'.",
+    "coach_feedback": "** The review of the GuardDuty finding for 'd.okafor' indicates high severity due to persistent anomalous behavior. This finding correlates well with the observed IAM user's activity but lacks detailed information about the specific actions taken. To better understand this incident, correlate the GuardDuty finding with IAM activities and other security signals. **",
+    "state_before": {
+     "containment": 20,
+     "visibility": 35,
+     "risk": "High"
+    },
+    "evaluate_seconds": 270,
+    "http_status": 200,
+    "error": null,
+    "next_turn_generation": "best_valid_attempt",
+    "server_memory_gb": 0.3271484375,
+    "state_after": {
+     "containment": 30,
+     "visibility": 50,
+     "risk": "High"
+    }
+   },
+   {
+    "turn": 2,
+    "action": "Investigate Activity Around UpdateFunctionCode20150331v2",
+    "evidence_id": "cloudwatch_logs_query",
+    "template": "cloudwatch",
+    "expected": "Strong Support",
+    "verdict": "Strong Support",
+    "correct": true,
+    "whose_evidence": "d.okafor",
+    "key_fact": "UpdateFunctionCode20150331v2 success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=function/CheckStateLambda",
+    "reasoning": "The selected evidence shows a CloudWatch Logs Insights Query that reveals a specific event where 'd.okafor' successfully executed the 'UpdateFunctionCode20150331v2' API call from the source IP 198.51.100.1. This directly aligns with the action of investigating recent activity around the 'UpdateFunctionCode20150331v2' call by 'd.okafor'. The event row number 2 clearly indicates this activity, which is the step the decision this turn depends on.",
+    "coach_feedback": "**  \nThe investigation into the 'UpdateFunctionCode20150331v2' call by 'd.okafor' appears thorough but lacks critical context. While the cloud trail logs confirm the successful execution, they don't provide information about the function's current status or any potential risks associated with the update. **",
+    "state_before": {
+     "containment": 30,
+     "visibility": 50,
+     "risk": "High"
+    },
+    "evaluate_seconds": 258,
+    "http_status": 200,
+    "error": null,
+    "next_turn_generation": "best_valid_attempt",
+    "server_memory_gb": 0.32421875,
+    "state_after": {
+     "containment": 40,
+     "visibility": 65,
+     "risk": "Medium"
+    }
+   },
+   {
+    "turn": 3,
+    "action": "Investigate Activity Around PutEvents",
+    "evidence_id": "cloudtrail_event_record",
+    "template": "cloudtrail",
+    "expected": "Strong Support",
+    "verdict": null,
+    "correct": false,
+    "whose_evidence": null,
+    "key_fact": null,
+    "reasoning": null,
+    "coach_feedback": {},
+    "state_before": {
+     "containment": 40,
+     "visibility": 65,
+     "risk": "Medium"
+    },
+    "evaluate_seconds": 55,
+    "http_status": 500,
+    "error": "ValueError: Security feedback failed grounding checks after retry; no progress awarded.",
+    "next_turn_generation": null,
+    "server_memory_gb": 0.3779296875
+   }
+  ],
+  "completed": false,
+  "error": "turn 3 evaluation failed (500): ValueError: Security feedback failed grounding checks after retry; no progress awarded.",
+  "started": "16:41:37",
+  "run_id": "run-97e6c9f5c3c44f1cb18d263a73d9611b",
+  "finished": "16:51:21"
+ },
+ {
+  "scenario": "automated-security-response",
+  "path": "partial",
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+  "turns": [
+   {
+    "turn": 1,
+    "action": "Investigate the GuardDuty Finding",
+    "evidence_id": "cloudtrail_event_record",
+    "template": "cloudtrail",
+    "expected": "Partial Support",
+    "verdict": "Partial Support",
+    "correct": true,
+    "whose_evidence": "User identity: arn:aws::iam::123456789012:user/d.okafor",
+    "key_fact": "Event name: GetObject",
+    "reasoning": "The selected evidence shows a CloudTrail event where the IAM user 'd.okafor' performed a 'GetObject' action from the IP address 203.0.113.41. However, it does not show the High-severity GuardDuty finding 'Persistence:IAMUser/AnomalousBehavior' for 'd.okafor', which is the critical step the decision this turn depends on. Therefore, while related to 'd.okafor', the evidence is incomplete.",
+    "coach_feedback": "** The provided evidence supports the existence of a 'GetObject' operation by 'd.okafor' but lacks the high-severity GuardDuty finding required to fully understand the nature of the anomaly. This information is crucial for determining containment strategies and further investigation into potential persistence issues. **",
+    "state_before": {
+     "containment": 20,
+     "visibility": 35,
+     "risk": "High"
+    },
+    "evaluate_seconds": 275,
+    "http_status": 200,
+    "error": null,
+    "next_turn_generation": "best_valid_attempt",
+    "server_memory_gb": 0.328125,
+    "state_after": {
+     "containment": 24,
+     "visibility": 43,
+     "risk": "High"
+    }
+   },
+   {
+    "turn": 2,
+    "action": "Investigate Activity Around UpdateFunctionCode20150331v2",
+    "evidence_id": "cloudtrail_event_record",
+    "template": "cloudtrail",
+    "expected": "Partial Support",
+    "verdict": "Partial Support",
+    "correct": true,
+    "whose_evidence": "arn:aws::iam::123456789012:user/d.okafor",
+    "key_fact": "Event name: GetObject",
+    "reasoning": "The selected evidence shows a GetObject event by 'd.okafor' from the source IP address 203.0.113.41 on 2023-09-30T09:14:05Z. However, it does not show the specific UpdateFunctionCode20150331v2 call that the action is investigating. Therefore, it provides partial support for the action.",
+    "coach_feedback": "This makes the evidence partially supportive. **",
+    "state_before": {
+     "containment": 24,
+     "visibility": 43,
+     "risk": "High"
+    },
+    "evaluate_seconds": 258,
+    "http_status": 200,
+    "error": null,
+    "next_turn_generation": "best_valid_attempt",
+    "server_memory_gb": 0.3330078125,
+    "state_after": {
+     "containment": 28,
+     "visibility": 51,
+     "risk": "High"
+    }
+   },
+   {
+    "turn": 3,
+    "action": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "evidence_id": "cloudwatch_logs_query",
+    "template": "cloudwatch",
+    "expected": "Partial Support",
+    "verdict": "Partial Support",
+    "correct": true,
+    "whose_evidence": "d.okafor",
+    "key_fact": "GetObject success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41",
+    "reasoning": "The selected evidence shows related activities by d.okafor, such as GetObject, ListObjectsV2, and DescribeInstances, but it does not show the PutEvents call by d.okafor from 198.51.100.1, which is the specific event of interest for this turn's action. Therefore, it provides partial support for the action of reviewing CloudTrail events to understand d.okafor's recent activities.",
+    "coach_feedback": "** The review of CloudTrail events provided valuable insights into d.okafor\u2019s recent activities, showing multiple successful API calls including GetObject, ListObjectsV2, and DescribeInstances. However, it did not capture the critical PutEvents call by d.okafor, which is essential for understanding the context of the incident response. This oversight highlights the importance of thorough investigation beyond just reviewing CloudTrail logs. **",
+    "state_before": {
+     "containment": 28,
+     "visibility": 51,
+     "risk": "High"
+    },
+    "evaluate_seconds": 1185,
+    "http_status": 200,
+    "error": null,
+    "next_turn_generation": "best_valid_attempt",
+    "server_memory_gb": 0.3359375,
+    "state_after": {
+     "containment": 32,
+     "visibility": 59,
+     "risk": "High"
+    }
+   }
+  ],
+  "completed": false,
+  "error": null,
+  "started": "16:51:21",
+  "run_id": "run-ced46a8e054e4c38b5258cefe412b949"
+ }
+]

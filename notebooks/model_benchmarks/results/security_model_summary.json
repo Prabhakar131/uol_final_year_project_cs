@@ -1,0 +1,47 @@
+[
+  {
+    "model_name": "bart-large-mnli",
+    "cases": 12,
+    "accuracy": 0.75,
+    "avg_latency_seconds": 2.403,
+    "total_latency_seconds": 28.836,
+    "unparseable": 0,
+    "errors": 0
+  },
+  {
+    "model_name": "flan-t5-base",
+    "cases": 12,
+    "accuracy": 1.0,
+    "avg_latency_seconds": 0.392,
+    "total_latency_seconds": 4.702,
+    "unparseable": 0,
+    "errors": 0
+  },
+  {
+    "model_name": "flan-t5-small",
+    "cases": 12,
+    "accuracy": 0.75,
+    "avg_latency_seconds": 0.1,
+    "total_latency_seconds": 1.198,
+    "unparseable": 0,
+    "errors": 0
+  },
+  {
+    "model_name": "qwen2.5-0.5b-instruct",
+    "cases": 12,
+    "accuracy": 0.75,
+    "avg_latency_seconds": 0.461,
+    "total_latency_seconds": 5.533,
+    "unparseable": 0,
+    "errors": 0
+  },
+  {
+    "model_name": "qwen2.5-1.5b-instruct",
+    "cases": 12,
+    "accuracy": 1.0,
+    "avg_latency_seconds": 1.411,
+    "total_latency_seconds": 16.927,
+    "unparseable": 0,
+    "errors": 0
+  }
+]

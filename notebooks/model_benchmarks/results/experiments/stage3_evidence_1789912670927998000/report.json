@@ -1,0 +1,118 @@
+{
+  "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "device": "mps",
+  "scope": "Rendered previews and VLM only; no security, coach or app state updates.",
+  "source_sha256": "b50c0fdb6ff9a905452f9144421ccad6bf7c1cc328c94941c70fbe960c77a9e5",
+  "cases": [
+    {
+      "name": "saved_five_rows",
+      "image": "notebooks/model_benchmarks/results/experiments/stage3_evidence_1789912670927998000/saved_five_rows.png",
+      "image_sha256": "f1a7866edcd444107eb268c136ed0546fbf0b9b86636687db4af2fd639936bb9",
+      "facts_preserved": true,
+      "output": {
+        "evidence_type": "cloudwatch",
+        "event_rows": [
+          {
+            "timestamp": "2023-10-01T10:12:0Z",
+            "log_stream": "auth/identity-center",
+            "message": "ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.101.42; mfaAuthenticated=false",
+            "truncated": false
+          },
+          {
+            "timestamp": "2023-10-01T10:18:44Z",
+            "log_stream": "cloudtrail/audit",
+            "message": "ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42",
+            "truncated": false
+          },
+          {
+            "timestamp": "2023-10-01T10:21:35Z",
+            "log_stream": "cloudtrail/audit",
+            "message": "StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test",
+            "truncated": false
+          },
+          {
+            "timestamp": "2023-10-01T10:24:02Z",
+            "log_stream": "iam/credential-monitor",
+            "message": "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active",
+            "truncated": false
+          },
+          {
+            "timestamp": "2023-10-01T10:26:11Z",
+            "log_stream": "security/correlation",
+            "message": "Same source IP 185.220.101.42 observed across authentication and credential events",
+            "truncated": false
+          }
+        ],
+        "query_text": "Insight query showing unauthorized access attempts across various regions.",
+        "time_range": "2023-10-01 10:10-10:30 UTC",
+        "log_group": "/aws/cloudtrail/organization/prod",
+        "matched_records": 5,
+        "visible_facts_extracted": [
+          "Event row 1: {\"timestamp\": \"2023-10-01T10:12:0Z\", \"log_stream\": \"auth/identity-center\", \"message\": \"ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.101.42; mfaAuthenticated=false\", \"truncated\": false}",
+          "Event row 2: {\"timestamp\": \"2023-10-01T10:18:44Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42\", \"truncated\": false}",
+          "Event row 3: {\"timestamp\": \"2023-10-01T10:21:35Z\", \"log_stream\": \"cloudtrail/audit\", \"message\": \"StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test\", \"truncated\": false}",
+          "Event row 4: {\"timestamp\": \"2023-10-01T10:24:02Z\", \"log_stream\": \"iam/credential-monitor\", \"message\": \"CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active\", \"truncated\": false}",
+          "Event row 5: {\"timestamp\": \"2023-10-01T10:26:11Z\", \"log_stream\": \"security/correlation\", \"message\": \"Same source IP 185.220.101.42 observed across authentication and credential events\", \"truncated\": false}",
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "important_visible_fields": [
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /aws/cloudtrail/organization/prod",
+          "Matched records badge: 5 (not the displayed row count)"
+        ],
+        "visible_evidence_summary": "Extracted 5 visible CloudWatch table rows.",
+        "extraction_warnings": []
+      },
+      "checks": {
+        "row_count": true,
+        "row_fields": false,
+        "no_truncation": true,
+        "time_range": true
+      },
+      "elapsed_seconds": 87.46671816600065
+    },
+    {
+      "name": "weak_health_check",
+      "image": "notebooks/model_benchmarks/results/experiments/stage3_evidence_1789912670927998000/weak_health_check.png",
+      "image_sha256": "8e36674018b1a37f9cdeeab66d2f8ec668d3fb433ba141df72734a19e8cf67ea",
+      "facts_preserved": true,
+      "output": {
+        "evidence_type": "cloudwatch",
+        "event_rows": [
+          {
+            "timestamp": "2023-10-01T10:12:10Z",
+            "log_stream": "app/health",
+            "message": "Public endpoint returned HTTP 200",
+            "truncated": false
+          }
+        ],
+        "query_text": "fields @timestamp, @logStream, @message | filter @logStream = 'app/health'",
+        "time_range": "2023-10-01 10:10-10:30 UTC",
+        "log_group": "/app/health",
+        "matched_records": 1,
+        "visible_facts_extracted": [
+          "Event row 1: {\"timestamp\": \"2023-10-01T10:12:10Z\", \"log_stream\": \"app/health\", \"message\": \"Public endpoint returned HTTP 200\", \"truncated\": false}",
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /app/health",
+          "Matched records badge: 1 (not the displayed row count)"
+        ],
+        "important_visible_fields": [
+          "time_range: 2023-10-01 10:10-10:30 UTC",
+          "log_group: /app/health",
+          "Matched records badge: 1 (not the displayed row count)"
+        ],
+        "visible_evidence_summary": "Extracted 1 visible CloudWatch table rows.",
+        "extraction_warnings": []
+      },
+      "checks": {
+        "row_count": true,
+        "row_fields": true,
+        "no_truncation": true,
+        "time_range": true
+      },
+      "elapsed_seconds": 21.971073333001186
+    }
+  ]
+}

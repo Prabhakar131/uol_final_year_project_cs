@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-24",
+  "purpose": "Verify the 8-bit GGUF security model on the stage that stalled and on a saved evaluation",
+  "model": "fdtn-ai/Foundation-Sec-8B-Instruct-Q8_0-GGUF/foundation-sec-8b-instruct-q8_0.gguf via llama-cpp-python 0.3.35 (Metal)",
+  "gguf_sha256": "d0072df70235e92bd996d4efd2347b38c9db530ed83df21f6be3f8958a9832d0 (matches the Hugging Face LFS record)",
+  "swap_used_mb_before_after": [
+    2299.88,
+    2291.88
+  ],
+  "memory_note": "top reports ~1.4 GB because llama.cpp memory-maps the weights; resident use is about 9-10 GB (8.54 GB weights + 8192-token KV cache).",
+  "load_s": 0.8,
+  "generations": [
+    {
+      "seconds": 18.4,
+      "new_tokens": 206,
+      "max_new_tokens": 700
+    },
+    {
+      "seconds": 13.2,
+      "new_tokens": 232,
+      "max_new_tokens": 600
+    }
+  ],
+  "normalise": {
+    "outcome": "parsed",
+    "seconds": 18.4,
+    "result": {
+      "scenario_type": "identity-management",
+      "primary_risk": "User impersonation via public endpoint could lead to unauthorized access and data breaches.",
+      "affected_assets": [
+        "IAM Identity Center",
+        "Public Authentication Endpoint",
+        "IAM Roles"
+      ],
+      "likely_attack_path": [
+        "Attacker intercepts authentication requests, analyzes token structure, and creates forged tokens to impersonate legitimate users."
+      ],
+      "security_signals": [
+        "Unusual authentication patterns detected by AWS WAF",
+        "Multiple failed login attempts from a single IP",
+        "Suspicious token validation failures in CloudTrail logs"
+      ],
+      "investigation_goals": [
+        "Identify and mitigate unauthorized user impersonation attempts"
+      ],
+      "recommended_evidence_sources": [
+        "CloudTrail logs",
+        "AWS WAF logs",
+        "IAM activity logs"
+      ],
+      "hidden_truth_candidates": [
+        "Insufficient token validation mechanisms in place"
+      ]
+    }
+  },
+  "evaluation": {
+    "outcome": "ok",
+    "seconds": 13.2,
+    "verdict_8bit": "Strong Support",
+    "verdict_16bit": "Strong Support",
+    "rows_8bit": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "rows_16bit": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "reasoning_8bit": "The CloudWatch Log Insight Query provides specific IAM activities, including a ConsoleLogin success, ListTrails and StopLogging calls, and a CreateAccessKey event. The same source IP is observed across these events, which is notable and directly relevant to the action of reviewing recent IAM activities to identify potential threats."
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_remaining_costs",
+    "title": "Check Remaining Costs",
+    "description": "Review whether any unusual spend remains after containment.",
+    "recommended_next_focus": "Treat billing as residual impact context, not proof that recovery is complete.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_recovery_and_reporting",
+    "title": "Verify Recovery and Reporting",
+    "description": "Confirm that audit visibility and credential containment are reflected in final evidence.",
+    "recommended_next_focus": "Use recovery logs or final audit records to close the incident cleanly.",
+    "choice_role": "best"
+  },
+  {
+    "id": "summarise_identity_timeline",
+    "title": "Summarise Identity Timeline",
+    "description": "Prepare the final identity timeline for reporting.",
+    "recommended_next_focus": "Use the timeline as support, but include recovery status before closure.",
+    "choice_role": "partial"
+  }
+]

@@ -1,0 +1,6 @@
+name,model_id,cache_dir,size_before_bytes,deleted,error
+qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct,6197911376,False,Skipped deletion because this model is listed in .env production configuration.
+qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct,1999172734,True,
+flan-t5-small,google/flan-t5-small,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small,622178152,True,
+flan-t5-base,google/flan-t5-base,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base,1987134180,True,
+bart-large-mnli,facebook/bart-large-mnli,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli,3264298700,True,

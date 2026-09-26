@@ -1,0 +1,3 @@
+# Windows batch files need CRLF line endings; keep them byte-for-byte.
+*.bat -text
+*.sh text eol=lf

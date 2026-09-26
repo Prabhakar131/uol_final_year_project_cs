@@ -1,0 +1,6 @@
+name,model_id,cache_dir,cached,cache_size_bytes,cache_size_gb
+qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct,True,6197911376,6.198
+qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct,False,0,0.0
+flan-t5-small,google/flan-t5-small,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small,False,0,0.0
+flan-t5-base,google/flan-t5-base,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base,False,0,0.0
+bart-large-mnli,facebook/bart-large-mnli,/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli,False,0,0.0

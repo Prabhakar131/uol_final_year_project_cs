@@ -1,0 +1,17 @@
+task,case_id,source,expected
+coach,turn_1_cloudwatch_insights_query,CloudWatch Log Insight Query,Strong Support
+coach,turn_1_access_key_status,Access Key Status Check,Partial Support
+coach,turn_1_cloudtrail_event,CloudTrail Event Review,Weak Support
+coach,turn_1_unsupported_unrelated,Unrelated Policy Note,Unsupported
+coach,turn_2_access_key_status_check,Access Key Status Check,Partial Support
+coach,turn_2_cloudtrail_event_1,IAM Activity - Cost Management Account,Strong Support
+coach,turn_2_cloudwatch_log_insight_query_result,CloudWatch Log Insight Query Result,Weak Support
+coach,turn_2_unsupported_unrelated,Unrelated Policy Note,Unsupported
+coach,turn_3_cloudtrail_logging_recovery_check,CloudTrail Scope Check,Partial Support
+coach,turn_3_billing_impact_snapshot,Billing Impact Snapshot,Weak Support
+coach,turn_3_guardduty_scope_finding,GuardDuty Scope Finding,Strong Support
+coach,turn_3_unsupported_unrelated,Unrelated Policy Note,Unsupported
+coach,turn_4_containment_monitoring_check,Containment Monitoring Check,Partial Support
+coach,turn_4_containment_billing_context,Containment Billing Context,Weak Support
+coach,turn_4_access_key_containment_review,Access Key Containment Review,Strong Support
+coach,turn_4_unsupported_unrelated,Unrelated Policy Note,Unsupported

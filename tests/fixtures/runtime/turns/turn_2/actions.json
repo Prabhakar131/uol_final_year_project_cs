@@ -1,0 +1,23 @@
+[
+  {
+    "id": "analyze_cloudtrail_logs",
+    "title": "Analyze CloudTrail Logs",
+    "description": "Review the CloudTrail logs for related events to gather more context about the attempted stoplogging operation.",
+    "recommended_next_focus": "Identify patterns or anomalies in the user's activity.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_user_identity",
+    "title": "Investigate User Identity",
+    "description": "Gather details about the user identity including the ARN and any associated credentials.",
+    "recommended_next_focus": "Confirm the legitimacy of the user and investigate potential misuse.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_iam_policies",
+    "title": "Review IAM Policies",
+    "description": "Examine the IAM policies associated with the user identity to understand the scope of access and any restrictions.",
+    "recommended_next_focus": "Identify potential misconfigurations or unnecessary permissions.",
+    "choice_role": "best"
+  }
+]

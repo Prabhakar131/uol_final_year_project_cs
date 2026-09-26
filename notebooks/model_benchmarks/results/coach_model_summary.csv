@@ -1,0 +1,5 @@
+model_name,cases,avg_automated_rubric_score,automated_rubric_max,avg_latency_seconds,avg_word_count,errors,criterion_output_nonempty_pass_rate,criterion_concise_length_20_140_words_pass_rate,criterion_references_selected_evidence_or_action_pass_rate,criterion_uses_support_terminology_pass_rate,criterion_acknowledges_expected_verdict_pass_rate,criterion_proposes_next_investigation_step_pass_rate,criterion_avoids_hidden_truth_leak_pass_rate
+flan-t5-base,16,3.25,7,0.672,9.6,0,1.0,0.0,0.062,0.75,0.0,0.438,1.0
+flan-t5-small,16,1.875,7,2.799,12.2,0,0.625,0.25,0.0,0.0,0.0,0.0,1.0
+qwen2.5-0.5b-instruct,16,5.75,7,1.863,40.3,0,1.0,1.0,0.188,0.938,0.688,0.938,1.0
+qwen2.5-1.5b-instruct,16,5.25,7,3.451,57.9,0,1.0,1.0,0.125,1.0,0.188,0.938,1.0

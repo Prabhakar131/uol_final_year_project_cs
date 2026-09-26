@@ -1,0 +1,122 @@
+[
+  {
+    "task": "vlm",
+    "case_id": "turn_1_cloudwatch_insights_query",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudwatch_insights_query.png",
+    "expected": "partial",
+    "expected_template": "cloudwatch",
+    "expected_keywords": "cloudwatch, log, insight, query, matches, multiple, entries, related"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_1_access_key_info",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/access_key_info.png",
+    "expected": "weak",
+    "expected_template": "access_key",
+    "expected_keywords": "access, key, information, associated, iam, user, marked, inactive"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_1_cloudtrail_log_row",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudtrail_log_row.png",
+    "expected": "strong",
+    "expected_template": "cloudtrail",
+    "expected_keywords": "unauthorized, access, attempt, cloudtrail, log, entry, stop, logging"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_2_access_key_review",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/access_key_review.png",
+    "expected": "partial",
+    "expected_template": "access_key",
+    "expected_keywords": "access, key, review, active, associated, the, suspicious, principal"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_2_iam_scope_timeline",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/iam_scope_timeline.png",
+    "expected": "strong",
+    "expected_template": "iam_activity",
+    "expected_keywords": "iam, scope, timeline, activity, links, login, logging, and"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_2_cloudwatch_correlation_logs",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/cloudwatch_correlation_logs.png",
+    "expected": "weak",
+    "expected_template": "cloudwatch",
+    "expected_keywords": "cloudwatch, correlation, logs, correlate, authentication, cloudtrail, and, credential-monitoring"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_3_billing_impact_snapshot",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/billing_impact_snapshot.png",
+    "expected": "weak",
+    "expected_template": "billing",
+    "expected_keywords": "billing, impact, snapshot, modest, spend, increase, should, checked"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_3_cloudtrail_logging_recovery_check",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/cloudtrail_logging_recovery_check.png",
+    "expected": "partial",
+    "expected_template": "cloudtrail",
+    "expected_keywords": "cloudtrail, scope, check, the, stoplogging, event, must, addressed"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_3_guardduty_scope_finding",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/guardduty_scope_finding.png",
+    "expected": "strong",
+    "expected_template": "guardduty",
+    "expected_keywords": "guardduty, scope, finding, links, the, suspicious, principal, remote"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_4_containment_billing_context",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/containment_billing_context.png",
+    "expected": "weak",
+    "expected_template": "billing",
+    "expected_keywords": "containment, billing, context, modest, spend, increase, during, the"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_4_containment_monitoring_check",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/containment_monitoring_check.png",
+    "expected": "partial",
+    "expected_template": "cloudwatch",
+    "expected_keywords": "containment, monitoring, check, cloudwatch, logs, show, identity-monitoring, alerts"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_4_access_key_containment_review",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/access_key_containment_review.png",
+    "expected": "strong",
+    "expected_template": "access_key",
+    "expected_keywords": "access, key, containment, review, the, affected, principal, has"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_5_final_identity_timeline",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/final_identity_timeline.png",
+    "expected": "partial",
+    "expected_template": "iam_activity",
+    "expected_keywords": "final, identity, timeline, iam, activity, summarises, suspicious, login"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_5_final_billing_snapshot",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/final_billing_snapshot.png",
+    "expected": "weak",
+    "expected_template": "billing",
+    "expected_keywords": "final, billing, snapshot, residual, cost, impact, after, the"
+  },
+  {
+    "task": "vlm",
+    "case_id": "turn_5_final_cloudtrail_recovery_record",
+    "source": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/final_cloudtrail_recovery_record.png",
+    "expected": "strong",
+    "expected_template": "cloudtrail",
+    "expected_keywords": "final, cloudtrail, recovery, record, confirms, logging, and, credential-control"
+  }
+]

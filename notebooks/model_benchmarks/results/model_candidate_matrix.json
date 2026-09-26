@@ -1,0 +1,172 @@
+[
+  {
+    "stage": "vlm",
+    "name": "qwen2.5-vl-3b-instruct",
+    "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "family": "vision-language instruction model",
+    "benchmark_mode": "executed_when_included",
+    "used_in_application": true,
+    "metric": "field extraction and evidence-type alignment",
+    "notes": "Current application VLM. Strong screenshot/layout reader for evidence screenshots."
+  },
+  {
+    "stage": "vlm",
+    "name": "qwen2-vl-2b-instruct",
+    "model_id": "Qwen/Qwen2-VL-2B-Instruct",
+    "family": "smaller vision-language instruction model",
+    "benchmark_mode": "executed_when_included",
+    "used_in_application": false,
+    "metric": "field extraction and latency",
+    "notes": "Smaller Qwen VLM baseline for comparing speed and evidence extraction."
+  },
+  {
+    "stage": "vlm",
+    "name": "llava-onevision-0.5b",
+    "model_id": "llava-hf/llava-onevision-qwen2-0.5b-ov-hf",
+    "family": "small open VLM baseline",
+    "benchmark_mode": "executed_when_included",
+    "used_in_application": false,
+    "metric": "field extraction and hallucination rate",
+    "notes": "Lightweight multimodal baseline for screenshot interpretation."
+  },
+  {
+    "stage": "vlm",
+    "name": "florence-2-base-ft",
+    "model_id": "microsoft/Florence-2-base-ft",
+    "family": "compact OCR/captioning vision-language model",
+    "benchmark_mode": "executed_when_included",
+    "used_in_application": false,
+    "metric": "OCR keyword recall and latency",
+    "notes": "Small Florence-2 candidate for screenshot text extraction; useful CPU-friendly baseline."
+  },
+  {
+    "stage": "security",
+    "name": "qwen2.5-1.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "family": "instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "used_in_application": true,
+    "metric": "support-verdict accuracy and latency",
+    "notes": ""
+  },
+  {
+    "stage": "security",
+    "name": "qwen2.5-0.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "family": "small instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "used_in_application": false,
+    "metric": "support-verdict accuracy and latency",
+    "notes": ""
+  },
+  {
+    "stage": "security",
+    "name": "flan-t5-small",
+    "model_id": "google/flan-t5-small",
+    "family": "small sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "used_in_application": false,
+    "metric": "support-verdict accuracy and latency",
+    "notes": ""
+  },
+  {
+    "stage": "security",
+    "name": "flan-t5-base",
+    "model_id": "google/flan-t5-base",
+    "family": "sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "used_in_application": false,
+    "metric": "support-verdict accuracy and latency",
+    "notes": ""
+  },
+  {
+    "stage": "security",
+    "name": "bart-large-mnli",
+    "model_id": "facebook/bart-large-mnli",
+    "family": "zero-shot NLI classifier",
+    "benchmark_mode": "executed",
+    "used_in_application": false,
+    "metric": "support-verdict accuracy and latency",
+    "notes": ""
+  },
+  {
+    "stage": "coach",
+    "name": "qwen2.5-1.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "family": "instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "used_in_application": true,
+    "metric": "5-point feedback rubric and latency",
+    "notes": ""
+  },
+  {
+    "stage": "coach",
+    "name": "qwen2.5-0.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "family": "small instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "used_in_application": false,
+    "metric": "5-point feedback rubric and latency",
+    "notes": ""
+  },
+  {
+    "stage": "coach",
+    "name": "flan-t5-small",
+    "model_id": "google/flan-t5-small",
+    "family": "small sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "used_in_application": false,
+    "metric": "5-point feedback rubric and latency",
+    "notes": ""
+  },
+  {
+    "stage": "coach",
+    "name": "flan-t5-base",
+    "model_id": "google/flan-t5-base",
+    "family": "sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "used_in_application": false,
+    "metric": "5-point feedback rubric and latency",
+    "notes": ""
+  },
+  {
+    "stage": "stt",
+    "name": "whisper-tiny-en",
+    "model_id": "openai/whisper-tiny.en",
+    "family": "small English speech recognition model",
+    "benchmark_mode": "executed_when_recordings_exist",
+    "used_in_application": false,
+    "metric": "keyword recall, meaning preservation, latency",
+    "notes": "Fast English-only baseline for learner voice recordings."
+  },
+  {
+    "stage": "stt",
+    "name": "whisper-base",
+    "model_id": "openai/whisper-base",
+    "family": "encoder-decoder speech recognition model",
+    "benchmark_mode": "executed_when_recordings_exist",
+    "used_in_application": true,
+    "metric": "keyword recall and meaning preservation",
+    "notes": "Configured locally. The benchmark auto-discovers recorded learner audio samples."
+  },
+  {
+    "stage": "stt",
+    "name": "whisper-base-en",
+    "model_id": "openai/whisper-base.en",
+    "family": "English speech recognition model",
+    "benchmark_mode": "executed_when_recordings_exist",
+    "used_in_application": false,
+    "metric": "keyword recall, meaning preservation, latency",
+    "notes": "English-only base model for comparing against multilingual Whisper Base."
+  },
+  {
+    "stage": "stt",
+    "name": "whisper-small",
+    "model_id": "openai/whisper-small",
+    "family": "larger speech recognition model",
+    "benchmark_mode": "executed_when_recordings_exist",
+    "used_in_application": false,
+    "metric": "keyword recall, meaning preservation, latency",
+    "notes": "Larger Whisper baseline to test whether quality improves enough to justify slower inference."
+  }
+]

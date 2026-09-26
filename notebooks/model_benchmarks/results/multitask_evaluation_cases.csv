@@ -1,0 +1,5 @@
+task,case_id,source,expected
+vlm,turn_1_cloudwatch_insights_query,/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudwatch_insights_query.png,strong
+coach,turn_1_cloudwatch_insights_query,CloudWatch Log Insight Query,Strong Support
+coach,turn_1_access_key_status,Access Key Status Check,Partial Support
+stt,audio_sample_limit,notebooks/model_benchmarks/stt_audio_samples/audio_samples,2 samples

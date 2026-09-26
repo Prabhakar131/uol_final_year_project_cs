@@ -1,0 +1,30 @@
+{
+  "scenario_type": "identity-management",
+  "primary_risk": "Unauthorized access to cloud credentials could lead to unauthorized access across multiple cloud environments.",
+  "affected_assets": [
+    "SecretsManager",
+    "Lambda-CostCollector",
+    "CloudCredentials"
+  ],
+  "likely_attack_path": [
+    "Compromised Lambda function with excessive permissions -> Access Secrets Manager -> Retrieve cloud credentials"
+  ],
+  "security_signals": [
+    "Unusual IAM activity logs",
+    "Access key usage outside normal patterns",
+    "Changes in Secrets Manager access policies"
+  ],
+  "investigation_goals": [
+    "Identify unauthorized access to cloud credentials",
+    "Trace the source of the unauthorized access"
+  ],
+  "recommended_evidence_sources": [
+    "CloudTrail",
+    "IAM activity logs",
+    "GuardDuty alerts",
+    "CloudWatch logs"
+  ],
+  "hidden_truth_candidates": [
+    "IAM roles with overly permissive policies"
+  ]
+}

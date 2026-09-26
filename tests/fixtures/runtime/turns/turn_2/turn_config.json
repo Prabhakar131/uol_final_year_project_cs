@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Continue investigating the unauthorized access attempt. Identify the user identity, examine their IAM policies, and analyze the CloudTrail logs for related events.",
+  "known_context": [
+    "A CloudTrail log entry indicates an attempt to stop logging from an unknown IP address.",
+    "The user admin-test accessed resources through an unverified source IP (185.220.101.42).",
+    "The account ID is 123456789012, and the account is labeled 'Production'."
+  ],
+  "coach_guidance": "Focus on correlating the user identity with other IAM activities and examining the CloudTrail logs for similar attempts."
+}

@@ -1,0 +1,55 @@
+{
+  "date": "2026-09-25",
+  "purpose": "Fix the VLM's float16 overflow crash and its GPU memory peak on the 24 GB Mac (Apple M5 Pro, MPS).",
+  "code_version": "d13567ec",
+  "model": "Qwen/Qwen2.5-VL-3B-Instruct",
+  "limitations": [
+    "One scenario's screenshots (identity-management, 15 images).",
+    "'Facts read' is a rough recall measure (share of each screenshot's rendered fact values found in the VLM output), not the field-accuracy metric the tracker asks for; it does not separate missing, wrong and invented facts.",
+    "Raw VLM outputs were kept in a temporary folder that was later cleared; numbers below were copied from the run logs printed during the session."
+  ],
+  "float16_overflow": {
+    "symptom": "On the turn 3 partial CloudWatch screenshot every generated token was '!' (1400 characters, the token limit). Both extraction attempts failed after about 175 s each, so the evaluation failed.",
+    "cause": "float16's range (max about 65,000) overflowed inside the model on this image; Qwen2.5-VL was trained in bfloat16.",
+    "fix": "Load the VLM in bfloat16 on the GPU (_image_dtype in image_model.py; HF_IMAGE_DTYPE=float16 restores the old behaviour).",
+    "result": "The same screenshot reads in 71 s with no crash."
+  },
+  "float16_vs_bfloat16_on_15_screenshots": {
+    "vlm_failures": {"float16": 1, "bfloat16": 0},
+    "mean_facts_read": {"float16": "80% (14 images)", "bfloat16": "77% (15 images)"},
+    "mean_seconds_per_image_bfloat16": 30,
+    "per_image_facts_read": [
+      {"turn": 1, "role": "partial", "template": "cloudtrail", "float16": 0.50, "bfloat16": 0.54, "seconds": 31},
+      {"turn": 1, "role": "strong", "template": "guardduty", "float16": 0.75, "bfloat16": 0.88, "seconds": 25},
+      {"turn": 1, "role": "weak", "template": "access_key", "float16": 1.00, "bfloat16": 1.00, "seconds": 27},
+      {"turn": 2, "role": "strong", "template": "cloudwatch", "float16": 0.82, "bfloat16": 0.82, "seconds": 46},
+      {"turn": 2, "role": "partial", "template": "cloudtrail", "float16": 0.50, "bfloat16": 0.50, "seconds": 24},
+      {"turn": 2, "role": "weak", "template": "access_key", "float16": 1.00, "bfloat16": 1.00, "seconds": 23},
+      {"turn": 3, "role": "strong", "template": "cloudtrail", "float16": 0.61, "bfloat16": 0.39, "seconds": 31},
+      {"turn": 3, "role": "partial", "template": "cloudwatch", "float16": null, "bfloat16": 0.64, "seconds": 71, "note": "float16 crashed"},
+      {"turn": 3, "role": "weak", "template": "billing", "float16": 1.00, "bfloat16": 1.00, "seconds": 15},
+      {"turn": 4, "role": "strong", "template": "access_key", "float16": 0.86, "bfloat16": 0.86, "seconds": 30},
+      {"turn": 4, "role": "partial", "template": "guardduty", "float16": 0.86, "bfloat16": 0.86, "seconds": 27},
+      {"turn": 4, "role": "weak", "template": "billing", "float16": 1.00, "bfloat16": 1.00, "seconds": 17},
+      {"turn": 5, "role": "strong", "template": "cloudwatch", "float16": 0.82, "bfloat16": 0.64, "seconds": 38},
+      {"turn": 5, "role": "partial", "template": "cloudtrail", "float16": 0.50, "bfloat16": 0.50, "seconds": 26},
+      {"turn": 5, "role": "weak", "template": "billing", "float16": 1.00, "bfloat16": 1.00, "seconds": 18}
+    ],
+    "judge_on_bfloat16_readings": {
+      "correct": "12/15",
+      "graded_too_high": 0,
+      "misses": "turn 2, 3 and 5 partial graded Weak. Turn 3 first failed grounding because the judge wrote an absence ('no direct AttachUserPolicy call shown') as its key fact; Weak verdicts now clear such a copy instead of failing."
+    }
+  },
+  "gpu_memory_peak": {
+    "measurement": "torch.mps.current_allocated_memory (live tensors) and torch.mps.driver_allocated_memory (Metal total, including the allocator's cached free blocks), sampled every 0.05-0.1 s; turn 2 CloudWatch then CloudTrail screenshot.",
+    "before": {"live_tensors_peak_gb": 9.5, "driver_peak_gb": 32.4, "when": "CloudTrail answer generation (live tensors 7.6 GB at that moment)", "swap_growth_gb": 1.5},
+    "float16_and_bfloat16_identical": {"float16_driver_peak_gb": 32.4, "bfloat16_driver_peak_gb": 32.3, "loaded_gb": {"float16": 8.0, "bfloat16": 7.9}},
+    "cause": "Generation grows the key/value cache one token at a time; the MPS allocator kept every freed buffer until generation ended. CloudWatch screenshots peak around 11.7 GB, which is why an earlier 15 GB measurement on CloudWatch did not show it.",
+    "fix": "_ReturnFreedMpsMemory calls torch.mps.empty_cache() every 32 generated tokens (HF_IMAGE_MPS_RELEASE_EVERY).",
+    "after": {"driver_peak_gb": 12.7, "swap_growth_gb": 0},
+    "generation_seconds": {"cloudwatch": {"before": 32.0, "after": 32.6}, "cloudtrail": {"before": 38.4, "after": 33.2}},
+    "output_unchanged": "Generated token counts identical before and after (CloudWatch 382, CloudTrail 332); the fix returns memory only.",
+    "other_models": {"coach_qwen2.5_1.5b": "900 tokens in 87 s; live 3.1 GB, driver 5.2 GB; no fix needed", "security_model": "runs in llama.cpp (Metal), not PyTorch MPS"}
+  }
+}

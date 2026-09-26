@@ -1,0 +1,6 @@
+task,case_id,source,expected,expected_template,expected_keywords
+vlm,turn_1_cloudwatch_insights_query,/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudwatch_insights_query.png,strong,cloudwatch,"cloudwatch, log, insight, query, execute, logs, insights, analyze"
+vlm,turn_1_access_key_status,/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/access_key_status.png,partial,access_key,"access, key, status, check, review, the, keys, associated"
+vlm,turn_1_cloudtrail_event,/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudtrail_event.png,weak,cloudtrail,"cloudtrail, event, review, logs, for, recent, events, involving"
+vlm,turn_2_access_key_status_check,/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/access_key_status_check.png,partial,access_key,"access, key, status, check, keys, involved, the, iam"
+vlm,turn_2_cloudtrail_event_1,/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/cloudtrail_event_1.png,strong,cloudtrail,"iam, activity, cost, management, account, logs, show, multiple"

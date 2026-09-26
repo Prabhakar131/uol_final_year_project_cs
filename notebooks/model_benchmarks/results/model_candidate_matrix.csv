@@ -1,0 +1,18 @@
+stage,name,model_id,family,benchmark_mode,used_in_application,metric,notes
+vlm,qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,vision-language instruction model,executed_when_included,True,field extraction and evidence-type alignment,Current application VLM. Strong screenshot/layout reader for evidence screenshots.
+vlm,qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,smaller vision-language instruction model,executed_when_included,False,field extraction and latency,Smaller Qwen VLM baseline for comparing speed and evidence extraction.
+vlm,llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,small open VLM baseline,executed_when_included,False,field extraction and hallucination rate,Lightweight multimodal baseline for screenshot interpretation.
+vlm,florence-2-base-ft,microsoft/Florence-2-base-ft,compact OCR/captioning vision-language model,executed_when_included,False,OCR keyword recall and latency,Small Florence-2 candidate for screenshot text extraction; useful CPU-friendly baseline.
+security,qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,instruction-tuned causal LM,executed,True,support-verdict accuracy and latency,
+security,qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,small instruction-tuned causal LM,executed,False,support-verdict accuracy and latency,
+security,flan-t5-small,google/flan-t5-small,small sequence-to-sequence instruction model,executed,False,support-verdict accuracy and latency,
+security,flan-t5-base,google/flan-t5-base,sequence-to-sequence instruction model,executed,False,support-verdict accuracy and latency,
+security,bart-large-mnli,facebook/bart-large-mnli,zero-shot NLI classifier,executed,False,support-verdict accuracy and latency,
+coach,qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,instruction-tuned causal LM,executed,True,5-point feedback rubric and latency,
+coach,qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,small instruction-tuned causal LM,executed,False,5-point feedback rubric and latency,
+coach,flan-t5-small,google/flan-t5-small,small sequence-to-sequence instruction model,executed,False,5-point feedback rubric and latency,
+coach,flan-t5-base,google/flan-t5-base,sequence-to-sequence instruction model,executed,False,5-point feedback rubric and latency,
+stt,whisper-tiny-en,openai/whisper-tiny.en,small English speech recognition model,executed_when_recordings_exist,False,"keyword recall, meaning preservation, latency",Fast English-only baseline for learner voice recordings.
+stt,whisper-base,openai/whisper-base,encoder-decoder speech recognition model,executed_when_recordings_exist,True,keyword recall and meaning preservation,Configured locally. The benchmark auto-discovers recorded learner audio samples.
+stt,whisper-base-en,openai/whisper-base.en,English speech recognition model,executed_when_recordings_exist,False,"keyword recall, meaning preservation, latency",English-only base model for comparing against multilingual Whisper Base.
+stt,whisper-small,openai/whisper-small,larger speech recognition model,executed_when_recordings_exist,False,"keyword recall, meaning preservation, latency",Larger Whisper baseline to test whether quality improves enough to justify slower inference.

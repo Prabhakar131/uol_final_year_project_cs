@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+
+# Local runtime/cache outputs
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local scenario backups and saved test runs (export selected runs for submission).
+backups/
+data/runs/

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "foundation-sec-8b-base",
+    "model_id": "fdtn-ai/Foundation-Sec-8B",
+    "reason": "not selected for this batch",
+    "benchmark_mode": "candidate_not_downloaded"
+  },
+  {
+    "name": "cyberpal2-20b",
+    "model_id": "cyber-pal-security/CyberPal2.0-20B",
+    "reason": "not selected for this batch",
+    "benchmark_mode": "candidate_not_downloaded"
+  },
+  {
+    "name": "cybersecqwen-4b",
+    "model_id": "athena129/CyberSecQwen-4B",
+    "reason": "not selected for this batch",
+    "benchmark_mode": "candidate_not_downloaded"
+  },
+  {
+    "name": "lily-cybersecurity-7b-v0.2",
+    "model_id": "segolilylabs/Lily-Cybersecurity-7B-v0.2",
+    "reason": "not selected for this batch",
+    "benchmark_mode": "candidate_not_downloaded"
+  }
+]

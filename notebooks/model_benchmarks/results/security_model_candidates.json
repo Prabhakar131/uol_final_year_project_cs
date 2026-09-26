@@ -1,0 +1,122 @@
+[
+  {
+    "selected_for_run": true,
+    "used_in_application": true,
+    "name": "foundation-sec-8b-instruct",
+    "model_id": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "family": "cybersecurity-focused instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "Current application security model. Cybersecurity-focused model for SOC, incident response, and security workflow reasoning.",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--fdtn-ai--Foundation-Sec-8B-Instruct",
+    "cache_size_bytes": 32162981114
+  },
+  {
+    "selected_for_run": true,
+    "used_in_application": false,
+    "name": "qwen2.5-1.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "family": "general instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "Previous application security model; retained as a general-purpose baseline.",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct",
+    "cache_size_bytes": 6197911376
+  },
+  {
+    "selected_for_run": true,
+    "used_in_application": false,
+    "name": "qwen2.5-0.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "family": "small general instruction-tuned causal LM",
+    "benchmark_mode": "executed",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct",
+    "cache_size_bytes": 1999172734
+  },
+  {
+    "selected_for_run": true,
+    "used_in_application": false,
+    "name": "flan-t5-small",
+    "model_id": "google/flan-t5-small",
+    "family": "small sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small",
+    "cache_size_bytes": 622178152
+  },
+  {
+    "selected_for_run": true,
+    "used_in_application": false,
+    "name": "flan-t5-base",
+    "model_id": "google/flan-t5-base",
+    "family": "sequence-to-sequence instruction model",
+    "benchmark_mode": "executed",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base",
+    "cache_size_bytes": 1987134180
+  },
+  {
+    "selected_for_run": true,
+    "used_in_application": false,
+    "name": "bart-large-mnli",
+    "model_id": "facebook/bart-large-mnli",
+    "family": "zero-shot NLI classifier",
+    "benchmark_mode": "executed",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli",
+    "cache_size_bytes": 3264298700
+  },
+  {
+    "selected_for_run": false,
+    "used_in_application": false,
+    "name": "foundation-sec-8b-base",
+    "model_id": "fdtn-ai/Foundation-Sec-8B",
+    "family": "cybersecurity-focused base causal LM",
+    "benchmark_mode": "candidate_not_downloaded",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "Cybersecurity base model from Cisco Foundation AI; less instruction-optimised than Foundation-Sec-8B-Instruct.",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--fdtn-ai--Foundation-Sec-8B",
+    "cache_size_bytes": 0
+  },
+  {
+    "selected_for_run": false,
+    "used_in_application": false,
+    "name": "cyberpal2-20b",
+    "model_id": "cyber-pal-security/CyberPal2.0-20B",
+    "family": "cybersecurity-expert instruction-tuned causal LM",
+    "benchmark_mode": "candidate_not_downloaded",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "SOC/IR, CTI, vulnerability, CWE/CVE, and MITRE ATT&CK focused model; likely too large for the local prototype.",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--cyber-pal-security--CyberPal2.0-20B",
+    "cache_size_bytes": 0
+  },
+  {
+    "selected_for_run": false,
+    "used_in_application": false,
+    "name": "cybersecqwen-4b",
+    "model_id": "athena129/CyberSecQwen-4B",
+    "family": "cybersecurity-specialised Qwen-derived instruction model",
+    "benchmark_mode": "candidate_not_downloaded",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "Defensive cybersecurity model focused on CTI-Bench tasks such as CWE mapping and CTI multiple-choice reasoning.",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--athena129--CyberSecQwen-4B",
+    "cache_size_bytes": 0
+  },
+  {
+    "selected_for_run": false,
+    "used_in_application": false,
+    "name": "lily-cybersecurity-7b-v0.2",
+    "model_id": "segolilylabs/Lily-Cybersecurity-7B-v0.2",
+    "family": "cybersecurity-specialised causal LM",
+    "benchmark_mode": "candidate_not_downloaded",
+    "metric": "support-verdict accuracy and latency",
+    "notes": "Cybersecurity text-generation model candidate; included for evaluation discussion only.",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--segolilylabs--Lily-Cybersecurity-7B-v0.2",
+    "cache_size_bytes": 0
+  }
+]

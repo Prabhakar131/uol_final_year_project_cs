@@ -1,0 +1,3 @@
+task,case_id,source,expected
+coach,turn_1_cloudwatch_insights_query,CloudWatch Log Insight Query,Strong Support
+coach,turn_1_access_key_status,Access Key Status Check,Partial Support

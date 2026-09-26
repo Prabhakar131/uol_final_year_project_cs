@@ -1,0 +1,54 @@
+[
+  {
+    "model_name": "whisper-base",
+    "model_id": "openai/whisper-base",
+    "samples": 8,
+    "mean_wer": 1.5024,
+    "median_wer": 1.1666,
+    "min_wer": 0.52,
+    "max_wer": 4.913,
+    "meaning_preservation_rate": 0.5,
+    "avg_keyword_recall": 0.425,
+    "avg_latency_seconds": 1.131,
+    "errors": 0
+  },
+  {
+    "model_name": "whisper-base-en",
+    "model_id": "openai/whisper-base.en",
+    "samples": 8,
+    "mean_wer": 0.9556,
+    "median_wer": 0.9148,
+    "min_wer": 0.52,
+    "max_wer": 1.4211,
+    "meaning_preservation_rate": 0.75,
+    "avg_keyword_recall": 0.625,
+    "avg_latency_seconds": 0.487,
+    "errors": 0
+  },
+  {
+    "model_name": "whisper-small",
+    "model_id": "openai/whisper-small",
+    "samples": 8,
+    "mean_wer": 0.9662,
+    "median_wer": 0.9574,
+    "min_wer": 0.52,
+    "max_wer": 1.4211,
+    "meaning_preservation_rate": 0.75,
+    "avg_keyword_recall": 0.625,
+    "avg_latency_seconds": 2.325,
+    "errors": 0
+  },
+  {
+    "model_name": "whisper-tiny-en",
+    "model_id": "openai/whisper-tiny.en",
+    "samples": 8,
+    "mean_wer": 0.9662,
+    "median_wer": 0.9574,
+    "min_wer": 0.52,
+    "max_wer": 1.4211,
+    "meaning_preservation_rate": 0.75,
+    "avg_keyword_recall": 0.625,
+    "avg_latency_seconds": 0.283,
+    "errors": 0
+  }
+]

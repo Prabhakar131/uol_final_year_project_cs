@@ -1,0 +1,13 @@
+selected_for_run,stage,used_in_application,name,model_id,family,benchmark_mode,metric,cached,cache_size_gb,notes
+True,vlm,True,qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,vision-language instruction model,executed_when_included,field extraction and evidence-type alignment,True,15.042,Current application VLM. Strong screenshot/layout reader for evidence screenshots.
+True,vlm,False,qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,smaller vision-language instruction model,executed_when_included,field extraction and latency,True,8.859,Smaller Qwen VLM baseline for comparing speed and evidence extraction.
+True,vlm,False,llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,small open VLM baseline,executed_when_included,field extraction and hallucination rate,False,0.0,Lightweight multimodal baseline for screenshot interpretation.
+True,vlm,False,florence-2-base-ft,microsoft/Florence-2-base-ft,compact OCR/captioning vision-language model,executed_when_included,OCR keyword recall and latency,False,0.0,Small Florence-2 candidate for screenshot text extraction; useful CPU-friendly baseline.
+True,coach,True,qwen2.5-1.5b-instruct,Qwen/Qwen2.5-1.5B-Instruct,instruction-tuned causal LM,executed,5-point feedback rubric and latency,True,6.198,
+True,coach,False,qwen2.5-0.5b-instruct,Qwen/Qwen2.5-0.5B-Instruct,small instruction-tuned causal LM,executed,5-point feedback rubric and latency,False,0.0,
+True,coach,False,flan-t5-small,google/flan-t5-small,small sequence-to-sequence instruction model,executed,5-point feedback rubric and latency,False,0.0,
+True,coach,False,flan-t5-base,google/flan-t5-base,sequence-to-sequence instruction model,executed,5-point feedback rubric and latency,False,0.0,
+True,stt,False,whisper-tiny-en,openai/whisper-tiny.en,small English speech recognition model,executed_when_recordings_exist,"keyword recall, meaning preservation, latency",False,0.0,Fast English-only baseline for learner voice recordings.
+True,stt,True,whisper-base,openai/whisper-base,encoder-decoder speech recognition model,executed_when_recordings_exist,keyword recall and meaning preservation,True,0.59,Configured locally. The benchmark auto-discovers recorded learner audio samples.
+True,stt,False,whisper-base-en,openai/whisper-base.en,English speech recognition model,executed_when_recordings_exist,"keyword recall, meaning preservation, latency",False,0.0,English-only base model for comparing against multilingual Whisper Base.
+True,stt,False,whisper-small,openai/whisper-small,larger speech recognition model,executed_when_recordings_exist,"keyword recall, meaning preservation, latency",False,0.0,Larger Whisper baseline to test whether quality improves enough to justify slower inference.

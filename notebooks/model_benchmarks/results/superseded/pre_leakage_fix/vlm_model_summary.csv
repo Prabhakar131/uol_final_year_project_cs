@@ -1,0 +1,5 @@
+model_name,cases,support_role_accuracy,avg_keyword_recall,avg_latency_seconds,errors
+florence-2-base-ft,5,0.0,0.575,2.879,0
+llava-onevision-0.5b,5,0.0,0.05,111.741,0
+qwen2-vl-2b-instruct,5,0.4,0.275,96.589,0
+qwen2.5-vl-3b-instruct,5,0.4,0.4,127.972,0

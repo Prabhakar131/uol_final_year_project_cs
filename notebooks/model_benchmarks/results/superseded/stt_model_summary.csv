@@ -1,0 +1,5 @@
+model_name,model_id,samples,meaning_preservation_rate,avg_keyword_recall,avg_latency_seconds,errors
+whisper-base,openai/whisper-base,2,0.0,0.2,0.686,0
+whisper-base-en,openai/whisper-base.en,2,0.0,0.4,0.513,0
+whisper-small,openai/whisper-small,2,0.0,0.4,1.32,0
+whisper-tiny-en,openai/whisper-tiny.en,2,0.0,0.4,0.271,0

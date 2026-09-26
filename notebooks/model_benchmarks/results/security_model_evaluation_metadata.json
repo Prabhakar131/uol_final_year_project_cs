@@ -1,0 +1,202 @@
+{
+  "generated_at": "2026-08-16T13:32:05",
+  "batch_name": "security-full-20case-run-leakfree",
+  "project_root": "/Users/karunanidhiprabhakar/Desktop/FYP",
+  "python": "3.11.8",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "torch": "2.5.1",
+  "cuda_available": false,
+  "mps_available": true,
+  "allow_downloads": true,
+  "metadata_only": false,
+  "cache_budget_gb": 25.0,
+  "delete_selected_cache_after_run": false,
+  "selected_cache_size_gb_before": 46.234,
+  "case_count": 20,
+  "selected_models": [
+    {
+      "name": "foundation-sec-8b-instruct",
+      "model_id": "fdtn-ai/Foundation-Sec-8B-Instruct",
+      "family": "cybersecurity-focused instruction-tuned causal LM"
+    },
+    {
+      "name": "qwen2.5-1.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "family": "general instruction-tuned causal LM"
+    },
+    {
+      "name": "qwen2.5-0.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "family": "small general instruction-tuned causal LM"
+    },
+    {
+      "name": "flan-t5-small",
+      "model_id": "google/flan-t5-small",
+      "family": "small sequence-to-sequence instruction model"
+    },
+    {
+      "name": "flan-t5-base",
+      "model_id": "google/flan-t5-base",
+      "family": "sequence-to-sequence instruction model"
+    },
+    {
+      "name": "bart-large-mnli",
+      "model_id": "facebook/bart-large-mnli",
+      "family": "zero-shot NLI classifier"
+    }
+  ],
+  "skipped_models": [
+    {
+      "name": "foundation-sec-8b-base",
+      "model_id": "fdtn-ai/Foundation-Sec-8B",
+      "reason": "not selected for this batch",
+      "benchmark_mode": "candidate_not_downloaded"
+    },
+    {
+      "name": "cyberpal2-20b",
+      "model_id": "cyber-pal-security/CyberPal2.0-20B",
+      "reason": "not selected for this batch",
+      "benchmark_mode": "candidate_not_downloaded"
+    },
+    {
+      "name": "cybersecqwen-4b",
+      "model_id": "athena129/CyberSecQwen-4B",
+      "reason": "not selected for this batch",
+      "benchmark_mode": "candidate_not_downloaded"
+    },
+    {
+      "name": "lily-cybersecurity-7b-v0.2",
+      "model_id": "segolilylabs/Lily-Cybersecurity-7B-v0.2",
+      "reason": "not selected for this batch",
+      "benchmark_mode": "candidate_not_downloaded"
+    }
+  ],
+  "cache_before": [
+    {
+      "name": "foundation-sec-8b-instruct",
+      "model_id": "fdtn-ai/Foundation-Sec-8B-Instruct",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--fdtn-ai--Foundation-Sec-8B-Instruct",
+      "cached": true,
+      "cache_size_bytes": 32162981114,
+      "cache_size_gb": 32.163
+    },
+    {
+      "name": "qwen2.5-1.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct",
+      "cached": true,
+      "cache_size_bytes": 6197911376,
+      "cache_size_gb": 6.198
+    },
+    {
+      "name": "qwen2.5-0.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct",
+      "cached": true,
+      "cache_size_bytes": 1999172734,
+      "cache_size_gb": 1.999
+    },
+    {
+      "name": "flan-t5-small",
+      "model_id": "google/flan-t5-small",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small",
+      "cached": true,
+      "cache_size_bytes": 622178152,
+      "cache_size_gb": 0.622
+    },
+    {
+      "name": "flan-t5-base",
+      "model_id": "google/flan-t5-base",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base",
+      "cached": true,
+      "cache_size_bytes": 1987134180,
+      "cache_size_gb": 1.987
+    },
+    {
+      "name": "bart-large-mnli",
+      "model_id": "facebook/bart-large-mnli",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli",
+      "cached": true,
+      "cache_size_bytes": 3264298700,
+      "cache_size_gb": 3.264
+    }
+  ],
+  "verified_artifacts": [
+    {
+      "artifact": "security_model_candidates.csv",
+      "exists": true,
+      "size_bytes": 3241
+    },
+    {
+      "artifact": "security_evaluation_cases.csv",
+      "exists": true,
+      "size_bytes": 2491
+    },
+    {
+      "artifact": "security_model_focused_results.csv",
+      "exists": true,
+      "size_bytes": 17261
+    },
+    {
+      "artifact": "security_model_focused_summary.csv",
+      "exists": true,
+      "size_bytes": 354
+    },
+    {
+      "artifact": "security_model_evaluation_metadata.json",
+      "exists": true,
+      "size_bytes": 4041
+    }
+  ],
+  "cache_after": [
+    {
+      "name": "foundation-sec-8b-instruct",
+      "model_id": "fdtn-ai/Foundation-Sec-8B-Instruct",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--fdtn-ai--Foundation-Sec-8B-Instruct",
+      "cached": true,
+      "cache_size_bytes": 32162981114,
+      "cache_size_gb": 32.163
+    },
+    {
+      "name": "qwen2.5-1.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct",
+      "cached": true,
+      "cache_size_bytes": 6197911376,
+      "cache_size_gb": 6.198
+    },
+    {
+      "name": "qwen2.5-0.5b-instruct",
+      "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct",
+      "cached": true,
+      "cache_size_bytes": 1999172734,
+      "cache_size_gb": 1.999
+    },
+    {
+      "name": "flan-t5-small",
+      "model_id": "google/flan-t5-small",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small",
+      "cached": true,
+      "cache_size_bytes": 622178152,
+      "cache_size_gb": 0.622
+    },
+    {
+      "name": "flan-t5-base",
+      "model_id": "google/flan-t5-base",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base",
+      "cached": true,
+      "cache_size_bytes": 1987134180,
+      "cache_size_gb": 1.987
+    },
+    {
+      "name": "bart-large-mnli",
+      "model_id": "facebook/bart-large-mnli",
+      "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli",
+      "cached": true,
+      "cache_size_bytes": 3264298700,
+      "cache_size_gb": 3.264
+    }
+  ],
+  "deletions": []
+}

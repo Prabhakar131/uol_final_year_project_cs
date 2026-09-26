@@ -1,0 +1,32 @@
+{
+  "scenario_type": "identity-management",
+  "primary_risk": "Unauthorized access to remediation role could lead to broad AWS account compromise.",
+  "affected_assets": [
+    "RemediationRole",
+    "Admin Account",
+    "Member Account"
+  ],
+  "likely_attack_path": [
+    "Compromise member account -> Create malicious Security Hub finding -> Exploit broad permissions in RemediationRole -> Access or modify resources"
+  ],
+  "security_signals": [
+    "Unusual IAM activity in RemediationRole",
+    "Creation of multiple Security Hub findings from a single account",
+    "Unexpected changes in AWS resource configurations"
+  ],
+  "investigation_goals": [
+    "Identify the source of unauthorized IAM activity in the RemediationRole",
+    "Trace the sequence of events leading to the exploitation of the RemediationRole",
+    "Review and tighten permissions associated with the RemediationRole"
+  ],
+  "recommended_evidence_sources": [
+    "CloudTrail logs for IAM activity",
+    "GuardDuty findings",
+    "CloudWatch logs for AWS Config changes",
+    "Access key usage logs",
+    "Billing logs for unusual activity"
+  ],
+  "hidden_truth_candidates": [
+    "The remediation role's broad permissions were configured using AWS managed policies without proper review."
+  ]
+}

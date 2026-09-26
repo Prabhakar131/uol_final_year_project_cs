@@ -1,0 +1,28 @@
+[
+  {
+    "model_name": "whisper-base",
+    "model_id": "openai/whisper-base",
+    "sample_id": "partial_iam_activity",
+    "expected_text": "The IAM activity gives partial support because it shows suspicious API calls, but it does not prove the full attack path on its own.",
+    "transcript": "Iaam, aktiviti, timeline, periksaan, kerana berada di tempat, persoan dan periksaan, tapi saya masih perlu mempunyai periksaan yang berada di tempat, untuk menggunakan IP dan event.",
+    "expected_keywords": "iam, activity, partial, api calls, attack path",
+    "matched_keywords": "",
+    "keyword_recall": 0.0,
+    "meaning_preserved": false,
+    "latency_seconds": 0.916,
+    "error": ""
+  },
+  {
+    "model_name": "whisper-base",
+    "model_id": "openai/whisper-base",
+    "sample_id": "partial_cloudwatch_correlation",
+    "expected_text": "The CloudWatch correlation gives partial support because it helps confirm the timeline, but it still needs CloudTrail or IAM evidence.",
+    "transcript": "CloudWatch Correlation logs are useful contacts, but they only partly support the containment decision unless I can connect the log entries to the IAM user and access key.",
+    "expected_keywords": "cloudwatch, correlation, partial, timeline, cloudtrail",
+    "matched_keywords": "cloudwatch, correlation",
+    "keyword_recall": 0.4,
+    "meaning_preserved": false,
+    "latency_seconds": 0.551,
+    "error": ""
+  }
+]

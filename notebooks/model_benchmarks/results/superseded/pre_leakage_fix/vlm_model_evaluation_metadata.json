@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-08-16T23:17:07",
+  "batch_name": "vlm-candidate-comparison-cpu-tokenfix-v3-florencefix",
+  "task": "vlm",
+  "project_root": "/Users/karunanidhiprabhakar/Desktop/FYP",
+  "python": "3.11.8",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "torch": "2.5.1",
+  "cuda_available": false,
+  "mps_available": true,
+  "allow_downloads": true,
+  "metadata_only": false,
+  "case_count": 5,
+  "selected_models": [
+    {
+      "name": "qwen2.5-vl-3b-instruct",
+      "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+      "family": "vision-language instruction model"
+    },
+    {
+      "name": "qwen2-vl-2b-instruct",
+      "model_id": "Qwen/Qwen2-VL-2B-Instruct",
+      "family": "smaller vision-language instruction model"
+    },
+    {
+      "name": "llava-onevision-0.5b",
+      "model_id": "llava-hf/llava-onevision-qwen2-0.5b-ov-hf",
+      "family": "small open VLM baseline"
+    },
+    {
+      "name": "florence-2-base-ft",
+      "model_id": "microsoft/Florence-2-base-ft",
+      "family": "compact OCR/captioning vision-language model"
+    }
+  ],
+  "max_new_tokens": 220,
+  "verified_artifacts": [
+    {
+      "artifact": "vlm_model_candidates.csv",
+      "exists": true,
+      "size_bytes": 1119
+    },
+    {
+      "artifact": "vlm_model_cases.csv",
+      "exists": true,
+      "size_bytes": 1123
+    },
+    {
+      "artifact": "vlm_model_results.csv",
+      "exists": true,
+      "size_bytes": 14892
+    },
+    {
+      "artifact": "vlm_model_summary.csv",
+      "exists": true,
+      "size_bytes": 256
+    },
+    {
+      "artifact": "vlm_model_evaluation_metadata.json",
+      "exists": true,
+      "size_bytes": 1633
+    }
+  ]
+}

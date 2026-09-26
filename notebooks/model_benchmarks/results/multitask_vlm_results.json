@@ -1,0 +1,18 @@
+[
+  {
+    "model_name": "qwen2.5-vl-3b-instruct",
+    "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "case_id": "turn_1_cloudwatch_insights_query",
+    "turn": 1,
+    "expected_template": "cloudwatch",
+    "expected_support_role": "strong",
+    "predicted_support_role": "unparseable",
+    "support_role_correct": false,
+    "expected_keywords": "cloudwatch, log, insight, query, execute, logs, insights, analyze",
+    "matched_keywords": "cloudwatch, log, insight, query, insights",
+    "keyword_recall": 0.625,
+    "latency_seconds": 54.658,
+    "output_text": "```json\n{\n  \"evidence_type\": \"CloudWatch Log Insights Query\",\n  \"visible_facts\": {\n    \"query_completed\": true,\n    \"matched_records\": 2,\n    \"log_group\": \"aws_cost_management\",\n    \"time_range\": \"2023-01-01T00:00Z to 2023-1",
+    "error": ""
+  }
+]

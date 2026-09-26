@@ -1,0 +1,34 @@
+[
+  {
+    "model_name": "florence-2-base-ft",
+    "cases": 5,
+    "support_role_accuracy": 0.0,
+    "avg_keyword_recall": 0.575,
+    "avg_latency_seconds": 2.879,
+    "errors": 0
+  },
+  {
+    "model_name": "llava-onevision-0.5b",
+    "cases": 5,
+    "support_role_accuracy": 0.0,
+    "avg_keyword_recall": 0.05,
+    "avg_latency_seconds": 111.741,
+    "errors": 0
+  },
+  {
+    "model_name": "qwen2-vl-2b-instruct",
+    "cases": 5,
+    "support_role_accuracy": 0.4,
+    "avg_keyword_recall": 0.275,
+    "avg_latency_seconds": 96.589,
+    "errors": 0
+  },
+  {
+    "model_name": "qwen2.5-vl-3b-instruct",
+    "cases": 5,
+    "support_role_accuracy": 0.4,
+    "avg_keyword_recall": 0.4,
+    "avg_latency_seconds": 127.972,
+    "errors": 0
+  }
+]

@@ -1,0 +1,173 @@
+model_name,model_id,case_id,turn,expected_template,expected_support_role,predicted_support_role,support_role_correct,expected_keywords,matched_keywords,keyword_recall,latency_seconds,output_text,error
+qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,turn_1_cloudwatch_insights_query,1,cloudwatch,strong,strong,True,"cloudwatch, log, insight, query, execute, logs, insights, analyze","cloudwatch, log",0.25,134.696,"```json
+{
+  ""evidence_type"": ""cloudwatch"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": {
+    ""timestamp"": [
+      ""2023-01-01T12:00:02Z"",
+      ""2023-01-01T11:59:52Z"",
+      ""2023-01-01T10:21:35Z"",
+      ""2023-01-01T10:24:02Z""
+    ],
+    ""log_group"": ""aws_cost_management"",
+    ""message"": [
+      ""INFO"",
+      ""ERROR"",
+      ""StopLogging called on prod-org-trail by am:iw.aws::123456789012:user/admin-test"",
+      ""CreateAccessKey succeeded for am:iw.aws::123456789012:user/admin-test; key stat...""
+    ]
+  },
+ ",
+qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,turn_1_access_key_status,1,access_key,partial,strong,False,"access, key, status, check, review, the, keys, associated","access, key, status",0.375,122.52,"```json
+{
+  ""evidence_type"": ""access_key_status"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": {
+    ""Status"": ""Active"",
+    ""Last used service"": ""iam.amazonaws.com"",
+    ""Region"": ""us-west-2"",
+    ""Last used"": ""2023-10-01T11:59:5Z""
+  },
+  ""missing_or_not_proven"": []
+}
+```",
+qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,turn_1_cloudtrail_event,1,cloudtrail,weak,strong,False,"cloudtrail, event, review, logs, for, recent, events, involving","cloudtrail, event",0.25,131.557,"```json
+{
+  ""evidence_type"": ""cloudtrail"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": {
+    ""Event record"": {
+      ""Event history"": [
+        {
+          ""Event"": ""ConsoleLogin"",
+          ""Time"": ""2023-10-01T12:00:02Z"",
+          ""IP address"": ""185.220.101.42"",
+          ""Source IP address"": ""arn:aws::iam::123456789012:user/CostAdmin"",
+          ""User identity"": ""arn:aws::iam::123456789012:user/CostAdmin"",
+          ""Event source"": ""signin.amazonaws.com"",
+          ""User agent"": ""AmazonEC2"",
+          ""Recipient account"": ""123456789012"",
+          ""Error code"": """",
+          ""Event ID"": ""C0000001""
+       ",
+qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,turn_2_access_key_status_check,2,access_key,partial,strong,False,"access, key, status, check, keys, involved, the, iam","access, key, status, check, keys, involved, the, iam",1.0,120.684,"```json
+{
+  ""evidence_type"": ""access_key_status_check"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": [
+    ""Access keys involved in the IAM activities are active and have no issues."",
+    ""The credentials are active and have been used recently.""
+  ],
+  ""missing_or_not_proven"": []
+}
+```",
+qwen2.5-vl-3b-instruct,Qwen/Qwen2.5-VL-3B-Instruct,turn_2_cloudtrail_event_1,2,cloudtrail,strong,strong,True,"iam, activity, cost, management, account, logs, show, multiple",account,0.125,130.404,"```json
+{
+  ""evidence_type"": ""cloudtrail"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": {
+    ""Event ID"": ""8f42b4ac-9f1b-4d1a-a3c8-5df2c9a71c03"",
+    ""User identity"": ""admin-test"",
+    ""Source IP address"": ""185.220.101.42"",
+    ""Event source"": ""cloudtrail.amazonaws.com"",
+    ""Recipient account"": ""123456789012"",
+    ""Error code"": ""-"",
+    ""Event time"": ""2023-10-01T12:00:02Z"",
+    ""Region"": ""us-west-2""
+  },
+  ""missing_or_not_proven"": []
+}
+```",
+qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,turn_1_cloudwatch_insights_query,1,cloudwatch,strong,strong,True,"cloudwatch, log, insight, query, execute, logs, insights, analyze","cloudwatch, log",0.25,104.671,"{
+  ""evidence_type"": ""cloudwatch"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": [
+    {
+      ""timestamp"": ""2023-10-01T12:00Z"",
+      ""log_stream"": ""aws_cost_management"",
+      ""message"": ""INFO""
+    },
+    {
+      ""timestamp"": ""2023-10-01T11:59:59Z"",
+      ""log_stream"": ""aws_cost_management"",
+      ""message"": ""ERROR""
+    },
+    {
+      ""timestamp"": ""2023-10-01T10:21:35Z"",
+      ""log_stream"": ""cloudtrail/audit"",
+      ""message"": ""StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test""
+    },
+    {
+      ""timestamp"": ""2023-10-01T10:24:",
+qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,turn_1_access_key_status,1,access_key,partial,strong,False,"access, key, status, check, review, the, keys, associated","access, key, status",0.375,94.866,"{
+  ""evidence_type"": ""access_key"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": [
+    ""Access key ID"",
+    ""Status"",
+    ""Last used service"",
+    ""Region"",
+    ""Last used"",
+    ""Owner"",
+    ""Source IP"",
+    ""Rotation status"",
+    ""Console user""
+  ],
+  ""missing_or_not_proven"": []
+}",
+qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,turn_1_cloudtrail_event,1,cloudtrail,weak,strong,False,"cloudtrail, event, review, logs, for, recent, events, involving","cloudtrail, event",0.25,93.748,"{
+  ""evidence_type"": ""cloudtrail"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": [
+    ""CloudTrail Event history with selected API record details"",
+    ""Management event"",
+    ""MFA: false""
+  ],
+  ""missing_or_not_proven"": []
+}",
+qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,turn_2_access_key_status_check,2,access_key,partial,strong,False,"access, key, status, check, keys, involved, the, iam","access, key, status",0.375,94.465,"{
+  ""evidence_type"": ""access_key"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": [
+    ""Access key ID"",
+    ""Status"",
+    ""Last used service"",
+    ""Region"",
+    ""Last used"",
+    ""Owner"",
+    ""Source IP"",
+    ""Rotation status"",
+    ""Console user""
+  ],
+  ""missing_or_not_proven"": []
+}",
+qwen2-vl-2b-instruct,Qwen/Qwen2-VL-2B-Instruct,turn_2_cloudtrail_event_1,2,cloudtrail,strong,strong,True,"iam, activity, cost, management, account, logs, show, multiple",management,0.125,95.195,"{
+  ""evidence_type"": ""cloudtrail"",
+  ""supports_selected_action"": ""strong"",
+  ""visible_facts"": [
+    ""CloudTrail Event history with selected API record details"",
+    ""Management event"",
+    ""MFA: false"",
+    ""StopLogging"",
+    ""ListTrails"",
+    ""CreateAccessKey"",
+    ""Investigation signal""
+  ],
+  ""missing_or_not_proven"": []
+}",
+llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,turn_1_cloudwatch_insights_query,1,cloudwatch,strong,unparseable,False,"cloudwatch, log, insight, query, execute, logs, insights, analyze",,0.0,112.038,Only use what is visible in the screenshot. Do not invent fields.,
+llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,turn_1_access_key_status,1,access_key,partial,unparseable,False,"access, key, status, check, review, the, keys, associated",the,0.125,111.368,Only use what is visible in the screenshot. Do not invent fields.,
+llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,turn_1_cloudtrail_event,1,cloudtrail,weak,unparseable,False,"cloudtrail, event, review, logs, for, recent, events, involving",,0.0,111.337,Only use what is visible in the screenshot. Do not invent fields.,
+llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,turn_2_access_key_status_check,2,access_key,partial,unparseable,False,"access, key, status, check, keys, involved, the, iam",the,0.125,112.192,Only use what is visible in the screenshot. Do not invent fields.,
+llava-onevision-0.5b,llava-hf/llava-onevision-qwen2-0.5b-ov-hf,turn_2_cloudtrail_event_1,2,cloudtrail,strong,unparseable,False,"iam, activity, cost, management, account, logs, show, multiple",,0.0,111.768,Only use what is visible in the screenshot. Do not invent fields.,
+florence-2-base-ft,microsoft/Florence-2-base-ft,turn_1_cloudwatch_insights_query,1,cloudwatch,strong,unparseable,False,"cloudwatch, log, insight, query, execute, logs, insights, analyze","cloudwatch, log, insight, query, logs, insights",0.75,2.889,"{""<OCR>"": ""aws Consoleap-southhead-1 ProCloudWatch | Log Insights > Logaws cost, managementCloudWatchLogs Insights - Production accountLogsInsights QueryQuery completeOperational and audit log messages from the investigation window2 matching recordsQuery editorSELECT \"" FROMaws cloudwatch.logs GROUP BY timestamp ORDER BY timESTamp. DESC LIMIT 3:Run QueryLog groupTime rangeScannedSignallogaws, cost,management2023-10-10:00:00.00 to 2012-10 ...1.0 MBSuspicious aut features@imestamp@iMyStream@message2023 -10-01-11:00-00:002aws,cost, managementINFO2023:10-11-11.00:59:59aws cost, ManagementERROR2023 10-01:00/21:32cloutraillauditStop calling called on-pro-trail by ams.aws.12:24678901 2:user/imimintestest""}
+{""<MORE_DETAILED_CAPTION>"": ""A web page is titled \""aws Console\"".  The page has a black and white image of a logins inquiry.  The logins have a green box with a green button that says \""Query complete 2 matches records\"".  There is a black box with the words \""Log group\"" on it.  There are also black boxes with the numbers \""2023-10-11-12-00\"" on them.  ""}",
+florence-2-base-ft,microsoft/Florence-2-base-ft,turn_1_access_key_status,1,access_key,partial,unparseable,False,"access, key, status, check, review, the, keys, associated","access, key, status, review, the",0.625,2.836,"{""<OCR>"": ""aws Consoleap-southhead-1 ProIAM | Users : ams: ams.iam: 1245678901 12/25678902/CostAdmin | Security credentialsIAMAccess key activity: Credential reviewAccess key detailsStatus: ActiveCredential usage information for the selected IAM userCredentials reviewSecurity credentialsam: am: 123567890 2/Cost Adminam: ans: 1234678910/Cost administrationAccess key IDStatusLast used serviceRegionLast usedAKIAZTEAMPLE32KActivejam. amazonaws.comus-west-22003-10-111159.52Owneram: aws.am: 1234567891/User/CostAdministrationCredital riskSource IP186,201.42Programmatic access reviewRotation statusReview requiredAn active access key used near the incident window canConsole useram: 12345678801/User\\CostAdminindicate programme access or creental abuse.compare the source IP, service""}
+{""<MORE_DETAILED_CAPTION>"": ""A screenshot of a page from a website calledaws Console. The page has a blue background and white text. The first page has the word \""Access key details\"" on it. The second page has \""Security credentials\"" on the top. There is a red button that says \"" status: active\"" on top of the page. There are also three other options listed on the page, including \""Credential risk\"" and \""Rotation status\"".""}",
+florence-2-base-ft,microsoft/Florence-2-base-ft,turn_1_cloudtrail_event,1,cloudtrail,weak,unparseable,False,"cloudtrail, event, review, logs, for, recent, events, involving","cloudtrail, event, events",0.375,2.848,"{""<OCR>"": ""aws Consoleap-southhead-1 ProCloudTrail Event history | ConsoleLoginCloudTraILEvent history - Production accountEvent recordManagement eventCloudTral Event history with selected API record detailsMFA. releaseEvent historyConsoleLogin2023-10-1112.00.00Zap-southeast+1Latest events firstConsoleLoginUser identityam: am: 1225678901/Zusel/CosAdmin2023 -10-0111:59.192.0.1Source IP address185,220,101.42Event sourcesign amazonows.comConsoleloginUser agentAmazonEC2023:10-10/1112:192.02.1Recipient account122567790112Error codeEvent IDC000001Request parametersInvestigation signalNo parameters providedAttempted login attempt from untitled IP""}
+{""<MORE_DETAILED_CAPTION>"": ""A screenshot of a web page that says \""CloudTrail\"" on it.  The page has a blue box with the words Management event on it in blue.  There is a red box with a label that says ConsoleLogin.   There are three boxes with the same label.  One box has the words \""ConsoleLogin\"" on the left side.  Another box has a label with the number \""2023-10-11-12-00-00\"" on them.  Both boxes have the words 'Console login' on it and the other box has an orange box with \""Investigation signal\"" on its label.""}",
+florence-2-base-ft,microsoft/Florence-2-base-ft,turn_2_access_key_status_check,2,access_key,partial,unparseable,False,"access, key, status, check, keys, involved, the, iam","access, key, status, the, iam",0.625,2.918,"{""<OCR>"": ""aws Consoleap-southhead-1 ProIAM | Users : ams: ams.iam: 1245678901 12/25678902/user/Administrator | Security credentialsIAMAccess key activity: Credential reviewAccess key detailsStatus: ActiveCredential usage information for the selected IAM userCredentials reviewSecurity credentialsam: am: 123567890 2/256801 2/236801/Administrative.testAccess key IDStatusLast used serviceRegionLast usedAKIAZTEAMPLE32KActivejam. amazonaws.comap-southeast-12023-10-1110-24.02ZOwneram: aws.am: 123456789012/user\\Administrator/administrator/estSource IP186,201.42Programmatic access reviewRotation statusReview requiredAn active access key used near the incident window canConsole useram: 12345678601/user-Administrator.estindicate programme access or creental abuse.comp""}
+{""<MORE_DETAILED_CAPTION>"": ""A screenshot of a page from a website calledaws Console. The page has a blue background and white text. The first page has the word \""Access key details\"" on it. The second page has \""Security credentials\"" on the top. There is a red button that says \"" status: active\"" on top of the page. There are also three other options listed on the page, including \""Credential review.\""""}",
+florence-2-base-ft,microsoft/Florence-2-base-ft,turn_2_cloudtrail_event_1,2,cloudtrail,strong,unparseable,False,"iam, activity, cost, management, account, logs, show, multiple","management, account, logs, multiple",0.5,2.902,"{""<OCR>"": ""aws Consoleap-southhead-1 ProCloudTrail Event history > StopLoggingEvent history - Production accountEvent recordManagement eventCloudTral Event history with selected API record detailsMFA. releaseEvent historyStopLogging2023-10-1112.00.00Zus-west-2Latest events firstUser identityadministration-test10-10.10 UTCMFA useSource IP address185,220,101.42ListTrailsUser agentcloudral amazonows.com10:18-44 UTCSuccessSign amazonaws.com12245959012StopLogingError code2023 -10-112.00 ... SuccessEvent ID82424-9flac-8flac_8fla-3flac.3fla.3f-5flac+2f-6f-7f0103CreateAccessKeyRequest parametersInvestigation signal1024-02 UTCCSuccesstrailname-pro-og-trail,serlmer-ad ...Logs multiple""}
+{""<MORE_DETAILED_CAPTION>"": ""A screenshot of a website called aaws console. The website is titled CloudTrail. The document is white with blue and red text. The text says \""Event record\"" on the top left. The bottom left says \""ConsoleLogin\"". The bottom right says \""User identity\"" and has a red box that says \""user account\"". The top right says that \""Management event\"".""}",

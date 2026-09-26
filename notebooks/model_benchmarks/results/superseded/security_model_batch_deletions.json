@@ -1,0 +1,42 @@
+[
+  {
+    "name": "qwen2.5-1.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct",
+    "size_before_bytes": 6197911376,
+    "deleted": false,
+    "error": "Skipped deletion because this model is listed in .env production configuration."
+  },
+  {
+    "name": "qwen2.5-0.5b-instruct",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct",
+    "size_before_bytes": 1999172734,
+    "deleted": true,
+    "error": ""
+  },
+  {
+    "name": "flan-t5-small",
+    "model_id": "google/flan-t5-small",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-small",
+    "size_before_bytes": 622178152,
+    "deleted": true,
+    "error": ""
+  },
+  {
+    "name": "flan-t5-base",
+    "model_id": "google/flan-t5-base",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--google--flan-t5-base",
+    "size_before_bytes": 1987134180,
+    "deleted": true,
+    "error": ""
+  },
+  {
+    "name": "bart-large-mnli",
+    "model_id": "facebook/bart-large-mnli",
+    "cache_dir": "/Users/karunanidhiprabhakar/.cache/huggingface/hub/models--facebook--bart-large-mnli",
+    "size_before_bytes": 3264298700,
+    "deleted": true,
+    "error": ""
+  }
+]

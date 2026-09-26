@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-08-16T07:34:11",
+  "batch_name": "multitask-production-baseline",
+  "project_root": "/Users/karunanidhiprabhakar/Desktop/FYP",
+  "python": "3.11.8",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "torch": "2.13.0",
+  "cuda_available": false,
+  "mps_available": false,
+  "allow_downloads": false,
+  "metadata_only": false,
+  "selected_models": {
+    "vlm": [
+      {
+        "name": "qwen2.5-vl-3b-instruct",
+        "model_id": "Qwen/Qwen2.5-VL-3B-Instruct",
+        "family": "vision-language instruction model"
+      }
+    ],
+    "coach": [
+      {
+        "name": "qwen2.5-1.5b-instruct",
+        "model_id": "Qwen/Qwen2.5-1.5B-Instruct",
+        "family": "instruction-tuned causal LM"
+      }
+    ],
+    "stt": [
+      {
+        "name": "whisper-base",
+        "model_id": "openai/whisper-base",
+        "family": "encoder-decoder speech recognition model"
+      }
+    ]
+  },
+  "case_counts": {
+    "coach": 2,
+    "stt": 1,
+    "vlm": 1
+  },
+  "verified_artifacts": [
+    {
+      "artifact": "multitask_model_candidates.csv",
+      "exists": true,
+      "size_bytes": 2739
+    },
+    {
+      "artifact": "multitask_evaluation_cases.csv",
+      "exists": true,
+      "size_bytes": 427
+    },
+    {
+      "artifact": "multitask_vlm_results.csv",
+      "exists": true,
+      "size_bytes": 695
+    },
+    {
+      "artifact": "multitask_vlm_summary.csv",
+      "exists": true,
+      "size_bytes": 131
+    },
+    {
+      "artifact": "multitask_coach_results.csv",
+      "exists": true,
+      "size_bytes": 1155
+    },
+    {
+      "artifact": "multitask_coach_summary.csv",
+      "exists": true,
+      "size_bytes": 121
+    },
+    {
+      "artifact": "multitask_stt_results.csv",
+      "exists": true,
+      "size_bytes": 1063
+    },
+    {
+      "artifact": "multitask_stt_summary.csv",
+      "exists": true,
+      "size_bytes": 153
+    },
+    {
+      "artifact": "multitask_model_evaluation_metadata.json",
+      "exists": true,
+      "size_bytes": 1975
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+flask==3.0.3
+pillow==10.4.0
+python-dotenv==1.0.1
+
+torch==2.5.1
+torchvision==0.20.1
+torchaudio==2.5.1
+
+
+transformers==4.49.0
+accelerate==1.1.1
+sentencepiece==0.2.0
+huggingface-hub>=0.26.2,<1.0.0
+safetensors==0.4.5
+soundfile==0.12.1
+# Runs the quantized security model; builds with Metal on Apple silicon.
+llama-cpp-python==0.3.35
+
+qwen-vl-utils==0.0.8
+einops==0.8.2
+timm==1.0.28
+
+jupyter==1.0.0
+ipykernel==6.29.5
+pandas==2.2.3

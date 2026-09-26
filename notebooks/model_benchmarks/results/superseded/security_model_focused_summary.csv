@@ -1,0 +1,6 @@
+model_name,cases,accuracy,avg_latency_seconds,total_latency_seconds,unparseable,errors
+bart-large-mnli,2,1.0,2.527,5.055,0,0
+flan-t5-base,2,1.0,0.125,0.25,0,0
+flan-t5-small,2,0.5,0.081,0.163,0,0
+qwen2.5-0.5b-instruct,2,1.0,0.208,0.417,0,0
+qwen2.5-1.5b-instruct,2,1.0,0.587,1.173,0,0

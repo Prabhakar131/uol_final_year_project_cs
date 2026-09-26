@@ -1,0 +1,90 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "cost-management",
+  "scenario_slug": "cost_management",
+  "scenario_focus": "cost-management",
+  "selected_acse_case": {
+    "dataset": "ACSE-Eval",
+    "scenario_id": "cost-management",
+    "scenario_slug": "cost_management",
+    "source_file": "data/acse_eval.jsonl",
+    "case": {
+      "name": "cost-management",
+      "architecture": "cost-management/architecture.png",
+      "architecture_description": "cost-management/diagram.py",
+      "threat_model": "cost-management/threat-model.json",
+      "infra_as_code": "cost-management/cdk/"
+    }
+  },
+  "architecture_facts": {
+    "cloud_provider": "unknown",
+    "visible_services": [],
+    "identity_components": [],
+    "compute_components": [],
+    "storage_components": [],
+    "network_components": [],
+    "logging_components": [],
+    "security_components": [],
+    "external_entities": [],
+    "trust_boundaries": [],
+    "data_flows": [],
+    "identity_flows": [],
+    "security_observations": [
+      "The architecture diagram could not be parsed as strict JSON."
+    ],
+    "possible_investigation_evidence": [],
+    "architecture_summary": "```json\n{\n  \"cloud_provider\": \"multi-cloud\",\n  \"visible_services\": [\n    \"Cost Management API\",\n    \"Lambda Functions\",\n    \"S3 Buckets\",\n    \"CloudWatch Logs\",\n    \"CloudTrail\",\n    \"CloudWatch Metrics\",\n    \"CloudWatch Alarms\",\n    \"CloudWatch Events\",\n    \"CloudWatch Dashboards\",\n    \"CloudWatch Logs Insights\",\n    \"CloudWatch Metrics Insights\",\n    \"CloudWatch Alarms Insights\",\n    \"CloudWatch Events Insights\",\n    \"CloudWatch Dashboards Insights\",\n    \"CloudWatch Logs Data Access\",\n    \"CloudWatch Metrics Data Access\",\n    \"CloudWatch Alarms Data Access\",\n    \"CloudWatch Events Data Access\",\n    \"CloudWatch Dashboards Data Access\",\n    \"CloudWatch Logs Data Retention\",\n    \"CloudWatch Metrics Data Retention\",\n    \"CloudWatch Alarms Data Retention\",\n    \"CloudWatch Events Data Retention\",\n    \"CloudWatch Dashboards Data Retention\",\n    \"CloudWatch Logs Data Encryption\",\n    \"CloudWatch Metrics Data Encryption\",\n    \"CloudWatch Alarms Data Encryption\",\n    \"CloudWatch Events Data Encryption\",\n    \"CloudWatch Dashboards Data Encryption\",\n    \"CloudWatch Logs Data Retention Policy\",\n    \"CloudWatch Metrics Data Retention Policy\",\n    \"CloudWatch Alarms Data Retention Policy\",\n    \"CloudWatch Events Data Retention Policy\",\n    \"CloudWatch Dashboards Data Retention Policy\",\n    \"CloudWatch Logs Data Encryption Key\",\n    \"CloudWatch Metrics Data Encryption Key\",\n    \"CloudWatch Alarms Data Encryption Key\",\n    \"CloudWatch Events Data Encryption Key\",\n    \"CloudWatch Dashboards Data Encryption Key\",\n    \"CloudWatch Logs Data Retention Lifecycle\",\n    \"CloudWatch Metrics Data Retention Lifecycle\",\n    \"CloudWatch Alarms Data Retention Lifecycle\",\n    \"CloudWatch Events Data Retention Lifecycle\",\n    \"CloudWatch Dashboards Data Retention Lifecycle\",\n    \"CloudWatch Logs Data Encryption Key Rotation\",\n    \"CloudWatch Metrics Data Encryption Key Rotation\",\n    \"CloudWatch Alarms Data Encryption Key Rotation\",\n    \"CloudWatch Events Data Encryption Key Rotation\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy\",\n    \"CloudWatch Events Data Retention Lifecycle Policy\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy\",\n    \"CloudWatch Metrics Data Encryption Key Rotation Policy\",\n    \"CloudWatch Alarms Data Encryption Key Rotation Policy\",\n    \"CloudWatch Events Data Encryption Key Rotation Policy\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation Policy\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Events Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Metrics Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Alarms Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Events Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Events Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Metrics Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Alarms Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Events Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Events Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy Rotation"
+  },
+  "normalised_threat_model": {
+    "scenario_type": "cost-management",
+    "primary_risk": "Unauthorized access to cloud credentials could lead to critical data exposure and unauthorized actions across cloud environments.",
+    "affected_assets": [
+      "SecretsManager",
+      "Lambda-CostCollector",
+      "CloudCredentials"
+    ],
+    "likely_attack_path": [
+      "Exploit overly permissive IAM roles or misconfigured secrets access policies in Secrets Manager",
+      "Access Secrets Manager using compromised Lambda function",
+      "Retrieve cloud credentials and use them for unauthorized access"
+    ],
+    "security_signals": [
+      "Unusual IAM activity logs",
+      "Access to Secrets Manager by unauthorized Lambda function",
+      "Unexpected changes in IAM roles or policies"
+    ],
+    "investigation_goals": [
+      "Identify the compromised Lambda function and its IAM role",
+      "Review and tighten IAM policies and Secrets Manager access controls",
+      "Analyze CloudTrail logs for unauthorized access attempts"
+    ],
+    "recommended_evidence_sources": [
+      "CloudTrail",
+      "IAM activity",
+      "GuardDuty",
+      "CloudWatch",
+      "access keys"
+    ],
+    "hidden_truth_candidates": [
+      "The compromised Lambda function's IAM role had excessive permissions",
+      "The Secrets Manager access policy was not properly configured with least privilege principle"
+    ]
+  },
+  "learner_starting_context": {
+    "source": "Prepared from ACSE-Eval dataset inputs.",
+    "architecture_summary": "```json\n{\n  \"cloud_provider\": \"multi-cloud\",\n  \"visible_services\": [\n    \"Cost Management API\",\n    \"Lambda Functions\",\n    \"S3 Buckets\",\n    \"CloudWatch Logs\",\n    \"CloudTrail\",\n    \"CloudWatch Metrics\",\n    \"CloudWatch Alarms\",\n    \"CloudWatch Events\",\n    \"CloudWatch Dashboards\",\n    \"CloudWatch Logs Insights\",\n    \"CloudWatch Metrics Insights\",\n    \"CloudWatch Alarms Insights\",\n    \"CloudWatch Events Insights\",\n    \"CloudWatch Dashboards Insights\",\n    \"CloudWatch Logs Data Access\",\n    \"CloudWatch Metrics Data Access\",\n    \"CloudWatch Alarms Data Access\",\n    \"CloudWatch Events Data Access\",\n    \"CloudWatch Dashboards Data Access\",\n    \"CloudWatch Logs Data Retention\",\n    \"CloudWatch Metrics Data Retention\",\n    \"CloudWatch Alarms Data Retention\",\n    \"CloudWatch Events Data Retention\",\n    \"CloudWatch Dashboards Data Retention\",\n    \"CloudWatch Logs Data Encryption\",\n    \"CloudWatch Metrics Data Encryption\",\n    \"CloudWatch Alarms Data Encryption\",\n    \"CloudWatch Events Data Encryption\",\n    \"CloudWatch Dashboards Data Encryption\",\n    \"CloudWatch Logs Data Retention Policy\",\n    \"CloudWatch Metrics Data Retention Policy\",\n    \"CloudWatch Alarms Data Retention Policy\",\n    \"CloudWatch Events Data Retention Policy\",\n    \"CloudWatch Dashboards Data Retention Policy\",\n    \"CloudWatch Logs Data Encryption Key\",\n    \"CloudWatch Metrics Data Encryption Key\",\n    \"CloudWatch Alarms Data Encryption Key\",\n    \"CloudWatch Events Data Encryption Key\",\n    \"CloudWatch Dashboards Data Encryption Key\",\n    \"CloudWatch Logs Data Retention Lifecycle\",\n    \"CloudWatch Metrics Data Retention Lifecycle\",\n    \"CloudWatch Alarms Data Retention Lifecycle\",\n    \"CloudWatch Events Data Retention Lifecycle\",\n    \"CloudWatch Dashboards Data Retention Lifecycle\",\n    \"CloudWatch Logs Data Encryption Key Rotation\",\n    \"CloudWatch Metrics Data Encryption Key Rotation\",\n    \"CloudWatch Alarms Data Encryption Key Rotation\",\n    \"CloudWatch Events Data Encryption Key Rotation\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy\",\n    \"CloudWatch Events Data Retention Lifecycle Policy\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy\",\n    \"CloudWatch Metrics Data Encryption Key Rotation Policy\",\n    \"CloudWatch Alarms Data Encryption Key Rotation Policy\",\n    \"CloudWatch Events Data Encryption Key Rotation Policy\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation Policy\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Events Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy Rotation\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Metrics Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Alarms Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Events Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation Policy Rotation\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Events Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy Rotation Policy\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Metrics Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Alarms Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Events Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Dashboards Data Encryption Key Rotation Policy Rotation Policy\",\n    \"CloudWatch Logs Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Metrics Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Alarms Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Events Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Dashboards Data Retention Lifecycle Policy Rotation Policy Rotation\",\n    \"CloudWatch Logs Data Encryption Key Rotation Policy Rotation",
+    "primary_risk": "Unauthorized access to cloud credentials could lead to critical data exposure and unauthorized actions across cloud environments.",
+    "investigation_goals": [
+      "Identify the compromised Lambda function and its IAM role",
+      "Review and tighten IAM policies and Secrets Manager access controls",
+      "Analyze CloudTrail logs for unauthorized access attempts"
+    ],
+    "recommended_evidence_sources": [
+      "CloudTrail",
+      "IAM activity",
+      "GuardDuty",
+      "CloudWatch",
+      "access keys"
+    ]
+  }
+}

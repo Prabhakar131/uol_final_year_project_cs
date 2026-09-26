@@ -1,0 +1,9 @@
+case_id,turn,action,evidence,evidence_type,expected_support_role,expected_verdict
+turn_1_cloudwatch_insights_query,1,Review Recent IAM Activities,CloudWatch Log Insight Query,cloudwatch,strong,Strong Support
+turn_1_access_key_status,1,Review Recent IAM Activities,Access Key Status Check,access_key,partial,Partial Support
+turn_1_cloudtrail_event,1,Review Recent IAM Activities,CloudTrail Event Review,cloudtrail,weak,Weak Support
+turn_1_unsupported_unrelated,1,Review Recent IAM Activities,Unrelated Policy Note,unknown,unsupported,Unsupported
+turn_2_access_key_status_check,2,Review CloudTrail Logs,Access Key Status Check,access_key,partial,Partial Support
+turn_2_cloudtrail_event_1,2,Review CloudTrail Logs,IAM Activity - Cost Management Account,cloudtrail,strong,Strong Support
+turn_2_cloudwatch_log_insight_query_result,2,Review CloudTrail Logs,CloudWatch Log Insight Query Result,cloudwatch,weak,Weak Support
+turn_2_unsupported_unrelated,2,Review CloudTrail Logs,Unrelated Policy Note,unknown,unsupported,Unsupported

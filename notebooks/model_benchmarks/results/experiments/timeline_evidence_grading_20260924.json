@@ -1,0 +1,395 @@
+{
+  "date": "2026-09-24",
+  "purpose": "Grade timeline-built evidence with the real VLM and 8-bit security judge (identity-management, turns 1-3)",
+  "models": {
+    "vlm": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "security": "fdtn-ai/Foundation-Sec-8B-Instruct-Q8_0-GGUF (llama.cpp)"
+  },
+  "method": "One AI-written timeline (valid on first attempt); strong/partial/weak per turn built by code; fixed best action per turn; neutral typed justification; judge given a briefing naming the principal and IP.",
+  "timeline_generation": [
+    {
+      "attempt": 1,
+      "seconds": 45.6,
+      "outcome": "valid"
+    }
+  ],
+  "results": {
+    "run_a_fixed_iam_badge": [
+      {
+        "turn": 1,
+        "label": "strong",
+        "template": "cloudtrail",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 1,
+        "label": "partial",
+        "template": "iam_activity",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 1,
+        "label": "weak",
+        "template": "billing",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "label": "strong",
+        "template": "iam_activity",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "label": "partial",
+        "template": "access_key",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "label": "weak",
+        "template": "cloudwatch",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "label": "strong",
+        "template": "guardduty",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "label": "partial",
+        "template": "cloudtrail",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "label": "weak",
+        "template": "billing",
+        "verdict": "Weak Support"
+      }
+    ],
+    "run_b_iam_time_span": [
+      {
+        "turn": 1,
+        "label": "strong",
+        "template": "cloudtrail",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 1,
+        "label": "partial",
+        "template": "iam_activity",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 1,
+        "label": "weak",
+        "template": "billing",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "label": "strong",
+        "template": "iam_activity",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "label": "partial",
+        "template": "access_key",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "label": "weak",
+        "template": "cloudwatch",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "label": "strong",
+        "template": "guardduty",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "label": "partial",
+        "template": "cloudtrail",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "label": "weak",
+        "template": "billing",
+        "verdict": "Weak Support"
+      }
+    ]
+  },
+  "reasoning_run_b": [
+    {
+      "turn": 1,
+      "label": "strong",
+      "reasoning": "The selected evidence shows a ConsoleLogin event for the principal arn:aws:iam::123456789012:user/j.moreno from the source IP 198.51.100.1, which matches the incident context. This event is directly relevant to the action of investigating a suspicious sign-in."
+    },
+    {
+      "turn": 1,
+      "label": "partial",
+      "reasoning": "The evidence shows recent activity from the principal, which includes actions like GetBucketLocation and DescribeVolumes. These actions are notable and could be part of a suspicious pattern, thus supporting the action to investigate the suspicious sign-in."
+    },
+    {
+      "turn": 1,
+      "label": "weak",
+      "reasoning": "The billing summary does not provide direct evidence of the sign-in activity or its suspicious nature. It only provides information about the current spend, previous average, change, region, and service cost driver, which are unrelated to the sign-in event under investigation."
+    },
+    {
+      "turn": 2,
+      "label": "strong",
+      "reasoning": "The evidence shows recent activity by the principal 'arn:aws:iam::123456789012:user/j.moreno' from the source IP '198.51.100.1', but it does not explicitly state whether these were follow-up API actions after signing in. The 'Recent activity' field indicates two events, but without details on the nature of these events, it's not possible to confirm they are follow-up API actions."
+    },
+    {
+      "turn": 2,
+      "label": "partial",
+      "reasoning": "The selected evidence provides details about an access key, such as its ID, status, last used service, region, last used time, owner, source IP, and rotation status. However, it does not provide any information about follow-up API actions performed by the principal after signing in from the source IP. The action requires recent activity data, which is not present in the provided evidence."
+    },
+    {
+      "turn": 2,
+      "label": "weak",
+      "reasoning": "However, the query did not establish whether these actions were performed by the same principal and source IP after signing in, which is the specific condition the action seeks to investigate. The events visible in the evidence show API actions but lack the necessary context to confirm if they are follow-ups to the initial sign-in event from the source IP 198.51.100.1 by the principal arn:aws:iam::123456789012:user/j.moreno."
+    },
+    {
+      "turn": 3,
+      "label": "strong",
+      "reasoning": "This finding indicates a potential unauthorized access event involving the principal arn:aws:iam::123456789012:user/j.moreno, which is the focus of the incident."
+    },
+    {
+      "turn": 3,
+      "label": "partial",
+      "reasoning": "The selected evidence shows a specific event where the principal arn:aws:iam::123456789012:user/j.moren0 attempted to retrieve the location of a bucket. This event is relevant to understanding the scope of the principal's actions but does not provide a complete picture of the spread of access. The action needs to see more events to determine the full blast radius."
+    },
+    {
+      "turn": 3,
+      "label": "weak",
+      "reasoning": "The billing_daily_spend evidence provides a summary of financial activity, specifically highlighting the service cost driver as S3. However, it does not provide any direct information about the unauthorized access or the resources and permissions the principal reached. The action requires evidence of the principal's activity, which is not present in this billing summary."
+    }
+  ],
+  "timeline": {
+    "account_id": "123456789012",
+    "region": "ap-southeast-1",
+    "actors": [
+      {
+        "id": "attacker",
+        "role": "attacker",
+        "principal": "arn:aws:iam::123456789012:user/j.moreno",
+        "source_ip": "198.51.100.1",
+        "user_agent": "aws-cli/2.15.30 Python/3.11.8",
+        "mfa": "false"
+      },
+      {
+        "id": "bg1",
+        "role": "background",
+        "principal": "arn:aws:iam::123456789012:role/billing-sync",
+        "source_ip": "203.0.113.2",
+        "user_agent": "Boto3/1.34.69 Python/3.11.8",
+        "mfa": ""
+      },
+      {
+        "id": "bg2",
+        "role": "background",
+        "principal": "arn:aws:iam::123456789012:role/monitoring-alerts",
+        "source_ip": "204.152.16.3",
+        "user_agent": "Boto3/1.34.69 Python/3.11.8",
+        "mfa": ""
+      },
+      {
+        "id": "responder",
+        "role": "responder",
+        "principal": "arn:aws:iam::123456789012:role/security-ops",
+        "source_ip": "205.251.234.4",
+        "user_agent": "console.amazonaws.com",
+        "mfa": ""
+      }
+    ],
+    "events": [
+      {
+        "time": "2023-09-30T09:14:05Z",
+        "actor": "attacker",
+        "event_name": "GetBucketLocation",
+        "event_source": "s3.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "",
+        "turn": null,
+        "suspicious": false,
+        "baseline": true,
+        "source_ip": "203.0.113.41"
+      },
+      {
+        "time": "2023-09-30T09:37:16Z",
+        "actor": "attacker",
+        "event_name": "DescribeVolumes",
+        "event_source": "ec2.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "",
+        "turn": null,
+        "suspicious": false,
+        "baseline": true,
+        "source_ip": "203.0.113.41"
+      },
+      {
+        "time": "2023-09-30T10:00:27Z",
+        "actor": "attacker",
+        "event_name": "PutObject",
+        "event_source": "s3.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "",
+        "turn": null,
+        "suspicious": false,
+        "baseline": true,
+        "source_ip": "203.0.113.41"
+      },
+      {
+        "time": "2023-10-01T10:12:10Z",
+        "actor": "attacker",
+        "event_name": "ConsoleLogin",
+        "event_source": "signin.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "false",
+        "resource": "prod-console-login",
+        "turn": 1,
+        "suspicious": true
+      },
+      {
+        "time": "2023-10-01T10:15:20Z",
+        "actor": "bg1",
+        "event_name": "DescribeInstances",
+        "event_source": "ec2.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "prod-instances",
+        "turn": null,
+        "suspicious": false
+      },
+      {
+        "time": "2023-10-01T10:17:30Z",
+        "actor": "attacker",
+        "event_name": "AssumeRole",
+        "event_source": "sts.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "role/prod-data-access",
+        "turn": 2,
+        "suspicious": true
+      },
+      {
+        "time": "2023-10-01T10:20:40Z",
+        "actor": "bg2",
+        "event_name": "GetObject",
+        "event_source": "s3.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "prod-orders-fn",
+        "turn": null,
+        "suspicious": false
+      },
+      {
+        "time": "2023-10-01T10:23:50Z",
+        "actor": "attacker",
+        "event_name": "AttachUserPolicy",
+        "event_source": "iam.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "user/j.moreno",
+        "turn": 3,
+        "suspicious": true
+      },
+      {
+        "time": "2023-10-01T10:26:00Z",
+        "actor": "bg1",
+        "event_name": "ListObjectsV2",
+        "event_source": "s3.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "backup-data-bucket",
+        "turn": null,
+        "suspicious": false
+      },
+      {
+        "time": "2023-10-01T10:28:10Z",
+        "actor": "attacker",
+        "event_name": "CreateAccessKey",
+        "event_source": "iam.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "user/j.moreno",
+        "turn": 4,
+        "suspicious": true
+      },
+      {
+        "time": "2023-10-01T10:31:20Z",
+        "actor": "responder",
+        "event_name": "DetachUserPolicy",
+        "event_source": "iam.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "user/j.moreno",
+        "turn": 5,
+        "suspicious": false
+      },
+      {
+        "time": "2023-10-01T10:37:40Z",
+        "actor": "attacker",
+        "event_name": "AssumeRole",
+        "event_source": "sts.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "role/prod-data-access",
+        "turn": 4,
+        "suspicious": true
+      },
+      {
+        "time": "2023-10-01T10:40:50Z",
+        "actor": "responder",
+        "event_name": "DeleteAccessKey",
+        "event_source": "iam.amazonaws.com",
+        "result": "Success",
+        "error_code": "-",
+        "mfa": "",
+        "resource": "user/j.moreno",
+        "turn": 5,
+        "suspicious": false
+      }
+    ],
+    "findings": [
+      {
+        "finding_type": "UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS",
+        "severity": "High",
+        "resource": "user/j.moreno",
+        "description": "Unauthorized access attempt detected from an unusual IP address.",
+        "turn": 3
+      }
+    ],
+    "cost": {
+      "baseline_daily_usd": 42.75,
+      "incident_daily_usd": 48.1,
+      "service": "EC2",
+      "normal_service": "S3"
+    },
+    "scenario_id": "identity-management"
+  }
+}

@@ -1,0 +1,2 @@
+model_name,cases,avg_score_out_of_5,avg_latency_seconds,avg_word_count,errors
+qwen2.5-1.5b-instruct,2,4.0,6.466,62.5,0

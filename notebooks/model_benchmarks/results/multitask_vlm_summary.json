@@ -1,0 +1,10 @@
+[
+  {
+    "model_name": "qwen2.5-vl-3b-instruct",
+    "cases": 1,
+    "support_role_accuracy": 0.0,
+    "avg_keyword_recall": 0.625,
+    "avg_latency_seconds": 54.658,
+    "errors": 0
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "model_name": "whisper-base",
+    "model_id": "openai/whisper-base",
+    "samples": 2,
+    "meaning_preservation_rate": 0.0,
+    "avg_keyword_recall": 0.2,
+    "avg_latency_seconds": 0.734,
+    "errors": 0
+  }
+]
