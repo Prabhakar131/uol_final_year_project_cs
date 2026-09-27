@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_iam_activities",
+    "title": "Check IAM Activities",
+    "description": "Review IAM activities for d.okafor to identify any anomalies or unauthorized access attempts.",
+    "recommended_next_focus": "Identify potential misuse or anomalous behavior",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_access_key",
+    "title": "Investigate Access Key AKIA5CDQ3A695EC617EF for d.okafor",
+    "description": "Review the recent use of d.okafor's access key from 198.51.100.1.",
+    "recommended_next_focus": "Identify potential misuse or anomalous behavior",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_cloudwatch_logs",
+    "title": "Investigate CloudWatch Logs",
+    "description": "Review CloudWatch logs for d.okafor to find any suspicious activity or alerts.",
+    "recommended_next_focus": "Identify potential misuse or anomalous behavior",
+    "choice_role": "weak"
+  }
+]

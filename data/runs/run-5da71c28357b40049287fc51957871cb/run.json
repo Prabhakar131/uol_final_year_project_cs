@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-5da71c28357b40049287fc51957871cb",
+  "scenarioId": "identity-management",
+  "label": "t1-strong-prompt-v3",
+  "createdAt": "2026-09-24T03:54:31.117169+00:00",
+  "updatedAt": "2026-09-24T04:03:02.155530+00:00",
+  "status": "paused",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-a631310bcf4a4be6a2c23fa1b533187c",
+  "turn": 1,
+  "completedTurns": 1
+}

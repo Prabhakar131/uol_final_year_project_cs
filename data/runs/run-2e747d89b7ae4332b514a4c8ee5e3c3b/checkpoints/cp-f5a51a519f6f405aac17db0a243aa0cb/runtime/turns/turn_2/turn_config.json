@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Continue investigating the GuardDuty finding for more details on unauthorized access patterns.",
+  "known_context": [
+    "The GuardDuty finding indicates high-severity anomalies involving IAM user 'd.okafor' with multiple remote IPs.",
+    "Recent IAM activities show frequent attempts to modify resources owned by 'd.okafor'.",
+    "Access key 'ASIADE13333F8C2F195A' was accessed recently from the same IP address."
+  ],
+  "coach_guidance": "Look for additional patterns of unauthorized access and consider whether this represents a broader attack vector."
+}

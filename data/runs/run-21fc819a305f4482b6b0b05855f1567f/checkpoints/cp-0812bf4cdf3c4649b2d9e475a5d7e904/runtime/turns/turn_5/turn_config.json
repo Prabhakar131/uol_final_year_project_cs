@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "This turn should focus on Recovery And Final Debrief: Help the learner verify recovery, residual risk, and final incident reporting evidence before closing the scenario. Review AWS CloudTrail logs for any unusual activities around the time of the +13% increase. This will help pinpoint whether the unauthorized access attempt occurred during normal business operations or if it was triggered by external factors.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10 at 10:50 UTC.",
+    "EC2 spending increased by $44.62 compared to an average of $42.75.",
+    "CI-Deploy IAM activity including PutMetricData, ListFunctions20150331, and GetObject."
+  ],
+  "coach_guidance": "Look for any anomalies or missing permissions that could indicate unauthorized access attempts."
+}

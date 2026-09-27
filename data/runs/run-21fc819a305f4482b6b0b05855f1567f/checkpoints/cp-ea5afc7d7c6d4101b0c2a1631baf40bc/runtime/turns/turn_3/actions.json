@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_logging_gaps",
+    "title": "Verify logging gaps",
+    "description": "Ensure there are no missing logs that could explain the unauthorized access.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized access attempt",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_invoke_call",
+    "title": "Investigate Spend Increase",
+    "description": "Investigate the +13% EC2 spend increase.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized access attempt",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_credentials",
+    "title": "Investigate the affected assets",
+    "description": "Assess the potential financial impact by examining the affected assets.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized access attempt",
+    "choice_role": "weak"
+  }
+]

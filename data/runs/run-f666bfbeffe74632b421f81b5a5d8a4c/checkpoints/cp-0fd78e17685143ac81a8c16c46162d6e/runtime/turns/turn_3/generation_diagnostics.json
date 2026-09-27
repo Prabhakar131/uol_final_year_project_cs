@@ -1,0 +1,17 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on scope and blast radius, which is similar to the completed turn's phase. However, the learner's chosen action (investigating the recent activity around the CreateAccessKey call) did not match the completed turn's phase.",
+        "The evidence facts lack concrete fields, making them less useful for the learner to make a meaningful decision."
+      ],
+      "retry_instruction": "Change the phase label to 'Scope and Blast Radius' while maintaining the current action focus and evidence purpose."
+    }
+  ],
+  "anchor_repairs": []
+}

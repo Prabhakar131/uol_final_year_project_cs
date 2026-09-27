@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, and expected outcomes.",
+        "The generated turn introduces weak evidence that does not directly support the chosen action.",
+        "The generated turn does not provide a new investigative purpose or decision point."
+      ],
+      "retry_instruction": "Change the phase label to 'Recovery Verification', introduce stronger evidence focusing on the identified anomalous behavior, and adjust the action focus to align with the new phase."
+    }
+  ],
+  "anchor_repairs": []
+}

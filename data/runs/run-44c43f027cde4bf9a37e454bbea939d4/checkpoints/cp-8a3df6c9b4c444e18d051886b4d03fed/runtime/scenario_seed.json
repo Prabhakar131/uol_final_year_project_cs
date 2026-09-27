@@ -1,0 +1,117 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "automated-security-response",
+  "scenario_slug": "automated_security_response",
+  "scenario_focus": "automated-security-response",
+  "selected_acse_case": {
+    "dataset": "ACSE-Eval",
+    "scenario_id": "automated-security-response",
+    "scenario_slug": "automated_security_response",
+    "source_file": "data/acse_eval.jsonl",
+    "case": {
+      "name": "automated-security-response",
+      "architecture": "automated-security-response/architecture.png",
+      "architecture_description": "automated-security-response/diagram.py",
+      "threat_model": "automated-security-response/threat-model.json",
+      "infra_as_code": "automated-security-response/cdk/"
+    }
+  },
+  "architecture_facts": {
+    "cloud_provider": "AWS",
+    "visible_services": [
+      "Security Hub",
+      "EventBridge",
+      "Step Functions Orchestrator",
+      "Lambda Functions",
+      "SNS Notifications",
+      "CloudWatch Logs",
+      "Kinesis Firehose",
+      "Metrics Bucket"
+    ],
+    "identity_components": [
+      "Admin Account",
+      "Member Account",
+      "Admin Role",
+      "Remediation Role",
+      "Member Role"
+    ],
+    "compute_components": [],
+    "storage_components": [
+      "Metrics Bucket"
+    ],
+    "network_components": [],
+    "logging_components": [
+      "CloudWatch Logs",
+      "Kinesis Firehose"
+    ],
+    "security_components": [
+      "Security Hub",
+      "EventBridge",
+      "Step Functions Orchestrator",
+      "Lambda Functions",
+      "SNS Notifications",
+      "CloudWatch Logs",
+      "Kinesis Firehose"
+    ],
+    "external_entities": [],
+    "trust_boundaries": [],
+    "data_flows": [
+      "Check State -> Lambda Functions",
+      "Send Notification -> SNS Notifications",
+      "Execute Remediation -> Lambda Functions",
+      "CloudWatch Logs -> Kinesis Firehose",
+      "Kinesis Firehose -> Metrics Bucket"
+    ],
+    "identity_flows": [],
+    "security_observations": [
+      "Automated security response using AWS Security Hub and Step Functions Orchestrator."
+    ],
+    "possible_investigation_evidence": [
+      "CloudWatch Logs",
+      "Kinesis Firehose",
+      "Metrics Bucket"
+    ],
+    "architecture_summary": "AWS Automated Security Response Architecture utilizing Security Hub, EventBridge, Step Functions Orchestrator, Lambda Functions, SNS Notifications, CloudWatch Logs, Kinesis Firehose, and Metrics Bucket for automated security response and monitoring."
+  },
+  "normalised_threat_model": {
+    "scenario_type": "automated-security-response",
+    "primary_risk": "Lambda functions are vulnerable to code injection via Security Hub findings, leading to potential high confidentiality and integrity breaches.",
+    "affected_assets": [
+      "SecurityHub",
+      "EventBridge",
+      "CheckStateLambda",
+      "ExecuteRemediationLambda"
+    ],
+    "likely_attack_path": [
+      "Compromise member account -> Create malicious Security Hub finding -> Exploit Lambda functions via injection payload"
+    ],
+    "security_signals": [
+      "Unusual Lambda function execution patterns",
+      "Security Hub findings with suspicious content"
+    ],
+    "investigation_goals": [
+      "Identify and mitigate the code injection vulnerability in Lambda functions processing Security Hub findings"
+    ],
+    "recommended_evidence_sources": [
+      "CloudTrail logs for Lambda functions",
+      "Security Hub findings logs",
+      "GuardDuty findings"
+    ],
+    "hidden_truth_candidates": [
+      "Lambda functions should implement strict input validation and sanitization for Security Hub finding fields"
+    ]
+  },
+  "learner_starting_context": {
+    "source": "Prepared from ACSE-Eval dataset inputs.",
+    "architecture_summary": "AWS Automated Security Response Architecture utilizing Security Hub, EventBridge, Step Functions Orchestrator, Lambda Functions, SNS Notifications, CloudWatch Logs, Kinesis Firehose, and Metrics Bucket for automated security response and monitoring.",
+    "primary_risk": "Lambda functions are vulnerable to code injection via Security Hub findings, leading to potential high confidentiality and integrity breaches.",
+    "investigation_goals": [
+      "Identify and mitigate the code injection vulnerability in Lambda functions processing Security Hub findings"
+    ],
+    "recommended_evidence_sources": [
+      "CloudTrail logs for Lambda functions",
+      "Security Hub findings logs",
+      "GuardDuty findings"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "id": "cp-7000055978334272bbf920bd6a982ef8",
+  "createdAt": "2026-09-24T11:23:15.088343+00:00",
+  "kind": "paused",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate Suspicious IAM User Activity",
+        "evidence": "Anomalies in CloudTrail Logs",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "evaluation",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review IAM user activity logs for signs of unauthorized access or data exfiltration.",
+      "id": "detect_unauthorized_access",
+      "recommended_next_focus": "Identify the root cause of the suspicious IAM user behavior.",
+      "title": "Investigate Suspicious IAM User Activity"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_log_anomaly",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudtrail_log_anomaly.png",
+      "imageUrl": "/generated_evidence/turn_1/cloudtrail_log_anomaly.png",
+      "summary": "CloudTrail logs indicate frequent failed login attempts from a specific IP address associated with an IAM user.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "Anomalies in CloudTrail Logs",
+      "type": "cloudtrail",
+      "whyItMayMatter": "This suggests a potential attempt to bypass authentication controls."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain How The CloudTrail Event Supports Your Action",
+        "text": "Explain how the CloudTrail event supports your selected response action. Connect the visible log fields to the decision you want to take.",
+        "cues": [
+          "event name",
+          "user identity",
+          "source IP",
+          "event time",
+          "MFA status",
+          "region"
+        ],
+        "actionTitle": "Investigate Suspicious IAM User Activity",
+        "evidenceTitle": "Anomalies in CloudTrail Logs",
+        "evidenceType": "cloudtrail"
+      },
+      "transcript": "I selected Investigate Suspicious IAM User Activity to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "dc0af94f3f07d852a671cf8829dfed7725e55c39",
+  "codeHasLocalChanges": true
+}

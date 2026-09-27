@@ -1,0 +1,13 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Consider investigating further by examining any related IAM activities such as assume role calls or create access key operations. These actions can provide more context on how the credentials were accessed and potentially identify the source of the threat.",
+  "known_context": [
+    "ARN: arn:aws:iam::123456789012:user/admin-test",
+    "Source IP: 203.0.113.41",
+    "Event Time: 09:14 UTC",
+    "Region: ap-southeast-1",
+    "Event Name: CreateAccessKey"
+  ],
+  "coach_guidance": "Continue investigating the recent IAM activity of s.brennan to identify the source of the AssumeRole call and assess the potential threat."
+}

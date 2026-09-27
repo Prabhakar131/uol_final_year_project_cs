@@ -1,0 +1,73 @@
+{
+  "id": "cp-73242ddecb2642e49fe2f8a5b5e91db8",
+  "createdAt": "2026-09-25T12:53:57.975398+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 50,
+    "visibility": 80,
+    "risk": "Medium",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+        "evidence": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the High-severity GuardDuty finding for s.brennan",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the details of the access key used by s.brennan to determine if it matches any known threats or vulnerabilities.",
+      "id": "examine_access_key_details",
+      "recommended_next_focus": "Identify the source of the high-severity GuardDuty finding",
+      "title": "Examine Access Key Details"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_4/access_key_details.png",
+      "summary": "Access key AKIA4Q3EQ222B99534QQ for s.brennan is Active; last used 2023-10-01 10:50 from 198.51.100.1.",
+      "supportRole": "strong",
+      "template": "access_key",
+      "title": "Access Key Details",
+      "type": "access_key",
+      "whyItMayMatter": "Shows the active status and last usage time of the access key."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "466cd16cbb53852ae4ca7eb24f1c13a9690da9c7",
+  "codeHasLocalChanges": true
+}

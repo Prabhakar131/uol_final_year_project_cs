@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-be9533d8abdd4c6a9d08ee5f9c654407",
+  "scenarioId": "automated-security-response",
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial action \u00b7 rotate evidence path \u00b7 26 Sep \u00b7 after fixes",
+  "createdAt": "2026-09-26T04:24:42.425275+00:00",
+  "updatedAt": "2026-09-26T04:31:33.234753+00:00",
+  "status": "completed",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-0c11e5bf2e5d4ac78adfc38d9232c68e",
+  "turn": 5,
+  "completedTurns": 5
+}

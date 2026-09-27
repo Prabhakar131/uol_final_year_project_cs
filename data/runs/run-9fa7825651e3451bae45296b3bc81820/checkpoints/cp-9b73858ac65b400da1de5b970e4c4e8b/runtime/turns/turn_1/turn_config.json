@@ -1,0 +1,11 @@
+{
+  "turn": 1,
+  "phase": "Detection and Initial Triage",
+  "briefing": "You are alerted to a potential unauthorized access attempt involving the customer-api IAM user. They need to prioritize investigating the suspicious activity related to the IAM user and the associated costs.",
+  "known_context": [
+    "You are aware that there is a suspicious IAM user activity from 203.0.113.10.",
+    "You recognize that there is a daily spend of $48.10 on EC2 costing $42.75 over the average.",
+    "You notice that there is a CloudTrail event recording a metric data update by CI-Deploy from 198.51.100.5 at 22:05 UTC."
+  ],
+  "coach_guidance": "Focus on identifying the IAM user responsible for the suspicious activity and reviewing the associated costs."
+}

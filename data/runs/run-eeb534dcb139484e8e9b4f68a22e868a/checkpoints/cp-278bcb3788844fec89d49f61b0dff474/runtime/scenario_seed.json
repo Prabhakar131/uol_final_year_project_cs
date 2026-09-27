@@ -1,0 +1,121 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "identity-management",
+  "scenario_slug": "identity_management",
+  "scenario_focus": "identity-management",
+  "selected_acse_case": {
+    "dataset": "ACSE-Eval",
+    "scenario_id": "identity-management",
+    "scenario_slug": "identity_management",
+    "source_file": "data/acse_eval.jsonl",
+    "case": {
+      "name": "identity-management",
+      "architecture": "identity-management/architecture.png",
+      "architecture_description": "identity-management/diagram.py",
+      "threat_model": "identity-management/threat-model.json",
+      "infra_as_code": "identity-management/cdk/"
+    }
+  },
+  "architecture_facts": {
+    "cloud_provider": "AWS",
+    "visible_services": [
+      "IAM Identity Center",
+      "IAM",
+      "CloudTrail",
+      "CloudWatch",
+      "Audit Logs"
+    ],
+    "identity_components": [
+      "IAM",
+      "users",
+      "roles",
+      "policies",
+      "Identity Management"
+    ],
+    "compute_components": [],
+    "storage_components": [],
+    "network_components": [],
+    "logging_components": [
+      "CloudTrail",
+      "CloudWatch",
+      "Audit Logs"
+    ],
+    "security_components": [
+      "IAM",
+      "CloudTrail",
+      "CloudWatch",
+      "Audit Logs"
+    ],
+    "external_entities": [
+      "End Users"
+    ],
+    "trust_boundaries": [
+      "AWS Organizations",
+      "Account 1",
+      "Account 2",
+      "Account 3"
+    ],
+    "data_flows": [
+      "Users authenticate -> IAM Identity Center -> IAM Roles -> AWS Organizations -> Account 1, Account 2, Account 3"
+    ],
+    "identity_flows": [
+      "Users authenticate -> IAM Identity Center -> IAM Roles -> AWS Organizations -> Account 1, Account 2, Account 3"
+    ],
+    "security_observations": [
+      "IAM is used for user authentication and role management."
+    ],
+    "possible_investigation_evidence": [
+      "CloudTrail logs",
+      "IAM activity logs",
+      "Audit Logs"
+    ],
+    "architecture_summary": "AWS IAM architecture with user authentication through IAM Identity Center, role management, and monitoring using CloudTrail and CloudWatch."
+  },
+  "normalised_threat_model": {
+    "scenario_type": "identity-management",
+    "primary_risk": "User impersonation via public endpoint allows attackers to steal identities and escalate privileges.",
+    "affected_assets": [
+      "IAM Identity Center",
+      "Public Authentication Endpoint",
+      "IAM Roles"
+    ],
+    "likely_attack_path": [
+      "Intercept authentication requests",
+      "Forge or replay tokens",
+      "Impersonate legitimate users"
+    ],
+    "security_signals": [
+      "Weak token validation",
+      "Lack of multi-factor authentication",
+      "Token spoofing vulnerabilities"
+    ],
+    "investigation_goals": [
+      "Identify interception points",
+      "Detect forged tokens",
+      "Recover stolen credentials"
+    ],
+    "recommended_evidence_sources": [
+      "CloudTrail logs",
+      "IAM activity logs",
+      "Audit Logs"
+    ],
+    "hidden_truth_candidates": [
+      "Hidden truths about IAM Identity Center's default configurations"
+    ]
+  },
+  "learner_starting_context": {
+    "source": "Prepared from ACSE-Eval dataset inputs.",
+    "architecture_summary": "AWS IAM architecture with user authentication through IAM Identity Center, role management, and monitoring using CloudTrail and CloudWatch.",
+    "primary_risk": "User impersonation via public endpoint allows attackers to steal identities and escalate privileges.",
+    "investigation_goals": [
+      "Identify interception points",
+      "Detect forged tokens",
+      "Recover stolen credentials"
+    ],
+    "recommended_evidence_sources": [
+      "CloudTrail logs",
+      "IAM activity logs",
+      "Audit Logs"
+    ]
+  }
+}

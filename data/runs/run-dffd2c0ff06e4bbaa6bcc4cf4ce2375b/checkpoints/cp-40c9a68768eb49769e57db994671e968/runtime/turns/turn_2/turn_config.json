@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Continue investigating the GuardDuty finding to correlate it with IAM activities and other security signals.",
+  "known_context": [
+    "The GuardDuty finding indicates unauthorized access attempts by 'd.okafor' from 203.0.113.41.",
+    "Recent IAM activities show 'd.okafor' accessed an S3 object via CloudTrail.",
+    "Access key details suggest 'etl-runner' uses the active access key ASIADE13333F8C2F195A."
+  ],
+  "coach_guidance": "Focus on correlating the GuardDuty finding with IAM activities and other security signals to better understand the nature of the anomaly."
+}

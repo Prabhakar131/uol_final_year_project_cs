@@ -1,0 +1,10 @@
+{
+  "turn": 1,
+  "phase": "Detection and Initial Triage",
+  "briefing": "An unusual GuardDuty finding has been detected for the IAM user 'd.okafor'. You need to investigate further to understand the implications.",
+  "known_context": [
+    "The IAM user 'd.okafor' recently accessed resources from the IP address 198.51.100.1.",
+    "There is a GuardDuty High-severity finding related to 'Anomalous Behavior' for the IAM user 'd.okafor'."
+  ],
+  "coach_guidance": "Start by investigating the GuardDuty finding and checking recent IAM activities involving 'd.okafor'. Look for any anomalies or unauthorized access attempts."
+}

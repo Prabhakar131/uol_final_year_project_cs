@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on correlating the IAM user with other security alerts and logs, rather than moving toward scope, blast-radius, monitoring, detection, or impact review.",
+        "The evidence facts lack concrete fields, making it difficult for the learner to make a meaningful decision."
+      ],
+      "retry_instruction": "Move toward scope, blast-radius, monitoring, detection, or impact review by focusing on the IAM user's activities and their relationship to other security signals."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

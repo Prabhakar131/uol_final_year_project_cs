@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_billing_spending",
+    "title": "InvestigateBillingSpending",
+    "description": "Review daily spending on AWS services to understand if there are any unexpected increases.",
+    "recommended_next_focus": "Monitor costs and investigate potential fraud or abuse.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "examine_cloud_trail_events",
+    "title": "ExamineCloudTrailEvents",
+    "description": "Review CloudTrail events for d.okafor to identify any anomalies or suspicious activities.",
+    "recommended_next_focus": "Look for patterns in IAM activities and resource access.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Remove the access key associated with d.okafor to prevent future unauthorized access.",
+    "recommended_next_focus": "Confirm removal and monitor access controls.",
+    "choice_role": "best"
+  }
+]

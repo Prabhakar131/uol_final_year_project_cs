@@ -1,0 +1,61 @@
+{
+  "id": "cp-f57c2174547241bdafa9301785ef2577",
+  "createdAt": "2026-09-25T12:57:51.881859+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "IAM Activity: s.brennan",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Examine the recent IAM activities related to creating new access keys for s.brennan to understand their origin and implications.",
+      "id": "investigate_create_access_key",
+      "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate the risks associated with it.",
+      "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_2/access_key_details.png",
+      "summary": "Access key AKIA6BA26EFDCBD2Q5C5 for s.brennan is Active; last used 2023-09-30 10:00 from 203.0.113.41.",
+      "supportRole": "partial",
+      "template": "access_key",
+      "title": "Access Key Details",
+      "type": "access_key",
+      "whyItMayMatter": "Provides details about the active access key and its usage."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "466cd16cbb53852ae4ca7eb24f1c13a9690da9c7",
+  "codeHasLocalChanges": true
+}

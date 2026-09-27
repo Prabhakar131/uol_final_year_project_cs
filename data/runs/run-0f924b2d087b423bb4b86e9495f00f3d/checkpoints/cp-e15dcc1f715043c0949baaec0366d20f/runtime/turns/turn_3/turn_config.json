@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "investigate_credentials_and_workloads",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Identify the identity responsible for the unauthorized access attempt and investigate the affected assets to understand the full extent of the damage.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/customer-api from 203.0.113.10.",
+    "The daily spending increased by $5.35 compared to the usual $42.75 per day.",
+    "An IAM activity timeline showing multiple accesses by the customer-api user."
+  ],
+  "coach_guidance": "Consider examining any other AWS API calls or logs made by the customer-api user during the same period to gather more context about their behavior."
+}

@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows the CreateAccessKey call by customer-api from 203.0.113.10. This is the step the decision this turn depends on.",
+  "partial_support": "Related to customer-api or the incident but incomplete: a Low-severity Discovery:IAMUser/AnomalousBehavior finding on arn:aws:iam::123456789012:user/customer-api (principal customer-api). It does not show the CreateAccessKey call by customer-api from 203.0.113.10.",
+  "weak_support": "Plausible cloud evidence that does not show customer-api's incident activity: an access key owned by CI-Deploy, active, last used from 198.51.100.5."
+}

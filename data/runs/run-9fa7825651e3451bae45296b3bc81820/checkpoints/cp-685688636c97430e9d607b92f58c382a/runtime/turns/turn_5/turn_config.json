@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "Please review the recent IAM login logs and associated costs to confirm if the access key has been rotated recently and examine any associated costs or charges.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10 at 10:50 UTC.",
+    "CloudTrail records show a CreateAccessKey operation by customer-api.",
+    "Daily spending analysis indicates high costs related to EC2 services."
+  ],
+  "coach_guidance": "Confirm if the access key has been rotated recently and examine any associated costs or charges."
+}

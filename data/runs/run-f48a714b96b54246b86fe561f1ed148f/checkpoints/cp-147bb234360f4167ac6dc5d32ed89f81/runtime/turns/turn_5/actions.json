@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_access_key_permissions",
+    "title": "Check Access Key Permissions",
+    "description": "Ensure the access key's permissions align with the intended use.",
+    "recommended_next_focus": "Review IAM activities and access key usage",
+    "choice_role": "weak"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by security-ops.",
+    "recommended_next_focus": "Review IAM activities and access key usage",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_cloud_watch_logs",
+    "title": "Investigate CloudWatch Logs",
+    "description": "Examine logs for any suspicious activity around the time of the increased spend.",
+    "recommended_next_focus": "Review IAM activities and access key usage",
+    "choice_role": "partial"
+  }
+]

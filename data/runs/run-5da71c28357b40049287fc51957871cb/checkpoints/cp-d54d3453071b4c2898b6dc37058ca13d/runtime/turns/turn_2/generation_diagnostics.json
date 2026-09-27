@@ -1,0 +1,19 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [
+    "CloudWatch rows must be lists or objects; regenerate the evidence.",
+    "Duplicate or invalid evidence template: access_key. Regenerate distinct evidence content with justified support roles; do not replace facts while retaining labels."
+  ],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive and doesn't provide a significant new investigative purpose.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Introduce a new investigative purpose, such as focusing on scope, blast radius, or related activity, to differentiate from the completed turn."
+    }
+  ]
+}

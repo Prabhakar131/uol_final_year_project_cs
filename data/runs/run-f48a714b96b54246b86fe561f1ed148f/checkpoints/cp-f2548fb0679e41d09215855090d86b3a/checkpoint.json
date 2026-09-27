@@ -1,0 +1,67 @@
+{
+  "id": "cp-f2548fb0679e41d09215855090d86b3a",
+  "createdAt": "2026-09-25T11:40:07.527332+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 35,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "Access Key Details",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "Access Key Details",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Investigate the recent activity around the PutEvents call by d.okafor.",
+      "id": "investigate_guard_duty_findings",
+      "recommended_next_focus": "Review the GuardDuty findings and IAM activities for further insights.",
+      "title": "Investigate Activity Around PutEvents"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_3/billing_daily_spend.png",
+      "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+      "supportRole": "weak",
+      "template": "billing",
+      "title": "Daily Billing Summary",
+      "type": "billing",
+      "whyItMayMatter": "Shows financial impact due to unauthorized access attempts."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_billing_activity",
+    "title": "Verify Billing Activity for Potential Excess Spending",
+    "description": "Review the daily billing summary to ensure there are no unexpected increases in costs due to the CreateAccessKey call.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate its potential impact on the organization\u2019s resources.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_cloudwatch_logs",
+    "title": "Check CloudWatch Logs for Correlation",
+    "description": "Search through CloudWatch logs for patterns or anomalies that could indicate the source of the CreateAccessKey call.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate its potential impact on the organization\u2019s resources.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_create_access_key",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the recent IAM activity of s.brennan to identify the source of the CreateAccessKey call and assess the potential impact.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate its potential impact on the organization\u2019s resources.",
+    "choice_role": "best"
+  }
+]

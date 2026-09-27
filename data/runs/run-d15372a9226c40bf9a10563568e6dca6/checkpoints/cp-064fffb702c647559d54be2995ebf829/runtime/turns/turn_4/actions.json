@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_cloudwatch_logs",
+    "title": "Review CloudTrail logs for suspicious activity",
+    "description": "Inspect the CloudTrail logs for any signs of unauthorized access attempts.",
+    "recommended_next_focus": "Identify the specific IAM activities related to the unauthorized access attempts",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_key",
+    "title": "Investigate the recent use of s.brennan's access key from 198.51.100.1",
+    "description": "Review the IAM activity logs to find if there were any anomalous IAM operations around the time of the unexpected spend spike.",
+    "recommended_next_focus": "Identify the specific IAM activities related to the unauthorized access attempts",
+    "choice_role": "best"
+  },
+  {
+    "id": "monitor_billing_spending",
+    "title": "Monitor the daily spend on AWS S3 services",
+    "description": "Check the billing details to see if the increase in spend aligns with the unauthorized access attempt.",
+    "recommended_next_focus": "Correlate the unauthorized access with the billing anomalies",
+    "choice_role": "partial"
+  }
+]

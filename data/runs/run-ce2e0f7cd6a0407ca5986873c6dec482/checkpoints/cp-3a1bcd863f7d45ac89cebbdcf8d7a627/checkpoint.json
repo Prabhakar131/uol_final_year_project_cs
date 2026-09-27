@@ -1,0 +1,73 @@
+{
+  "id": "cp-3a1bcd863f7d45ac89cebbdcf8d7a627",
+  "createdAt": "2026-09-25T11:27:44.350128+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 50,
+    "visibility": 80,
+    "risk": "Medium",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate Activity Around PutEvents",
+        "evidence": "CloudTrail Event: PutEvents",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the recent use of d.okafor's access key from 198.51.100.1.",
+      "id": "check_api_calls",
+      "recommended_next_focus": "Review IAM activities correlated with GuardDuty findings.",
+      "title": "Review Access Key Use"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_4/access_key_details.png",
+      "summary": "Access key AKIA5CDQ3A695EC617EF for d.okafor is Active; last used 2023-10-01 10:40 from 198.51.100.1.",
+      "supportRole": "strong",
+      "template": "access_key",
+      "title": "Access Key Details",
+      "type": "access_key",
+      "whyItMayMatter": "Shows the active status of the access key used by d.okafor."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

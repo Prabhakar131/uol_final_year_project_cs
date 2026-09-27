@@ -1,0 +1,61 @@
+{
+  "id": "cp-537ec202c5b44a99b2fd6acaaac35aad",
+  "createdAt": "2026-09-25T14:19:40.385167+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 35,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Unauthorized Access Attempt",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Search for any missing or inconsistent logs that could indicate the origin of the unauthorized access.",
+      "id": "gather_logging_gaps",
+      "recommended_next_focus": "Examine areas where logs might have been missed or altered.",
+      "title": "Gather Logging Gaps"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_2/billing_daily_spend.png",
+      "summary": "Daily spend $44.62 against a $42.75 average; largest service EC2.",
+      "supportRole": "partial",
+      "template": "billing",
+      "title": "Daily Billing Summary",
+      "type": "billing",
+      "whyItMayMatter": "Indicates higher costs related to EC2 services."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

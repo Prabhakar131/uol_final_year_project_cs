@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_cost_impact",
+    "title": "Review Cost Impact",
+    "description": "Check billing impact before changing credentials.",
+    "recommended_next_focus": "Use cost evidence only as context unless it links to the confirmed principal.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "contain_suspicious_credentials",
+    "title": "Contain Suspicious Credentials",
+    "description": "Disable or rotate credentials tied to the confirmed suspicious principal.",
+    "recommended_next_focus": "Use active key status and last-used activity to justify containment.",
+    "choice_role": "best"
+  },
+  {
+    "id": "increase_monitoring_controls",
+    "title": "Increase Monitoring Controls",
+    "description": "Add targeted monitoring while containment is being prepared.",
+    "recommended_next_focus": "Use logs to support monitoring, but confirm whether credentials still require action.",
+    "choice_role": "partial"
+  }
+]

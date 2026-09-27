@@ -1,0 +1,420 @@
+[
+  {
+    "at": "2026-09-26T16:11:12.281941+00:00",
+    "operation": "/api/evaluate-stream",
+    "stages": [
+      {
+        "elapsedSeconds": 0.242,
+        "stage": "started",
+        "label": "AI pipeline started",
+        "output": {
+          "message": "Starting VLM analysis."
+        }
+      },
+      {
+        "elapsedSeconds": 21.736,
+        "stage": "vlm",
+        "label": "Vision-language model",
+        "output": {
+          "evidence_type": "billing",
+          "visible_facts_extracted": [
+            "Estimated current spend: $44.03",
+            "Previous average: $42.75",
+            "Change: +3%",
+            "Region: ap-southeast-1",
+            "Service cost driver: S3"
+          ],
+          "extraction_warnings": [],
+          "visible_evidence_summary": "AWS Billing page showing cost details for the last 24 hours.",
+          "important_visible_fields": [
+            "Estimated current spend",
+            "Previous average",
+            "Change",
+            "Region",
+            "Service cost driver"
+          ]
+        }
+      },
+      {
+        "elapsedSeconds": 38.339,
+        "stage": "security",
+        "label": "Security reasoning model",
+        "output": {
+          "justification_claims": [
+            {
+              "statement_id": 1,
+              "assessment": "needs_detail",
+              "transcript_quote": "I selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident."
+            }
+          ],
+          "verdict": "Weak Support",
+          "key_fact": "Estimated current spend: $44.03, Previous average: $42.75, Change: +3%, Region: ap-southeast-1, Service cost driver: S3",
+          "risk_of_wrong_interpretation": "The billing evidence alone does not establish unauthorized access or the specific IAM activity in question, leading to a risk of misinterpreting the spend increase as the sole indicator of a security incident.",
+          "whose_evidence": "none shown",
+          "recommended_next_focus": "Investigate the IAM activity logs or API call logs to find the AssumeRole call by s.brennan from 198.51.100.1.",
+          "reasoning": "The selected billing evidence shows an unusual spend pattern with a +3% increase from the previous average, indicating potential unusual activity. However, it does not provide any direct evidence of the AssumeRole call by s.brennan from 198.51.100.1, which is the critical event under investigation. The evidence is related to the incident but is not sufficient to establish the specific IAM activity in question.",
+          "justification_assessment": "Learner statement: \u201cI selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident.\u201d\nThis statement needs a more specific connection between a visible fact and the selected action.",
+          "feedback_grounding": {
+            "removed_attribution_fields": [],
+            "neutralised_advice_fields": []
+          }
+        }
+      },
+      {
+        "elapsedSeconds": 44.463,
+        "stage": "coach",
+        "label": "Coach AI",
+        "output": {
+          "feedback": "**  \nWhile the billing summary provides some insight into unexpected spending patterns, it lacks direct evidence linking the increased costs to the specific IAM activity by s.brennan. This makes it insufficient to confirm whether the AssumeRole call is part of an unauthorized attempt. To strengthen our case, we need more detailed information about the IAM actions taken by s.brennan around this time period. **",
+          "next_turn_guidance": "**  \nConsider reviewing the IAM log files or API call logs for the AssumeRole call made by s.brennan from 198.51.100.1. These logs will provide concrete evidence of the activity, helping us determine if there's indeed an issue requiring further investigation.",
+          "feedback_grounding": {
+            "removed_attribution_fields": [],
+            "neutralised_advice_fields": []
+          }
+        }
+      },
+      {
+        "elapsedSeconds": 44.519,
+        "stage": "next_turn_generation",
+        "label": "Generating next turn",
+        "output": {
+          "message": "Coach AI is generating the next turn."
+        }
+      },
+      {
+        "elapsedSeconds": 71.638,
+        "stage": "next_turn_preview",
+        "label": "Next turn ready",
+        "output": {
+          "isComplete": false,
+          "nextTurn": 2,
+          "message": "Turn 2 has been generated in the background.",
+          "nextBriefing": "Investigate the recent IAM activity of s.brennan to identify the source of the AssumeRole call and check for other related credentials.",
+          "nextPhase": "correlation_and_scope"
+        }
+      },
+      {
+        "elapsedSeconds": 71.638,
+        "stage": "done",
+        "label": "Evaluation complete",
+        "output": {
+          "aiResult": {
+            "vlm_output": {
+              "evidence_type": "billing",
+              "visible_facts_extracted": [
+                "Estimated current spend: $44.03",
+                "Previous average: $42.75",
+                "Change: +3%",
+                "Region: ap-southeast-1",
+                "Service cost driver: S3"
+              ],
+              "extraction_warnings": [],
+              "visible_evidence_summary": "AWS Billing page showing cost details for the last 24 hours.",
+              "important_visible_fields": [
+                "Estimated current spend",
+                "Previous average",
+                "Change",
+                "Region",
+                "Service cost driver"
+              ]
+            },
+            "security_output": {
+              "justification_claims": [
+                {
+                  "statement_id": 1,
+                  "assessment": "needs_detail",
+                  "transcript_quote": "I selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident."
+                }
+              ],
+              "verdict": "Weak Support",
+              "key_fact": "Estimated current spend: $44.03, Previous average: $42.75, Change: +3%, Region: ap-southeast-1, Service cost driver: S3",
+              "risk_of_wrong_interpretation": "The billing evidence alone does not establish unauthorized access or the specific IAM activity in question, leading to a risk of misinterpreting the spend increase as the sole indicator of a security incident.",
+              "whose_evidence": "none shown",
+              "recommended_next_focus": "Investigate the IAM activity logs or API call logs to find the AssumeRole call by s.brennan from 198.51.100.1.",
+              "reasoning": "The selected billing evidence shows an unusual spend pattern with a +3% increase from the previous average, indicating potential unusual activity. However, it does not provide any direct evidence of the AssumeRole call by s.brennan from 198.51.100.1, which is the critical event under investigation. The evidence is related to the incident but is not sufficient to establish the specific IAM activity in question.",
+              "justification_assessment": "Learner statement: \u201cI selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident.\u201d\nThis statement needs a more specific connection between a visible fact and the selected action.",
+              "feedback_grounding": {
+                "removed_attribution_fields": [],
+                "neutralised_advice_fields": []
+              }
+            },
+            "coach_output": {
+              "feedback": "**  \nWhile the billing summary provides some insight into unexpected spending patterns, it lacks direct evidence linking the increased costs to the specific IAM activity by s.brennan. This makes it insufficient to confirm whether the AssumeRole call is part of an unauthorized attempt. To strengthen our case, we need more detailed information about the IAM actions taken by s.brennan around this time period. **",
+              "next_turn_guidance": "**  \nConsider reviewing the IAM log files or API call logs for the AssumeRole call made by s.brennan from 198.51.100.1. These logs will provide concrete evidence of the activity, helping us determine if there's indeed an issue requiring further investigation.",
+              "feedback_grounding": {
+                "removed_attribution_fields": [],
+                "neutralised_advice_fields": []
+              }
+            }
+          },
+          "turnTrace": {
+            "turn": 1,
+            "selected_action": {
+              "choice_role": "best",
+              "description": "Look into the recent IAM activities of s.brennan to understand the context of the AssumeRole call and assess the potential threat.",
+              "id": "investigate_assume_role_call",
+              "recommended_next_focus": "Identify the source of the AssumeRole call and evaluate the risks associated with it.",
+              "title": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan"
+            },
+            "selected_evidence": {
+              "id": "billing_daily_spend",
+              "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/billing_daily_spend.png",
+              "imageUrl": "/generated_evidence/turn_1/billing_daily_spend.png",
+              "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+              "supportRole": "weak",
+              "template": "billing",
+              "title": "Daily Billing Summary",
+              "type": "billing",
+              "whyItMayMatter": "It compares current daily spend with the normal average."
+            },
+            "learner_justification": {
+              "mode": "typed",
+              "prompt": {
+                "title": "Explain how the billing evidence supports your action",
+                "text": "Explain how the billing evidence supports your selected response action. Connect the usage or spend signal to the response decision.",
+                "cues": [
+                  "unusual spend",
+                  "affected service",
+                  "time period",
+                  "usage spike",
+                  "account or region"
+                ],
+                "actionTitle": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+                "evidenceTitle": "Daily Billing Summary",
+                "evidenceType": "billing"
+              },
+              "transcript": "I selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+              "model": null,
+              "source": "typed_justification"
+            },
+            "vlm_output": {
+              "evidence_type": "billing",
+              "visible_facts_extracted": [
+                "Estimated current spend: $44.03",
+                "Previous average: $42.75",
+                "Change: +3%",
+                "Region: ap-southeast-1",
+                "Service cost driver: S3"
+              ],
+              "extraction_warnings": [],
+              "visible_evidence_summary": "AWS Billing page showing cost details for the last 24 hours.",
+              "important_visible_fields": [
+                "Estimated current spend",
+                "Previous average",
+                "Change",
+                "Region",
+                "Service cost driver"
+              ]
+            },
+            "security_output": {
+              "justification_claims": [
+                {
+                  "statement_id": 1,
+                  "assessment": "needs_detail",
+                  "transcript_quote": "I selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident."
+                }
+              ],
+              "verdict": "Weak Support",
+              "key_fact": "Estimated current spend: $44.03, Previous average: $42.75, Change: +3%, Region: ap-southeast-1, Service cost driver: S3",
+              "risk_of_wrong_interpretation": "The billing evidence alone does not establish unauthorized access or the specific IAM activity in question, leading to a risk of misinterpreting the spend increase as the sole indicator of a security incident.",
+              "whose_evidence": "none shown",
+              "recommended_next_focus": "Investigate the IAM activity logs or API call logs to find the AssumeRole call by s.brennan from 198.51.100.1.",
+              "reasoning": "The selected billing evidence shows an unusual spend pattern with a +3% increase from the previous average, indicating potential unusual activity. However, it does not provide any direct evidence of the AssumeRole call by s.brennan from 198.51.100.1, which is the critical event under investigation. The evidence is related to the incident but is not sufficient to establish the specific IAM activity in question.",
+              "justification_assessment": "Learner statement: \u201cI selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident.\u201d\nThis statement needs a more specific connection between a visible fact and the selected action.",
+              "feedback_grounding": {
+                "removed_attribution_fields": [],
+                "neutralised_advice_fields": []
+              }
+            },
+            "coach_output": {
+              "feedback": "**  \nWhile the billing summary provides some insight into unexpected spending patterns, it lacks direct evidence linking the increased costs to the specific IAM activity by s.brennan. This makes it insufficient to confirm whether the AssumeRole call is part of an unauthorized attempt. To strengthen our case, we need more detailed information about the IAM actions taken by s.brennan around this time period. **",
+              "next_turn_guidance": "**  \nConsider reviewing the IAM log files or API call logs for the AssumeRole call made by s.brennan from 198.51.100.1. These logs will provide concrete evidence of the activity, helping us determine if there's indeed an issue requiring further investigation.",
+              "feedback_grounding": {
+                "removed_attribution_fields": [],
+                "neutralised_advice_fields": []
+              }
+            },
+            "state_after_turn": {
+              "currentTurn": 1,
+              "maxTurns": 5,
+              "containment": 30,
+              "visibility": 35,
+              "risk": "High",
+              "phase": "Initial Triage",
+              "actionHistory": [
+                {
+                  "turn": 1,
+                  "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+                  "evidence": "Daily Billing Summary",
+                  "verdict": "Weak Support",
+                  "action_role": "best"
+                }
+              ],
+              "pendingTurn": null,
+              "completed": false
+            },
+            "state_before_turn": {
+              "currentTurn": 1,
+              "maxTurns": 5,
+              "containment": 20,
+              "visibility": 35,
+              "risk": "High",
+              "phase": "Initial Triage",
+              "actionHistory": [],
+              "pendingTurn": null,
+              "completed": false
+            }
+          },
+          "evaluationTraces": [
+            {
+              "turn": 1,
+              "selected_action": {
+                "choice_role": "best",
+                "description": "Look into the recent IAM activities of s.brennan to understand the context of the AssumeRole call and assess the potential threat.",
+                "id": "investigate_assume_role_call",
+                "recommended_next_focus": "Identify the source of the AssumeRole call and evaluate the risks associated with it.",
+                "title": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan"
+              },
+              "selected_evidence": {
+                "id": "billing_daily_spend",
+                "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/billing_daily_spend.png",
+                "imageUrl": "/generated_evidence/turn_1/billing_daily_spend.png",
+                "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+                "supportRole": "weak",
+                "template": "billing",
+                "title": "Daily Billing Summary",
+                "type": "billing",
+                "whyItMayMatter": "It compares current daily spend with the normal average."
+              },
+              "learner_justification": {
+                "mode": "typed",
+                "prompt": {
+                  "title": "Explain how the billing evidence supports your action",
+                  "text": "Explain how the billing evidence supports your selected response action. Connect the usage or spend signal to the response decision.",
+                  "cues": [
+                    "unusual spend",
+                    "affected service",
+                    "time period",
+                    "usage spike",
+                    "account or region"
+                  ],
+                  "actionTitle": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+                  "evidenceTitle": "Daily Billing Summary",
+                  "evidenceType": "billing"
+                },
+                "transcript": "I selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+                "model": null,
+                "source": "typed_justification"
+              },
+              "vlm_output": {
+                "evidence_type": "billing",
+                "visible_facts_extracted": [
+                  "Estimated current spend: $44.03",
+                  "Previous average: $42.75",
+                  "Change: +3%",
+                  "Region: ap-southeast-1",
+                  "Service cost driver: S3"
+                ],
+                "extraction_warnings": [],
+                "visible_evidence_summary": "AWS Billing page showing cost details for the last 24 hours.",
+                "important_visible_fields": [
+                  "Estimated current spend",
+                  "Previous average",
+                  "Change",
+                  "Region",
+                  "Service cost driver"
+                ]
+              },
+              "security_output": {
+                "justification_claims": [
+                  {
+                    "statement_id": 1,
+                    "assessment": "needs_detail",
+                    "transcript_quote": "I selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident."
+                  }
+                ],
+                "verdict": "Weak Support",
+                "key_fact": "Estimated current spend: $44.03, Previous average: $42.75, Change: +3%, Region: ap-southeast-1, Service cost driver: S3",
+                "risk_of_wrong_interpretation": "The billing evidence alone does not establish unauthorized access or the specific IAM activity in question, leading to a risk of misinterpreting the spend increase as the sole indicator of a security incident.",
+                "whose_evidence": "none shown",
+                "recommended_next_focus": "Investigate the IAM activity logs or API call logs to find the AssumeRole call by s.brennan from 198.51.100.1.",
+                "reasoning": "The selected billing evidence shows an unusual spend pattern with a +3% increase from the previous average, indicating potential unusual activity. However, it does not provide any direct evidence of the AssumeRole call by s.brennan from 198.51.100.1, which is the critical event under investigation. The evidence is related to the incident but is not sufficient to establish the specific IAM activity in question.",
+                "justification_assessment": "Learner statement: \u201cI selected Investigate the Recent Activity Around the AssumeRole Call by s.brennan to investigate this incident.\u201d\nThis statement needs a more specific connection between a visible fact and the selected action.",
+                "feedback_grounding": {
+                  "removed_attribution_fields": [],
+                  "neutralised_advice_fields": []
+                }
+              },
+              "coach_output": {
+                "feedback": "**  \nWhile the billing summary provides some insight into unexpected spending patterns, it lacks direct evidence linking the increased costs to the specific IAM activity by s.brennan. This makes it insufficient to confirm whether the AssumeRole call is part of an unauthorized attempt. To strengthen our case, we need more detailed information about the IAM actions taken by s.brennan around this time period. **",
+                "next_turn_guidance": "**  \nConsider reviewing the IAM log files or API call logs for the AssumeRole call made by s.brennan from 198.51.100.1. These logs will provide concrete evidence of the activity, helping us determine if there's indeed an issue requiring further investigation.",
+                "feedback_grounding": {
+                  "removed_attribution_fields": [],
+                  "neutralised_advice_fields": []
+                }
+              },
+              "state_after_turn": {
+                "currentTurn": 1,
+                "maxTurns": 5,
+                "containment": 30,
+                "visibility": 35,
+                "risk": "High",
+                "phase": "Initial Triage",
+                "actionHistory": [
+                  {
+                    "turn": 1,
+                    "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+                    "evidence": "Daily Billing Summary",
+                    "verdict": "Weak Support",
+                    "action_role": "best"
+                  }
+                ],
+                "pendingTurn": null,
+                "completed": false
+              },
+              "state_before_turn": {
+                "currentTurn": 1,
+                "maxTurns": 5,
+                "containment": 20,
+                "visibility": 35,
+                "risk": "High",
+                "phase": "Initial Triage",
+                "actionHistory": [],
+                "pendingTurn": null,
+                "completed": false
+              }
+            }
+          ],
+          "finalDebrief": {},
+          "nextTurnPreview": {
+            "isComplete": false,
+            "nextTurn": 2,
+            "message": "Turn 2 has been generated in the background.",
+            "nextBriefing": "Investigate the recent IAM activity of s.brennan to identify the source of the AssumeRole call and check for other related credentials.",
+            "nextPhase": "correlation_and_scope"
+          },
+          "state": {
+            "currentTurn": 1,
+            "maxTurns": 5,
+            "containment": 30,
+            "visibility": 35,
+            "risk": "High",
+            "phase": "Initial Triage",
+            "actionHistory": [
+              {
+                "turn": 1,
+                "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+                "evidence": "Daily Billing Summary",
+                "verdict": "Weak Support",
+                "action_role": "best"
+              }
+            ],
+            "pendingTurn": 2,
+            "completed": false
+          }
+        }
+      }
+    ],
+    "elapsedSeconds": 71.639
+  }
+]

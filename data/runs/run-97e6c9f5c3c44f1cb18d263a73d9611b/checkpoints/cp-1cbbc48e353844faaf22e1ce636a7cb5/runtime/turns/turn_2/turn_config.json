@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Identify the root cause of the GuardDuty finding related to IAM user 'd.okafor'. Correlate the findings with recent IAM activities, API calls, and other security signals.",
+  "known_context": [
+    "The GuardDuty finding indicates persistent anomalous behavior associated with IAM user 'd.okafor', which matches recent IAM activities and API calls.",
+    "The GuardDuty finding suggests potential unauthorized access attempts involving the source IP 198.51.100.1.",
+    "There is a pending update function code operation by the user 'etl-runner' from 203.0.113.41 at 09:14 UTC."
+  ],
+  "coach_guidance": "Focus on correlating the GuardDuty finding with IAM activities and API calls to identify the root cause of the anomalous behavior."
+}

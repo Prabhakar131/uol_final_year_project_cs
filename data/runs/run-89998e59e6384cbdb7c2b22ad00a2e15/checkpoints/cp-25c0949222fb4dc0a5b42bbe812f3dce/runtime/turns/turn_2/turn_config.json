@@ -1,0 +1,10 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Further investigate the IAM activities around the GuardDuty finding to identify potential misconfigurations or unauthorized access attempts.",
+  "known_context": [
+    "Unauthorized login attempt detected by GuardDuty for user 'd.okafor' from IP 198.51.100.1.",
+    "GetObject operation recorded by CloudTrail for IAM user 'd.okafor' accessing object from IP 203.0.113.41."
+  ],
+  "coach_guidance": "Continue investigating the timeline of IAM activities and correlate this finding with other logs to understand the full scope of the anomalous behavior."
+}

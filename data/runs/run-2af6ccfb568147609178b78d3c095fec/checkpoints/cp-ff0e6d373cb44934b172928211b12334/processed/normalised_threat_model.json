@@ -1,0 +1,35 @@
+{
+  "scenario_type": "cost-management",
+  "primary_risk": "Unauthorized access to cloud credentials could lead to critical data exposure and unauthorized actions across cloud environments.",
+  "affected_assets": [
+    "SecretsManager",
+    "Lambda-CostCollector",
+    "CloudCredentials"
+  ],
+  "likely_attack_path": [
+    "Exploit overly permissive IAM roles or misconfigured secrets access policies in Secrets Manager",
+    "Access Secrets Manager using compromised Lambda function",
+    "Retrieve cloud credentials and use them for unauthorized access"
+  ],
+  "security_signals": [
+    "Unusual IAM activity logs",
+    "Access to Secrets Manager by unauthorized Lambda function",
+    "Unexpected changes in IAM roles or policies"
+  ],
+  "investigation_goals": [
+    "Identify the compromised Lambda function and its IAM role",
+    "Review and tighten IAM policies and Secrets Manager access controls",
+    "Analyze CloudTrail logs for unauthorized access attempts"
+  ],
+  "recommended_evidence_sources": [
+    "CloudTrail",
+    "IAM activity",
+    "GuardDuty",
+    "CloudWatch",
+    "access keys"
+  ],
+  "hidden_truth_candidates": [
+    "The compromised Lambda function's IAM role had excessive permissions",
+    "The Secrets Manager access policy was not properly configured with least privilege principle"
+  ]
+}

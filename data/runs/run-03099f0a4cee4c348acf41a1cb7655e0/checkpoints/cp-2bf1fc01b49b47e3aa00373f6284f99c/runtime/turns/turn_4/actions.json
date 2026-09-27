@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_cloudtrail_logs",
+    "title": "Explore CloudTrail Logs",
+    "description": "Review CloudTrail logs for any suspicious activity around the time of the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the source of the unauthorized access attempt",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_billing_activity",
+    "title": "Verify Billing Activity",
+    "description": "Check if there are any unusual charges related to the unauthorized access attempt.",
+    "recommended_next_focus": "Assess the potential risks",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_access_key",
+    "title": "Investigate the Access Key Activity",
+    "description": "Review the recent use of s.brennan's access key from 198.51.100.1.",
+    "recommended_next_focus": "Identify the source of the unauthorized access attempt",
+    "choice_role": "best"
+  }
+]

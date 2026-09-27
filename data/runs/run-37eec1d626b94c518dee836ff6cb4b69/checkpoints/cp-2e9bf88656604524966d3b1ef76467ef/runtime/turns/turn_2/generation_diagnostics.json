@@ -1,0 +1,20 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [
+    "CloudWatch rows must be lists or objects; regenerate the evidence.",
+    "CloudWatch rows must be lists or objects; regenerate the evidence."
+  ],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, lacking a meaningful shift in investigation goals.",
+        "The turn does not introduce a new learning purpose or decision point beyond continuing the initial investigation."
+      ],
+      "retry_instruction": "Refocus the investigation on identifying the source of the unauthorized access attempts and verifying the access key's status."
+    }
+  ]
+}

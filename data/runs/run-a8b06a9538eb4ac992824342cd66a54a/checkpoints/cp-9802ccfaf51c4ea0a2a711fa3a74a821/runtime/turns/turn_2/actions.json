@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_logging_gaps",
+    "title": "Explore Logging Gaps",
+    "description": "Examine the GuardDuty findings to uncover any missed logging opportunities or gaps in monitoring.",
+    "recommended_next_focus": "Identify areas where additional logging could improve detection capabilities.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_patterns",
+    "title": "Investigate Activity Around UpdateFunctionCode",
+    "description": "Investigate the recent activity around the UpdateFunctionCode call by d.okafor.",
+    "recommended_next_focus": "Identify any new access points or resource usage anomalies.",
+    "choice_role": "best"
+  },
+  {
+    "id": "gather_additional_info",
+    "title": "Gather Additional Information",
+    "description": "Request more details about the GuardDuty findings to understand the full extent of the anomaly.",
+    "recommended_next_focus": "Obtain insights into the root cause and mitigation strategies.",
+    "choice_role": "partial"
+  }
+]

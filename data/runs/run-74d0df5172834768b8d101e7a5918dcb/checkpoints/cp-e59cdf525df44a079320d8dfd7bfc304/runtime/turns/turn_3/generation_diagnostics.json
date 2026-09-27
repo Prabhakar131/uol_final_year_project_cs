@@ -1,0 +1,17 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on scope and blast radius, which is similar to the completed turn's phase. It moves towards the same investigative goals without providing a distinct purpose.",
+        "The evidence facts are mostly vague and lack concrete details, making them less helpful for the learner to make decisions."
+      ],
+      "retry_instruction": "Refocus the investigation on the source of the AssumeRole call rather than moving towards scope and blast radius."
+    }
+  ],
+  "anchor_repairs": []
+}

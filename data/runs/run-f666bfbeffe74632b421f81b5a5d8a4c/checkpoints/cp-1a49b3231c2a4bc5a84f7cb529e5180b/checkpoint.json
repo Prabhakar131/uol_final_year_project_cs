@@ -1,0 +1,79 @@
+{
+  "id": "cp-1a49b3231c2a4bc5a84f7cb529e5180b",
+  "createdAt": "2026-09-25T12:55:19.410159+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 60,
+    "visibility": 95,
+    "risk": "Medium",
+    "phase": "Containment Decision",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+        "evidence": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the High-severity GuardDuty finding for s.brennan",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 4,
+        "action": "Examine Access Key Details",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the recent IAM activities and access key details to ensure proper cleanup and prevent future misuse.",
+      "id": "delete_access_key",
+      "recommended_next_focus": "Review IAM activities and access key details",
+      "title": "Verify the recent activity around the DeleteAccessKey call by s.brennan"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_5/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of DeleteAccessKey by security-analyst from 204.152.16.3 at 10:55 UTC.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: DeleteAccessKey",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Directly confirms the recent IAM activity involving s.brennan."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "466cd16cbb53852ae4ca7eb24f1c13a9690da9c7",
+  "codeHasLocalChanges": true
+}

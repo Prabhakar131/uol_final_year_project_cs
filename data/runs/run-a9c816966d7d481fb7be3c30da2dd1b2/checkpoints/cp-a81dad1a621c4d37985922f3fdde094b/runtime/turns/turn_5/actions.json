@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_iam_policies",
+    "title": "InvestigateIAMPolicies",
+    "description": "Review logs related to IAM policies and permissions to identify any misconfigurations that could have facilitated the access key creation.",
+    "recommended_next_focus": "Analyze the recipient account's billing history to determine the root cause of the unauthorized access attempt.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_billing_history",
+    "title": "VerifyBillingHistory",
+    "description": "Analyze the recipient account's billing history to determine the root cause of the unauthorized access attempt.",
+    "recommended_next_focus": "Review logs related to IAM policies and permissions to identify any misconfigurations.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Confirm the deletion of the unauthorized access key to secure the affected resources.",
+    "recommended_next_focus": "Finalize the incident report and ensure compliance with internal policies.",
+    "choice_role": "best"
+  }
+]

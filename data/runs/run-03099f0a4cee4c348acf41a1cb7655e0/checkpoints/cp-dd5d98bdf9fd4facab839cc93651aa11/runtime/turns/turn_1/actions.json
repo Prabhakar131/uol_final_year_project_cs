@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_recent_iam_activities",
+    "title": "Review Recent IAM Activities of s.brennan",
+    "description": "Check the latest IAM activities of s.brennan to gather more context about his recent behavior and identify any anomalies.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call and evaluate the risks associated with it.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_assume_role_call",
+    "title": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+    "description": "Look into the recent IAM activities of s.brennan to understand the context of the AssumeRole call and assess the potential threat.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call and evaluate the risks associated with it.",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity for Potential Excess Spending",
+    "description": "Verify the daily spending pattern of s.brennan to ensure there isn't excessive usage that might indicate malicious intent.",
+    "recommended_next_focus": "Evaluate the overall risk based on the identified activities.",
+    "choice_role": "weak"
+  }
+]

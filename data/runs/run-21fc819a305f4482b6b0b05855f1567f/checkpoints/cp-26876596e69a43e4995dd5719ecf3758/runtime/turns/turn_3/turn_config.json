@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "Consider investigating the recent activity around the 'Invoke' call by customer-api to determine if it was part of a legitimate process or an unauthorized attempt.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/customer-api from 203.0.113.10.",
+    "The daily spending increased by $5.35 compared to the average of $42.75.",
+    "There were 3 CloudTrail log entries returned by the logs insights query."
+  ],
+  "coach_guidance": "Review the logs for any other activities related to the 'Invoke' call. Look for patterns or anomalies that might indicate whether this was part of a legitimate process or an unauthorized attempt."
+}

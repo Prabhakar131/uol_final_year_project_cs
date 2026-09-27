@@ -1,0 +1,69 @@
+{
+  "id": "cp-b369456e391a44348349777e0e8da605",
+  "createdAt": "2026-09-26T04:53:26.109841+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 58,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Analyze CloudTrail Log",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Strong Support",
+        "action_role": "weak"
+      },
+      {
+        "turn": 2,
+        "action": "Review Daily Billing for Unusual Costs",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support",
+        "action_role": "weak"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Examine GuardDuty findings to understand if there are any threats linked to the suspicious IAM activity.",
+      "id": "review_guardduty_findings",
+      "recommended_next_focus": "Confirm if the unauthorized access led to the unexpected EC2 spending",
+      "title": "Review GuardDuty Findings"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_3/access_key_details.png",
+      "summary": "Access key ASIA26FE14613C9A445F for CI-Deploy is Active; last used 2023-10-01 10:45 from 198.51.100.5.",
+      "supportRole": "weak",
+      "template": "access_key",
+      "title": "Access Key Details",
+      "type": "access_key",
+      "whyItMayMatter": "Indicates recent usage, suggesting the user might have been accessing resources."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "f63e9fdc38a5a18b43973e04445fe27028abfd67",
+  "codeHasLocalChanges": true
+}

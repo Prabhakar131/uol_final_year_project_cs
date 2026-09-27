@@ -1,0 +1,35 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less impactful for the learner."
+      ],
+      "retry_instruction": "Move to the next stage focusing on scope, correlation, credential risk, monitoring gaps, or related activity."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts are similar to the completed turn, making it hard for the learner to distinguish between them.",
+        "The turn does not introduce a new investigative purpose beyond continuing the initial investigation."
+      ],
+      "retry_instruction": "Focus on correlating the IAM activities with the CloudTrail logs and accessing key information about the compromised access key."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less effective for the learner."
+      ],
+      "retry_instruction": "Focus on correlating the same source IP across multiple IAM activities and accessing key details about the compromised access key."
+    }
+  ]
+}

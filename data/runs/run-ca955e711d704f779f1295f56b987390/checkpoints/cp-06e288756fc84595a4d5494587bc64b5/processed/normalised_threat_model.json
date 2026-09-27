@@ -1,0 +1,32 @@
+{
+  "scenario_type": "identity-management",
+  "primary_risk": "User impersonation via public endpoint allows attackers to steal identities and escalate privileges.",
+  "affected_assets": [
+    "IAM Identity Center",
+    "Public Authentication Endpoint",
+    "IAM Roles"
+  ],
+  "likely_attack_path": [
+    "Intercept authentication requests",
+    "Forge or replay tokens",
+    "Impersonate legitimate users"
+  ],
+  "security_signals": [
+    "Weak token validation",
+    "Lack of multi-factor authentication",
+    "Token spoofing vulnerabilities"
+  ],
+  "investigation_goals": [
+    "Identify interception points",
+    "Detect forged tokens",
+    "Recover stolen credentials"
+  ],
+  "recommended_evidence_sources": [
+    "CloudTrail logs",
+    "IAM activity logs",
+    "Audit Logs"
+  ],
+  "hidden_truth_candidates": [
+    "Hidden truths about IAM Identity Center's default configurations"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "Containment and Remediation",
+  "briefing": "Continue investigating the unauthorized IAM activities identified by GuardDuty. Ensure you review the IAM policies associated with the target function to prevent future unauthorized changes.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for d.okafor",
+    "Daily spend $44.03 against a $42.75 average; largest service S3"
+  ],
+  "coach_guidance": "Focus on identifying and mitigating unauthorized IAM changes beyond just the 'UpdateFunctionCode' call."
+}

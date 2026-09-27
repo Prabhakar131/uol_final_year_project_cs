@@ -1,0 +1,27 @@
+[
+  {
+    "at": "2026-09-24T06:55:51.094795+00:00",
+    "operation": "/api/evaluate-stream",
+    "error": "Invalid buffer size: 17.07 GB",
+    "stages": [
+      {
+        "elapsedSeconds": 0.353,
+        "stage": "started",
+        "label": "AI pipeline started",
+        "output": {
+          "message": "Starting VLM analysis."
+        }
+      },
+      {
+        "elapsedSeconds": 12.713,
+        "stage": "error",
+        "label": "Pipeline error",
+        "output": {
+          "error": "Invalid buffer size: 17.07 GB",
+          "error_type": "RuntimeError"
+        }
+      }
+    ],
+    "elapsedSeconds": 12.727
+  }
+]

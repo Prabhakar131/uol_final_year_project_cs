@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_iam_activity_timeline",
+    "title": "Examine the IAM Activity Timeline for s.brennan",
+    "description": "Review the IAM activity timeline to understand the sequence of events leading up to the suspicious activities.",
+    "recommended_next_focus": "Identify patterns and correlations",
+    "choice_role": "partial"
+  },
+  {
+    "id": "monitor_permissions_changes",
+    "title": "Monitor Permissions Changes in the IAM Console",
+    "description": "Keep an eye on the IAM console for any changes in permissions or access levels since the suspicious activities occurred.",
+    "recommended_next_focus": "Detect any unauthorized modifications",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty findings for s.brennan to assess the level of threat and take necessary actions.",
+    "recommended_next_focus": "Identify and mitigate the identified risks",
+    "choice_role": "best"
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "id": "cp-d5de5e049bb94cd192a4016830e46525",
+  "createdAt": "2026-09-25T13:02:21.523590+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 36,
+    "visibility": 67,
+    "risk": "High",
+    "phase": "Containment Decision",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "IAM Activity: s.brennan",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+        "evidence": "Access Key Details",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the High-severity GuardDuty finding for s.brennan",
+        "evidence": "CloudTrail Event Record",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 4,
+        "action": "Investigate the recent use of s.brennan's access key from 198.51.100.1",
+        "evidence": "CloudWatch log query results",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Confirm the deletion of the access key associated with s.brennan's IAM role.",
+      "id": "delete_access_key",
+      "recommended_next_focus": "Review the IAM activity leading up to the delete operation.",
+      "title": "DeleteAccessKey"
+    },
+    "selectedEvidence": {
+      "id": "iam_principal_activity",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/iam_principal_activity.png",
+      "imageUrl": "/generated_evidence/turn_5/iam_principal_activity.png",
+      "summary": "Recent IAM activity for s.brennan: GetBucketLocation, DescribeVolumes, PutObject.",
+      "supportRole": "partial",
+      "template": "iam_activity",
+      "title": "IAM Activity: s.brennan",
+      "type": "iam_activity",
+      "whyItMayMatter": "Shows the ongoing IAM activity related to s.brennan's access key."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "466cd16cbb53852ae4ca7eb24f1c13a9690da9c7",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,70 @@
+[
+  {
+    "id": "cloudwatch_logs_query",
+    "title": "CloudWatch Logs Insights Query",
+    "type": "cloudwatch",
+    "template": "cloudwatch",
+    "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+    "why_it_may_matter": "Represents another login attempt by the customer-api user.",
+    "support_role": "partial",
+    "facts": {
+      "query": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/customer-api\" | sort @timestamp asc",
+      "log_group": "aws-cloudtrail-logs-123456789012",
+      "matched_records": "3",
+      "scanned_bytes": "0.9 MB",
+      "time_range": "2023-09-30 09:14-10:01 UTC",
+      "alarm_state": "Complete",
+      "log_rows": [
+        [
+          "2023-09-30T09:14:05Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "ListObjectsV2 success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44"
+        ],
+        [
+          "2023-09-30T09:37:16Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "DescribeInstances success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44"
+        ],
+        [
+          "2023-09-30T10:00:27Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "GetBucketLocation success by arn:aws:iam::123456789012:user/customer-api from 198.51.100.44"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "billing_daily_spend",
+    "title": "Daily Billing Summary",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $48.10 against a $42.75 average; largest service EC2.",
+    "why_it_may_matter": "It compares current daily spend with the normal average.",
+    "support_role": "strong",
+    "facts": {
+      "current_spend": "$48.10",
+      "previous_average": "$42.75",
+      "largest_service": "EC2",
+      "region": "ap-southeast-1",
+      "change": "+13%"
+    }
+  },
+  {
+    "id": "access_key_details",
+    "title": "Access Key Details",
+    "type": "access_key",
+    "template": "access_key",
+    "summary": "Access key ASIA26FE14613C9A445F for CI-Deploy is Active; last used 2023-10-01 10:45 from 198.51.100.5.",
+    "why_it_may_matter": "It shows a credential's owner, status and most recent use.",
+    "support_role": "weak",
+    "facts": {
+      "access_key_id": "ASIA26FE14613C9A445F",
+      "owner": "arn:aws:iam::123456789012:role/CI-Deploy",
+      "status": "Active",
+      "last_used_service": "s3.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-10-01T10:45:20Z",
+      "source_ip": "198.51.100.5"
+    }
+  }
+]

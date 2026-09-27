@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_access_key_info",
+    "title": "Verify Access Key Information",
+    "description": "Retrieve and review the details of the access key used during the unauthorized access attempt.",
+    "recommended_next_focus": "Assess the credentials involved in the unauthorized access.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_guardduty_logs",
+    "title": "Check GuardDuty Logs",
+    "description": "Search GuardDuty logs for any alerts related to the source IP '185.220.101.42'.",
+    "recommended_next_focus": "Identify if the unauthorized access attempt is linked to GuardDuty events.",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_cloudtrail_logs",
+    "title": "Investigate CloudTrail Logs",
+    "description": "Review CloudTrail logs for additional entries related to the unauthorized 'StopLogging' operation and the source IP '185.220.101.42'.",
+    "recommended_next_focus": "Confirm if the unauthorized access attempt is ongoing or isolated.",
+    "choice_role": "partial"
+  }
+]

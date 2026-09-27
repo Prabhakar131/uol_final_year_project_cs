@@ -1,0 +1,6 @@
+{
+  "strong_support": "Additional CloudTrail logs showing similar IAM activities.",
+  "partial_support": "CloudWatch log group indicating potential anomaly.",
+  "weak_support": "No significant findings in CloudTrail or CloudWatch logs.",
+  "unsupported": "Insufficient evidence to draw conclusions."
+}

@@ -1,0 +1,6 @@
+{
+  "strong_support": "Identify IAM activities correlated with affected resources and assess credential exposure",
+  "partial_support": "Find patterns in monitoring data and detect potential credential misuse",
+  "weak_support": "Discover occasional failed authentication attempts and gather basic credential details",
+  "unsupported": "No clear evidence linking IAM activities to affected resources or identifying credential exposure"
+}

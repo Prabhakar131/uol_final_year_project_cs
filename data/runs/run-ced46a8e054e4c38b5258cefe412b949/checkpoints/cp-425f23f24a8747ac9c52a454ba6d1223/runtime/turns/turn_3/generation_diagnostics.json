@@ -1,0 +1,29 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [
+    "Actions do not match the evidence. The best action must name PutEvents, for example: \"Investigate the recent activity around the PutEvents call by d.okafor\"."
+  ],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "Turn 3 feels like a generic continuation instead of a meaningful next scenario step.",
+        "Evidence facts are mostly unknown.",
+        "Phase label changes but the actual briefing, known context, evidence purpose, and expected outcomes still describe the same investigation goal as the completed turn."
+      ],
+      "retry_instruction": "Make sure to introduce a new investigation purpose or decision point in Turn 3."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "Turn 3 feels like a generic continuation instead of a meaningful next scenario step.",
+        "Evidence facts are mostly unknown.",
+        "Phase label changes but the actual briefing, known context, evidence purpose, and expected outcomes still describe the same investigation goal as the completed turn."
+      ],
+      "retry_instruction": "Make sure to introduce a new investigation purpose or decision point in Turn 3."
+    }
+  ]
+}

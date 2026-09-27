@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on revisiting the same IAM activities and GuardDuty finding, rather than moving towards scope, correlation, credential risk, monitoring gaps, or related activity.",
+        "The evidence titles and facts are mostly identical to the completed turn, lacking a meaningful new investigation or decision point.",
+        "The generated turn does not introduce a new investigation purpose or decision point, despite being the second turn in the sequence."
+      ],
+      "retry_instruction": "Move towards identifying the scope of the incident, correlating IAM activities with GuardDuty findings, and assessing the potential impact on affected identities and assets."
+    }
+  ],
+  "anchor_repairs": []
+}

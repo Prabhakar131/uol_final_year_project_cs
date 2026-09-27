@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Consider correlating the IAM user with other security alerts and logs to identify patterns and sources of the unauthorized activity.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' from 203.0.113.10 was involved in unauthorized access attempts.",
+    "The daily spend increased by $44.62 compared to a usual average of $42.75, indicating higher costs related to EC2 services.",
+    "A GuardDuty low finding was reported for EC2/PortProbeUnprotectedPort."
+  ],
+  "coach_guidance": "Focus on identifying the IAM user associated with the unauthorized access and gather additional details to assess the full scope of the threat."
+}

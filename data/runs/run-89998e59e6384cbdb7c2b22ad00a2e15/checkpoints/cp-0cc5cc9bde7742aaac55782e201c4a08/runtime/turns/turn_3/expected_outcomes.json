@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows the PutEvents call by d.okafor from 198.51.100.1. This is the step the decision this turn depends on.",
+  "partial_support": "Related to d.okafor or the incident but incomplete: calls GetObject, ListObjectsV2, DescribeInstances by d.okafor from 203.0.113.41 on 2023-09-30. It does not show the PutEvents call by d.okafor from 198.51.100.1.",
+  "weak_support": "Plausible cloud evidence that does not show d.okafor's incident activity: $44.03 daily spend (+3% against $42.75), largest service S3. It does not show d.okafor or the PutEvents call by d.okafor from 198.51.100.1."
+}

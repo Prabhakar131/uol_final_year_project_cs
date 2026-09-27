@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_iam_activity_timeline",
+    "title": "Examine IAM Activity Timeline",
+    "description": "Review the IAM activity timeline to identify any anomalies related to the access key usage.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized access attempt",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_cloudtrail_logs",
+    "title": "Investigate Activity Around CreateAccessKey",
+    "description": "Investigate the recent activity around the CreateAccessKey call by customer-api.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized access attempt",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify Access Key Status",
+    "description": "Ensure the access key remains active and check if it was recently accessed.",
+    "recommended_next_focus": "Determine the affected assets and their risks",
+    "choice_role": "partial"
+  }
+]

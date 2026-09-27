@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloud_trail_logs",
+    "title": "Check CloudTrail Logs",
+    "description": "Review the CloudTrail logs for any new activities involving s.brennan.",
+    "recommended_next_focus": "Look for signs of creating or using an access key from 198.51.100.1.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_billing_spending",
+    "title": "Investigate Billing Spending",
+    "description": "Examine the billing data to understand the financial implications of the access key usage.",
+    "recommended_next_focus": "Compare the spend against historical averages.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Confirm the deletion of the access key associated with s.brennan's IAM role.",
+    "recommended_next_focus": "Review the IAM activity leading up to the delete operation.",
+    "choice_role": "best"
+  }
+]

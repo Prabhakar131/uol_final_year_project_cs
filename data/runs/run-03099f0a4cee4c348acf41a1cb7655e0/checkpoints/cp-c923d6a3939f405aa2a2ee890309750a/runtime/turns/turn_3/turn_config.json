@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the recent IAM activities of s.brennan to identify the source of the AssumeRole call and assess the potential risks.",
+  "known_context": [
+    "The suspicious principal s.brennan accessed resources from 198.51.100.1.",
+    "An unauthorized access attempt was logged by GuardDuty.",
+    "Billing activity indicates high daily spend against S3 service."
+  ],
+  "coach_guidance": "Focus on identifying the root cause of the unauthorized access and assessing the potential impacts."
+}

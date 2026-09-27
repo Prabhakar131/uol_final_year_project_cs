@@ -1,0 +1,11 @@
+{
+  "turn": 1,
+  "phase": "Detection and Initial Triage",
+  "briefing": "A production AWS account has raised an identity-security alert after unusual IAM activity was observed around audit logging and access operations. Begin by finding which identity acted, where the activity came from, and whether the available logs support an initial response.",
+  "known_context": [
+    "The investigation starts in a production AWS identity-management environment with IAM, CloudTrail, CloudWatch, and audit logging available.",
+    "Recent signals point to unusual IAM activity, including authentication and access-management events that may affect account visibility.",
+    "The first response decision should be backed by evidence showing the action, identity, source IP, timing, and any MFA or credential-risk indicators."
+  ],
+  "coach_guidance": "Start with evidence that confirms the suspicious identity activity before moving to containment or recovery decisions."
+}

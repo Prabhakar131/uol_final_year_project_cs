@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Review recent IAM login logs and associated costs to pinpoint the specific IAM user involved in the suspicious activity.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/customer-api from 203.0.113.10.",
+    "The daily spend increased by $48.10 compared to a usual average of $42.75; the largest service is EC2.",
+    "There are 3 CloudTrail log lines returned by the logs insights query."
+  ],
+  "coach_guidance": "Consider reviewing logs or audit trails related to the customer-api principal to identify any unusual activities. This will help correlate the observed spending increases with specific actions taken within the application."
+}

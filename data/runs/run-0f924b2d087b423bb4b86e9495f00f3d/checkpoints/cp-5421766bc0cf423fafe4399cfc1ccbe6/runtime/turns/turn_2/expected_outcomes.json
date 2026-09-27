@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows the Invoke call by customer-api from 203.0.113.10. This is the step the decision this turn depends on.",
+  "partial_support": "Related to customer-api or the incident but incomplete: $44.62 daily spend (+4% against $42.75), largest service EC2. It does not show the Invoke call by customer-api from 203.0.113.10.",
+  "weak_support": "Plausible cloud evidence that does not show customer-api's incident activity: a Low-severity Recon:EC2/PortProbeUnprotectedPort finding on i-0a3fb6fce114a107e (principal CI-Deploy)."
+}

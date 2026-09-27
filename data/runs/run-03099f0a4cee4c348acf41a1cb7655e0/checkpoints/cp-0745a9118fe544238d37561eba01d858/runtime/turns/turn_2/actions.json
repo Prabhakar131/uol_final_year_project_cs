@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloud_trail_logs",
+    "title": "Check CloudTrail logs for other instances where s.brennan created access keys recently",
+    "description": "Search through CloudTrail logs for other instances where s.brennan created access keys recently to find patterns or unusual activity.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate the risks associated with it.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_create_access_key",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the recent activity around the CreateAccessKey call by s.brennan to understand the context and potential implications.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate the risks associated with it.",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_billing_activity",
+    "title": "Verify billing activity for potential excess spending",
+    "description": "Review the billing activity to check for any signs of excessive spending related to the creation of new access keys.",
+    "recommended_next_focus": "Confirm the source of the CreateAccessKey call and assess the risks.",
+    "choice_role": "partial"
+  }
+]

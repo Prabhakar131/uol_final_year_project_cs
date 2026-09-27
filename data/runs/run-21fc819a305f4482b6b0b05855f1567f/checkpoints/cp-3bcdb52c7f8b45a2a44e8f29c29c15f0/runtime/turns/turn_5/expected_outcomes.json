@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows the DeleteAccessKey call by SecurityAnalyst from 198.51.100.4. This is the step the decision this turn depends on.",
+  "partial_support": "Related to customer-api or the incident but incomplete: $44.62 daily spend (+4% against $42.75), largest service EC2. It does not show the DeleteAccessKey call by SecurityAnalyst from 198.51.100.4.",
+  "weak_support": "Plausible cloud evidence that does not show customer-api's incident activity: calls PutMetricData, ListFunctions20150331, GetObject by CI-Deploy from 198.51.100.5 on 2023-09-30, 2023-10-01."
+}

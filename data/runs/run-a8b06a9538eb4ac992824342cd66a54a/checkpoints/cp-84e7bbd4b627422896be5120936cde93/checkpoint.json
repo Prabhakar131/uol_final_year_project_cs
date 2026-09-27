@@ -1,0 +1,47 @@
+{
+  "id": "cp-84e7bbd4b627422896be5120936cde93",
+  "createdAt": "2026-09-25T14:15:55.755802+00:00",
+  "kind": "turn_ready",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 34,
+    "visibility": 58,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Explore Logging Gaps",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Check daily spending on AWS services",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

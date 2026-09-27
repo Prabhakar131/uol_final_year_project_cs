@@ -1,0 +1,59 @@
+{
+  "id": "cp-3c65e174994b41cc9e0d894778c24efa",
+  "createdAt": "2026-09-25T11:53:34.720849+00:00",
+  "kind": "before_operation",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 75,
+    "risk": "Medium",
+    "phase": "Recovery Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the Invoke call by customer-api",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Verify billing activity",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 4,
+        "action": "Investigate Activity Around CreateAccessKey",
+        "evidence": "GuardDuty findings",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 5,
+        "action": "Verify Activity Around DeleteAccessKey",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": 5,
+    "completed": true
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

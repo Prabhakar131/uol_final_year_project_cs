@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Consider correlating the IAM activity, affected assets, and credential risks to understand the full picture of the incident.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' accessed resources from 203.0.113.10.",
+    "The CloudWatch Logs Insights query returned 3 CloudTrail log entries.",
+    "The Daily spending report indicates a $44.62 increase compared to a $42.75 average, with the largest service being EC2."
+  ],
+  "coach_guidance": "Focus on understanding how the IAM activity relates to other incidents and assets, considering both the immediate and broader implications."
+}

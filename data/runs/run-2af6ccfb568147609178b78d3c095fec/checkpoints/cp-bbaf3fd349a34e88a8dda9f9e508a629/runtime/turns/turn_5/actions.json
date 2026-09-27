@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_logs_for_unusual_activity",
+    "title": "Examine Logs for Unusual Activity",
+    "description": "Review the logs for any unusual activity around the deletion of the access key.",
+    "recommended_next_focus": "Identify potential issues and escalate if necessary",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "Verify the recent activity around the DeleteAccessKey call by SecurityAnalyst",
+    "description": "Check if the access key was successfully deleted and examine the logs for any signs of unauthorized access attempts.",
+    "recommended_next_focus": "Confirm deletion and monitor for anomalies",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_recipient_account",
+    "title": "Investigate Activity Around DeleteAccessKey",
+    "description": "Explore the recipient account's activity to ensure no other suspicious transactions occurred.",
+    "recommended_next_focus": "Confirm no residual risks and close the case",
+    "choice_role": "weak"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "strong_support": "Use GuardDuty logs to confirm the unauthorized access attempt is linked to GuardDuty events.",
+  "partial_support": "Find additional CloudTrail logs confirming the unauthorized 'StopLogging' operation and the source IP '185.220.101.42'.",
+  "weak_support": "Retrieve access key details but do not find GuardDuty alerts.",
+  "unsupported": "No new evidence found regarding the unauthorized access attempt or GuardDuty events."
+}

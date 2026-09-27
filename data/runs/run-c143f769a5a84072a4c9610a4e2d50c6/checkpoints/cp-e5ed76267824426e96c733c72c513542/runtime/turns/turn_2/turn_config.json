@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Identify the identity responsible for the unauthorized access attempt and determine the affected assets and their risks.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' accessed resources via the source IP 203.0.113.10.",
+    "An IAM activity timeline showing multiple attempts including 'PutMetricData' and 'ConsoleLogin'.",
+    "Billing details show increased EC2 spending over the incident timeframe."
+  ],
+  "coach_guidance": "Focus on correlating the identity activity with affected assets and assessing potential threats."
+}

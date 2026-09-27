@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_function_updates",
+    "title": "InvestigateFunctionUpdates",
+    "description": "Review the IAM activities around function updates to ensure proper authorization.",
+    "recommended_next_focus": "Ensure proper IAM authorizations for function updates.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "look_for_logging_gaps",
+    "title": "LookForLoggingGaps",
+    "description": "Search for additional logging gaps to prevent future incidents.",
+    "recommended_next_focus": "Identify and fix any remaining logging issues.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by security-ops.",
+    "recommended_next_focus": "Correlate GuardDuty findings with IAM activities around function updates and put events.",
+    "choice_role": "best"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "id": "cp-5a40d15160d7450f866d30197ab86cea",
+  "createdAt": "2026-09-25T09:45:54.828532+00:00",
+  "kind": "turn_ready",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 65,
+    "risk": "Medium",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "112593057ef51c689809b7c67082ed4c3a3be2c2",
+  "codeHasLocalChanges": true
+}

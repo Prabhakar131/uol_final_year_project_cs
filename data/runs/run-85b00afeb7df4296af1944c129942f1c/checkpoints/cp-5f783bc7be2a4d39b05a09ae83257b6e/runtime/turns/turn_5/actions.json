@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing",
+    "title": "Check the daily spend for s.brennan",
+    "description": "Confirm that the cost associated with the deleted access key does not exceed the budget.",
+    "recommended_next_focus": "Review the billing records for s.brennan",
+    "choice_role": "weak"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "Verify the recent activity around the DeleteAccessKey call by s.brennan",
+    "description": "Ensure the correct access key was deleted and check for any lingering permissions issues.",
+    "recommended_next_focus": "Review the IAM activity related to the delete operation",
+    "choice_role": "best"
+  },
+  {
+    "id": "review_iam_activity",
+    "title": "Review the recent activity around the DeleteAccessKey call by s.brennan",
+    "description": "Check the IAM activities performed immediately prior to the delete operation to confirm there were no unintended consequences.",
+    "recommended_next_focus": "Inspect the IAM details of s.brennan's account",
+    "choice_role": "partial"
+  }
+]

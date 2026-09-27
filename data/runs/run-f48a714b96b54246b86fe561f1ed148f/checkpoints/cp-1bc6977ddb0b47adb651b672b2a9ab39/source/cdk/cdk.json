@@ -1,0 +1,58 @@
+{
+  "app": "npx ts-node --prefer-ts-exts cdk.ts",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "**/*.d.ts",
+      "**/*.js",
+      "tsconfig.json",
+      "package*.json",
+      "yarn.lock",
+      "node_modules",
+      "test"
+    ]
+  },
+  "context": {
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:checkSecretUsage": true,
+    "@aws-cdk/core:target-partitions": [
+      "aws",
+      "aws-cn"
+    ],
+    "@aws-cdk/aws-ec2:uniqueImIdGeneration": true,
+    "@aws-cdk/aws-ecs:disableExplicitDeploymentControllerForCircuitBreaker": true,
+    "@aws-cdk/aws-iam:minimizeवासनRoleTrustScope": true,
+    "@aws-cdk/aws-rds:lowercaseDbIdentifier": true,
+    "@aws-cdk/aws-s3:createDefaultLoggingPolicy": true,
+    "@aws-cdk/aws-s3:grantWriteWithoutAcl": true,
+    "@aws-cdk/aws-eks:restrictDefaultNodesSSM": true,
+    "@aws-cdk/aws-apigateway:disableCloudWatchRole": true,
+    "@aws-cdk/core:enablePartitionLiterals": true,
+    "@aws-cdk/aws-events:eventsTargetQueueSameAccount": true,
+    "@aws-cdk/aws-iam:standardizedServicePrincipals": true,
+    "@aws-cdk/aws-ecs:disableRollbackDetection": true,
+    "adminAccountId": "YOUR_ADMIN_ACCOUNT_ID",
+    "memberAccountId": "YOUR_MEMBER_ACCOUNT_ID_OR_PATTERN",
+    "primaryRegion": "YOUR_PRIMARY_REGION",
+    "snsNotificationEmail": "your-email@example.com",
+    "logRetentionDays": 7
+  },
+  "//": "Environment configuration for the CDK app. Replace with your account and region.",
+  "env": {
+    "account": "YOUR_ADMIN_ACCOUNT_ID",
+    "region": "YOUR_PRIMARY_REGION"
+  },
+  "tags": {
+    "Project": "AutomatedSecurityResponse",
+    "Environment": "Development",
+    "ManagedBy": "CDK"
+  },
+  "featureFlags": {
+    "ENABLE_S3_BUCKET_ENCRYPTION": true,
+    "ENABLE_SNS_TOPIC_ENCRYPTION": true
+  }
+} 

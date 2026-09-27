@@ -1,0 +1,32 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and does not align with the progression rules."
+      ],
+      "retry_instruction": "Move to the next stage focusing on scope, correlation, credential risk, monitoring gaps, or related activity."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on revisiting the CloudTrail log entry rather than moving forward with scope, correlation, credential risk, monitoring gaps, or related activity.",
+        "The evidence titles and facts are similar to the completed turn, lacking a distinct new investigative purpose."
+      ],
+      "retry_instruction": "Move the investigation focus to scope, correlation, credential risk, monitoring gaps, or related activity."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and does not align with the progression rules."
+      ],
+      "retry_instruction": "Move to the next stage focusing on scope, correlation, credential risk, monitoring gaps, or related activity."
+    }
+  ]
+}

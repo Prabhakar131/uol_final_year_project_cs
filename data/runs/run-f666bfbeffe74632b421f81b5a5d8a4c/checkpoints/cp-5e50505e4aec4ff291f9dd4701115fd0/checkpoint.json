@@ -1,0 +1,67 @@
+{
+  "id": "cp-5e50505e4aec4ff291f9dd4701115fd0",
+  "createdAt": "2026-09-25T12:52:43.091860+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 65,
+    "risk": "Medium",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+        "evidence": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the GuardDuty findings for s.brennan to understand the nature of the threat.",
+      "id": "investigate_guard_duty_findings",
+      "recommended_next_focus": "Identify the source of the high-severity GuardDuty finding",
+      "title": "Investigate the High-severity GuardDuty finding for s.brennan"
+    },
+    "selectedEvidence": {
+      "id": "guardduty_finding",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/guardduty_finding.png",
+      "imageUrl": "/generated_evidence/turn_3/guardduty_finding.png",
+      "summary": "GuardDuty High finding UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS for s.brennan.",
+      "supportRole": "strong",
+      "template": "guardduty",
+      "title": "GuardDuty Finding",
+      "type": "guardduty",
+      "whyItMayMatter": "This indicates a potential data breach through unsecured credentials."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "466cd16cbb53852ae4ca7eb24f1c13a9690da9c7",
+  "codeHasLocalChanges": true
+}

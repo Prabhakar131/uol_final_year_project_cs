@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "This turn should focus on Recovery And Final Debrief: Help the learner verify recovery, residual risk, and final incident reporting evidence before closing the scenario. Continue investigating the recent IAM activities of s.brennan to identify the source of the AssumeRole call and assess the potential impact.",
+  "known_context": [
+    "The recent IAM activity involved s.brennan accessing resources through various operations including GetBucketLocation, DescribeVolumes, and PutObject.",
+    "An unexpected high-severity GuardDuty finding indicates a potential attack vector involving s.brennan\u2019s access key.",
+    "CloudTrail records show frequent access attempts from the source IP 198.51.100.1."
+  ],
+  "coach_guidance": "Focus on gathering more details about the access key\u2019s lifecycle and its last known location to better understand the root cause of the observed behavior."
+}

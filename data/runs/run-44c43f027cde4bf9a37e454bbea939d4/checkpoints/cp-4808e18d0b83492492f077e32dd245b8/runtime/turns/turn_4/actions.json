@@ -1,0 +1,23 @@
+[
+  {
+    "id": "monitor_function_code_changes",
+    "title": "Monitor Function Code Changes",
+    "description": "Set up monitoring to detect any unauthorized changes to the function code.",
+    "recommended_next_focus": "Configure monitoring for function code changes",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_policies",
+    "title": "Review Access Key Use",
+    "description": "Review the recent use of access key AKIA5CDQ3A695EC617EF.",
+    "recommended_next_focus": "Review IAM policies for potential unauthorized changes",
+    "choice_role": "best"
+  },
+  {
+    "id": "audit_billing_spending",
+    "title": "Audit Billing Spends",
+    "description": "Review daily spending against budget limits to identify unusual patterns.",
+    "recommended_next_focus": "Review billing spends for anomalies",
+    "choice_role": "weak"
+  }
+]

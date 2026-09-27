@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_billing_activity",
+    "title": "Verify Billing Activity",
+    "description": "Ensure there are no unexpected charges related to the access key activity.",
+    "recommended_next_focus": "investigate further for any unauthorized access attempts",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "Verify the recent activity around the DeleteAccessKey call by security-analyst",
+    "description": "Confirm whether the deletion of the access key was part of the unauthorized access attempt.",
+    "recommended_next_focus": "investigate further for any additional unauthorized access attempts",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_cloud_watch_logs",
+    "title": "Check CloudWatch Logs",
+    "description": "Search for any abnormal activity related to the access key.",
+    "recommended_next_focus": "investigate further for any unauthorized access attempts",
+    "choice_role": "weak"
+  }
+]

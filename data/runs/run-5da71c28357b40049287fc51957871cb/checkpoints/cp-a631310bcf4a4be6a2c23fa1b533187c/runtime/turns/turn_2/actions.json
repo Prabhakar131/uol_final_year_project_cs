@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_access_keys",
+    "title": "Cross-Reference with Access Keys",
+    "description": "Compare the access key used in the unauthorized activity with others to assess credential risk.",
+    "recommended_next_focus": "Assess the overall risk associated with the compromised credentials",
+    "choice_role": "partial"
+  },
+  {
+    "id": "check_cloudtrail_logs",
+    "title": "Review Additional IAM Activity Logs",
+    "description": "Search for similar IAM activities to pinpoint the origin of the unauthorized access attempt.",
+    "recommended_next_focus": "Identify further unauthorized activities and their sources",
+    "choice_role": "best"
+  },
+  {
+    "id": "monitor_logging",
+    "title": "Monitor Logging for Future Incidents",
+    "description": "Set up alerts for future logging attempts to prevent similar incidents in the future.",
+    "recommended_next_focus": "Implement continuous monitoring and alerting for logging activities",
+    "choice_role": "weak"
+  }
+]

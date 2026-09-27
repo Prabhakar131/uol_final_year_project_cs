@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "scope_and_blast_radius",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the GuardDuty finding for 'd.okafor' to identify any unexpected access patterns or resource modifications.",
+  "known_context": [
+    "Unauthorized login attempt detected by GuardDuty",
+    "Source IP 198.51.100.1 associated with user d.okafor",
+    "CloudTrail record of PutEvents by d.okafor"
+  ],
+  "coach_guidance": "Focus on understanding the broader implications of unauthorized access attempts."
+}

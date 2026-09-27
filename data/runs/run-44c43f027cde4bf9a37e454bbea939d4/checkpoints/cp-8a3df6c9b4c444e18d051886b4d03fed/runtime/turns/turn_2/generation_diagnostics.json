@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on revisiting the GuardDuty finding rather than moving towards scope, correlation, credential risk, monitoring gaps, or related activity.",
+        "The evidence titles and facts are mostly identical to the completed turn, lacking a distinct new investigative purpose."
+      ],
+      "retry_instruction": "Move towards scope, correlation, credential risk, monitoring gaps, or related activity in the second turn."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

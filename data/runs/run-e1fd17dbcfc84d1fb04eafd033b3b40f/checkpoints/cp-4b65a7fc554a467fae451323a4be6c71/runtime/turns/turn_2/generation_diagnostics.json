@@ -1,0 +1,17 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on verifying billing activity, which is not aligned with the initial triage phase focusing on detecting and identifying the suspicious identity.",
+        "The evidence facts lack specificity and relevance to the current investigation goals."
+      ],
+      "retry_instruction": "Refocus the turn on identifying the suspicious identity and determining its scope and impact."
+    }
+  ],
+  "anchor_repairs": []
+}

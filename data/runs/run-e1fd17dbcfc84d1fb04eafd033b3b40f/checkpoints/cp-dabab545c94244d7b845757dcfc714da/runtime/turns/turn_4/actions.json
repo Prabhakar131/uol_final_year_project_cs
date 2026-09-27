@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_cloudwatch_logs",
+    "title": "Verify CloudWatch logs",
+    "description": "Re-examine CloudWatch logs for further details.",
+    "recommended_next_focus": "CloudWatch logs",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_ec2_billing_logs",
+    "title": "Investigate Activity Around CreateAccessKey",
+    "description": "Investigate the recent activity around the CreateAccessKey call by customer-api.",
+    "recommended_next_focus": "EC2 billing logs",
+    "choice_role": "best"
+  },
+  {
+    "id": "examine_access_keys",
+    "title": "Examine access keys",
+    "description": "Further examine the access keys involved in the suspicious activity.",
+    "recommended_next_focus": "IAM timeline",
+    "choice_role": "partial"
+  }
+]

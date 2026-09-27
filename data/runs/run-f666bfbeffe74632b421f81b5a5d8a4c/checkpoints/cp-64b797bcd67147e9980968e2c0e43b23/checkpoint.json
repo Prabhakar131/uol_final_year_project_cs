@@ -1,0 +1,59 @@
+{
+  "id": "cp-64b797bcd67147e9980968e2c0e43b23",
+  "createdAt": "2026-09-25T12:56:37.556722+00:00",
+  "kind": "paused",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 70,
+    "visibility": 100,
+    "risk": "Reduced",
+    "phase": "Recovery Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+        "evidence": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the High-severity GuardDuty finding for s.brennan",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 4,
+        "action": "Examine Access Key Details",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 5,
+        "action": "Verify the recent activity around the DeleteAccessKey call by s.brennan",
+        "evidence": "CloudTrail Event: DeleteAccessKey",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": 5,
+    "completed": true
+  },
+  "draft": {},
+  "note": "Automated session",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "466cd16cbb53852ae4ca7eb24f1c13a9690da9c7",
+  "codeHasLocalChanges": true
+}

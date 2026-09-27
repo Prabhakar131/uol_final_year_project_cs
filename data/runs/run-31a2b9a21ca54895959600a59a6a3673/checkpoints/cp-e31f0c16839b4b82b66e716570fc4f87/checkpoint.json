@@ -1,0 +1,76 @@
+{
+  "id": "cp-e31f0c16839b4b82b66e716570fc4f87",
+  "createdAt": "2026-09-26T05:09:57.607628+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 50,
+    "visibility": 51,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support",
+        "action_role": "best"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudTrail Event Record",
+        "verdict": "Partial Support",
+        "action_role": "best"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the recent activity around the PutEvents call by d.okafor",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Weak Support",
+        "action_role": "best"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Confirm if the access key 'ASIADE13333F8C2F195A' is active and last used recently.",
+      "id": "verify_access_key_status",
+      "recommended_next_focus": "Understand the context of d.okafor's IAM activities.",
+      "title": "Verify the status of the access key 'ASIADE13333F8C2F195A'"
+    },
+    "selectedEvidence": {
+      "id": "guardduty_finding",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/guardduty_finding.png",
+      "imageUrl": "/generated_evidence/turn_4/guardduty_finding.png",
+      "summary": "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for d.okafor.",
+      "supportRole": "partial",
+      "template": "guardduty",
+      "title": "GuardDuty Low Finding",
+      "type": "guardduty",
+      "whyItMayMatter": "Shows potential unauthorized access or misuse of AWS services."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "f63e9fdc38a5a18b43973e04445fe27028abfd67",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "iam_principal_activity",
+    "title": "IAM Activity: s.brennan",
+    "type": "iam_activity",
+    "template": "iam_activity",
+    "summary": "Recent IAM activity for s.brennan: GetBucketLocation, DescribeVolumes, PutObject.",
+    "why_it_may_matter": "It shows the recent API activity of one principal.",
+    "support_role": "partial",
+    "facts": {
+      "principal": "arn:aws:iam::123456789012:user/s.brennan",
+      "source_ip": "203.0.113.41",
+      "mfa": "true",
+      "policy_change": "None in this window",
+      "access_key_status": "2 active",
+      "risk_flags": [],
+      "activity_rows": [
+        [
+          "2023-09-30T09:14:05Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "GetBucketLocation",
+          "203.0.113.41"
+        ],
+        [
+          "2023-09-30T09:37:16Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "DescribeVolumes",
+          "203.0.113.41"
+        ],
+        [
+          "2023-09-30T10:00:27Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "PutObject",
+          "203.0.113.41"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "billing_daily_spend",
+    "title": "Daily Billing Summary",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+    "why_it_may_matter": "It compares current daily spend with the normal average.",
+    "support_role": "weak",
+    "facts": {
+      "current_spend": "$44.03",
+      "previous_average": "$42.75",
+      "largest_service": "S3",
+      "region": "ap-southeast-1",
+      "change": "+3%"
+    }
+  },
+  {
+    "id": "cloudtrail_event_record",
+    "title": "CloudTrail Event: AssumeRole",
+    "type": "cloudtrail",
+    "template": "cloudtrail",
+    "summary": "CloudTrail record of AssumeRole by s.brennan from 198.51.100.1 at 10:12 UTC.",
+    "why_it_may_matter": "It records who called an API, when, from where and with what result.",
+    "support_role": "strong",
+    "facts": {
+      "event_name": "AssumeRole",
+      "event_source": "sts.amazonaws.com",
+      "user": "arn:aws:iam::123456789012:user/s.brennan",
+      "source_ip": "198.51.100.1",
+      "mfa": "false",
+      "event_time": "2023-10-01T10:12:10Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Success",
+      "event_id": "4957d75a-a924-488d-a05b-4cf2df222b85",
+      "user_agent": "aws-cli/2.15.30 Python/3.11.8",
+      "recipient_account_id": "123456789012",
+      "request_parameters": "resource=role/developer-access",
+      "resources": "role/developer-access",
+      "related_events": [
+        [
+          "2023-10-01T10:12:10Z",
+          "AssumeRole",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "198.51.100.1",
+          "Success"
+        ]
+      ]
+    }
+  }
+]

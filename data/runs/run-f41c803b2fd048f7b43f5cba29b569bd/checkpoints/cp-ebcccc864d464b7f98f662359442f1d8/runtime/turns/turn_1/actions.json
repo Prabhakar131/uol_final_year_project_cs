@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_cloud_trail_logs",
+    "title": "Analyze CloudTrail Logs",
+    "description": "Review CloudTrail logs for any anomalies related to the suspicious IAM user and their activities.",
+    "recommended_next_focus": "Look for patterns indicating unauthorized access or data exfiltration.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_access_keys",
+    "title": "Verify Access Key Usage",
+    "description": "Inspect IAM user-created access keys to ensure they were authorized for the intended operations.",
+    "recommended_next_focus": "Confirm if the access keys were misused.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "detect_unauthorized_access",
+    "title": "Investigate Suspicious IAM User Activity",
+    "description": "Review IAM user activity logs for signs of unauthorized access or data exfiltration.",
+    "recommended_next_focus": "Identify the root cause of the suspicious IAM user behavior.",
+    "choice_role": "best"
+  }
+]

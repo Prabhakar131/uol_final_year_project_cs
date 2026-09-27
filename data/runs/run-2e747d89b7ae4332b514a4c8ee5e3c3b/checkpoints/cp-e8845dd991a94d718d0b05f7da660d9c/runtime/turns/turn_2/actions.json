@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Verify if the unauthorized access impacts costs associated with the affected resources.",
+    "recommended_next_focus": "Ensure cost control measures are in place.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "update_function_code",
+    "title": "Update Function Code",
+    "description": "Review the function code updates performed by 'd.okafor' to ensure they do not introduce vulnerabilities.",
+    "recommended_next_focus": "Confirm no new vulnerabilities have been introduced.",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_remote_access_patterns",
+    "title": "Investigate Remote Access Patterns",
+    "description": "Examine the GuardDuty findings for additional patterns of unauthorized access.",
+    "recommended_next_focus": "Identify potential attackers and their methods.",
+    "choice_role": "partial"
+  }
+]

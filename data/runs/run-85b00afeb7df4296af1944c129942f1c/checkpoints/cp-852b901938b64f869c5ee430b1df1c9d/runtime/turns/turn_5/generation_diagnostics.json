@@ -1,0 +1,20 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, and expected outcomes.",
+        "The generated turn introduces weak evidence that does not directly support the best action chosen by the learner.",
+        "The generated turn focuses on revisiting the same event without providing a new investigative purpose."
+      ],
+      "retry_instruction": "Refocus the learner on identifying the source of the unauthorized access attempt and assess its potential impact on the organization's resources."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: several actions name the anchor; left unchanged"
+  ]
+}

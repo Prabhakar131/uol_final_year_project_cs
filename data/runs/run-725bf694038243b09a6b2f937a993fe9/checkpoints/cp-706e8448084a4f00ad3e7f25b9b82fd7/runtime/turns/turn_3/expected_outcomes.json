@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows the +13% EC2 spend increase ($48.10 a day). This is the step the decision this turn depends on.",
+  "partial_support": "Related to customer-api or the incident but incomplete: calls ListObjectsV2, DescribeInstances, GetBucketLocation by customer-api from 198.51.100.44 on 2023-09-30. It does not show the +13% EC2 spend increase ($48.10 a day).",
+  "weak_support": "Plausible cloud evidence that does not show customer-api's incident activity: an access key owned by CI-Deploy, active, last used from 198.51.100.5."
+}

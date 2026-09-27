@@ -1,0 +1,41 @@
+{
+  "id": "cp-5cac0d538656444d8ca7f2f22e702554",
+  "createdAt": "2026-09-25T11:56:07.987891+00:00",
+  "kind": "after_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 35,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity",
+        "evidence": "CloudTrail Event: PutMetricData",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around Invoke",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": 3,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

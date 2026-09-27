@@ -1,0 +1,432 @@
+[
+  {
+    "threatID": "THREAT-001",
+    "threatName": "Lambda Code Injection via Security Hub Findings",
+    "affectedComponents": [
+      "SecurityHub",
+      "EventBridge",
+      "CheckStateLambda",
+      "ExecuteRemediationLambda"
+    ],
+    "frameworks": {
+      "stride": [
+        "Tampering",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A03:2021-Injection"
+      ],
+      "mitreATT&CK": [
+        "T1562.001 - Impair Defenses: Disable or Modify Tools"
+      ]
+    },
+    "cwe": "CWE-94",
+    "vulnerabilityDetails": {
+      "howItWorks": "Attackers could craft Security Hub findings containing malicious code or injection payloads that might be executed when processed by Lambda functions, particularly in the remediation function where dynamic execution might occur.",
+      "exploitationScenario": "An attacker compromises a member account and creates a custom Security Hub finding containing malicious code in its fields. When processed by the Lambda functions, this code gets executed in the context of the Lambda's IAM role."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-001-A",
+        "description": "Implement strict input validation and sanitization for all Security Hub finding fields",
+        "implementationDetails": "Add input validation layers in both the CheckState and ExecuteRemediation Lambda functions. Use allowlist approaches for accepted values and strictly validate all fields before processing.",
+        "awsServiceContext": [
+          "Lambda",
+          "SecurityHub"
+        ]
+      },
+      {
+        "recommendationID": "REC-001-B",
+        "description": "Implement Lambda function isolation using separate VPCs and restrictive security groups",
+        "implementationDetails": "Place each Lambda function in its own VPC with appropriate security groups and network ACLs. Update the CDK code to include VPC configuration for Lambda functions.",
+        "awsServiceContext": [
+          "Lambda",
+          "VPC",
+          "SecurityGroups"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Lambda layers to separate code execution environments. Consider implementing AWS Lambda PowerTools for enhanced input validation and security controls."
+  },
+  {
+    "threatID": "THREAT-002",
+    "threatName": "Excessive IAM Permissions in Remediation Role",
+    "affectedComponents": [
+      "RemediationRole",
+      "SystemsManager",
+      "ExecuteRemediationLambda"
+    ],
+    "frameworks": {
+      "stride": [
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control"
+      ],
+      "mitreATT&CK": [
+        "T1078.004 - Valid Accounts: Cloud Accounts"
+      ]
+    },
+    "cwe": "CWE-269",
+    "vulnerabilityDetails": {
+      "howItWorks": "The remediation role uses AWS managed policies that provide broad permissions across multiple services. If compromised, an attacker could use these permissions to access or modify resources beyond the intended scope.",
+      "exploitationScenario": "An attacker who compromises the remediation process could leverage the broad permissions to access EC2 instances across the account or make AWS Support API calls beyond the intended remediation scope."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-002-A",
+        "description": "Replace AWS managed policies with custom inline policies specific to remediation tasks",
+        "implementationDetails": "Create specific inline policies for the remediation role that only grant permissions needed for actual remediation tasks. Remove AWS managed policies and implement resource-level permissions where possible.",
+        "awsServiceContext": [
+          "IAM"
+        ]
+      },
+      {
+        "recommendationID": "REC-002-B",
+        "description": "Implement temporary credentials using AWS STS for remediation actions",
+        "implementationDetails": "Modify the remediation process to use AWS STS AssumeRole with short-lived credentials and explicit session policies that further restrict permissions.",
+        "awsServiceContext": [
+          "IAM",
+          "STS"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS IAM Access Analyzer to identify unused permissions and Service Control Policies (SCPs) to establish guardrails for remediation actions."
+  },
+  {
+    "threatID": "THREAT-003",
+    "threatName": "Sensitive Data Exposure in CloudWatch Logs",
+    "affectedComponents": [
+      "CloudWatch",
+      "KinesisFirehose",
+      "MetricsBucket",
+      "LambdaFunctions"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure"
+      ],
+      "owaspTop10": [
+        "A02:2021-Cryptographic Failures"
+      ],
+      "mitreATT&CK": [
+        "T1530 - Data from Cloud Storage Object"
+      ]
+    },
+    "cwe": "CWE-532",
+    "vulnerabilityDetails": {
+      "howItWorks": "Lambda functions and Step Functions are configured to log all execution data, which might include sensitive information from Security Hub findings or remediation processes. This data is then forwarded to S3 via Kinesis Firehose.",
+      "exploitationScenario": "An attacker with access to CloudWatch Logs or the metrics S3 bucket could extract sensitive information about security findings, system vulnerabilities, or AWS resource configurations."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "Low",
+      "availability": "Low"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-003-A",
+        "description": "Implement log sanitization in Lambda functions",
+        "implementationDetails": "Add log sanitization logic in all Lambda functions to redact sensitive data before logging. Create a common sanitization library to be used across all functions.",
+        "awsServiceContext": [
+          "Lambda",
+          "CloudWatch"
+        ]
+      },
+      {
+        "recommendationID": "REC-003-B",
+        "description": "Enable encryption for all log storage and transmission",
+        "implementationDetails": "Enable AWS KMS encryption for CloudWatch Logs, Kinesis Firehose, and S3 bucket. Update the CDK code to include encryption configuration.",
+        "awsServiceContext": [
+          "CloudWatch",
+          "KMS",
+          "S3",
+          "KinesisFirehose"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS KMS with customer managed keys for encryption and implement S3 bucket policies to enforce encryption in transit."
+  },
+  {
+    "threatID": "THREAT-004",
+    "threatName": "Unauthorized Step Functions Execution",
+    "affectedComponents": [
+      "StepFunctions",
+      "EventBridge",
+      "SecurityHub"
+    ],
+    "frameworks": {
+      "stride": [
+        "Spoofing",
+        "Tampering"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control"
+      ],
+      "mitreATT&CK": [
+        "T1199 - Trusted Relationship"
+      ]
+    },
+    "cwe": "CWE-306",
+    "vulnerabilityDetails": {
+      "howItWorks": "The Step Functions state machine is triggered by EventBridge rules based on Security Hub findings. Without proper validation and authorization checks, an attacker might be able to trigger or manipulate the execution.",
+      "exploitationScenario": "An attacker gains access to EventBridge and creates a rule that triggers the Step Functions state machine with crafted input data, potentially causing unauthorized remediation actions."
+    },
+    "impact": {
+      "confidentiality": "Medium",
+      "integrity": "High",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-004-A",
+        "description": "Implement strict EventBridge rule patterns",
+        "implementationDetails": "Update EventBridge rule patterns to only match legitimate Security Hub finding patterns. Add additional filtering criteria based on severity and finding types.",
+        "awsServiceContext": [
+          "EventBridge",
+          "SecurityHub"
+        ]
+      },
+      {
+        "recommendationID": "REC-004-B",
+        "description": "Add input validation in Step Functions",
+        "implementationDetails": "Implement a validation state at the beginning of the Step Functions workflow to verify the legitimacy of the input and Security Hub finding.",
+        "awsServiceContext": [
+          "StepFunctions"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS IAM condition keys in the Step Functions execution role to restrict which EventBridge rules can invoke the state machine."
+  },
+  {
+    "threatID": "THREAT-005",
+    "threatName": "Insecure Cross-Account Remediation",
+    "affectedComponents": [
+      "RemediationRole",
+      "SystemsManager",
+      "MemberAccount",
+      "AdminAccount"
+    ],
+    "frameworks": {
+      "stride": [
+        "Elevation of Privilege",
+        "Repudiation"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control"
+      ],
+      "mitreATT&CK": [
+        "T1078.004 - Valid Accounts: Cloud Accounts"
+      ]
+    },
+    "cwe": "CWE-284",
+    "vulnerabilityDetails": {
+      "howItWorks": "The system uses cross-account roles for remediation, which could be exploited if proper security controls and monitoring are not in place. Long-lived credentials increase the risk of compromise.",
+      "exploitationScenario": "An attacker compromises the remediation process and uses the cross-account access to pivot between accounts, potentially gaining unauthorized access to multiple AWS accounts."
+    },
+    "impact": {
+      "confidentiality": "Critical",
+      "integrity": "Critical",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-005-A",
+        "description": "Implement short-lived credentials for cross-account access",
+        "implementationDetails": "Use AWS STS AssumeRole with external IDs and short session durations. Implement just-in-time access for remediation actions.",
+        "awsServiceContext": [
+          "IAM",
+          "STS",
+          "Organizations"
+        ]
+      },
+      {
+        "recommendationID": "REC-005-B",
+        "description": "Enhance monitoring and alerting for cross-account activities",
+        "implementationDetails": "Enable AWS CloudTrail with organization-wide trails and implement alerts for suspicious cross-account activities.",
+        "awsServiceContext": [
+          "CloudTrail",
+          "CloudWatch",
+          "SecurityHub"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Organizations SCPs to enforce guardrails on cross-account access and AWS CloudTrail for comprehensive audit logging."
+  },
+  {
+    "threatID": "THREAT-006",
+    "threatName": "Denial of Service via Notification Flooding",
+    "affectedComponents": [
+      "SNS",
+      "SendNotificationLambda",
+      "StepFunctions"
+    ],
+    "frameworks": {
+      "stride": [
+        "Denial of Service"
+      ],
+      "owaspTop10": [
+        "A04:2021-Insecure Design"
+      ],
+      "mitreATT&CK": [
+        "T1498 - Network Denial of Service"
+      ]
+    },
+    "cwe": "CWE-400",
+    "vulnerabilityDetails": {
+      "howItWorks": "The system sends notifications for security findings without proper rate limiting or throttling, potentially leading to notification flooding and system resource exhaustion.",
+      "exploitationScenario": "An attacker generates a large number of security findings in a short time period, causing the system to send excessive notifications and potentially exhausting Lambda concurrency limits or SNS quotas."
+    },
+    "impact": {
+      "confidentiality": "Low",
+      "integrity": "Low",
+      "availability": "High"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-006-A",
+        "description": "Implement notification rate limiting and aggregation",
+        "implementationDetails": "Add rate limiting logic in the SendNotification Lambda function and implement notification aggregation for similar findings.",
+        "awsServiceContext": [
+          "Lambda",
+          "SNS"
+        ]
+      },
+      {
+        "recommendationID": "REC-006-B",
+        "description": "Add finding prioritization and filtering",
+        "implementationDetails": "Implement a scoring system for findings and only trigger notifications for high-priority issues. Use EventBridge rules to filter low-priority findings.",
+        "awsServiceContext": [
+          "EventBridge",
+          "StepFunctions"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Lambda reserved concurrency and SNS message filtering to control notification flow."
+  },
+  {
+    "threatID": "THREAT-007",
+    "threatName": "Insecure Data Storage in Firehose and S3",
+    "affectedComponents": [
+      "KinesisFirehose",
+      "MetricsBucket",
+      "CloudWatch"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Tampering"
+      ],
+      "owaspTop10": [
+        "A02:2021-Cryptographic Failures"
+      ],
+      "mitreATT&CK": [
+        "T1530 - Data from Cloud Storage Object"
+      ]
+    },
+    "cwe": "CWE-311",
+    "vulnerabilityDetails": {
+      "howItWorks": "Security findings and remediation data are stored in S3 via Kinesis Firehose without proper encryption configuration, potentially exposing sensitive security information.",
+      "exploitationScenario": "An attacker gains access to the S3 bucket or Kinesis Firehose and extracts sensitive security findings and system configuration data."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "Medium",
+      "availability": "Low"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-007-A",
+        "description": "Enable encryption for Kinesis Firehose and S3",
+        "implementationDetails": "Configure server-side encryption for Kinesis Firehose using AWS KMS and enable default encryption for the S3 bucket.",
+        "awsServiceContext": [
+          "KinesisFirehose",
+          "S3",
+          "KMS"
+        ]
+      },
+      {
+        "recommendationID": "REC-007-B",
+        "description": "Implement disaster recovery for Firehose",
+        "implementationDetails": "Configure cross-region replication for the S3 bucket and implement Firehose backup delivery stream in a secondary region.",
+        "awsServiceContext": [
+          "KinesisFirehose",
+          "S3"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS KMS customer managed keys for encryption and implement S3 replication for disaster recovery."
+  },
+  {
+    "threatID": "THREAT-008",
+    "threatName": "Network Exposure of Internal Services",
+    "affectedComponents": [
+      "KinesisFirehose",
+      "Lambda",
+      "VPC"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Spoofing"
+      ],
+      "owaspTop10": [
+        "A05:2021-Security Misconfiguration"
+      ],
+      "mitreATT&CK": [
+        "T1133 - External Remote Services"
+      ]
+    },
+    "cwe": "CWE-300",
+    "vulnerabilityDetails": {
+      "howItWorks": "Lambda functions and other services might be configured to access AWS services over the internet instead of using VPC endpoints, potentially exposing traffic to interception.",
+      "exploitationScenario": "An attacker monitors or intercepts traffic between Lambda functions and AWS services that is flowing through the internet instead of staying within the AWS network."
+    },
+    "impact": {
+      "confidentiality": "Medium",
+      "integrity": "Medium",
+      "availability": "Low"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-008-A",
+        "description": "Implement VPC endpoints for AWS services",
+        "implementationDetails": "Configure interface VPC endpoints for Kinesis Firehose, S3, and other AWS services used by Lambda functions.",
+        "awsServiceContext": [
+          "VPC",
+          "Lambda",
+          "KinesisFirehose"
+        ]
+      },
+      {
+        "recommendationID": "REC-008-B",
+        "description": "Place Lambda functions in VPC with proper network controls",
+        "implementationDetails": "Configure Lambda functions to run in VPC with appropriate security groups and network ACLs.",
+        "awsServiceContext": [
+          "Lambda",
+          "VPC",
+          "SecurityGroups"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS PrivateLink for service connections and implement proper network segmentation using security groups and NACLs."
+  }
+]

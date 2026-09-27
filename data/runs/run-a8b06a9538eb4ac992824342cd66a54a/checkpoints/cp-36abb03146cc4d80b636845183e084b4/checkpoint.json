@@ -1,0 +1,61 @@
+{
+  "id": "cp-36abb03146cc4d80b636845183e084b4",
+  "createdAt": "2026-09-25T14:13:22.599598+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Examine the GuardDuty findings to uncover any missed logging opportunities or gaps in monitoring.",
+      "id": "explore_logging_gaps",
+      "recommended_next_focus": "Identify areas where additional logging could improve detection capabilities.",
+      "title": "Explore Logging Gaps"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_2/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of GetObject by d.okafor from 203.0.113.41 at 09:14 UTC.",
+      "supportRole": "partial",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: GetObject",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Indicates unauthorized access attempts by 'd.okafor'."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

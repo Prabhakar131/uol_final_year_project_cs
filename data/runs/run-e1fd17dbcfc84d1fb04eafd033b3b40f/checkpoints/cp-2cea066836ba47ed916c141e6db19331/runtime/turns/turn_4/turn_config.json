@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Continue investigating the suspicious activity related to the recent CreateAccessKey call by customer-api.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10",
+    "CloudTrail record of CreateAccessKey by customer-api from 203.0.113.10 at 10:50 UTC",
+    "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for customer-api."
+  ],
+  "coach_guidance": "Focus on reviewing the EC2 billing logs to ensure the +13% increase in daily spending is not due to the suspicious activity."
+}

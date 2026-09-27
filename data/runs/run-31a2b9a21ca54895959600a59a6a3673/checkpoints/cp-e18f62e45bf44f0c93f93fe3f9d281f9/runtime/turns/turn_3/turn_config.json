@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the GuardDuty finding for 'd.okafor' to correlate their IAM activities and other security signals.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1.",
+    "The latest CloudTrail event involved PutEvents by d.okafor.",
+    "There is a daily spending alert indicating high costs ($44.03 against an average of $42.75)"
+  ],
+  "coach_guidance": "Focus on understanding the broader implications of the incident involving 'd.okafor'."
+}

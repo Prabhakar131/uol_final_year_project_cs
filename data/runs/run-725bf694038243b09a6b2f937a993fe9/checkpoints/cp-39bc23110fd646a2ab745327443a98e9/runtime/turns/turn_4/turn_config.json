@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Consider reviewing AWS CloudTrail logs for any changes in IAM permissions or access patterns leading up to the billing spike.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10",
+    "GuardDuty low finding for IAMUser/AnomalousBehavior for customer-api",
+    "Active Access key ASIA26FE14613C9A445F for CI-Deploy from 198.51.100.5"
+  ],
+  "coach_guidance": "Look for signs of unauthorized actions or changes before the billing spike."
+}

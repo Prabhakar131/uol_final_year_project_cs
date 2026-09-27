@@ -1,0 +1,34 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't add value beyond the completed turn.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": ""
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't add value beyond the completed turn.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": ""
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive given the learner's previous strong evidence choice.",
+        "The evidence titles and facts are similar to the completed turn, making the generated turn feel redundant rather than progressive."
+      ],
+      "retry_instruction": "Ensure the turn introduces a new investigative purpose or decision point, avoids repetition, and includes diverse evidence types."
+    }
+  ]
+}

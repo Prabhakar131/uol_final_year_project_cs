@@ -1,0 +1,59 @@
+{
+  "id": "cp-0a90238a791549e68f8bac92e396010e",
+  "createdAt": "2026-09-25T13:52:35.023320+00:00",
+  "kind": "paused",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 48,
+    "visibility": 81,
+    "risk": "Medium",
+    "phase": "Recovery Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities of s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Check CloudTrail logs for additional insights",
+        "evidence": "Details of Access Key AKIA6BA26EFDCBD2Q5C5",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Verify the user identity and request parameters",
+        "evidence": "Billing Daily Spend",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 4,
+        "action": "Investigate GuardDuty Finding",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 5,
+        "action": "CheckBillingSpending",
+        "evidence": "IAM Activity: s.brennan",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": 5,
+    "completed": true
+  },
+  "draft": {},
+  "note": "Automated session",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

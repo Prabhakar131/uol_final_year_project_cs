@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Continue investigating the unauthorized access attempts identified in the CloudWatch Log Insights query. Focus on correlating identity activity, assessing affected assets, evaluating credential risks, or analyzing logging gaps.",
+  "known_context": [
+    "Multiple unauthorized access attempts detected across various regions and account IDs.",
+    "Recent IAM activities show signs of compromised credentials and abnormal access patterns.",
+    "CloudTrail logs indicate frequent failed authentication attempts against production environments."
+  ],
+  "coach_guidance": "Use the CloudWatch Log Insights query results to correlate IAM activities with affected resources and assess potential threats. Ensure you have a clear understanding of the scope and nature of the unauthorized access attempts."
+}

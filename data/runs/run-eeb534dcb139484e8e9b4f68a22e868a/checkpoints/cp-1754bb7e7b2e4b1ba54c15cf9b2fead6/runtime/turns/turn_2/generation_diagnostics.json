@@ -1,0 +1,28 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [
+    "CloudWatch rows must be lists or objects; regenerate the evidence."
+  ],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive and doesn't provide a significant new investigative purpose.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Introduce a new investigative purpose, such as focusing on scope, blast radius, or related activity, rather than continuing to review IAM activities."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing CloudTrail logs again, which feels repetitive given the learner's previous strong evidence selection.",
+        "The evidence facts lack concrete details, making them less helpful for the learner to interpret and act upon.",
+        "The turn does not introduce a new investigative purpose or decision point, focusing solely on reiterating the previous CloudTrail log review."
+      ],
+      "retry_instruction": "Introduce a new investigative purpose or decision point, such as correlating IAM activities, assessing credential risk, or exploring monitoring gaps."
+    }
+  ]
+}

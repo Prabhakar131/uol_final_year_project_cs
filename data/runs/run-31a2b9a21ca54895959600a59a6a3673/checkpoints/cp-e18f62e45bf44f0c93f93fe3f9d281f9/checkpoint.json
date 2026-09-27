@@ -1,0 +1,69 @@
+{
+  "id": "cp-e18f62e45bf44f0c93f93fe3f9d281f9",
+  "createdAt": "2026-09-26T05:08:00.696999+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 51,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support",
+        "action_role": "best"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudTrail Event Record",
+        "verdict": "Partial Support",
+        "action_role": "best"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Examine the recent PutEvents call by d.okafor to understand the full context of their IAM activities.",
+      "id": "investigate_put_events_call",
+      "recommended_next_focus": "Identify potential impacts and escalate if necessary",
+      "title": "Investigate the recent activity around the PutEvents call by d.okafor"
+    },
+    "selectedEvidence": {
+      "id": "cloudwatch_logs_query",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/cloudwatch_logs_query.png",
+      "imageUrl": "/generated_evidence/turn_3/cloudwatch_logs_query.png",
+      "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+      "supportRole": "partial",
+      "template": "cloudwatch",
+      "title": "CloudWatch Logs Insights Query",
+      "type": "cloudwatch",
+      "whyItMayMatter": "This query reveals details from the CloudTrail events, aiding in understanding the incident."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "f63e9fdc38a5a18b43973e04445fe27028abfd67",
+  "codeHasLocalChanges": true
+}

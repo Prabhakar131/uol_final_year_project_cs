@@ -1,0 +1,73 @@
+{
+  "id": "cp-b6b84c739c7a407db14ea922be237863",
+  "createdAt": "2026-09-25T14:09:17.403789+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 65,
+    "risk": "Medium",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity for Potential Excess Spending",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Verify the status of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "action": "Review recent AWS Console activities related to the account",
+        "evidence": "Billing Daily Spend",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Examine the billing records for s.brennan to see if there are any unexpected charges or spikes in spending related to the access key AKIA6BA26EFDCBD2Q5C5.",
+      "id": "check_billing_spending",
+      "recommended_next_focus": "Confirm if the increased spending is due to the incident or other factors.",
+      "title": "Review the billing details for s.brennan"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_4/access_key_details.png",
+      "summary": "Access key AKIA4Q3EQ222B99534QQ for s.brennan is Active; last used 2023-10-01 10:50 from 198.51.100.1.",
+      "supportRole": "strong",
+      "template": "access_key",
+      "title": "Access Key Details",
+      "type": "access_key",
+      "whyItMayMatter": "Directly links the access key to the account and indicates recent usage."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,11 @@
+{
+  "turn": 1,
+  "phase": "Initial Investigation",
+  "briefing": "An unusual IAM activity was detected on your environment. You need to determine the root cause and secure the affected accounts immediately.",
+  "known_context": [
+    "Suspicious IAM activity detected on the environment",
+    "Production environment accessed from untrusted IPs",
+    "CloudTrail logs show unauthorized access attempts"
+  ],
+  "coach_guidance": "Start by reviewing recent IAM activities and checking CloudTrail logs for signs of unauthorized access."
+}

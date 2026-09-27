@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Investigate the recent IAM activity of s.brennan to identify the source of the AssumeRole call and check for other related credentials.",
+  "known_context": [
+    "s.brennan accessed resources via AssumeRole from 198.51.100.1",
+    "s.brennan created new access keys recently",
+    "s.brennan's IP address is associated with multiple services"
+  ],
+  "coach_guidance": "Focus on correlating the IAM activity with the source IP and checking for additional credentials."
+}

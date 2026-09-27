@@ -1,0 +1,35 @@
+{
+  "id": "cp-eda6b3c3659042ec82bb0fe3edd40412",
+  "createdAt": "2026-09-25T11:24:54.058209+00:00",
+  "kind": "before_operation",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": 2,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

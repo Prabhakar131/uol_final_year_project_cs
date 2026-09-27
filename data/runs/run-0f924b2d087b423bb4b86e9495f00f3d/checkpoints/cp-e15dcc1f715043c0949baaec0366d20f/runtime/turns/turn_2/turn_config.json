@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Identify the identity responsible for the unauthorized access attempt and investigate the affected assets to understand the full extent of the damage.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' accessed resources through various AWS services.",
+    "The daily bill for the account shows increased spending on EC2 services.",
+    "GuardDuty detected a low-level reconnaissance activity targeting EC2 instances."
+  ],
+  "coach_guidance": "Focus on correlating the identity activity with affected assets and assessing the potential impact on the company\u2019s infrastructure."
+}

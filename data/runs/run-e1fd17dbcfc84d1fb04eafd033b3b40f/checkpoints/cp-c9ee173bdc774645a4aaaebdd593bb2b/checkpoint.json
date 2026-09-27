@@ -1,0 +1,35 @@
+{
+  "id": "cp-c9ee173bdc774645a4aaaebdd593bb2b",
+  "createdAt": "2026-09-25T11:48:26.333638+00:00",
+  "kind": "before_operation",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": 2,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "Review recent IAM activity and consider whether the access key AKIA6BA26EFDCBD2Q5C5 was created during the incident.",
+  "known_context": [
+    "The suspicious principal s.brennan accessed resources from 198.51.100.1.",
+    "An unauthorized access event was logged by GuardDuty.",
+    "There was a high daily spend of $44.03 on S3 service."
+  ],
+  "coach_guidance": "Consider reviewing any recent AWS Console activities related to the account where the access key was created. This could help identify if the key was generated as part of the incident or for a different purpose."
+}

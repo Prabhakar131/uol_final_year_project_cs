@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_affected_assets",
+    "title": "Check the affected assets",
+    "description": "Review the impacted resources to determine their value and potential financial losses.",
+    "recommended_next_focus": "Assess the financial impact",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_logging_gaps",
+    "title": "Verify logging gaps",
+    "description": "Ensure that adequate logging exists to detect future similar incidents.",
+    "recommended_next_focus": "Improve logging infrastructure",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_identity_activity",
+    "title": "Investigate the recent activity around the Invoke call by customer-api",
+    "description": "Examine the IAM activity leading up to the unauthorized access attempt to understand the sequence of events.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized access attempt",
+    "choice_role": "best"
+  }
+]

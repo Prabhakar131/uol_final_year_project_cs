@@ -1,0 +1,22 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on revisiting the same user (`customer-api`) and IP (`203.0.113.10`) without moving toward a new investigative purpose.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, lacking a significant shift in analysis or investigation goals.",
+        "The generated turn does not introduce a new strong/partial/weak evidence-quality spread, despite having similar evidence types.",
+        "The evidence remains mostly unknown or vague, failing to provide concrete facts for the learner to reason about.",
+        "The generated turn does not react to the learner's weak/partial/strong choice regarding the evidence selection."
+      ],
+      "retry_instruction": "Refocus the investigation on the origin of the unauthorized access by searching for logs related to the principal `customer-api` user and the IP address `203.0.113.10`, rather than continuing to gather gaps in logging."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

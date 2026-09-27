@@ -1,0 +1,111 @@
+[
+  {
+    "id": "access_key_review",
+    "title": "Access Key Review",
+    "type": "access_key",
+    "summary": "An active access key is associated with the suspicious principal shortly after the login.",
+    "why_it_may_matter": "This is relevant credential evidence, but it needs timeline context before containment.",
+    "support_role": "partial",
+    "template": "access_key",
+    "facts": {
+      "access_key_id": "AKIA4Z7EXAMPLE92K",
+      "owner": "arn:aws:iam::123456789012:user/admin-test",
+      "status": "Active",
+      "last_used_service": "iam.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-10-01T10:24:02Z",
+      "source_ip": "185.220.101.42"
+    }
+  },
+  {
+    "id": "cloudwatch_correlation_logs",
+    "title": "CloudWatch Correlation Logs",
+    "type": "cloudwatch",
+    "summary": "CloudWatch logs correlate authentication, CloudTrail, and credential-monitoring events.",
+    "why_it_may_matter": "This provides supporting operational context but should be compared with direct identity records.",
+    "support_role": "weak",
+    "template": "cloudwatch",
+    "facts": {
+      "query": "fields @timestamp, @logStream, @message | filter @message like /ConsoleLogin|StopLogging|CreateAccessKey|mfaAuthenticated=false/ | sort @timestamp asc",
+      "log_group": "/aws/cloudtrail/organization/prod",
+      "matched_records": "5",
+      "scanned_bytes": "1.4 MB",
+      "time_range": "2023-10-01 10:10-10:30 UTC",
+      "alarm_state": "Identity correlation signal",
+      "log_rows": [
+        [
+          "2023-10-01T10:12:10Z",
+          "auth/identity-center",
+          "ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.101.42; mfaAuthenticated=false"
+        ],
+        [
+          "2023-10-01T10:21:35Z",
+          "cloudtrail/audit",
+          "StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test"
+        ],
+        [
+          "2023-10-01T10:24:02Z",
+          "iam/credential-monitor",
+          "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active"
+        ],
+        [
+          "2023-10-01T10:26:11Z",
+          "security/correlation",
+          "Same source IP 185.220.101.42 observed across authentication and credential events"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "iam_scope_timeline",
+    "title": "IAM Scope Timeline",
+    "type": "iam_activity",
+    "summary": "IAM activity links login, logging, and credential actions to the same principal and source IP.",
+    "why_it_may_matter": "This helps determine whether the suspicious login became a wider identity-risk pattern.",
+    "support_role": "strong",
+    "template": "iam_activity",
+    "facts": {
+      "principal": "arn:aws:iam::123456789012:user/admin-test",
+      "source_ip": "185.220.101.42",
+      "mfa": "false",
+      "policy_change": "No approved IAM change ticket found",
+      "access_key_status": "New active key observed after login",
+      "risk_flags": [
+        "Console login without MFA",
+        "Credential action from same source IP"
+      ],
+      "activity_rows": [
+        [
+          "2023-10-01T10:12:10Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "ConsoleLogin",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:18:44Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "ListTrails",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:21:35Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "StopLogging",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:24:02Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "CreateAccessKey",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:26:11Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "GetCallerIdentity",
+          "185.220.101.42"
+        ]
+      ]
+    }
+  }
+]

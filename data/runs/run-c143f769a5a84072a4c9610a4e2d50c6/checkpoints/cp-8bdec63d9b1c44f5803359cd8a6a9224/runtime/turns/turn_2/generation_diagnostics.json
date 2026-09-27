@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on checking billing activity again, which repeats the completed turn's phase and briefing.",
+        "The evidence facts lack concrete fields, making it difficult for the learner to make a meaningful decision."
+      ],
+      "retry_instruction": "Change the phase goal to focus on scope, correlation, credential risk, monitoring gaps, or related activity."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

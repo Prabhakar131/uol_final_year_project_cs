@@ -1,0 +1,36 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on correlating IAM activities and accessing CloudWatch logs, which is similar to the completed turn's phase and action focus.",
+        "The evidence facts lack concrete details, making them less helpful for the learner to understand and act upon.",
+        "The evidence titles are identical to the completed turn, leading to visual similarity but semantic difference."
+      ],
+      "retry_instruction": "Refocus the turn towards scope, correlation, affected identity, credential risk, or related activity to provide a clearer investigative path."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on revisiting the CloudTrail logs rather than moving towards scope, blast-radius, monitoring, detection, or impact review.",
+        "The evidence titles and facts are similar to the completed turn, lacking a distinct new investigative purpose.",
+        "The turn does not provide a clear path forward or introduce a new learning objective."
+      ],
+      "retry_instruction": "Focus on exploring the source IPs and examining the user 'admin-test' for any other unusual activities to gain deeper insights into the scope and potential impact of the incident."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on correlating IAM activities and accessing CloudWatch logs, which is similar to the completed turn's phase and action focus.",
+        "The evidence facts lack concrete fields, making them less helpful for the learner to make decisions."
+      ],
+      "retry_instruction": "Focus on identifying the source IPs and examining the user 'admin-test' for any unusual activities to gain deeper insights into the attack pattern."
+    }
+  ]
+}

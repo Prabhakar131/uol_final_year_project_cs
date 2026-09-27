@@ -1,0 +1,23 @@
+[
+  {
+    "id": "evaluate_credential_risk",
+    "title": "Assess Credential Risk",
+    "description": "Examine the compromised credentials used in the unauthorized access attempts to determine the level of risk involved.",
+    "recommended_next_focus": "Implement additional security measures to mitigate credential exposure.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "analyze_logging_gaps",
+    "title": "Review Logging Gaps",
+    "description": "Inspect the CloudTrail logs for any gaps or anomalies that might indicate ongoing unauthorized access attempts.",
+    "recommended_next_focus": "Ensure comprehensive logging is implemented to prevent future breaches.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_affected_assets",
+    "title": "Investigate Correlated Identity Activity",
+    "description": "Explore the IAM activities associated with the unauthorized access attempts to identify affected resources.",
+    "recommended_next_focus": "Secure the impacted resources and investigate further if necessary.",
+    "choice_role": "best"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_customer_api_access",
+    "title": "Investigate the Unauthorized Access Attempt",
+    "description": "Identify the IAM user responsible for the unauthorized access attempt.",
+    "recommended_next_focus": "Correlate the IAM user with other security signals and determine the scope of the threat.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Analyze CloudTrail logs for additional evidence of the unauthorized access attempt.",
+    "recommended_next_focus": "Look for patterns or anomalies in the IAM user's activity.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Verify if there are any unexpected charges associated with the IAM user.",
+    "recommended_next_focus": "Confirm if the unauthorized access attempt resulted in financial loss.",
+    "choice_role": "best"
+  }
+]

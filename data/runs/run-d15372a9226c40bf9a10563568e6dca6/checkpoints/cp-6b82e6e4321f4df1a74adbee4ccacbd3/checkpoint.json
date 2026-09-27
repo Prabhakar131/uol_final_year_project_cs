@@ -1,0 +1,83 @@
+{
+  "id": "cp-6b82e6e4321f4df1a74adbee4ccacbd3",
+  "createdAt": "2026-09-26T16:30:31.193267+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 65,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities of s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support",
+        "action_role": "partial"
+      },
+      {
+        "turn": 2,
+        "action": "Examine the CloudTrail logs for potential anomalies",
+        "evidence": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+        "verdict": "Strong Support",
+        "action_role": "weak"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the GuardDuty findings for s.brennan to assess the level of threat and take necessary actions.",
+      "id": "investigate_guard_duty_findings",
+      "recommended_next_focus": "Identify and mitigate the identified risks",
+      "title": "Investigate the High-severity GuardDuty finding for s.brennan"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_3/billing_daily_spend.png",
+      "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+      "supportRole": "weak",
+      "template": "billing",
+      "title": "Billing Daily Spend",
+      "type": "billing",
+      "whyItMayMatter": "This indicates increased costs due to unexpected usage."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain how the billing evidence supports your action",
+        "text": "Explain how the billing evidence supports your selected response action. Connect the usage or spend signal to the response decision.",
+        "cues": [
+          "unusual spend",
+          "affected service",
+          "time period",
+          "usage spike",
+          "account or region"
+        ],
+        "actionTitle": "Investigate the High-severity GuardDuty finding for s.brennan",
+        "evidenceTitle": "Billing Daily Spend",
+        "evidenceType": "billing"
+      },
+      "transcript": "I selected Investigate Activity Around CreateAccessKey to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": false,
+  "codeVersion": "d8a40938755a58623fc97d0750685c3e42b473a7",
+  "codeHasLocalChanges": true
+}

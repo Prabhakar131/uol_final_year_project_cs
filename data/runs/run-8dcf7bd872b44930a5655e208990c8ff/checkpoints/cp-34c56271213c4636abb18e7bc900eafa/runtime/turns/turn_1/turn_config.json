@@ -1,0 +1,11 @@
+{
+  "turn": 1,
+  "phase": "Detection and Initial Triage",
+  "briefing": "An unusual pattern of IAM activities has been detected in your environment. You need to quickly assess whether there is a potential threat involving unauthorized access or data breaches.",
+  "known_context": [
+    "A suspicious IAM user has logged in multiple times from a single IP address.",
+    "CloudTrail logs show several failed login attempts from the same IP.",
+    "There is a history of IAM user creating new access keys without proper authorization."
+  ],
+  "coach_guidance": "Start by investigating the suspicious IAM user and their recent activities. Look for signs of unauthorized access or data exfiltration."
+}

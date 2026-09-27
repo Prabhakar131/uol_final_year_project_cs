@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate IAM Activities",
+    "description": "Review IAM activities related to the function code to understand who accessed it recently.",
+    "recommended_next_focus": "Compare the IAM activities with the observed billing pattern",
+    "choice_role": "weak"
+  },
+  {
+    "id": "update_function_code",
+    "title": "Review Access Key Use",
+    "description": "Review the recent use of d.okafor's access key from 198.51.100.1.",
+    "recommended_next_focus": "Correlate recent updates to the function code with the observed billing pattern",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_cloud_trail_logs",
+    "title": "Check CloudTrail Logs",
+    "description": "Review CloudTrail logs for any recent updates to the function code and correlate them with the observed billing pattern.",
+    "recommended_next_focus": "Investigate further IAM activities related to the function code",
+    "choice_role": "partial"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [
+    "Actions do not match the evidence. The best action must name UpdateFunctionCode20150331v2, for example: \"Investigate the recent activity around the UpdateFunctionCode20150331v2 call by d.okafor\".",
+    "Actions do not match the evidence. The best action must name UpdateFunctionCode20150331v2, for example: \"Investigate the recent activity around the UpdateFunctionCode20150331v2 call by d.okafor\"."
+  ],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on revisiting the GuardDuty finding rather than moving towards scope, correlation, credential risk, monitoring gaps, or related activity.",
+        "The evidence titles and facts are mostly identical to the completed turn, lacking a distinct new investigative purpose."
+      ],
+      "retry_instruction": "Move towards identifying the root cause of the GuardDuty finding by correlating it with IAM activities and API calls."
+    }
+  ]
+}

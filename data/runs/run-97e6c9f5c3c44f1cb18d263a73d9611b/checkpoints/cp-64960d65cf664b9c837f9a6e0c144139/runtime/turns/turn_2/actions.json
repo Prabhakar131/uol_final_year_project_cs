@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_api_calls",
+    "title": "Check recent API calls",
+    "description": "Examine the API calls made by 'd.okafor' to see if they align with his usual activities or if there are any unexpected ones.",
+    "recommended_next_focus": "Look for any new APIs being called or any unusual endpoints accessed.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around UpdateFunctionCode20150331v2",
+    "description": "Investigate the recent activity around the UpdateFunctionCode20150331v2 call by d.okafor.",
+    "recommended_next_focus": "Identify if there are any recent changes or new permissions granted to 'd.okafor'.",
+    "choice_role": "best"
+  },
+  {
+    "id": "examine_cloudwatch_logs",
+    "title": "Examine CloudWatch logs",
+    "description": "Search through CloudWatch logs for any signs of unauthorized access attempts or unusual activity related to 'd.okafor'.",
+    "recommended_next_focus": "Scan for alarms, alerts, or events indicating potential breaches.",
+    "choice_role": "weak"
+  }
+]

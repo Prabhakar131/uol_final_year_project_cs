@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the GuardDuty finding to identify any anomalous behavior related to the IAM user 'd.okafor'. Look for patterns in recent IAM activities and review CloudTrail logs for similar events.",
+  "known_context": [
+    "Unauthorized login attempt detected by GuardDuty",
+    "IAM user 'd.okafor' accessed resources from 198.51.100.1",
+    "CloudTrail records show multiple IAM activities including 'PutEvents'"
+  ],
+  "coach_guidance": "Consider reviewing the cloud trail logs for more detailed entries involving the IAM user 'd.okafor'. Focus on actions like 'UpdateFunctionCode20150331v2' to understand if they correlate with the GuardDuty findings."
+}

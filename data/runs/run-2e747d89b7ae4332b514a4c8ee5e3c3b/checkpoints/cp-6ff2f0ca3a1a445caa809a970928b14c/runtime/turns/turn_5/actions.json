@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Review the daily spending report to identify unusual activity.",
+    "recommended_next_focus": "Look for high-spending periods or unusual charges.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_access_key",
+    "title": "Investigate IAM Activities",
+    "description": "Review IAM activities related to the function code to understand who accessed it recently.",
+    "recommended_next_focus": "Identify the latest IAM activities involving the access key.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_access_key_usage",
+    "title": "Verify the Recent Activity Around the DeleteAccessKey Call",
+    "description": "Confirm if the delete operation was performed correctly.",
+    "recommended_next_focus": "Ensure the deletion process did not cause unintended consequences.",
+    "choice_role": "best"
+  }
+]

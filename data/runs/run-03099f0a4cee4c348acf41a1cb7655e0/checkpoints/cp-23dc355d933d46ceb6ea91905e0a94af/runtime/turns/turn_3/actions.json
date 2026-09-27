@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_access_logs",
+    "title": "Explore access logs for s.brennan",
+    "description": "Review the access logs to gather additional context about the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the source of the unauthorized access attempt",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_billing_activity",
+    "title": "Verify billing activity for potential excess spending",
+    "description": "Review the billing activity to check for any signs of excessive spending related to the unauthorized access.",
+    "recommended_next_focus": "Confirm the source of the unauthorized access attempt",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty findings to understand the nature of the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the source of the unauthorized access attempt",
+    "choice_role": "best"
+  }
+]

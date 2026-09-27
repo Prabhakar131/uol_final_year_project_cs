@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-9fa7825651e3451bae45296b3bc81820",
+  "scenarioId": "cost-management",
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 26 Sep \u00b7 after fixes",
+  "createdAt": "2026-09-26T04:31:33.250011+00:00",
+  "updatedAt": "2026-09-26T04:37:54.669125+00:00",
+  "status": "completed",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-685688636c97430e9d607b92f58c382a",
+  "turn": 5,
+  "completedTurns": 5
+}

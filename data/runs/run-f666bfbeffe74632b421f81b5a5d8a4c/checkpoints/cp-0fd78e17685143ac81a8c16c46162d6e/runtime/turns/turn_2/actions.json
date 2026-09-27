@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_cloudtrail_logs",
+    "title": "Investigate the recent activity around the AssumeRole call by s.brennan",
+    "description": "Review the CloudTrail logs to find any indications of the recent AssumeRole call by s.brennan.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call and assess the potential threat.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity for Potential Excess Spending",
+    "description": "Review the daily billing summary to detect any unexpected spending patterns related to s.brennan\u2019s account.",
+    "recommended_next_focus": "Identify the source of the excess spending and take corrective measures.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_create_access_key",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the recent IAM activity related to creating an access key for s.brennan to gather details about the process.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate the risks associated with it.",
+    "choice_role": "best"
+  }
+]

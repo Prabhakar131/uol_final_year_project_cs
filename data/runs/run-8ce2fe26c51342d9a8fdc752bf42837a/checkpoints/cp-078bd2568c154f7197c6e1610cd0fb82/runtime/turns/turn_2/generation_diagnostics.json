@@ -1,0 +1,34 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Move towards scope, correlation, credential risk, monitoring gaps, or related activity."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive and doesn't introduce a new investigative purpose.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Introduce a new investigative purpose, such as focusing on scope, blast radius, or related activity, rather than revisiting the same IAM activities."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive and doesn't introduce a new investigative purpose.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Introduce a new investigative purpose, such as focusing on scope, blast radius, or related activity, rather than revisiting the same IAM activities."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloud_trail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Inspect the CloudTrail logs for any new entries related to the unauthorized updates.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_guard_duty_signatures",
+    "title": "Re-examine GuardDuty Signatures",
+    "description": "Double-check the GuardDuty findings to ensure there are no missed signs indicating unauthorized behavior.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_function_code_updates",
+    "title": "Review Access Key Use",
+    "description": "Review the recent use of d.okafor's access key from 198.51.100.1.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "best"
+  }
+]

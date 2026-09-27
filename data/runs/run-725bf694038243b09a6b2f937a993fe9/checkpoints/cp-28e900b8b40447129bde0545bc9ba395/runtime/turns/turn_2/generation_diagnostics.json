@@ -1,0 +1,17 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "Turn 2 focuses on detecting the same event as Turn 1, which doesn't provide a new investigative purpose.",
+        "Evidence facts are mostly unknown and vague, lacking specific details about the IAM activity and CloudTrail log entries."
+      ],
+      "retry_instruction": "Move towards scope, correlation, affected assets, credential risk analysis, or related activity."
+    }
+  ],
+  "anchor_repairs": []
+}

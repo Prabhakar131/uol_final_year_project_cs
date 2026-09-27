@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "specific incident response phase",
+  "briefing": "Consider reviewing EC2 billing logs for any unusual charges or patterns related to the customer-api user. This could help identify if there were any unexpected access attempts or resource usage beyond normal operations.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' accessed resources from IP address 203.0.113.10.",
+    "The billing daily spend for the account is $44.62, which exceeds the average of $42.75.",
+    "There have been recent IAM activities associated with the CI-Deploy user, including PutMetricData, ListFunctions20150331, and GetObject."
+  ],
+  "coach_guidance": "To further investigate, consider examining EC2 billing logs for any unusual charges or patterns related to the customer-api user. This could help identify if there were any unexpected access attempts or resource usage beyond normal operations."
+}

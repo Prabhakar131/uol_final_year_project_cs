@@ -1,0 +1,6 @@
+{
+  "strong_support": "Evidence showing unauthorized access attempts and unusual IAM activity.",
+  "partial_support": "Evidence suggesting potential misuse of access keys.",
+  "weak_support": "Evidence revealing cross-account access patterns.",
+  "unsupported": "No clear evidence linking the suspicious IAM user to unauthorized access or data exfiltration."
+}

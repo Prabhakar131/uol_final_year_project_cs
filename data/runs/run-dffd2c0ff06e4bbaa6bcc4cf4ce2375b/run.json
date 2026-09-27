@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-dffd2c0ff06e4bbaa6bcc4cf4ce2375b",
+  "scenarioId": "automated-security-response",
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 partial evidence path \u00b7 25 Sep",
+  "createdAt": "2026-09-25T09:57:25.683780+00:00",
+  "updatedAt": "2026-09-25T11:23:26.776182+00:00",
+  "status": "paused",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-80b7e491398242acbf2872df62507455",
+  "turn": 2,
+  "completedTurns": 1
+}

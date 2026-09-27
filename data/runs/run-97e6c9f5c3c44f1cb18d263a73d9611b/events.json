@@ -1,0 +1,33 @@
+[
+  {
+    "at": "2026-09-25T08:46:07.803265+00:00",
+    "operation": "/api/evaluate",
+    "stages": [],
+    "elapsedSeconds": 269.978
+  },
+  {
+    "at": "2026-09-25T08:46:08.219306+00:00",
+    "operation": "/api/continue",
+    "stages": [],
+    "elapsedSeconds": 0.253
+  },
+  {
+    "at": "2026-09-25T08:50:25.973298+00:00",
+    "operation": "/api/evaluate",
+    "stages": [],
+    "elapsedSeconds": 257.712
+  },
+  {
+    "at": "2026-09-25T08:50:26.355044+00:00",
+    "operation": "/api/continue",
+    "stages": [],
+    "elapsedSeconds": 0.242
+  },
+  {
+    "at": "2026-09-25T08:51:20.960590+00:00",
+    "operation": "/api/evaluate",
+    "error": "ValueError: Security feedback failed grounding checks after retry; no progress awarded.",
+    "stages": [],
+    "elapsedSeconds": 54.56
+  }
+]

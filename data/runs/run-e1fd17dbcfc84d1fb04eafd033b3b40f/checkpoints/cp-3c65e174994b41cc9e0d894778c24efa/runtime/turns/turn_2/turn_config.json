@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Identify the identity responsible for the unauthorized activity and determine the affected resources and potential impacts.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' from IP address 203.0.113.10 was involved in unauthorized access attempts.",
+    "An EC2 instance spent $44.62 daily against an average of $42.75, indicating high spending related to the suspicious activity.",
+    "GuardDuty found a low finding Recon:EC2/PortProbeUnprotectedPort for the EC2 instance."
+  ],
+  "coach_guidance": "Focus on correlating the identity activity with affected resources and assessing potential financial losses."
+}

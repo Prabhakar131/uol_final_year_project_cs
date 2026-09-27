@@ -1,0 +1,47 @@
+{
+  "id": "cp-886c4fcc2030445db2190df3d54e95d0",
+  "createdAt": "2026-09-25T09:20:00.359605+00:00",
+  "kind": "after_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 32,
+    "visibility": 59,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode20150331v2",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the recent activity around the PutEvents call by d.okafor",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": 4,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "14534964a57e75e031eb8a3f26af5ecebbbde3d4",
+  "codeHasLocalChanges": true
+}

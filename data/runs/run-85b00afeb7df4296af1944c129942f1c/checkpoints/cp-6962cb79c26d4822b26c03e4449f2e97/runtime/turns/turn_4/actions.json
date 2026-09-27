@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_cloud_trail_logs",
+    "title": "Review the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Review the CloudTrail logs for the specific CreateAccessKey call by s.brennan to gather detailed activity information.",
+    "recommended_next_focus": "Understand the timing and context of the access key creation.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_access_key_details",
+    "title": "Investigate the recent use of s.brennan's access key from 198.51.100.1",
+    "description": "Investigate the recent use of s.brennan's access key from 198.51.100.1 to understand its usage patterns and potential risks.",
+    "recommended_next_focus": "Assess the potential impact on the organization\u2019s resources.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "review_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty findings for s.brennan to understand the nature of the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the source of the unauthorized access and assess its potential impact on the organization\u2019s resources.",
+    "choice_role": "best"
+  }
+]

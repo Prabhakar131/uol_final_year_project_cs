@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_iam_timeline",
+    "title": "Verify the IAM timeline for s.brennan",
+    "description": "Review the IAM timeline to understand the sequence of operations performed by s.brennan.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Analyze the GuardDuty high-severity finding indicating unauthorized access via instance credentials exfiltration.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "best"
+  },
+  {
+    "id": "examine_billing_spending",
+    "title": "Examine the daily spending on S3 services",
+    "description": "Inspect the daily spending on S3 services to gauge the financial impact.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "weak"
+  }
+]

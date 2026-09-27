@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_logging_gap_scope",
+    "title": "Review Logging Gap Scope",
+    "description": "Check whether audit logging gaps affect confidence in the incident timeline.",
+    "recommended_next_focus": "Use CloudTrail context to understand visibility gaps before containment.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "confirm_threat_detection_scope",
+    "title": "Confirm Detection Scope",
+    "description": "Check whether threat-detection evidence confirms the same principal, source IP, and incident window.",
+    "recommended_next_focus": "Use detection evidence to decide whether the incident is isolated or broader.",
+    "choice_role": "best"
+  },
+  {
+    "id": "review_business_impact",
+    "title": "Review Business Impact",
+    "description": "Assess whether the incident caused cost or operational impact.",
+    "recommended_next_focus": "Keep impact review separate from proof of identity compromise.",
+    "choice_role": "weak"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_spending",
+    "title": "Review the billing details for s.brennan",
+    "description": "Examine the billing records for s.brennan to see if there are any unexpected charges or spikes in spending related to the access key AKIA6BA26EFDCBD2Q5C5.",
+    "recommended_next_focus": "Confirm if the increased spending is due to the incident or other factors.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "review_access_key_activities",
+    "title": "Review the recent use of s.brennan's access key from 198.51.100.1",
+    "description": "Explore recent IAM activities related to the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan to determine if the key was used during the incident.",
+    "recommended_next_focus": "Identify if the key was used during the incident or for other purposes.",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_cloudwatch_logs",
+    "title": "Investigate the CloudWatch logs for s.brennan",
+    "description": "Review CloudWatch logs for s.brennan to find any anomalies or unusual activity related to the access key AKIA6BA26EFDCBD2Q5C5.",
+    "recommended_next_focus": "Look for signs of unauthorized access attempts or unusual usage patterns.",
+    "choice_role": "partial"
+  }
+]

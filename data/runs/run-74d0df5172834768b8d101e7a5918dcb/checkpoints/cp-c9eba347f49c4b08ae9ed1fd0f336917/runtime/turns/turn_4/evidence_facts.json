@@ -1,0 +1,70 @@
+[
+  {
+    "id": "cloudwatch_logs_query",
+    "title": "CloudWatch Logs Insights Query",
+    "type": "cloudwatch",
+    "template": "cloudwatch",
+    "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+    "why_it_may_matter": "Indicates potential suspicious activity in the CloudTrail logs.",
+    "support_role": "partial",
+    "facts": {
+      "query": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/s.brennan\" | sort @timestamp asc",
+      "log_group": "aws-cloudtrail-logs-123456789012",
+      "matched_records": "3",
+      "scanned_bytes": "0.9 MB",
+      "time_range": "2023-09-30 09:14-10:01 UTC",
+      "alarm_state": "Complete",
+      "log_rows": [
+        [
+          "2023-09-30T09:14:05Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "GetBucketLocation success by arn:aws:iam::123456789012:user/s.brennan from 203.0.113.41"
+        ],
+        [
+          "2023-09-30T09:37:16Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "DescribeVolumes success by arn:aws:iam::123456789012:user/s.brennan from 203.0.113.41"
+        ],
+        [
+          "2023-09-30T10:00:27Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "PutObject success by arn:aws:iam::123456789012:user/s.brennan from 203.0.113.41"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "access_key_details",
+    "title": "Access Key Details",
+    "type": "access_key",
+    "template": "access_key",
+    "summary": "Access key AKIA4Q3EQ222B99534QQ for s.brennan is Active; last used 2023-10-01 10:50 from 198.51.100.1.",
+    "why_it_may_matter": "Shows the active status of the access key and its last usage time.",
+    "support_role": "strong",
+    "facts": {
+      "access_key_id": "AKIA4Q3EQ222B99534QQ",
+      "owner": "arn:aws:iam::123456789012:user/s.brennan",
+      "status": "Active",
+      "last_used_service": "iam.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-10-01T10:50:30Z",
+      "source_ip": "198.51.100.1"
+    }
+  },
+  {
+    "id": "billing_daily_spend",
+    "title": "Daily Billing Summary",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+    "why_it_may_matter": "Shows the daily spending pattern and identifies S3 as the largest service.",
+    "support_role": "weak",
+    "facts": {
+      "current_spend": "$44.03",
+      "previous_average": "$42.75",
+      "largest_service": "S3",
+      "region": "ap-southeast-1",
+      "change": "+3%"
+    }
+  }
+]

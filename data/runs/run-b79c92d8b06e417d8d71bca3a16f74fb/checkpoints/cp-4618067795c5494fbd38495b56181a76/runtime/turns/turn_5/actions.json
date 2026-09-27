@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_access_key_status",
+    "title": "Confirm the status of the access key",
+    "description": "Check the status of the access key to ensure it was successfully deleted.",
+    "recommended_next_focus": "Ensure the access key is marked as inactive or deleted.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_cloud_trail_logs",
+    "title": "Investigate the CloudTrail logs for related activity",
+    "description": "Review the CloudTrail logs for additional details of the IAM activities performed by s.brennan.",
+    "recommended_next_focus": "Identify the specific time and source IP associated with the IAM activities.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "Verify the recent activity around the DeleteAccessKey call by security-analyst",
+    "description": "Review the CloudTrail logs for details of the DeleteAccessKey call performed by the security analyst.",
+    "recommended_next_focus": "Identify the specific time and source IP associated with the DeleteAccessKey call.",
+    "choice_role": "best"
+  }
+]

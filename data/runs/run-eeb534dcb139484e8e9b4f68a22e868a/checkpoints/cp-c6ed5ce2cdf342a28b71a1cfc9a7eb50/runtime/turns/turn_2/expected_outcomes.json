@@ -1,0 +1,6 @@
+{
+  "strong_support": "Identifying the source of the stop-log request and gathering insights into the recipient account.",
+  "partial_support": "Understanding the full scope of the stop-log request and gaining additional context.",
+  "weak_support": "Requiring more detailed information from the user to fully understand the situation.",
+  "unsupported": "Not having sufficient evidence to conclusively determine the nature of the stop-log request."
+}

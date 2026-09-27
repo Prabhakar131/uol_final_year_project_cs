@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Review recent AWS Console activities related to the account",
+    "description": "Explore any recent AWS Console activities related to the account where the access key was created to understand if the key was generated as part of the incident.",
+    "recommended_next_focus": "Identify if the key was created as part of the incident or for other reasons",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty findings to determine if they indicate the creation of the access key AKIA6BA26EFDCBD2Q5C5 during the incident.",
+    "recommended_next_focus": "Identify if the key was created as part of the incident or for other reasons",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify the status of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan",
+    "description": "Confirm the active status of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan to rule out accidental deletion.",
+    "recommended_next_focus": "Ensure the key remains active for legitimate purposes",
+    "choice_role": "partial"
+  }
+]

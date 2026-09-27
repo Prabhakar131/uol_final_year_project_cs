@@ -1,0 +1,117 @@
+[
+  {
+    "id": "cloudwatch_log_entry",
+    "title": "CloudWatch Log Entry",
+    "type": "cloudwatch",
+    "summary": "Multiple failed authentication attempts captured in CloudWatch logs.",
+    "why_it_may_matter": "This entry indicates unauthorized access attempts from the specified IP address.",
+    "support_role": "weak",
+    "facts": {
+      "log_rows": [
+        [
+          "10:30 UTC",
+          "example-log-stream",
+          "Failed authentication attempt from 185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:18:44Z",
+          "cloudtrail/audit",
+          "ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:21:35Z",
+          "cloudtrail/audit",
+          "StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test"
+        ],
+        [
+          "2023-10-01T10:24:02Z",
+          "iam/credential-monitor",
+          "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active"
+        ],
+        [
+          "2023-10-01T10:26:11Z",
+          "security/correlation",
+          "Same source IP 185.220.101.42 observed across authentication and credential events"
+        ]
+      ],
+      "query": "fields @timestamp, @logStream, @message | filter @message like /ConsoleLogin|StopLogging|CreateAccessKey|mfaAuthenticated=false/ | sort @timestamp asc",
+      "log_group": "/aws/cloudtrail/organization/prod",
+      "matched_records": "5",
+      "scanned_bytes": "1.4 MB",
+      "time_range": "2023-10-01 10:10-10:30 UTC",
+      "alarm_state": "Identity correlation signal"
+    },
+    "template": "cloudwatch"
+  },
+  {
+    "id": "access_key_info",
+    "title": "Access Key Details",
+    "type": "access_key",
+    "summary": "Details of the access key used by the admin-test IAM user.",
+    "why_it_may_matter": "The access key details provide insights into the credentials involved in the unauthorized access attempts.",
+    "support_role": "partial",
+    "facts": {
+      "access_key_id": "AKIA4Z7EXAMPLE92K",
+      "owner": "arn:aws:iam::123456789012:user/admin-test",
+      "status": "Active",
+      "last_used_service": "iam.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-12-31T23:59:59Z",
+      "source_ip": "185.220.101.42"
+    },
+    "template": "access_key"
+  },
+  {
+    "id": "cloudtrail_event",
+    "title": "IAM Activity Event",
+    "type": "iam_activity",
+    "summary": "Multiple failed authentication attempts recorded in CloudTrail logs.",
+    "why_it_may_matter": "These events suggest unauthorized access attempts via the admin-test IAM user.",
+    "support_role": "strong",
+    "facts": {
+      "activity_rows": [
+        [
+          "10:30 UTC",
+          "admin-test",
+          "IAM Activity Event",
+          "185.220.101.42"
+        ],
+        [
+          "10:18:44 UTC",
+          "admin-test",
+          "ListTrails",
+          "185.220.101.42"
+        ],
+        [
+          "10:21:35 UTC",
+          "admin-test",
+          "StopLogging",
+          "185.220.101.42"
+        ],
+        [
+          "10:24:02 UTC",
+          "admin-test",
+          "CreateAccessKey",
+          "185.220.101.42"
+        ],
+        [
+          "10:26:11 UTC",
+          "admin-test",
+          "GetCallerIdentity",
+          "185.220.101.42"
+        ]
+      ],
+      "principal": "admin-test",
+      "source_ip": "185.220.101.42",
+      "mfa": "false",
+      "policy_change": "No approved IAM change ticket found",
+      "access_key_status": "New active key observed after login",
+      "risk_flags": [
+        "Console login without MFA",
+        "Logging visibility changed",
+        "Credential activity from same source IP"
+      ]
+    },
+    "template": "iam_activity"
+  }
+]

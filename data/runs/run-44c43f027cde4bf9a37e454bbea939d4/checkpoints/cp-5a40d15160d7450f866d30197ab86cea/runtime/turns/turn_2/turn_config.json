@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Identify potential sources of unauthorized activity related to the GuardDuty finding for 'd.okafor'. Correlate this finding with IAM activities, CloudTrail logs, and other security signals to assess the full extent of the anomaly.",
+  "known_context": [
+    "Unauthorized login attempt detected by GuardDuty for 'd.okafor' from 198.51.100.1 at 09:14 UTC.",
+    "CloudTrail event recording of 'GetObject' operation by 'd.okafor' from 203.0.113.41 at 09:14 UTC.",
+    "Access key details showing 'ASIADE13333F8C2F195A' active for 'etl-runner' since October 1st, 2023."
+  ],
+  "coach_guidance": "Focus on identifying the root cause of the GuardDuty finding and correlating it with IAM activities and CloudTrail logs to understand the broader context of the anomaly."
+}

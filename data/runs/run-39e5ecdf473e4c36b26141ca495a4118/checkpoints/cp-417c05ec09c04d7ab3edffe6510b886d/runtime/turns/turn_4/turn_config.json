@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Consider reviewing the recent IAM activities of s.brennan to identify any unusual patterns or potential misuse of AWS credentials. This will help determine if there are any suspicious activities that could link back to the GuardDuty finding.",
+  "known_context": [
+    "ARN:AWS/IAM/AccountID/user/SuspiciousPrincipal",
+    "SourceIP:SuspiciousPrincipal",
+    "EventTime:UTC"
+  ],
+  "coach_guidance": "Focus on identifying the source IP of the `CreateAccessKey` call to better understand the threat context."
+}

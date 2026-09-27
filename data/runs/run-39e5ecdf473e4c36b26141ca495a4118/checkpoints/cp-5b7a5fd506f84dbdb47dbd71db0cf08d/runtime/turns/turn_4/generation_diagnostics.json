@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, and expected outcomes.",
+        "The generated turn introduces weak evidence that does not directly support the chosen action.",
+        "The generated turn focuses on revisiting the same event without providing a new investigative purpose."
+      ],
+      "retry_instruction": "Refocus the turn on a new investigative purpose, such as scope, blast-radius, or credential risk, rather than continuing to investigate the same event."
+    }
+  ],
+  "anchor_repairs": []
+}

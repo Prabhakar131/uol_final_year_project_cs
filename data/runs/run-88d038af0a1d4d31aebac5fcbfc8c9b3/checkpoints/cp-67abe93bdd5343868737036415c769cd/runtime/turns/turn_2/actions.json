@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_access_key_status",
+    "title": "Check Access Key Status",
+    "description": "Verify the status of the access key used by s.brennan during the AssumeRole call.",
+    "recommended_next_focus": "Confirm whether the access key remains active and authorized.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_calls",
+    "title": "Investigate Activity Around CreateAccessKey",
+    "description": "Investigate the recent activity around the CreateAccessKey call by s.brennan.",
+    "recommended_next_focus": "Identify any discrepancies between the IAM calls and the original AssumeRole call.",
+    "choice_role": "best"
+  },
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Inspect the CloudTrail logs for any additional IAM calls made by s.brennan after the AssumeRole call.",
+    "recommended_next_focus": "Identify any new IAM calls and their associated resources.",
+    "choice_role": "weak"
+  }
+]

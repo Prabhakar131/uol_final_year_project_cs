@@ -1,0 +1,67 @@
+{
+  "id": "cp-b5aee186a57a426aa1036e48f647aaa6",
+  "createdAt": "2026-09-25T14:14:44.947381+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 34,
+    "visibility": 58,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Explore Logging Gaps",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Review the billing details to determine if there are any unusual charges linked to the unauthorized access attempts.",
+      "id": "check_billing_spending",
+      "recommended_next_focus": "Confirm the extent of the impact",
+      "title": "Check daily spending on AWS services"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_3/billing_daily_spend.png",
+      "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+      "supportRole": "weak",
+      "template": "billing",
+      "title": "Daily Billing Summary",
+      "type": "billing",
+      "whyItMayMatter": "Indicates unusual charges related to the unauthorized access attempts."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

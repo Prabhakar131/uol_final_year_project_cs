@@ -1,0 +1,6 @@
+{
+  "strong_support": "The evidence strongly indicates that the access key was never active and there were no unusual behaviors during its lifecycle.",
+  "partial_support": "The evidence partially supports the idea that the access key was never active and there were no unusual behaviors during its lifecycle.",
+  "weak_support": "The evidence does not fully support the idea that the access key was never active and there were no unusual behaviors during its lifecycle.",
+  "unsupported": "The evidence is insufficient to support the idea that the access key was never active and there were no unusual behaviors during its lifecycle."
+}

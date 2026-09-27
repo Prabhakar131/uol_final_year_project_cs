@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_access_key_status",
+    "title": "ExamineAccessKeyStatus",
+    "description": "Further investigate the access key status.",
+    "recommended_next_focus": "Review IAM console logs and policy documents.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Confirm the identity responsible for the unauthorized access attempt.",
+    "recommended_next_focus": "Review IAM console logs and policy documents.",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "InvestigateGuardDutyFindings",
+    "description": "Explore GuardDuty findings for additional insights.",
+    "recommended_next_focus": "Review IAM console logs and policy documents.",
+    "choice_role": "weak"
+  }
+]

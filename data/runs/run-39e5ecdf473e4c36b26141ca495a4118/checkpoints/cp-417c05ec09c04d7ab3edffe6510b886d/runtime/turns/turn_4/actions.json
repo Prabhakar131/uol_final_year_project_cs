@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_billing_spending",
+    "title": "Verify daily spending on services linked to s.brennan",
+    "description": "Review the daily spending on services linked to s.brennan to see if there are any anomalies.",
+    "recommended_next_focus": "Identify the source IP of the `CreateAccessKey` call",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_cloudwatch_log_lines",
+    "title": "Check CloudTrail log records for s.brennan",
+    "description": "Review the CloudTrail log records for s.brennan to find any suspicious activity.",
+    "recommended_next_focus": "Identify the source IP of the `CreateAccessKey` call",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_access_key_usage",
+    "title": "Investigate the recent use of s.brennan's access key from 198.51.100.1",
+    "description": "Review the recent use of s.brennan's access key from 198.51.100.1 to identify any unusual patterns or potential misuse of AWS credentials.",
+    "recommended_next_focus": "Identify the source IP of the `CreateAccessKey` call",
+    "choice_role": "best"
+  }
+]

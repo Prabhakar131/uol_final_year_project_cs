@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_access_key",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the creation of the access key AKIA6BA26EFDCBD2Q5C5 by s.brennan to assess potential misuse.",
+    "recommended_next_focus": "Identify the root cause of the access key creation and its potential impact.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "check_cloudtrail_logs",
+    "title": "Check CloudTrail logs for related activity",
+    "description": "Review the CloudTrail logs for any additional activity related to the CreateAccessKey call by s.brennan.",
+    "recommended_next_focus": "Look for patterns or anomalies in the logs that could indicate unauthorized access.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_user_account",
+    "title": "Verify the recipient account's role and permissions",
+    "description": "Confirm whether the recipient account has the necessary permissions to create an access key.",
+    "recommended_next_focus": "Ensure that the account has proper authorization before proceeding.",
+    "choice_role": "best"
+  }
+]

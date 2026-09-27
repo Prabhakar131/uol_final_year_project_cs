@@ -1,0 +1,79 @@
+{
+  "id": "cp-13167a242f784d919bc65f480bdaf700",
+  "createdAt": "2026-09-25T11:29:00.595993+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 60,
+    "visibility": 95,
+    "risk": "Medium",
+    "phase": "Containment Decision",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate Activity Around PutEvents",
+        "evidence": "CloudTrail Event: PutEvents",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 4,
+        "action": "Review Access Key Use",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Verify the recent activity around the DeleteAccessKey call by security-ops.",
+      "id": "delete_access_key",
+      "recommended_next_focus": "Correlate GuardDuty findings with IAM activities around function updates and put events.",
+      "title": "DeleteAccessKey"
+    },
+    "selectedEvidence": {
+      "id": "cloudwatch_logs_query",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/cloudwatch_logs_query.png",
+      "imageUrl": "/generated_evidence/turn_5/cloudwatch_logs_query.png",
+      "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+      "supportRole": "strong",
+      "template": "cloudwatch",
+      "title": "CloudWatch Logs Insights Query",
+      "type": "cloudwatch",
+      "whyItMayMatter": "Shows recent activity involving d.okafor."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

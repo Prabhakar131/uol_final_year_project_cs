@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_object_get",
+    "title": "Investigate Object Get",
+    "description": "Search for 'GetObject' operations related to 'd.okafor' to check for unusual behavior.",
+    "recommended_next_focus": "Confirm if 'GetObject' operations are part of the GuardDuty findings",
+    "choice_role": "partial"
+  },
+  {
+    "id": "check_billing_summary",
+    "title": "Check Billing Summary",
+    "description": "Verify daily spend against a baseline to understand the financial impact.",
+    "recommended_next_focus": "Assess if increased spending aligns with GuardDuty findings",
+    "choice_role": "weak"
+  },
+  {
+    "id": "review_iam_activities",
+    "title": "Review Access Key Use",
+    "description": "Review the recent use of d.okafor's access key from 198.51.100.1.",
+    "recommended_next_focus": "Identify potential anomalies in IAM activities",
+    "choice_role": "best"
+  }
+]

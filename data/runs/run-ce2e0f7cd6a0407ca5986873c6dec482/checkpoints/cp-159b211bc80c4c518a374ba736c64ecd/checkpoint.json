@@ -1,0 +1,61 @@
+{
+  "id": "cp-159b211bc80c4c518a374ba736c64ecd",
+  "createdAt": "2026-09-25T11:24:54.338864+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Investigate the recent activity around the UpdateFunctionCode call by d.okafor.",
+      "id": "investigate_iam_activities",
+      "recommended_next_focus": "Identify IAM activities correlated with GuardDuty findings.",
+      "title": "Investigate Activity Around UpdateFunctionCode"
+    },
+    "selectedEvidence": {
+      "id": "cloudwatch_logs_query",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/cloudwatch_logs_query.png",
+      "imageUrl": "/generated_evidence/turn_2/cloudwatch_logs_query.png",
+      "summary": "Logs Insights query returning 2 CloudTrail log lines.",
+      "supportRole": "strong",
+      "template": "cloudwatch",
+      "title": "CloudWatch Logs Insights Query",
+      "type": "cloudwatch",
+      "whyItMayMatter": "Shows potential anomaly."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

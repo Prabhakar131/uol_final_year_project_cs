@@ -1,0 +1,100 @@
+[
+  {
+    "id": "cloudwatch_logs_query",
+    "title": "CloudWatch Logs Insights Query",
+    "type": "cloudwatch",
+    "template": "cloudwatch",
+    "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+    "why_it_may_matter": "This query reveals details from the CloudTrail events, aiding in understanding the incident.",
+    "support_role": "partial",
+    "facts": {
+      "query": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/d.okafor\" | sort @timestamp asc",
+      "log_group": "aws-cloudtrail-logs-123456789012",
+      "matched_records": "3",
+      "scanned_bytes": "0.9 MB",
+      "time_range": "2023-09-30 09:14-10:01 UTC",
+      "alarm_state": "Complete",
+      "log_rows": [
+        [
+          "2023-09-30T09:14:05Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "GetObject success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41"
+        ],
+        [
+          "2023-09-30T09:37:16Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "ListObjectsV2 success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41"
+        ],
+        [
+          "2023-09-30T10:00:27Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "DescribeInstances success by arn:aws:iam::123456789012:user/d.okafor from 203.0.113.41"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "billing_daily_spend",
+    "title": "Daily Billing Summary",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+    "why_it_may_matter": "This alert indicates high costs, suggesting the incident might be impacting budget.",
+    "support_role": "weak",
+    "facts": {
+      "current_spend": "$44.03",
+      "previous_average": "$42.75",
+      "largest_service": "S3",
+      "region": "ap-southeast-1",
+      "change": "+3%"
+    }
+  },
+  {
+    "id": "cloudtrail_event_record",
+    "title": "CloudTrail Event: PutEvents",
+    "type": "cloudtrail",
+    "template": "cloudtrail",
+    "summary": "CloudTrail record of PutEvents by d.okafor from 198.51.100.1 at 10:30 UTC.",
+    "why_it_may_matter": "This event shows the PutEvents call by d.okafor, providing insight into their IAM activities.",
+    "support_role": "strong",
+    "facts": {
+      "event_name": "PutEvents",
+      "event_source": "events.amazonaws.com",
+      "user": "arn:aws:iam::123456789012:user/d.okafor",
+      "source_ip": "198.51.100.1",
+      "mfa": "false",
+      "event_time": "2023-10-01T10:30:50Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Success",
+      "event_id": "55a1a6af-6fd0-459f-a2d7-53ed63a155c8",
+      "user_agent": "aws-cli/2.15.30 Python/3.11.8",
+      "recipient_account_id": "123456789012",
+      "request_parameters": "resource=target/ExecuteRemediationTrigger",
+      "resources": "target/ExecuteRemediationTrigger",
+      "related_events": [
+        [
+          "2023-10-01T10:12:10Z",
+          "PutRule",
+          "arn:aws:iam::123456789012:user/d.okafor",
+          "198.51.100.1",
+          "Success"
+        ],
+        [
+          "2023-10-01T10:20:30Z",
+          "UpdateFunctionCode20150331v2",
+          "arn:aws:iam::123456789012:user/d.okafor",
+          "198.51.100.1",
+          "Success"
+        ],
+        [
+          "2023-10-01T10:30:50Z",
+          "PutEvents",
+          "arn:aws:iam::123456789012:user/d.okafor",
+          "198.51.100.1",
+          "Success"
+        ]
+      ]
+    }
+  }
+]

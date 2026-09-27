@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_user_identity",
+    "title": "Verify the user identity and request parameters",
+    "description": "Confirm the identity and request parameters associated with the CreateAccessKey call.",
+    "recommended_next_focus": "Analyze the IAM activity leading up to the CreateAccessKey call",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty findings for unauthorized access attempts involving s.brennan.",
+    "recommended_next_focus": "Identify the root cause of the unauthorized access attempts",
+    "choice_role": "best"
+  },
+  {
+    "id": "explore_billing_impact",
+    "title": "Explore the Billing Impact",
+    "description": "Assess the financial impact of the unauthorized access attempts.",
+    "recommended_next_focus": "Evaluate the overall cost and potential mitigation strategies",
+    "choice_role": "weak"
+  }
+]

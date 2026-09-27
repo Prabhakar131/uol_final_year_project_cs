@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "Please investigate the remaining activities related to the access key AKIA5CDQ3A695EC617EF. Check logs or records where the key was accessed or modified.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "CloudTrail record of ObjectGet operation by d.okafor",
+    "Daily spend $44.03 against a $42.75 average; largest service S3"
+  ],
+  "coach_guidance": "Ensure you thoroughly examine the access key usage and correlate it with other activities to mitigate risks."
+}

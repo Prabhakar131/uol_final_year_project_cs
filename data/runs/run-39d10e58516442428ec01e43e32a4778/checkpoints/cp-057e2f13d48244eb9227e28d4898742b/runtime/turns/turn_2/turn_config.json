@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "The first audit event confirmed suspicious identity activity, but the scope is still unclear. Correlate IAM activity, credential changes, and monitoring logs to determine whether the same principal and source IP appear across multiple risky actions.",
+  "known_context": [
+    "A ConsoleLogin without MFA was observed for arn:aws:iam::123456789012:user/admin-test from 185.220.101.42.",
+    "Related activity in the same incident window may include logging, credential, or role-management events.",
+    "The previous evidence was assessed as Partial Support, so this turn should test whether the signal has wider impact."
+  ],
+  "coach_guidance": "Choose evidence that links the same identity and source IP across IAM activity, access key changes, CloudWatch logs, or GuardDuty findings."
+}

@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "specific incident response phase",
+  "briefing": "The previous evidence choice did not fully resolve the investigation path, so this turn should refocus the learner on the missing evidence before moving forward. Continue investigating the GuardDuty findings and IAM activities for further insights.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "Access Key AKIA5CDQ3A695EC617EF accessed from 203.0.113.41",
+    "Increased daily spend of $44.03 against a $42.75 average"
+  ],
+  "coach_guidance": "Focus on reviewing the access key's activity logs and examining any suspicious entries around the time of the increased spend. Look for signs of unauthorized access attempts or unusual network traffic related to the access key. Also, investigate the access key's permissions and ensure they align with the intended use."
+}

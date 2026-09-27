@@ -1,0 +1,13 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "cost-management",
+  "scenario_slug": "cost_management",
+  "source_file": "data/acse_eval.jsonl",
+  "case": {
+    "name": "cost-management",
+    "architecture": "cost-management/architecture.png",
+    "architecture_description": "cost-management/diagram.py",
+    "threat_model": "cost-management/threat-model.json",
+    "infra_as_code": "cost-management/cdk/"
+  }
+}

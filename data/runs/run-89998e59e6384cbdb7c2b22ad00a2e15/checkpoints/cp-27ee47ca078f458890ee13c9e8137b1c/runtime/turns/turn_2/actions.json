@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Examine CloudTrail logs for additional IAM-related activities around the GuardDuty finding.",
+    "recommended_next_focus": "Look for any new IAM activities or anomalies related to 'd.okafor'.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around UpdateFunctionCode",
+    "description": "Investigate the recent activity around the UpdateFunctionCode call by d.okafor.",
+    "recommended_next_focus": "Identify IAM users involved in the anomalous behavior and their associated resources.",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_access_key_status",
+    "title": "Check Access Key Status",
+    "description": "Verify the status of the active access key 'ASIADE13333F8C2F195A' for IAM user 'etl-runner'.",
+    "recommended_next_focus": "Confirm if the key is still active and check for any recent usage patterns.",
+    "choice_role": "partial"
+  }
+]

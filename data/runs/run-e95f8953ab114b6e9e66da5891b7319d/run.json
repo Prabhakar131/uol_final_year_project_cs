@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-e95f8953ab114b6e9e66da5891b7319d",
+  "scenarioId": "cost-management",
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 weak action \u00b7 rotate evidence path \u00b7 25 Sep",
+  "createdAt": "2026-09-25T14:18:32.871533+00:00",
+  "updatedAt": "2026-09-25T14:24:58.443935+00:00",
+  "status": "completed",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-369400586f9442d4bebd02e499e6b840",
+  "turn": 5,
+  "completedTurns": 5
+}

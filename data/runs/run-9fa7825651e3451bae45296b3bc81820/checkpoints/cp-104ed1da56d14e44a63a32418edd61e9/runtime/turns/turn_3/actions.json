@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_access_keys",
+    "title": "Review Access Keys",
+    "description": "Check the active access keys for the customer-api principal to determine their usage patterns.",
+    "recommended_next_focus": "Confirm if the access keys are being misused or if they need to be revoked.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "identify_cost_impact",
+    "title": "Identify Cost Impact",
+    "description": "Examine the cost impact of the suspicious activity to understand its financial implications.",
+    "recommended_next_focus": "Assess the financial impact of the suspicious activity.",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_cloud_trail_logs",
+    "title": "Investigate Cloud Trail Logs",
+    "description": "Review CloudTrail logs for the customer-api principal to find any unusual activities.",
+    "recommended_next_focus": "Identify if there are any unauthorized CloudTrail log entries or anomalies.",
+    "choice_role": "partial"
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "id": "cp-41973f23894546fe93a13cd323da76eb",
+  "createdAt": "2026-09-25T09:45:54.870765+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 65,
+    "risk": "Medium",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Investigate the recent activity around the PutEvents call by d.okafor.",
+      "id": "investigate_iam_changes",
+      "recommended_next_focus": "Identify any unauthorized IAM changes or failed attempts beyond just the 'UpdateFunctionCode' call.",
+      "title": "Investigate Activity Around PutEvents"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_3/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of PutEvents by d.okafor from 198.51.100.1 at 10:30 UTC.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "CloudTrail Record of PutEvents",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Shows unauthorized IAM activity."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "112593057ef51c689809b7c67082ed4c3a3be2c2",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,10 @@
+{
+  "attempts": 3,
+  "outcome": "deterministic_fallback",
+  "validation_errors": [
+    "Duplicate or invalid evidence template: cloudtrail. Regenerate distinct evidence content with justified support roles; do not replace facts while retaining labels.",
+    "Duplicate or invalid evidence template: cloudtrail. Regenerate distinct evidence content with justified support roles; do not replace facts while retaining labels.",
+    "Duplicate or invalid evidence template: cloudtrail. Regenerate distinct evidence content with justified support roles; do not replace facts while retaining labels."
+  ],
+  "quality_reviews": []
+}

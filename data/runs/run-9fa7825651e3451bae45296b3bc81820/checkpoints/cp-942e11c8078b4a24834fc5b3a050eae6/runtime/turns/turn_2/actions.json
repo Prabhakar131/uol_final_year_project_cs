@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_logging_gaps",
+    "title": "Explore Logging Gaps",
+    "description": "Search for additional logging gaps that could indicate the origin of the suspicious activity.",
+    "recommended_next_focus": "Look for other areas of logging that might shed light on the suspect's activities.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around Invoke",
+    "description": "Investigate the recent activity around the Invoke call by customer-api.",
+    "recommended_next_focus": "Identify the IAM user responsible for the suspicious activity.",
+    "choice_role": "best"
+  },
+  {
+    "id": "identify_cost_impact",
+    "title": "Identify Cost Impact",
+    "description": "Examine the cost impact of the suspicious activity to understand its financial implications.",
+    "recommended_next_focus": "Assess the financial impact of the suspicious activity.",
+    "choice_role": "partial"
+  }
+]

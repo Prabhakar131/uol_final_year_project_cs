@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_spending",
+    "title": "Check daily spending",
+    "description": "Review daily spending data to assess the financial impact of unauthorized updates to function code.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_putevents_call",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Review the recent activity around the PutEvents call by d.okafor to understand the full extent of unauthorized updates to function code.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_guardduty_signatures",
+    "title": "Verify GuardDuty signatures",
+    "description": "Check GuardDuty signatures to ensure they match the pattern of unauthorized updates identified in the recent activity.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "partial"
+  }
+]

@@ -1,0 +1,274 @@
+[
+  {
+    "threatID": "THREAT-001",
+    "threatName": "Unauthorized Access to Cloud Credentials",
+    "affectedComponents": [
+      "SecretsManager",
+      "Lambda-CostCollector",
+      "CloudCredentials"
+    ],
+    "frameworks": {
+      "stride": [
+        "Spoofing",
+        "Information Disclosure",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A07:2021-Identification and Authentication Failures"
+      ],
+      "mitreATT&CK": [
+        "T1552 - Unsecured Credentials",
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "cwe": "CWE-522",
+    "vulnerabilityDetails": {
+      "howItWorks": "An attacker could exploit overly permissive IAM roles or misconfigured secrets access policies to retrieve cloud credentials stored in Secrets Manager.",
+      "exploitationScenario": "A compromised Lambda function with excessive permissions could access Secrets Manager and retrieve credentials for all cloud providers, leading to unauthorized access across multiple cloud environments."
+    },
+    "impact": {
+      "confidentiality": "Critical",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-001-A",
+        "description": "Implement strict IAM policies following the principle of least privilege",
+        "implementationDetails": "Configure IAM roles to limit Secrets Manager access to only the Cost Collector Lambda function and implement resource-level permissions",
+        "awsServiceContext": [
+          "IAM",
+          "SecretsManager",
+          "Lambda"
+        ]
+      },
+      {
+        "recommendationID": "REC-001-B",
+        "description": "Implement AWS Organizations SCPs as recommended by security engineer",
+        "implementationDetails": "Create SCPs that restrict access to Secrets Manager actions and limit credential access to specific roles",
+        "awsServiceContext": [
+          "Organizations",
+          "IAM"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Organizations SCPs to implement preventive controls, AWS CloudTrail for auditing all Secrets Manager and IAM activities, and AWS Config to monitor policy changes."
+  },
+  {
+    "threatID": "THREAT-002",
+    "threatName": "Sensitive Cost Data Exposure via S3",
+    "affectedComponents": [
+      "S3-RawCostData",
+      "S3-ProcessedData",
+      "Lambda-CostProcessor"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Tampering"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control",
+        "A05:2021-Security Misconfiguration"
+      ],
+      "mitreATT&CK": [
+        "T1530 - Data from Cloud Storage Object"
+      ]
+    },
+    "cwe": "CWE-200",
+    "vulnerabilityDetails": {
+      "howItWorks": "Misconfigured S3 bucket policies or inadequate access controls could allow unauthorized access to sensitive cost data stored in the buckets.",
+      "exploitationScenario": "An attacker could exploit overly permissive bucket policies to access or modify cost data, potentially leading to data leakage or manipulation of cost reports."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-002-A",
+        "description": "Implement comprehensive S3 bucket security controls",
+        "implementationDetails": "Enable S3 Block Public Access, implement bucket policies with least privilege, enable encryption at rest, and implement access logging",
+        "awsServiceContext": [
+          "S3"
+        ]
+      },
+      {
+        "recommendationID": "REC-002-B",
+        "description": "Implement data classification and handling controls",
+        "implementationDetails": "Tag sensitive data, implement lifecycle policies, and use S3 Object Lock for critical cost data",
+        "awsServiceContext": [
+          "S3",
+          "Macie"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Macie for sensitive data discovery, S3 Block Public Access at account level, and AWS Config rules to monitor bucket configurations."
+  },
+  {
+    "threatID": "THREAT-003",
+    "threatName": "API Gateway Authentication Bypass",
+    "affectedComponents": [
+      "APIGateway",
+      "IAM-Authentication",
+      "Lambda-CostAnalyzer"
+    ],
+    "frameworks": {
+      "stride": [
+        "Spoofing",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A02:2021-Cryptographic Failures",
+        "A07:2021-Identification and Authentication Failures"
+      ],
+      "mitreATT&CK": [
+        "T1190 - Exploit Public-Facing Application"
+      ]
+    },
+    "cwe": "CWE-287",
+    "vulnerabilityDetails": {
+      "howItWorks": "Insufficient API Gateway authentication configuration or vulnerabilities in the authentication mechanism could allow unauthorized access to the API endpoints.",
+      "exploitationScenario": "An attacker could forge or manipulate authentication tokens to gain unauthorized access to cost management APIs."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-003-A",
+        "description": "Implement robust API Gateway authentication",
+        "implementationDetails": "Use AWS Cognito or custom Lambda authorizers, implement JWT validation, and enforce strong authentication policies",
+        "awsServiceContext": [
+          "APIGateway",
+          "Cognito",
+          "Lambda"
+        ]
+      },
+      {
+        "recommendationID": "REC-003-B",
+        "description": "Implement API request throttling and monitoring",
+        "implementationDetails": "Configure usage plans, API keys, and implement rate limiting to prevent abuse",
+        "awsServiceContext": [
+          "APIGateway",
+          "CloudWatch"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS WAF with API Gateway for additional protection, implement AWS Shield for DDoS protection, and use CloudWatch for monitoring authentication failures."
+  },
+  {
+    "threatID": "THREAT-004",
+    "threatName": "DynamoDB Data Manipulation",
+    "affectedComponents": [
+      "DynamoDB-CostDatabase",
+      "Lambda-CostProcessor",
+      "Lambda-CostAnalyzer"
+    ],
+    "frameworks": {
+      "stride": [
+        "Tampering",
+        "Information Disclosure",
+        "Repudiation"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control",
+        "A04:2021-Insecure Design"
+      ],
+      "mitreATT&CK": [
+        "T1565 - Data Manipulation"
+      ]
+    },
+    "cwe": "CWE-922",
+    "vulnerabilityDetails": {
+      "howItWorks": "Overly permissive IAM policies or compromised Lambda functions could allow unauthorized modification of cost data in DynamoDB.",
+      "exploitationScenario": "An attacker with access to a compromised Lambda function could modify cost data to hide resource usage or manipulate billing information."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "Critical",
+      "availability": "Medium"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-004-A",
+        "description": "Implement strict DynamoDB access controls",
+        "implementationDetails": "Use IAM policies with least privilege, implement condition keys, and enable DynamoDB encryption",
+        "awsServiceContext": [
+          "DynamoDB",
+          "IAM"
+        ]
+      },
+      {
+        "recommendationID": "REC-004-B",
+        "description": "Implement data integrity controls",
+        "implementationDetails": "Enable DynamoDB streams for audit trails, implement checksums for critical data, and use versioning",
+        "awsServiceContext": [
+          "DynamoDB",
+          "Lambda"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use DynamoDB encryption at rest, enable Point-in-Time Recovery for data protection, and implement CloudWatch alerts for suspicious access patterns."
+  },
+  {
+    "threatID": "THREAT-005",
+    "threatName": "EventBridge Rule Manipulation",
+    "affectedComponents": [
+      "EventBridge-Scheduler",
+      "Lambda-CostCollector",
+      "Lambda-CostProcessor"
+    ],
+    "frameworks": {
+      "stride": [
+        "Tampering",
+        "Denial of Service"
+      ],
+      "owaspTop10": [
+        "A05:2021-Security Misconfiguration"
+      ],
+      "mitreATT&CK": [
+        "T1526 - Cloud Service Discovery"
+      ]
+    },
+    "cwe": "CWE-284",
+    "vulnerabilityDetails": {
+      "howItWorks": "Attackers with IAM permissions could modify EventBridge rules to disrupt cost data collection timing or frequency.",
+      "exploitationScenario": "An attacker could modify scheduling rules to prevent cost data collection or overwhelm the system with too frequent collections."
+    },
+    "impact": {
+      "confidentiality": "Low",
+      "integrity": "High",
+      "availability": "High"
+    },
+    "likelihood": "Low",
+    "recommendations": [
+      {
+        "recommendationID": "REC-005-A",
+        "description": "Implement strict EventBridge permissions",
+        "implementationDetails": "Use IAM policies to restrict EventBridge rule modifications to authorized roles only",
+        "awsServiceContext": [
+          "EventBridge",
+          "IAM"
+        ]
+      },
+      {
+        "recommendationID": "REC-005-B",
+        "description": "Implement monitoring and alerting",
+        "implementationDetails": "Set up CloudWatch alerts for EventBridge rule modifications and failed executions",
+        "awsServiceContext": [
+          "EventBridge",
+          "CloudWatch"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Organizations SCPs to restrict EventBridge permissions, implement AWS Config rules to monitor rule changes, and use CloudTrail for audit logging."
+  }
+]

@@ -1,0 +1,77 @@
+{
+  "id": "cp-6e9a285b3aa94b05be3f93f8caa5cec8",
+  "createdAt": "2026-09-26T16:28:55.220531+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities of s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support",
+        "action_role": "partial"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Review the CloudTrail logs for any signs of unauthorized access or unusual activity related to the IAM activity.",
+      "id": "examine_cloudtrail_logs",
+      "recommended_next_focus": "Look for patterns indicating potential breaches or misconfigurations.",
+      "title": "Examine the CloudTrail logs for potential anomalies"
+    },
+    "selectedEvidence": {
+      "id": "iam_principal_activity",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/iam_principal_activity.png",
+      "imageUrl": "/generated_evidence/turn_2/iam_principal_activity.png",
+      "summary": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+      "supportRole": "strong",
+      "template": "iam_activity",
+      "title": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+      "type": "iam_activity",
+      "whyItMayMatter": "Provides insight into the recent IAM activity and helps identify potential threats."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain how the IAM activity supports your action",
+        "text": "Explain how the IAM activity evidence supports your selected response action. Connect the identity activity to the response decision.",
+        "cues": [
+          "principal",
+          "action",
+          "timestamp",
+          "source IP",
+          "policy change",
+          "authentication context"
+        ],
+        "actionTitle": "Examine the CloudTrail logs for potential anomalies",
+        "evidenceTitle": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+        "evidenceType": "iam_activity"
+      },
+      "transcript": "I selected Investigate Activity Around CreateAccessKey to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": false,
+  "codeVersion": "d8a40938755a58623fc97d0750685c3e42b473a7",
+  "codeHasLocalChanges": true
+}

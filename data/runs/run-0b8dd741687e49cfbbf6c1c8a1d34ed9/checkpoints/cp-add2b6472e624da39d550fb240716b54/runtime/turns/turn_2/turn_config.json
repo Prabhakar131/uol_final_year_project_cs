@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Continue investigating the GuardDuty finding for 'd.okafor' to identify anomalous behavior.",
+  "known_context": [
+    "Unauthorized login attempt detected by GuardDuty for 'd.okafor' from 198.51.100.1 at 09:14 UTC.",
+    "Access key ASIADE13333F8C2F195A for etl-runner is Active; last used 2023-10-01 10:50 from 203.0.113.2.",
+    "CloudTrail event: GetObject by d.okafor from 203.0.113.41 at 09:14 UTC."
+  ],
+  "coach_guidance": "Focus on correlating IAM activities with GuardDuty findings and identifying potential unauthorized access."
+}

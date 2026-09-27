@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_billing_costs",
+    "title": "Examine Billing Costs",
+    "description": "Review the daily spending report to identify potential overcharges.",
+    "recommended_next_focus": "Confirm if the access key has been rotated recently and examine any associated costs or charges.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_cloud_trail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Check the logs for further details on the CreateAccessKey operation.",
+    "recommended_next_focus": "Confirm if the access key has been rotated recently and examine any associated costs or charges.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Ensure the access key has been rotated and examine associated costs or charges.",
+    "recommended_next_focus": "Confirm if the access key has been rotated recently and examine any associated costs or charges.",
+    "choice_role": "best"
+  }
+]

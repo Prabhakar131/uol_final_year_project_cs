@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_access_key_risk",
+    "title": "Review Access Key Risk",
+    "description": "Check whether a new or active access key is linked to the suspicious principal after the login event.",
+    "recommended_next_focus": "Confirm whether credential containment is needed.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "query_security_logs",
+    "title": "Query Security Logs",
+    "description": "Use CloudWatch logs to correlate authentication, CloudTrail, and credential-monitoring messages.",
+    "recommended_next_focus": "Compare log timing and source IP across services.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "correlate_identity_timeline",
+    "title": "Correlate Identity Timeline",
+    "description": "Review IAM activity around the incident window to see whether the same principal and source IP appear across multiple actions.",
+    "recommended_next_focus": "Look for credential creation, logging changes, and caller identity checks.",
+    "choice_role": "best"
+  }
+]

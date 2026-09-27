@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "Containment and Remediation",
+  "briefing": "The previous evidence choice did not fully resolve the investigation path, so this turn should refocus the learner on the missing evidence before moving forward. Review logs associated with the principal 'customer-api' user and the IP address '203.0.113.10' to identify potential origins of the unauthorized access.",
+  "known_context": [
+    "Unauthorized login attempt detected from IP 203.0.113.10 by user customer-api",
+    "CloudTrail record of CreateAccessKey by customer-api from 203.0.113.10 at 10:50 UTC",
+    "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for customer-api"
+  ],
+  "coach_guidance": "Focus on reviewing the console logs and AWS account activities for any unusual patterns or anomalies related to the customer-api user. This could include monitoring for new services being accessed, changes in usage patterns, or any suspicious login attempts."
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "run-cb4e43f192ae49dda79134925963ccc2",
+  "scenarioId": "identity-management",
+  "label": "T1-partial-retest",
+  "createdAt": "2026-09-19T14:38:12.327197+00:00",
+  "updatedAt": "2026-09-19T14:48:01.254905+00:00",
+  "status": "paused",
+  "resumable": true,
+  "testMode": true,
+  "parent": {
+    "runId": "run-39d10e58516442428ec01e43e32a4778",
+    "checkpointId": "cp-3e59681681c848c7b27545706abe1ce2"
+  },
+  "latestCheckpoint": "cp-af80aebb87f64694aadb906e41de1cb4",
+  "turn": 1,
+  "completedTurns": 1
+}

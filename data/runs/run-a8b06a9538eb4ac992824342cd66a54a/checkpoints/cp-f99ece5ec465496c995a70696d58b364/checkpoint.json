@@ -1,0 +1,73 @@
+{
+  "id": "cp-f99ece5ec465496c995a70696d58b364",
+  "createdAt": "2026-09-25T14:15:55.802619+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 34,
+    "visibility": 58,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Explore Logging Gaps",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Check daily spending on AWS services",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Look into the billing patterns to assess the true cost impact of the unauthorized access attempt.",
+      "id": "explore_billing_patterns",
+      "recommended_next_focus": "Confirm the extent of the impact",
+      "title": "Further explore the billing patterns to determine the true cost impact"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_4/access_key_details.png",
+      "summary": "Access key AKIA5CDQ3A695EC617EF for d.okafor is Active; last used 2023-10-01 10:40 from 198.51.100.1.",
+      "supportRole": "strong",
+      "template": "access_key",
+      "title": "Access Key Details",
+      "type": "access_key",
+      "whyItMayMatter": "Shows the active status of the access key and its last usage date and location."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

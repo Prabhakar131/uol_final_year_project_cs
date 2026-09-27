@@ -1,0 +1,23 @@
+[
+  {
+    "id": "gather_billing_data",
+    "title": "Gather Billing Data",
+    "description": "Review daily billing records to identify if the access key was used for unexpected expenses.",
+    "recommended_next_focus": "Verify if the access key was misused",
+    "choice_role": "weak"
+  },
+  {
+    "id": "examine_logs_for_unusual_activity",
+    "title": "Examine Logs for Unusual Activity",
+    "description": "Review CloudTrail logs and GuardDuty findings for signs of unauthorized access attempts.",
+    "recommended_next_focus": "Confirm if the access key was misused",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_policies",
+    "title": "Investigate Activity Around CreateAccessKey",
+    "description": "Investigate the recent activity around the CreateAccessKey call by customer-api.",
+    "recommended_next_focus": "Identify potential misuse of the access key",
+    "choice_role": "best"
+  }
+]

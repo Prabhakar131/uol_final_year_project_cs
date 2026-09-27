@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Identify the identity responsible for the unauthorized access attempt and determine if there are any affected assets or potential credential risks.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' from IP address 203.0.113.10 was involved in the unauthorized access attempt.",
+    "The daily spending on AWS services indicates a significant increase compared to the usual average.",
+    "A GuardDuty low finding suggests Recon:EC2/PortProbeUnprotectedPort for the customer-api user."
+  ],
+  "coach_guidance": "Focus on correlating the identity activity with affected assets and assessing potential credential risks."
+}

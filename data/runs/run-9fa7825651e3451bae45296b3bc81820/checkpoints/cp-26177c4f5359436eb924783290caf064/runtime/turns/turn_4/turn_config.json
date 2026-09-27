@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Review recent IAM login logs and associated costs to pinpoint the specific IAM user involved in the suspicious activity.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10 at 10:50 UTC.",
+    "GuardDuty low finding for IAMUser/AnomalousBehavior.",
+    "Active access key ASIA26FE14613C9A445F for CI-Deploy last used 2023-10-01 10:45 from 198.51.100.5."
+  ],
+  "coach_guidance": "Look for additional CloudTrail logs around the time of the suspicious activity to confirm if the key has been rotated recently and examine any associated costs or charges."
+}

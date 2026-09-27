@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_guard_duty",
+    "title": "Investigate GuardDuty Finding",
+    "description": "Examine the GuardDuty findings to understand the potential risks involved.",
+    "recommended_next_focus": "Analyze the IAM activities leading up to the CreateAccessKey call",
+    "choice_role": "partial"
+  },
+  {
+    "id": "review_iam_policies",
+    "title": "Review IAM Policies",
+    "description": "Identify any changes or new permissions associated with the account where the CreateAccessKey call was issued.",
+    "recommended_next_focus": "Analyze the IAM activities leading up to the CreateAccessKey call",
+    "choice_role": "best"
+  },
+  {
+    "id": "explore_billing_impact",
+    "title": "Explore Billing Impact",
+    "description": "Assess the financial implications of the high-severity GuardDuty finding.",
+    "recommended_next_focus": "Analyze the IAM activities leading up to the CreateAccessKey call",
+    "choice_role": "weak"
+  }
+]

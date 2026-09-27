@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on scope and blast radius, which is similar to the completed turn's phase. However, it introduces new evidence focusing on GuardDuty findings and billing details, which adds depth to the analysis.",
+        "The evidence facts are mostly concrete and relevant, but some facts like 'recent IAM activity' and 'daily spending report' lack specific timestamps and regions, making them less helpful for immediate decision-making."
+      ],
+      "retry_instruction": "Refocus the turn on the scope and blast radius while incorporating the new evidence about GuardDuty findings and billing details."
+    }
+  ],
+  "anchor_repairs": [],
+  "decoy_removals": []
+}

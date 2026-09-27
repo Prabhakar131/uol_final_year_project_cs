@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_billing_patterns",
+    "title": "Further explore the billing patterns to determine the true cost impact",
+    "description": "Continuously monitor and analyze the billing patterns to identify the actual cost impact of the unauthorized access attempt.",
+    "recommended_next_focus": "Review the recent use of d.okafor's access key from 198.51.100.1",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "Verify the recent activity around the DeleteAccessKey call by security-ops",
+    "description": "Ensure the deletion of the access key was successful and investigate any potential residual risks.",
+    "recommended_next_focus": "Revisit the billing patterns for additional insights",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_service_usage",
+    "title": "Verify if there were any changes in service usage patterns before and after the incident",
+    "description": "Analyze the historical data to see if there were any significant changes in service usage patterns leading up to the incident.",
+    "recommended_next_focus": "Review the recent use of d.okafor's access key from 198.51.100.1",
+    "choice_role": "weak"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the recent IAM activity of s.brennan to understand the full picture and identify potential threats.",
+  "known_context": [
+    "The suspicious principal s.brennan from 198.51.100.1 accessed resources via CloudTrail and assumed roles.",
+    "There is a high GuardDuty finding indicating unauthorized access attempts.",
+    "The daily spend on S3 services exceeds the average by $44.03."
+  ],
+  "coach_guidance": "Consider reviewing the IAM policies associated with s.brennan to see if there are any restrictions on creating new access keys. Also, monitor the IAM console for any changes in permissions or access levels over the past few days to detect any unauthorized modifications."
+}

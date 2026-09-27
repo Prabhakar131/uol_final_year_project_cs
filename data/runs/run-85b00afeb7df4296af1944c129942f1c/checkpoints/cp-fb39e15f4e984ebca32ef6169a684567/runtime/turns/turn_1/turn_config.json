@@ -1,0 +1,11 @@
+{
+  "turn": 1,
+  "phase": "Detection and Initial Triage",
+  "briefing": "An unusual IAM activity involving the AssumeRole call by s.brennan from 198.51.100.1 has been detected. You need to investigate further to determine if there is a potential threat.",
+  "known_context": [
+    "The suspicious IAM activity involves the AssumeRole call by s.brennan from 198.51.100.1.",
+    "This activity suggests unauthorized access attempts.",
+    "There is a history of IAM activities including GetBucketLocation, DescribeVolumes, and PutObject."
+  ],
+  "coach_guidance": "Focus your investigation on identifying the source of the AssumeRole call and assessing the risks associated with it."
+}

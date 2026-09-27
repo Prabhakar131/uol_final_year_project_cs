@@ -1,0 +1,76 @@
+{
+  "id": "cp-c6ed5ce2cdf342a28b71a1cfc9a7eb50",
+  "createdAt": "2026-09-24T06:10:15.498730+00:00",
+  "kind": "paused",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities",
+        "evidence": "Unauthorized Access Attempt",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": 2,
+    "completed": false
+  },
+  "draft": {
+    "screen": "evaluation",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Look at the latest IAM activities to identify potential threats.",
+      "id": "review_iam_activities",
+      "recommended_next_focus": "Identify suspicious IAM activities and their sources.",
+      "title": "Review Recent IAM Activities"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_log_row",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudtrail_log_row.png",
+      "imageUrl": "/generated_evidence/turn_1/cloudtrail_log_row.png",
+      "summary": "A CloudTrail log entry shows an attempt to stop logging from an unknown IP.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "Unauthorized Access Attempt",
+      "type": "cloudtrail",
+      "whyItMayMatter": "This indicates a potential threat where sensitive data might be exfiltrated."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain How The CloudTrail Event Supports Your Action",
+        "text": "Explain how the CloudTrail event supports your selected response action. Connect the visible log fields to the decision you want to take.",
+        "cues": [
+          "event name",
+          "user identity",
+          "source IP",
+          "event time",
+          "MFA status",
+          "region"
+        ],
+        "actionTitle": "Review Recent IAM Activities",
+        "evidenceTitle": "Unauthorized Access Attempt",
+        "evidenceType": "cloudtrail"
+      },
+      "transcript": "I selected Review Recent IAM Activities to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "dc0af94f3f07d852a671cf8829dfed7725e55c39",
+  "codeHasLocalChanges": true
+}

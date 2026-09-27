@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on detecting the suspicious IAM activity rather than moving towards scope, blast-radius, credential risk, monitoring gaps, or related activity.",
+        "The evidence facts lack specificity and relevance to the learner's chosen action, making it difficult to understand the importance of each piece of evidence."
+      ],
+      "retry_instruction": "Move towards scope, blast-radius, credential risk, monitoring gaps, or related activity."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

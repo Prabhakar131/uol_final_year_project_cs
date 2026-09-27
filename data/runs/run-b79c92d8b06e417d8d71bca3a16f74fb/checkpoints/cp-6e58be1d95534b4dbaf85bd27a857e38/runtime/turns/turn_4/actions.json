@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity for Potential Excess Spending",
+    "description": "Review the billing activity for any unexpected increases in expenses related to the CreateAccessKey call.",
+    "recommended_next_focus": "Identify the specific time and source IP associated with the CreateAccessKey call.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_access_key_usage",
+    "title": "Verify the usage of the access key AKIA6BA26EFDCBD2Q5C5",
+    "description": "Confirm whether the access key AKIA6BA26EFDCBD2Q5C5 was used during the CreateAccessKey call.",
+    "recommended_next_focus": "Identify the specific time and source IP associated with the CreateAccessKey call.",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_cloud_trail_logs",
+    "title": "Investigate the CloudTrail logs for related activity",
+    "description": "Review the CloudTrail logs for any additional activity related to the CreateAccessKey call.",
+    "recommended_next_focus": "Identify the specific time and source IP associated with the CreateAccessKey call.",
+    "choice_role": "partial"
+  }
+]

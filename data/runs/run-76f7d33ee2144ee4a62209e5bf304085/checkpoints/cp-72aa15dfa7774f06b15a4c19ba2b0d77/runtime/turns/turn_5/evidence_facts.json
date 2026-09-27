@@ -1,0 +1,117 @@
+[
+  {
+    "id": "final_identity_timeline",
+    "title": "Final Identity Timeline",
+    "type": "iam_activity",
+    "summary": "IAM activity summarises suspicious login, credential containment, and admin recovery actions.",
+    "why_it_may_matter": "This supports final reporting, but CloudTrail recovery evidence better proves closure.",
+    "support_role": "partial",
+    "template": "iam_activity",
+    "facts": {
+      "principal": "arn:aws:iam::123456789012:user/admin-test",
+      "source_ip": "185.220.101.42",
+      "mfa": "false",
+      "policy_change": "SecurityAdmin disabled suspicious access key",
+      "access_key_status": "Inactive after containment",
+      "risk_flags": [
+        "Suspicious login without MFA",
+        "Access key disabled by SecurityAdmin"
+      ],
+      "activity_rows": [
+        [
+          "2023-10-01T10:12:10Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "ConsoleLogin",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:24:02Z",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "CreateAccessKey",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:45:22Z",
+          "arn:aws:iam::123456789012:role/SecurityAdmin",
+          "UpdateAccessKey",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T11:08:17Z",
+          "arn:aws:iam::123456789012:role/SecurityAdmin",
+          "StartLogging",
+          "185.220.101.42"
+        ],
+        [
+          "10:26:11 UTC",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "GetCallerIdentity",
+          "185.220.101.42"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "final_billing_snapshot",
+    "title": "Final Billing Snapshot",
+    "type": "billing",
+    "summary": "Billing shows residual cost impact after the identity incident.",
+    "why_it_may_matter": "This is weak support because it shows impact, not recovery verification.",
+    "support_role": "weak",
+    "template": "billing",
+    "facts": {
+      "current_spend": "$191.80",
+      "previous_average": "$42.75",
+      "largest_service": "EC2",
+      "region": "ap-southeast-1",
+      "change": "+349%"
+    }
+  },
+  {
+    "id": "final_cloudtrail_recovery_record",
+    "title": "Final CloudTrail Recovery Record",
+    "type": "cloudtrail",
+    "summary": "CloudTrail confirms logging recovery and credential-control actions for the affected principal.",
+    "why_it_may_matter": "This directly supports final recovery verification and incident reporting.",
+    "support_role": "strong",
+    "template": "cloudtrail",
+    "facts": {
+      "event_name": "StartLogging",
+      "event_source": "cloudtrail.amazonaws.com",
+      "user": "arn:aws:iam::123456789012:role/SecurityAdmin",
+      "source_ip": "185.220.101.42",
+      "mfa": "true",
+      "event_time": "2023-10-01T11:08:17Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Audit logging restored after suspicious credential activity was contained.",
+      "event_id": "e7b31d90-8b6a-4d5c-93f1-7b3d4f6a19c5",
+      "user_agent": "aws-cli/2.13",
+      "recipient_account_id": "123456789012",
+      "request_parameters": "name=prod-org-trail",
+      "related_events": [
+        [
+          "2023-10-01T10:45:22Z",
+          "UpdateAccessKey",
+          "arn:aws:iam::123456789012:role/SecurityAdmin",
+          "185.220.101.42",
+          "Inactive"
+        ],
+        [
+          "2023-10-01T11:08:17Z",
+          "StartLogging",
+          "arn:aws:iam::123456789012:role/SecurityAdmin",
+          "185.220.101.42",
+          "Success"
+        ],
+        [
+          "2023-10-01T11:14:41Z",
+          "GetTrailStatus",
+          "arn:aws:iam::123456789012:role/SecurityAdmin",
+          "185.220.101.42",
+          "Logging"
+        ]
+      ]
+    }
+  }
+]

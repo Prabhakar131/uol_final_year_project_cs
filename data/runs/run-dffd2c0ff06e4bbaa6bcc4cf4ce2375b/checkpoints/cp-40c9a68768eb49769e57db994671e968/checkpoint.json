@@ -1,0 +1,61 @@
+{
+  "id": "cp-40c9a68768eb49769e57db994671e968",
+  "createdAt": "2026-09-25T10:00:02.456797+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Investigate the recent activity around the UpdateFunctionCode call by d.okafor.",
+      "id": "investigate_iam_activities",
+      "recommended_next_focus": "Identify potential threats or anomalies in IAM activities.",
+      "title": "Investigate Activity Around UpdateFunctionCode"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_2/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of GetObject by d.okafor from 203.0.113.41 at 09:14 UTC.",
+      "supportRole": "partial",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: GetObject",
+      "type": "cloudtrail",
+      "whyItMayMatter": "This confirms the GuardDuty finding and provides context for the anomaly."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "112593057ef51c689809b7c67082ed4c3a3be2c2",
+  "codeHasLocalChanges": true
+}

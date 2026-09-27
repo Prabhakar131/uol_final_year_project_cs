@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_access_keys",
+    "title": "Verify Access Keys",
+    "description": "Confirm the active access keys associated with the Invoke call by customer-api from 203.0.113.10.",
+    "recommended_next_focus": "Identify the specific instances of the Invoke call by customer-api from 203.0.113.10",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_invoke_call",
+    "title": "Investigate Spend Increase",
+    "description": "Investigate the +13% EC2 spend increase.",
+    "recommended_next_focus": "Identify the specific instances of the Invoke call by customer-api from 203.0.113.10",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_cloudwatch_logs",
+    "title": "Check CloudWatch Logs",
+    "description": "Review the CloudWatch logs for additional details related to the Invoke call by customer-api from 203.0.113.10.",
+    "recommended_next_focus": "Identify the specific instances of the Invoke call by customer-api from 203.0.113.10",
+    "choice_role": "partial"
+  }
+]

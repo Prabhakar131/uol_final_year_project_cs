@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_console_login",
+    "title": "Investigate Console Login Attempts",
+    "description": "Examine the console login attempts to understand the attacker's tactics.",
+    "recommended_next_focus": "Understand attacker behavior and techniques",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_billing_spending",
+    "title": "Verify Billing Spending",
+    "description": "Review the daily spending to assess the financial impact.",
+    "recommended_next_focus": "Confirm the extent of damage",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_affected_assets",
+    "title": "Investigate Activity Around Invoke",
+    "description": "Investigate the recent activity around the Invoke call by customer-api.",
+    "recommended_next_focus": "Identify critical systems and applications",
+    "choice_role": "best"
+  }
+]

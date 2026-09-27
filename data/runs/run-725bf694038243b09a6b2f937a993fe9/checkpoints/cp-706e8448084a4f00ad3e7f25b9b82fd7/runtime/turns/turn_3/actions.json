@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_related_activities",
+    "title": "Explore related activities involving the user 'arn:aws:iam::123456789012:user/customer-api'",
+    "description": "Look for additional IAM-related activities that might indicate the root cause of the stoplogging event. This could include reviewing other AWS services or resources accessed by the user.",
+    "recommended_next_focus": "Further confirm the root cause through additional investigations",
+    "choice_role": "weak"
+  },
+  {
+    "id": "identify_root_cause",
+    "title": "Identify the root cause of the stoplogging event",
+    "description": "Based on the IAM activity analysis, determine the root cause of the stoplogging event. This could involve reviewing other related IAM actions or looking for patterns in the user's behavior.",
+    "recommended_next_focus": "Confirm the identified root cause through further investigation",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_activity",
+    "title": "Investigate Spend Increase",
+    "description": "Investigate the +13% EC2 spend increase.",
+    "recommended_next_focus": "Identify potential modifications or disabling of logging activities",
+    "choice_role": "best"
+  }
+]

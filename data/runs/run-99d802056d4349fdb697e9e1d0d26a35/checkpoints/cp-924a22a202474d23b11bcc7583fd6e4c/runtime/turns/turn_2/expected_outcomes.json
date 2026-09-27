@@ -1,0 +1,6 @@
+{
+  "strong_support": "Identifying new permissions or access levels grants stronger confidence in the threat.",
+  "partial_support": "Reviewing security alerts provides context about the system's awareness of the issue.",
+  "weak_support": "Investigating logging changes reveals potential misconfigurations.",
+  "unsupported": "No strong evidence exists to support the immediate action of reviewing more CloudTrail logs."
+}

@@ -1,0 +1,76 @@
+{
+  "id": "cp-e4bc701b00404afa9c58603275fa8640",
+  "createdAt": "2026-09-26T04:54:47.893070+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 66,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Analyze CloudTrail Log",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Strong Support",
+        "action_role": "weak"
+      },
+      {
+        "turn": 2,
+        "action": "Review Daily Billing for Unusual Costs",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support",
+        "action_role": "weak"
+      },
+      {
+        "turn": 3,
+        "action": "Review GuardDuty Findings",
+        "evidence": "Access Key Details",
+        "verdict": "Partial Support",
+        "action_role": "weak"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Review daily billing records to identify if the access key was used for unexpected expenses.",
+      "id": "gather_billing_data",
+      "recommended_next_focus": "Verify if the access key was misused",
+      "title": "Gather Billing Data"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_4/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of CreateAccessKey by customer-api from 203.0.113.10 at 10:50 UTC.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: CreateAccessKey",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Shows the creation of the access key by the suspicious principal."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "f63e9fdc38a5a18b43973e04445fe27028abfd67",
+  "codeHasLocalChanges": true
+}

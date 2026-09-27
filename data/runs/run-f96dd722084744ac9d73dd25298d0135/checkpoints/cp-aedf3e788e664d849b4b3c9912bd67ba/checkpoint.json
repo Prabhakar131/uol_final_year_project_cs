@@ -1,0 +1,79 @@
+{
+  "id": "cp-aedf3e788e664d849b4b3c9912bd67ba",
+  "createdAt": "2026-09-25T11:36:09.234827+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 32,
+    "visibility": 59,
+    "risk": "High",
+    "phase": "Containment Decision",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the recent activity around the PutEvents call by d.okafor",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 4,
+        "action": "Review Access Key Use",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Confirm if d.okafor used the same access key for multiple activities.",
+      "id": "delete_access_key",
+      "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+      "title": "DeleteAccessKey"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_5/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of GetObject by d.okafor from 203.0.113.41 at 09:14 UTC.",
+      "supportRole": "partial",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: GetObject",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Indicates recent activity around the PutEvents call."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,6 @@
+{
+  "strong_support": "Reviewing CloudTrail logs reveals unauthorized access attempts.",
+  "partial_support": "Identifying the source of unauthorized access attempts.",
+  "weak_support": "Securing the identified accounts and preventing further attacks.",
+  "unsupported": "No direct evidence supports immediate containment measures."
+}

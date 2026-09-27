@@ -1,0 +1,35 @@
+{
+  "id": "cp-f19f0e7110d94ee6b214efc6625c1f2e",
+  "createdAt": "2026-09-20T08:05:41.676162+00:00",
+  "kind": "after_turn",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities",
+        "evidence": "CloudWatch Log Insight Query",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": 2,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "dc0af94f3f07d852a671cf8829dfed7725e55c39",
+  "codeHasLocalChanges": true
+}

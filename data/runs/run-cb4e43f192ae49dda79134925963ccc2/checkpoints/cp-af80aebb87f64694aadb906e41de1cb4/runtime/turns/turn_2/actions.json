@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_access_attempts",
+    "title": "Review CloudTrail Logs for Specific IAM Activities",
+    "description": "Deeply analyze the CloudTrail logs to find detailed records of the IAM activities that match the unauthorized access attempts.",
+    "recommended_next_focus": "Further investigate the IAM activities to gather more context about the threat.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "check_affected_activities",
+    "title": "Correlate Identity Activity with CloudTrail Events",
+    "description": "Examine the IAM activities logged in CloudTrail to see which ones correspond to the unauthorized access attempts.",
+    "recommended_next_focus": "Narrow down the IAM activities to focus on the ones showing signs of unauthorized access.",
+    "choice_role": "best"
+  },
+  {
+    "id": "explore_logging_gaps",
+    "title": "Search for Logging Gaps in IAM Activity",
+    "description": "Scan through the IAM activity logs for any gaps or inconsistencies that could indicate a lack of proper logging or monitoring.",
+    "recommended_next_focus": "Identify areas where better logging practices could prevent similar incidents in the future.",
+    "choice_role": "weak"
+  }
+]

@@ -1,0 +1,67 @@
+{
+  "id": "cp-8b900d4b217f4ed19096984e7bf29989",
+  "createdAt": "2026-09-25T14:01:20.750477+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "action": "Check Billing Activity",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "partial",
+      "description": "Review the CloudWatch logs for additional details related to the Invoke call by customer-api from 203.0.113.10.",
+      "id": "check_cloudwatch_logs",
+      "recommended_next_focus": "Identify the specific instances of the Invoke call by customer-api from 203.0.113.10",
+      "title": "Check CloudWatch Logs"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_3/access_key_details.png",
+      "summary": "Access key ASIA26FE14613C9A445F for CI-Deploy is Active; last used 2023-10-01 10:45 from 198.51.100.5.",
+      "supportRole": "weak",
+      "template": "access_key",
+      "title": "Access Key Details",
+      "type": "access_key",
+      "whyItMayMatter": "Details about the active access key associated with the Invoke call by customer-api from 203.0.113.10."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

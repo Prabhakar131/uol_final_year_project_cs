@@ -1,0 +1,88 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "automated-security-response",
+  "scenario_slug": "automated_security_response",
+  "scenario_title": "ACSE-Eval Automated Security Response Incident",
+  "total_turns": 5,
+  "starting_turn": 1,
+  "allowed_evidence_templates": [
+    "cloudtrail",
+    "iam_activity",
+    "guardduty",
+    "cloudwatch",
+    "access_key",
+    "billing"
+  ],
+  "evidence_template_strategy": {
+    "mode": "scenario_turn_roles",
+    "description": "Assign strong, partial, and weak evidence roles by scenario and turn so the best evidence source changes with the investigation stage.",
+    "role_templates_by_turn": {
+      "1": {
+        "strong": "guardduty",
+        "partial": "cloudtrail",
+        "weak": "access_key"
+      },
+      "2": {
+        "strong": "cloudwatch",
+        "partial": "cloudtrail",
+        "weak": "access_key"
+      },
+      "3": {
+        "strong": "cloudtrail",
+        "partial": "cloudwatch",
+        "weak": "billing"
+      },
+      "4": {
+        "strong": "access_key",
+        "partial": "guardduty",
+        "weak": "billing"
+      },
+      "5": {
+        "strong": "cloudwatch",
+        "partial": "cloudtrail",
+        "weak": "billing"
+      }
+    }
+  },
+  "dataset_context": {
+    "architecture_asset": "data/source/automated-security-response/architecture.png",
+    "threat_model_asset": "data/source/automated-security-response/threat-model.json"
+  },
+  "scenario_progression": {
+    "progression_mode": "ai_guided_adaptive",
+    "turn_strategy": "Each turn should adapt to the learner's action, selected evidence, security verdict, and coach feedback.",
+    "incident_response_stages": [
+      {
+        "turn": 1,
+        "stage": "detection_and_initial_triage",
+        "goal": "Help the learner identify the first identity-related security signal and choose useful initial evidence."
+      },
+      {
+        "turn": 2,
+        "stage": "correlation_and_scope",
+        "goal": "Help the learner correlate identity activity, affected assets, credential risk, or logging gaps."
+      },
+      {
+        "turn": 3,
+        "stage": "scope_and_blast_radius",
+        "goal": "Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact."
+      },
+      {
+        "turn": 4,
+        "stage": "containment_and_remediation",
+        "goal": "Help the learner choose a proportionate containment or remediation step using direct supporting evidence."
+      },
+      {
+        "turn": 5,
+        "stage": "recovery_and_final_debrief",
+        "goal": "Help the learner verify recovery, residual risk, and final incident reporting evidence before closing the scenario."
+      }
+    ],
+    "adaptation_rules": [
+      "Strong evidence use should progress the scenario.",
+      "Partial evidence use should progress with uncertainty.",
+      "Weak or unsupported evidence use should refocus the learner.",
+      "Hidden truth must not be directly exposed to the learner."
+    ]
+  }
+}

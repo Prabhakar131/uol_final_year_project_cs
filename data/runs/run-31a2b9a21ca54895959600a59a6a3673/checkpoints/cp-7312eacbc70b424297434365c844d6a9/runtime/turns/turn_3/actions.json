@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_alerts",
+    "title": "Check the billing alerts for increased costs",
+    "description": "Review the billing alerts to determine if there are any unexpected increases in expenses due to the incident.",
+    "recommended_next_focus": "Analyze the financial impact and consider mitigation strategies",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_put_events_call",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Examine the recent PutEvents call by d.okafor to understand the full context of their IAM activities.",
+    "recommended_next_focus": "Identify potential impacts and escalate if necessary",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify the status of the access key 'ASIADE13333F8C2F195A'",
+    "description": "Confirm the status of the access key associated with d.okafor to ensure they have the correct permissions.",
+    "recommended_next_focus": "Review the IAM policy and update if necessary",
+    "choice_role": "partial"
+  }
+]

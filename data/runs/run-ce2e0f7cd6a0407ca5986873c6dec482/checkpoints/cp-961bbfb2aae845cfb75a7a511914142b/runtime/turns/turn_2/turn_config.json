@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Continue investigating the GuardDuty finding for 'd.okafor' to identify potential anomalous behavior.",
+  "known_context": [
+    "The GuardDuty finding indicates high-severity activity involving the IAM user 'd.okafor'.",
+    "Recent IAM activities show unauthorized access attempts from 198.51.100.1.",
+    "CloudTrail records indicate a GetObject operation by 'd.okafor' from 203.0.113.41 at 09:14 UTC."
+  ],
+  "coach_guidance": "Look for additional IAM activities, API calls, and other security logs to correlate the GuardDuty finding with 'd.okafor'."
+}

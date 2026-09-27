@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the recent IAM activity of s.brennan to identify potential threats.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/s.brennan from 198.51.100.1.",
+    "The latest CloudTrail event involved s.brennan getting the location of their bucket.",
+    "There is a high-cost spending pattern over the past week."
+  ],
+  "coach_guidance": "Focus on reviewing the CloudTrail logs for further clues regarding the CreateAccessKey call by s.brennan."
+}

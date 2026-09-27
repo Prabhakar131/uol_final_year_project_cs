@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_cloudwatch_logs",
+    "title": "Explore CloudWatch Logs for further insights",
+    "description": "Analyze CloudWatch logs for additional clues related to the unauthorized access attempts.",
+    "recommended_next_focus": "Identify potential resources affected by the unauthorized access",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_putevents_call",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Review the CloudTrail records to understand the nature of the unauthorized access attempts.",
+    "recommended_next_focus": "Identify potential resources affected by the unauthorized access",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_spending",
+    "title": "Check daily spending on AWS services",
+    "description": "Review the billing details to determine if there are any unusual charges linked to the unauthorized access attempts.",
+    "recommended_next_focus": "Confirm the extent of the impact",
+    "choice_role": "weak"
+  }
+]

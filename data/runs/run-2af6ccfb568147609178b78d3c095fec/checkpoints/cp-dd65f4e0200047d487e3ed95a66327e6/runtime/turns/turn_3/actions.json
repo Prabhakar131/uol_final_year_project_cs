@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_access_key_status",
+    "title": "Check Access Key Status",
+    "description": "Verify the status of the access key ASIA26FE14613C9A445F to see if it was recently accessed.",
+    "recommended_next_focus": "Confirm if the unauthorized access led to the unexpected EC2 spending",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloudtrail_logs",
+    "title": "Investigate Spend Increase",
+    "description": "Investigate the +13% EC2 spend increase.",
+    "recommended_next_focus": "Confirm if the unauthorized access led to the unexpected EC2 spending",
+    "choice_role": "best"
+  },
+  {
+    "id": "review_guardduty_findings",
+    "title": "Review GuardDuty Findings",
+    "description": "Examine GuardDuty findings to understand if there are any threats linked to the suspicious IAM activity.",
+    "recommended_next_focus": "Confirm if the unauthorized access led to the unexpected EC2 spending",
+    "choice_role": "weak"
+  }
+]

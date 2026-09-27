@@ -1,0 +1,6 @@
+{
+  "strong_support": "Review CloudTrail logs for additional activity.",
+  "partial_support": "Investigate affected assets to confirm data compromise.",
+  "weak_support": "Gather credential risk information about the access key.",
+  "unsupported": "None of the evidence is sufficient to take decisive action."
+}

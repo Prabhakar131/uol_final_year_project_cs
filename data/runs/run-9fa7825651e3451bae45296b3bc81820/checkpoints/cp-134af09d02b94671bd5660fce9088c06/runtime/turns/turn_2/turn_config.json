@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Consider reviewing recent IAM login logs and associated costs to pinpoint the specific IAM user involved in the suspicious activity.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/customer-api from 203.0.113.10.",
+    "The daily spend on AWS services is $44.62 against a $42.75 average; the largest service is EC2.",
+    "A GuardDuty low finding indicates Recon:EC2/PortProbeUnprotectedPort for i-0a3fb6fce114a107e."
+  ],
+  "coach_guidance": "Focus on correlating IAM activities with associated costs to identify the specific IAM user involved in the suspicious behavior."
+}

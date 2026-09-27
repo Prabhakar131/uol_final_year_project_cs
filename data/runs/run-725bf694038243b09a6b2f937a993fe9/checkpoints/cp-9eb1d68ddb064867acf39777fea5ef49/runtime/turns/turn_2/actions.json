@@ -1,0 +1,23 @@
+[
+  {
+    "id": "credential_risk_analysis",
+    "title": "Credential Risk Analysis",
+    "description": "Assess the risk associated with the compromised credentials used during the stoplogging event.",
+    "recommended_next_focus": "Evaluate the strength of the access keys and assess the likelihood of future attacks",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_iam_activity",
+    "title": "Investigate the recent activity around the Invoke call by customer-api",
+    "description": "Examine the IAM activity leading up to the stoplogging event to identify the root cause.",
+    "recommended_next_focus": "Identify the specific IAM activities triggering the stoplogging event",
+    "choice_role": "best"
+  },
+  {
+    "id": "identify_affected_assets",
+    "title": "Identify the affected assets involved in the stoplogging event",
+    "description": "Determine which services or resources were impacted by the stoplogging event.",
+    "recommended_next_focus": "List the affected services and their corresponding asset IDs",
+    "choice_role": "partial"
+  }
+]

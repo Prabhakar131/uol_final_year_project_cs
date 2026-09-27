@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on revisiting the same CloudTrail event and billing data, which does not provide a significant new investigative purpose.",
+        "The evidence facts lack specificity and detail, making it difficult for the learner to understand the implications of their choices."
+      ],
+      "retry_instruction": "Ensure the next turn introduces a distinct investigative purpose, such as focusing on scope, blast radius, or credential risk analysis."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: several actions name the anchor; left unchanged"
+  ]
+}

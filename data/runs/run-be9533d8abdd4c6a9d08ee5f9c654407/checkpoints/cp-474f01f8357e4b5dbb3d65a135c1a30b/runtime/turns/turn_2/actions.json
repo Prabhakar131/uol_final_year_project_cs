@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate the recent IAM activities",
+    "description": "Examine the latest IAM activities around the GuardDuty finding to look for any policy changes or access key usage anomalies.",
+    "recommended_next_focus": "Identify any anomalous behavior related to the GuardDuty finding.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail logs",
+    "description": "Inspect CloudTrail logs for similar GetObject operations by d.okafor to confirm the GuardDuty finding.",
+    "recommended_next_focus": "Confirm the GuardDuty finding through CloudTrail logs.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "update_function_code",
+    "title": "Update Function Code",
+    "description": "Assess the function code updates by d.okafor to ensure they align with the GuardDuty findings.",
+    "recommended_next_focus": "Ensure function code updates match the GuardDuty findings.",
+    "choice_role": "best"
+  }
+]

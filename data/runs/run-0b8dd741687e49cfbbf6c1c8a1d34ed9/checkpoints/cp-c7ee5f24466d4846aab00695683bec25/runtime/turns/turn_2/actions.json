@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_access_key_usage",
+    "title": "Investigate Access Key Usage",
+    "description": "Examine the access key usage pattern for 'etl-runner' to determine if it aligns with typical operations.",
+    "recommended_next_focus": "Identify any anomalous behavior that could indicate unauthorized access.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Inspect CloudTrail logs for additional details on the GuardDuty finding and IAM activities.",
+    "recommended_next_focus": "Identify any anomalous behavior that could indicate unauthorized access.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around UpdateFunctionCode",
+    "description": "Investigate the recent activity around the UpdateFunctionCode call by d.okafor.",
+    "recommended_next_focus": "Identify any anomalous behavior that could indicate unauthorized access.",
+    "choice_role": "best"
+  }
+]

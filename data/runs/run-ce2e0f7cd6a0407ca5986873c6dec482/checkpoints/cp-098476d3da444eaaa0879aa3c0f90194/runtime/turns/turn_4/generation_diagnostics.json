@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on investigating the same event (PutEvents) as the completed turn, which does not introduce a new learning purpose or decision point.",
+        "The evidence facts are mostly unknown, vague, or duplicate, lacking concrete fields needed for the learner to make a meaningful decision."
+      ],
+      "retry_instruction": "Change the phase goal to focus on containment or remediation steps."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

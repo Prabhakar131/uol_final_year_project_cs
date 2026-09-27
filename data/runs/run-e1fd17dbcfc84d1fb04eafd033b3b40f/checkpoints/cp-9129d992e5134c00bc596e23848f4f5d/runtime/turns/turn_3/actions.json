@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_access_keys",
+    "title": "Examine access keys",
+    "description": "Look for any anomalies in the access keys used by the principal.",
+    "recommended_next_focus": "Detect any compromised credentials",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_billing_activity",
+    "title": "Verify billing activity",
+    "description": "Confirm the increased daily spend due to the suspicious activity.",
+    "recommended_next_focus": "Understand the financial implications of the unauthorized access attempt",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_iam_activity",
+    "title": "Investigate IAM activity logs",
+    "description": "Review the IAM activity logs to identify the specific actions taken by the principal 'arn:aws:iam::123456789012:user/customer-api' from IP address 203.0.113.10.",
+    "recommended_next_focus": "Identify the sequence of events leading to the unauthorized access attempt",
+    "choice_role": "partial"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-f666bfbeffe74632b421f81b5a5d8a4c",
+  "scenarioId": "identity-management",
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 strong evidence path \u00b7 25 Sep",
+  "createdAt": "2026-09-25T12:50:05.464757+00:00",
+  "updatedAt": "2026-09-25T12:56:37.591656+00:00",
+  "status": "completed",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-64b797bcd67147e9980968e2c0e43b23",
+  "turn": 5,
+  "completedTurns": 5
+}

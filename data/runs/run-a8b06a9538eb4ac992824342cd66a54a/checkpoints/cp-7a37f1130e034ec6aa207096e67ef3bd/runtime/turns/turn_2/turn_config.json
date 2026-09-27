@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Continue investigating the GuardDuty finding for 'd.okafor' to identify any unexpected access patterns or resource modifications.",
+  "known_context": [
+    "The GuardDuty finding indicates high-severity anomalies involving the IAM user 'd.okafor'.",
+    "Recent IAM activities show unauthorized access attempts by 'd.okafor'.",
+    "The GuardDuty finding suggests persistent behavior associated with 'd.okafor'."
+  ],
+  "coach_guidance": "Focus on understanding the full scope of the anomaly and identifying any unintended access patterns."
+}

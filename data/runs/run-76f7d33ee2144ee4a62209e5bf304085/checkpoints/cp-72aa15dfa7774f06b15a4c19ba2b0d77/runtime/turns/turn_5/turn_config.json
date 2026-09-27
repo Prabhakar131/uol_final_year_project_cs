@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "Recovery and Final Debrief",
+  "briefing": "The main response decision has been made. Verify recovery, residual risk, and final reporting evidence before closing the incident path.",
+  "known_context": [
+    "The learner should now verify whether containment and visibility are restored.",
+    "Final reporting should distinguish confirmed evidence from remaining uncertainty.",
+    "The previous evidence was assessed as Strong Support, so the final turn should close the loop with recovery evidence."
+  ],
+  "coach_guidance": "Choose the evidence that proves recovery or clearly documents residual risk for the final incident summary."
+}

@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on revisiting the same event and user, lacking a distinct purpose beyond continuing the investigation.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, failing to introduce a new learning objective or decision point."
+      ],
+      "retry_instruction": "Refocus the investigation on the latest activity around the Invoke call by customer-api, ensuring the evidence includes specific timestamps, regions, and services involved."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

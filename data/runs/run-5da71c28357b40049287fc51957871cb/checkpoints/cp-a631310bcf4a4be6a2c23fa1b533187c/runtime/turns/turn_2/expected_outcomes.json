@@ -1,0 +1,6 @@
+{
+  "strong_support": "Identifying additional IAM activities and comparing access keys helps in understanding the full scope of the unauthorized access attempt.",
+  "partial_support": "Monitoring the CloudWatch alarm provides visibility into the ongoing activity and potential future threats.",
+  "weak_support": "Investigating the CloudTrail log entry gives clues about the specific IAM activity and its timing.",
+  "unsupported": "No strong evidence exists yet to conclusively prove the unauthorized access attempt."
+}

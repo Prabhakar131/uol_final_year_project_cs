@@ -1,0 +1,20 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on revisiting the same event and user, leading to repetition and lack of progression.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, failing to introduce a new investigative purpose.",
+        "The generated turn does not reflect the learner's previous action or choice effectively, focusing on reiteration rather than adaptation.",
+        "The evidence remains mostly weak and uninformative, lacking concrete facts and links to the chosen action.",
+        "The phase label changes but the actual briefing, known context, evidence purpose, and expected outcomes still describe the same investigation goal as the completed turn."
+      ],
+      "retry_instruction": ""
+    }
+  ],
+  "anchor_repairs": []
+}

@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, and expected outcomes.",
+        "The generated turn introduces weak evidence that does not provide a complete picture of the IAM activities leading up to the creation of the access key.",
+        "The generated turn focuses on revisiting the IAM policies and permissions rather than moving towards containment or remediation.",
+        "The generated turn does not introduce a new investigative purpose or decision point."
+      ],
+      "retry_instruction": "Refocus the turn on identifying the IAM activities leading up to the creation of the access key and their relationship to the incident."
+    }
+  ],
+  "anchor_repairs": []
+}

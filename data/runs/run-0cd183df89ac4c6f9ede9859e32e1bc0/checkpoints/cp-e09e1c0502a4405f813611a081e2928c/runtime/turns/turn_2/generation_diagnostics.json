@@ -1,0 +1,17 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "Turn 2 focuses on checking billing activity again, which is repetitive and doesn't provide new insights.",
+        "Evidence facts lack specificity and don't cover all required fields (e.g., region, cost, etc.)."
+      ],
+      "retry_instruction": "Move towards scope, correlation, credential risk, monitoring gaps, or related activity."
+    }
+  ],
+  "anchor_repairs": []
+}

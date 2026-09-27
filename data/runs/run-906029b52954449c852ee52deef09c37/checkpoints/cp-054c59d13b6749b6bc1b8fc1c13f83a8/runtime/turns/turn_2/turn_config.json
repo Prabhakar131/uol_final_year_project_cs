@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Continue investigating the unauthorized access attempts identified in the CloudWatch query. Analyze the specific source IPs to pinpoint the origin of the threats and assess the affected resources.",
+  "known_context": [
+    "Unauthorized access attempts occurred on various services across the production environment.",
+    "Multiple CloudTrail logs show suspicious activity originating from the source IP 185.220.101.42.",
+    "The account ID involved is 123456789012, which is part of the Production account."
+  ],
+  "coach_guidance": "Focus on correlating the unauthorized access attempts with the specific source IPs to understand their origins and the impacted resources. This will help in formulating an effective containment and mitigation plan."
+}

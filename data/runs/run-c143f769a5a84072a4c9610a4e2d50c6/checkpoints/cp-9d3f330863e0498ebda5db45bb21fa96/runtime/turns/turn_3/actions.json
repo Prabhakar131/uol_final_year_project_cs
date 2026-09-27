@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_iam_activity_timeline",
+    "title": "Examine IAM Activity Timeline",
+    "description": "Review the IAM activity timeline for the customer-api account to identify any unusual activity.",
+    "recommended_next_focus": "Detect if the account had unauthorized access attempts",
+    "choice_role": "weak"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify Access Key Status",
+    "description": "Check the status of the access key used by the customer-api account.",
+    "recommended_next_focus": "Confirm if the access key was compromised",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloud_trail_logs",
+    "title": "Investigate Spend Increase",
+    "description": "Investigate the +13% EC2 spend increase.",
+    "recommended_next_focus": "Identify the root cause of the unauthorized access attempt",
+    "choice_role": "best"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on investigating the +13% EC2 spend increase, which is similar to the completed turn's phase and briefing. It moves towards containment rather than moving towards scope or blast-radius.",
+        "The evidence facts are mostly vague and lack concrete details, making it difficult for the learner to make a meaningful decision."
+      ],
+      "retry_instruction": "Move towards scope, blast-radius, monitoring, detection, or impact review instead of focusing on containment."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn repeats the same evidence titles and facts from the completed turn.",
+        "The generated turn does not introduce a new investigation, response, impact, recovery, escalation, or refocus goal.",
+        "The generated turn is consistent with the scenario progression rules."
+      ],
+      "retry_instruction": "Change the evidence titles and facts to reflect a new investigation purpose."
+    }
+  ],
+  "anchor_repairs": []
+}

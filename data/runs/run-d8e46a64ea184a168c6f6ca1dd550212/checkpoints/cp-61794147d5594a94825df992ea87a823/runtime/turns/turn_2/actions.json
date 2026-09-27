@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloudtrail_logs",
+    "title": "Check CloudTrail logs for additional insights",
+    "description": "Review the CloudTrail logs for any unexpected or anomalous entries related to the IAM activities.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate its risks.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_user_identity",
+    "title": "Verify the user identity and request parameters",
+    "description": "Confirm that the user identity and request parameters match expected patterns to ensure the activity is legitimate.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate its risks.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_key_usage",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the details of the CreateAccessKey operation performed by s.brennan to understand how it relates to the assumed role.",
+    "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate its risks.",
+    "choice_role": "best"
+  }
+]

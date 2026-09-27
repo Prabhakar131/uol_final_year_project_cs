@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-316115010e1443ee985f704c921ba835",
+  "scenarioId": "identity-management",
+  "label": "t1-vlm-check",
+  "createdAt": "2026-09-20T08:00:04.754828+00:00",
+  "updatedAt": "2026-09-20T08:05:41.938651+00:00",
+  "status": "paused",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-074c671a0e454aa3b1647c1810e3b163",
+  "turn": 1,
+  "completedTurns": 1
+}

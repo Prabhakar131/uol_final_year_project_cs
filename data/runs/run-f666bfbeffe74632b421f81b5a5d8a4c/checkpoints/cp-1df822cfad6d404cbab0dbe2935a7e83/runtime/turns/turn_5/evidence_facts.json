@@ -1,0 +1,96 @@
+[
+  {
+    "id": "iam_principal_activity",
+    "title": "IAM Activity: s.brennan",
+    "type": "iam_activity",
+    "template": "iam_activity",
+    "summary": "Recent IAM activity for s.brennan: GetBucketLocation, DescribeVolumes, PutObject.",
+    "why_it_may_matter": "Shows recent IAM activities including sensitive operations.",
+    "support_role": "partial",
+    "facts": {
+      "principal": "arn:aws:iam::123456789012:user/s.brennan",
+      "source_ip": "203.0.113.41",
+      "mfa": "true",
+      "policy_change": "None in this window",
+      "access_key_status": "1 active",
+      "risk_flags": [],
+      "activity_rows": [
+        [
+          "2023-09-30T09:14:05Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "GetBucketLocation",
+          "203.0.113.41"
+        ],
+        [
+          "2023-09-30T09:37:16Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "DescribeVolumes",
+          "203.0.113.41"
+        ],
+        [
+          "2023-09-30T10:00:27Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "PutObject",
+          "203.0.113.41"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "billing_daily_spend",
+    "title": "Daily Billing Summary",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+    "why_it_may_matter": "Indicates potential financial risks due to high spending.",
+    "support_role": "weak",
+    "facts": {
+      "current_spend": "$44.03",
+      "previous_average": "$42.75",
+      "largest_service": "S3",
+      "region": "ap-southeast-1",
+      "change": "+3%"
+    }
+  },
+  {
+    "id": "cloudtrail_event_record",
+    "title": "CloudTrail Event: DeleteAccessKey",
+    "type": "cloudtrail",
+    "template": "cloudtrail",
+    "summary": "CloudTrail record of DeleteAccessKey by security-analyst from 204.152.16.3 at 10:55 UTC.",
+    "why_it_may_matter": "Directly confirms the recent IAM activity involving s.brennan.",
+    "support_role": "strong",
+    "facts": {
+      "event_name": "DeleteAccessKey",
+      "event_source": "iam.amazonaws.com",
+      "user": "arn:aws:iam::123456789012:role/security-analyst",
+      "source_ip": "204.152.16.3",
+      "mfa": "Unknown",
+      "event_time": "2023-10-01T10:55:40Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Success",
+      "event_id": "3d066117-c0f1-4589-a2c1-8751ed6909b3",
+      "user_agent": "console.amazonaws.com",
+      "recipient_account_id": "123456789012",
+      "request_parameters": "resource=user/s.brennan",
+      "resources": "user/s.brennan",
+      "related_events": [
+        [
+          "2023-10-01T10:35:00Z",
+          "StartLogging",
+          "arn:aws:iam::123456789012:role/security-analyst",
+          "204.152.16.3",
+          "Success"
+        ],
+        [
+          "2023-10-01T10:55:40Z",
+          "DeleteAccessKey",
+          "arn:aws:iam::123456789012:role/security-analyst",
+          "204.152.16.3",
+          "Success"
+        ]
+      ]
+    }
+  }
+]

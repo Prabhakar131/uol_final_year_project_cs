@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "scope_and_blast_radius",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the recent IAM activity of s.brennan to identify the source of the AssumeRole call and assess the potential threat.",
+  "known_context": [
+    "s.brennan accessed resources via AssumeRole",
+    "s.brennan created an access key",
+    "s.brennan's IP used for both activities"
+  ],
+  "coach_guidance": "Consider reviewing any recent changes to IAM roles or permissions that may have led to this activity."
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "id": "billing_daily_spend",
+    "title": "Billing Daily Spend",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+    "why_it_may_matter": "This suggests unusual activity related to s.brennan.",
+    "support_role": "weak",
+    "facts": {
+      "current_spend": "$44.03",
+      "previous_average": "$42.75",
+      "largest_service": "S3",
+      "region": "ap-southeast-1",
+      "change": "+3%"
+    }
+  },
+  {
+    "id": "guardduty_finding",
+    "title": "GuardDuty Finding",
+    "type": "guardduty",
+    "template": "guardduty",
+    "summary": "GuardDuty High finding UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS for s.brennan.",
+    "why_it_may_matter": "This indicates a potential breach of sensitive data.",
+    "support_role": "strong",
+    "facts": {
+      "finding_type": "UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS",
+      "severity": "High",
+      "resource": "user/s.brennan",
+      "principal": "arn:aws:iam::123456789012:user/s.brennan",
+      "remote_ip": "198.51.100.1",
+      "first_seen": "2023-10-01T10:12:10Z",
+      "last_seen": "2023-10-01T10:30:50Z",
+      "summary": "Unauthorized access attempt detected from an unusual IP address."
+    }
+  },
+  {
+    "id": "cloudtrail_event_record",
+    "title": "CloudTrail Record",
+    "type": "cloudtrail",
+    "template": "cloudtrail",
+    "summary": "CloudTrail record of GetBucketLocation by s.brennan from 203.0.113.41 at 09:14 UTC.",
+    "why_it_may_matter": "This confirms the location of the bucket accessed.",
+    "support_role": "partial",
+    "facts": {
+      "event_name": "GetBucketLocation",
+      "event_source": "s3.amazonaws.com",
+      "user": "arn:aws:iam::123456789012:user/s.brennan",
+      "source_ip": "203.0.113.41",
+      "mfa": "true",
+      "event_time": "2023-09-30T09:14:05Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Success",
+      "event_id": "84145377-c5cb-4bd5-a95a-3aca74e2994a",
+      "user_agent": "aws-cli/2.15.30 Python/3.11.8",
+      "recipient_account_id": "123456789012",
+      "request_parameters": "-",
+      "resources": "None recorded",
+      "related_events": [
+        [
+          "2023-09-30T09:14:05Z",
+          "GetBucketLocation",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "203.0.113.41",
+          "Success"
+        ],
+        [
+          "2023-09-30T09:37:16Z",
+          "DescribeVolumes",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "203.0.113.41",
+          "Success"
+        ],
+        [
+          "2023-09-30T10:00:27Z",
+          "PutObject",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "203.0.113.41",
+          "Success"
+        ]
+      ]
+    }
+  }
+]

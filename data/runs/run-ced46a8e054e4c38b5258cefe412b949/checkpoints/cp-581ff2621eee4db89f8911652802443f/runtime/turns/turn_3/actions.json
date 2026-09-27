@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_billing_spending",
+    "title": "Examine Billing Spending",
+    "description": "Review the daily spending report to determine if there are any unusual spikes or anomalies related to S3 services.",
+    "recommended_next_focus": "Assess the overall financial impact of the unauthorized access.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_iam_user_activities",
+    "title": "Check IAM User Activities",
+    "description": "Review the IAM activity timeline to see if there are any new logins or changes in permissions around the same time frame.",
+    "recommended_next_focus": "Confirm whether unauthorized access occurred beyond the initial PutEvents operation.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloudtrail_events",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Review the latest CloudTrail event records to understand the full picture of d.okafor\u2019s recent activities.",
+    "recommended_next_focus": "Identify potential sources of unauthorized access through further investigation.",
+    "choice_role": "best"
+  }
+]

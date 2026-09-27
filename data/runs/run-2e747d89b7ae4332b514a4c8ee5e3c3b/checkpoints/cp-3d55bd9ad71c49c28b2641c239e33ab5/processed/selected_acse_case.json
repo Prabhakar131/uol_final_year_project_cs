@@ -1,0 +1,13 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "automated-security-response",
+  "scenario_slug": "automated_security_response",
+  "source_file": "data/acse_eval.jsonl",
+  "case": {
+    "name": "automated-security-response",
+    "architecture": "automated-security-response/architecture.png",
+    "architecture_description": "automated-security-response/diagram.py",
+    "threat_model": "automated-security-response/threat-model.json",
+    "infra_as_code": "automated-security-response/cdk/"
+  }
+}

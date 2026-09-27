@@ -1,0 +1,23 @@
+[
+  {
+    "id": "gather_access_key_details",
+    "title": "Gather details about s.brennan's access key",
+    "description": "Explore the access key's creation date, expiration time, and associated resources to understand its lifecycle.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_key_lifecycle",
+    "title": "Verify Activity Around DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by security-analyst.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_guard_duty_findings",
+    "title": "Check the GuardDuty findings for s.brennan",
+    "description": "Review the GuardDuty findings to determine if there are any additional clues regarding the source of the high-severity finding.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "partial"
+  }
+]

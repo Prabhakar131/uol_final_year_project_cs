@@ -10,6 +10,5 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 
-# Local scenario backups and saved test runs (export selected runs for submission).
+# Local scenario backups.
 backups/
-data/runs/

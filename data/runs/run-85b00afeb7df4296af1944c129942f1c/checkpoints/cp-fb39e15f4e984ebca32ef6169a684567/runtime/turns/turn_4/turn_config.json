@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "The previous evidence choice did not fully resolve the investigation path, so this turn should refocus the learner on the missing evidence before moving forward. Review the recent activity around the CreateAccessKey call by s.brennan to determine if unauthorized access occurred and assess the potential impact.",
+  "known_context": [
+    "ARN: aws:iam::123456789012:user/admin-test accessed the system via IP 198.51.100.1 at time 09:14 UTC.",
+    "ARN: aws:iam::123456789012:user/admin-test created an access key named 'AKIA4Q3EQ222B99534QQ' with details including usage date and location.",
+    "ARN: aws:iam::123456789012:user/admin-test had a GuardDuty finding related to UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration."
+  ],
+  "coach_guidance": "Focus on reviewing the GuardDuty findings to understand the nature of the unauthorized access attempt. Identify the source and assess its potential impact on the organization\u2019s resources."
+}

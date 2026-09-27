@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Verify if there are any unexpected charges linked to the IAM user's activity.",
+    "recommended_next_focus": "Look for anomalies in the billing data related to the IAM user.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "gather_logging_gaps",
+    "title": "Gather Logging Gaps",
+    "description": "Search for any missing or inconsistent logs that could indicate the origin of the unauthorized access.",
+    "recommended_next_focus": "Examine areas where logs might have been missed or altered.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_iam_timeline",
+    "title": "Investigate Activity Around Invoke",
+    "description": "Investigate the recent activity around the Invoke call by customer-api.",
+    "recommended_next_focus": "Identify the IAM user's last known good session and investigate further.",
+    "choice_role": "best"
+  }
+]

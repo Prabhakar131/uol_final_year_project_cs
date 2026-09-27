@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_api_calls",
+    "title": "Check API Calls",
+    "description": "Review API calls to determine if there are any anomalies.",
+    "recommended_next_focus": "Review more CloudTrail logs",
+    "choice_role": "weak"
+  },
+  {
+    "id": "look_for_logging_gaps",
+    "title": "Look for Logging Gaps",
+    "description": "Search for additional CloudTrail logs to find gaps in logging.",
+    "recommended_next_focus": "Review more CloudTrail logs",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate Activity Around PutEvents",
+    "description": "Investigate the recent activity around the PutEvents call by d.okafor.",
+    "recommended_next_focus": "Identify IAM activities correlated with GuardDuty findings.",
+    "choice_role": "best"
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "id": "cp-c17b12353a394cbeaeacbab07cf3f517",
+  "createdAt": "2026-09-26T16:25:20.315902+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 35,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "partial",
+      "description": "Check the latest IAM activities of s.brennan to gather more context about his recent behavior and identify any anomalies.",
+      "id": "review_recent_iam_activities",
+      "recommended_next_focus": "Identify the source of the AssumeRole call and evaluate the risks associated with it.",
+      "title": "Review Recent IAM Activities of s.brennan"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_1/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of AssumeRole by s.brennan from 198.51.100.1 at 10:12 UTC.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: AssumeRole",
+      "type": "cloudtrail",
+      "whyItMayMatter": "It records who called an API, when, from where and with what result."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain how the CloudTrail event supports your action",
+        "text": "Explain how the CloudTrail event supports your selected response action. Connect the visible log fields to the decision you want to take.",
+        "cues": [
+          "event name",
+          "user identity",
+          "source IP",
+          "event time",
+          "MFA status",
+          "region"
+        ],
+        "actionTitle": "Review Recent IAM Activities of s.brennan",
+        "evidenceTitle": "CloudTrail Event: AssumeRole",
+        "evidenceType": "cloudtrail"
+      },
+      "transcript": "I selected Investigate Activity Around CreateAccessKey to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": false,
+  "codeVersion": "d8a40938755a58623fc97d0750685c3e42b473a7",
+  "codeHasLocalChanges": true
+}

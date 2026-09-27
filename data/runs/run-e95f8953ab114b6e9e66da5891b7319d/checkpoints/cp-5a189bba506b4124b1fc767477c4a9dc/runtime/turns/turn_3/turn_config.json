@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "scope_and_blast_radius",
+  "briefing": "Review logs associated with the principal `customer-api` user and the IP address `203.0.113.10` to identify potential origins of the unauthorized access.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10",
+    "Principal `arn:aws:iam::123456789012:user/customer-api` accessed resources",
+    "CloudTrail log entries showing activity around the customer-api user"
+  ],
+  "coach_guidance": "Focus on identifying the source of the unauthorized access by examining logs related to the principal `customer-api` user and the IP address `203.0.113.10`. This will help pinpoint the origin of the unauthorized activity."
+}

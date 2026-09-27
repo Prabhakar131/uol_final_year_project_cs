@@ -1,0 +1,28 @@
+{
+  "scenario_type": "automated-security-response",
+  "primary_risk": "Lambda functions are vulnerable to code injection via Security Hub findings, leading to potential high confidentiality and integrity breaches.",
+  "affected_assets": [
+    "SecurityHub",
+    "EventBridge",
+    "CheckStateLambda",
+    "ExecuteRemediationLambda"
+  ],
+  "likely_attack_path": [
+    "Compromise member account -> Create malicious Security Hub finding -> Exploit Lambda functions via injection payload"
+  ],
+  "security_signals": [
+    "Unusual Lambda function execution patterns",
+    "Security Hub findings with suspicious content"
+  ],
+  "investigation_goals": [
+    "Identify and mitigate the code injection vulnerability in Lambda functions processing Security Hub findings"
+  ],
+  "recommended_evidence_sources": [
+    "CloudTrail logs for Lambda functions",
+    "Security Hub findings logs",
+    "GuardDuty findings"
+  ],
+  "hidden_truth_candidates": [
+    "Lambda functions should implement strict input validation and sanitization for Security Hub finding fields"
+  ]
+}

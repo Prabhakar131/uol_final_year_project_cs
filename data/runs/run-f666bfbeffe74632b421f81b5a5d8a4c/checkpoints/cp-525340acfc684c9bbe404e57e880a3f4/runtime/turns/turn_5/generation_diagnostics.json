@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, and expected outcomes.",
+        "The generated turn introduces weak evidence that does not match the target stage.",
+        "The generated turn does not introduce a new investigative purpose or decision point."
+      ],
+      "retry_instruction": "Change the phase label to 'Containment and Remediation' and update the action focus to 'Review IAM activities and access key details'. Ensure the evidence focuses on the latest IAM activities and access key details."
+    }
+  ],
+  "anchor_repairs": []
+}

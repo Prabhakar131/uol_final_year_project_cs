@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate IAM Activities",
+    "description": "Review the recent IAM activities of s.brennan to find patterns or anomalies that could indicate the source of the threat.",
+    "recommended_next_focus": "Identify the source of the high-severity GuardDuty finding",
+    "choice_role": "weak"
+  },
+  {
+    "id": "examine_access_key_details",
+    "title": "Examine Access Key Details",
+    "description": "Review the details of the access key used by s.brennan to determine if it matches any known threats or vulnerabilities.",
+    "recommended_next_focus": "Identify the source of the high-severity GuardDuty finding",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Review the daily spending report to ensure there are no unexpected increases in costs associated with s.brennan\u2019s account.",
+    "recommended_next_focus": "Identify the source of the high-severity GuardDuty finding",
+    "choice_role": "partial"
+  }
+]

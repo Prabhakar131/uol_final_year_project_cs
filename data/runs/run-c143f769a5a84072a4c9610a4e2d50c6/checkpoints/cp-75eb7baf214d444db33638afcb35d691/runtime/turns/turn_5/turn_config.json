@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "The previous evidence choice did not fully resolve the investigation path, so this turn should refocus the learner on the missing evidence before moving forward. Identify the identity responsible for the unauthorized access attempt and determine the affected assets and their risks.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/customer-api from 203.0.113.10.",
+    "The latest CloudTrail event involved the 'PutMetricData' operation.",
+    "There is a GuardDuty finding indicating potential threats related to the customer-api account."
+  ],
+  "coach_guidance": "Review the logs for any other activities involving the same IP address or similar services. This could help identify if there were multiple attempts or if the unauthorized access was part of a larger pattern."
+}

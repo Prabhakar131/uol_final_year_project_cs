@@ -1,0 +1,23 @@
+[
+  {
+    "id": "gather_cloudwatch_logs",
+    "title": "Gather CloudWatch Logs",
+    "description": "Search for CloudTrail log entries related to the principal `customer-api` user and the IP address `203.0.113.10` to gather detailed activity data.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "partial"
+  },
+  {
+    "id": "examine_access_keys",
+    "title": "Examine Access Keys",
+    "description": "Review access keys associated with the principal `customer-api` user to determine if they were compromised or misused.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_user_activity",
+    "title": "Investigate Spend Increase",
+    "description": "Investigate the +13% EC2 spend increase.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "best"
+  }
+]

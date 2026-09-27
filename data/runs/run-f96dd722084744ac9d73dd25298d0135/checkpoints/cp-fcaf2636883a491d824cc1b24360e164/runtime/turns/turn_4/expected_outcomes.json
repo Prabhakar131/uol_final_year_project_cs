@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows an access key owned by d.okafor, active, last used from 198.51.100.1. This is the step the decision this turn depends on.",
+  "partial_support": "Related to d.okafor or the incident but incomplete: a Low-severity Discovery:IAMUser/AnomalousBehavior finding on arn:aws:iam::123456789012:user/d.okafor (principal d.okafor). It does not show an access key owned by d.okafor, active, last used from 198.51.100.1.",
+  "weak_support": "Plausible cloud evidence that does not show d.okafor's incident activity: $44.03 daily spend (+3% against $42.75), largest service S3."
+}

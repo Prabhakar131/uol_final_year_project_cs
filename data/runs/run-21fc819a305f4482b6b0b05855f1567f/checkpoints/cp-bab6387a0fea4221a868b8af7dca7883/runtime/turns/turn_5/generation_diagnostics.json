@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, or expected outcomes.",
+        "The generated turn introduces weak evidence that does not directly support the chosen action.",
+        "The generated turn does not introduce a new investigative purpose or decision point."
+      ],
+      "retry_instruction": "Change the phase label to 'Containment and Remediation', update the action focus to 'Identify the steps needed to mitigate the unauthorized access attempt', and ensure the evidence focuses on identifying the identity responsible for the unauthorized access attempt."
+    }
+  ],
+  "anchor_repairs": []
+}

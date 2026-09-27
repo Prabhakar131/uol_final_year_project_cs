@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_guardduty_findings",
+    "title": "Investigate GuardDuty Findings",
+    "description": "Examine GuardDuty findings for anomalies related to IAMUser/AnomalousBehavior.",
+    "recommended_next_focus": "Confirm the nature of the anomaly",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloudtrail_logs",
+    "title": "Investigate Activity Around CreateAccessKey",
+    "description": "Investigate the recent activity around the CreateAccessKey call by customer-api.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized access attempt",
+    "choice_role": "best"
+  },
+  {
+    "id": "examine_access_key_status",
+    "title": "Examine Access Key Status",
+    "description": "Review the status of the access key ASIA26FE14613C9A445F.",
+    "recommended_next_focus": "Assess the risk associated with the access key",
+    "choice_role": "weak"
+  }
+]

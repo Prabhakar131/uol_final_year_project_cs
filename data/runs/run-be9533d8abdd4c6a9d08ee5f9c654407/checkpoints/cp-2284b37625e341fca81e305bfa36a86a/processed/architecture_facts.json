@@ -1,0 +1,57 @@
+{
+  "cloud_provider": "AWS",
+  "visible_services": [
+    "Security Hub",
+    "EventBridge",
+    "Step Functions Orchestrator",
+    "Lambda Functions",
+    "SNS Notifications",
+    "CloudWatch Logs",
+    "Kinesis Firehose",
+    "Metrics Bucket"
+  ],
+  "identity_components": [
+    "Admin Account",
+    "Member Account",
+    "Admin Role",
+    "Remediation Role",
+    "Member Role"
+  ],
+  "compute_components": [],
+  "storage_components": [
+    "Metrics Bucket"
+  ],
+  "network_components": [],
+  "logging_components": [
+    "CloudWatch Logs",
+    "Kinesis Firehose"
+  ],
+  "security_components": [
+    "Security Hub",
+    "EventBridge",
+    "Step Functions Orchestrator",
+    "Lambda Functions",
+    "SNS Notifications",
+    "CloudWatch Logs",
+    "Kinesis Firehose"
+  ],
+  "external_entities": [],
+  "trust_boundaries": [],
+  "data_flows": [
+    "Check State -> Lambda Functions",
+    "Send Notification -> SNS Notifications",
+    "Execute Remediation -> Lambda Functions",
+    "CloudWatch Logs -> Kinesis Firehose",
+    "Kinesis Firehose -> Metrics Bucket"
+  ],
+  "identity_flows": [],
+  "security_observations": [
+    "Automated security response using AWS Security Hub and Step Functions Orchestrator."
+  ],
+  "possible_investigation_evidence": [
+    "CloudWatch Logs",
+    "Kinesis Firehose",
+    "Metrics Bucket"
+  ],
+  "architecture_summary": "AWS Automated Security Response Architecture utilizing Security Hub, EventBridge, Step Functions Orchestrator, Lambda Functions, SNS Notifications, CloudWatch Logs, Kinesis Firehose, and Metrics Bucket for automated security response and monitoring."
+}

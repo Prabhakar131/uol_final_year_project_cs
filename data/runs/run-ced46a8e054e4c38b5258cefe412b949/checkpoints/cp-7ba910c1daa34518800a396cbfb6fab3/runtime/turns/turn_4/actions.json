@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_billing_spending",
+    "title": "Examine Billing Spending",
+    "description": "Review daily billing details to check if there are any unexpected charges related to S3 services.",
+    "recommended_next_focus": "Verify if there are any unexpected charges related to S3 services.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_iam_user_activities",
+    "title": "Check IAM User Activities",
+    "description": "Review IAM user activities to see if there are any unusual logins or changes in permissions around the same time as the unauthorized access attempts.",
+    "recommended_next_focus": "Look for any new IAM user logins or changes in permissions around the same time as the unauthorized access attempts.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloudtrail_events",
+    "title": "Review Access Key Use",
+    "description": "Review the recent use of access key AKIA5CDQ3A695EC617EF.",
+    "recommended_next_focus": "Identify potential unauthorized access points through detailed examination of CloudTrail events.",
+    "choice_role": "best"
+  }
+]

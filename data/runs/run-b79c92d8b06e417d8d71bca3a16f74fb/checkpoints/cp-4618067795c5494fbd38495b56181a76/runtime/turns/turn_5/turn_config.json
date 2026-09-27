@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "This turn should focus on Recovery And Final Debrief: Help the learner verify recovery, residual risk, and final incident reporting evidence before closing the scenario. Continue investigating the recent IAM activity of s.brennan to identify potential threats.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/s.brennan from 198.51.100.1.",
+    "CloudTrail record of DeleteAccessKey by security-analyst from 204.152.16.3 at 10:55 UTC.",
+    "Recent IAM activity for s.brennan: GetBucketLocation, DescribeVolumes, PutObject."
+  ],
+  "coach_guidance": "Consider reviewing the CloudTrail logs for more detailed records of the DeleteAccessKey call. This will help pinpoint the exact moment and location where the access key was deleted, allowing us to verify its legitimacy and prevent unauthorized access."
+}

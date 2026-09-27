@@ -1,0 +1,23 @@
+[
+  {
+    "id": "verify_billing_activity",
+    "title": "VerifyBillingActivity",
+    "description": "Ensure there have been no unauthorized charges since the initial alert.",
+    "recommended_next_focus": "Close the case and inform stakeholders.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_guard_duty",
+    "title": "InvestigateGuardDuty",
+    "description": "Further investigate the GuardDuty findings to understand the full extent of the threat.",
+    "recommended_next_focus": "Update the security policy and monitor for future incidents.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Confirm the deletion of the unauthorized access key.",
+    "recommended_next_focus": "Finalize the incident report and escalate to higher management.",
+    "choice_role": "best"
+  }
+]

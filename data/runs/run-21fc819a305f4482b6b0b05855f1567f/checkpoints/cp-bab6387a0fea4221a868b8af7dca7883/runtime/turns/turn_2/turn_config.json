@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Identify the identity responsible for the unauthorized access attempt and investigate the affected assets to assess the potential financial impact.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' accessed resources via an unsecured port.",
+    "The daily bill for EC2 services increased by $44.62 compared to the usual $42.75 average.",
+    "A low GuardDuty finding suggests Recon:EC2/PortProbeUnprotectedPort for i-0a3fb6fce114a107e."
+  ],
+  "coach_guidance": "Focus on correlating the identity activity with the affected assets and assessing the financial impact."
+}

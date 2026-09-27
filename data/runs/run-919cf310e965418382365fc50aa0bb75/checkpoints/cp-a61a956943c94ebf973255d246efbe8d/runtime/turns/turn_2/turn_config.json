@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "The initial audit event suggests suspicious identity activity. Now correlate related IAM, credential, and monitoring signals to determine whether the activity is isolated or part of a wider account-risk pattern.",
+  "known_context": [
+    "A ConsoleLogin without MFA was observed from source IP 185.220.101.42.",
+    "CloudTrail activity around the same window includes logging and credential-related API calls.",
+    "The previous evidence was assessed as Weak Support; the next step is to verify scope before containment."
+  ],
+  "coach_guidance": "Prioritise evidence that connects the same principal and source IP across multiple services or credential actions."
+}

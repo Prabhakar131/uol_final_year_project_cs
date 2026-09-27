@@ -1,0 +1,6 @@
+{
+  "strong_support": "The learner correlates the IAM activities with CloudTrail events, identifying the specific IAM activities associated with the unauthorized access attempts.",
+  "partial_support": "The learner investigates the CloudTrail logs for specific IAM activities, gathering more context about the threat.",
+  "weak_support": "The learner explores logging gaps in IAM activity, finding areas for improvement in logging practices.",
+  "unsupported": "The learner does not select an actionable step, focusing solely on reviewing CloudTrail logs."
+}

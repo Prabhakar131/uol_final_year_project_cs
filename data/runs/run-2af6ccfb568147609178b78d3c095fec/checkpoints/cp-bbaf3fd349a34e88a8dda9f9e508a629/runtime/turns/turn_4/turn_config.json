@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Consider reviewing the IAM policies attached to the access key and examining the logs for any unusual activity patterns. This will help determine if the access key was mistakenly granted permissions beyond its intended scope.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10",
+    "CloudTrail record of CreateAccessKey by customer-api from 203.0.113.10 at 10:50 UTC",
+    "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for customer-api."
+  ],
+  "coach_guidance": "Focus on understanding the root cause of the anomalous behavior and ensuring proper IAM policy enforcement."
+}

@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "Consider verifying the recent activity around the deletion of the access key to ensure proper cleanup.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' accessed resources from 203.0.113.10.",
+    "The access key was created on 10:50 UTC in the ap-southeast-1 region.",
+    "There was a billing entry for $44.62 spent on EC2 services."
+  ],
+  "coach_guidance": "Focus on confirming whether the access key was deleted properly and ensuring no unauthorized activities occurred."
+}

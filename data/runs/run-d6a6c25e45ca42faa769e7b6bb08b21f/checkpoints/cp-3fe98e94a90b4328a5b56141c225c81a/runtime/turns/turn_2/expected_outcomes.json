@@ -1,0 +1,6 @@
+{
+  "strong_support": "Evidence correlates the same principal and source IP across IAM, credential, and logging events.",
+  "partial_support": "Evidence shows one relevant signal but does not establish scope across services.",
+  "weak_support": "Evidence is security-related but does not connect to the suspicious identity activity.",
+  "unsupported": "Evidence does not address identity activity, source IP, logging, or credential risk."
+}

@@ -1,0 +1,85 @@
+[
+  {
+    "id": "cloudwatch_logs_query",
+    "title": "CloudWatch Logs Insights Query",
+    "type": "cloudwatch",
+    "template": "cloudwatch",
+    "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+    "why_it_may_matter": "It lists matching CloudTrail log lines for the query window.",
+    "support_role": "weak",
+    "facts": {
+      "query": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:role/log-shipper\" | sort @timestamp asc",
+      "log_group": "aws-cloudtrail-logs-123456789012",
+      "matched_records": "3",
+      "scanned_bytes": "0.9 MB",
+      "time_range": "2023-10-01 10:15-10:46 UTC",
+      "alarm_state": "Complete",
+      "log_rows": [
+        [
+          "2023-10-01T10:15:20Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "DescribeInstances success by arn:aws:iam::123456789012:role/log-shipper from 203.0.113.2; resource=instance/prod-web"
+        ],
+        [
+          "2023-10-01T10:25:40Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "ListObjectsV2 success by arn:aws:iam::123456789012:role/log-shipper from 203.0.113.2; resource=bucket/logs"
+        ],
+        [
+          "2023-10-01T10:45:20Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "GetObject success by arn:aws:iam::123456789012:role/log-shipper from 203.0.113.2; resource=bucket/config"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "access_key_details",
+    "title": "CreateAccessKey",
+    "type": "access_key",
+    "template": "access_key",
+    "summary": "Access key AKIA6BA26EFDCBD2Q5C5 for s.brennan is Active; last used 2023-09-30 10:00 from 203.0.113.41.",
+    "why_it_may_matter": "Shows the creation of an access key, which could indicate a new level of authority.",
+    "support_role": "partial",
+    "facts": {
+      "access_key_id": "AKIA6BA26EFDCBD2Q5C5",
+      "owner": "arn:aws:iam::123456789012:user/s.brennan",
+      "status": "Active",
+      "last_used_service": "s3.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-09-30T10:00:27Z",
+      "source_ip": "203.0.113.41"
+    }
+  },
+  {
+    "id": "iam_principal_activity",
+    "title": "IAM Activity: s.brennan",
+    "type": "iam_activity",
+    "template": "iam_activity",
+    "summary": "Recent IAM activity for s.brennan: AssumeRole, CreateAccessKey.",
+    "why_it_may_matter": "It shows the recent API activity of one principal.",
+    "support_role": "strong",
+    "facts": {
+      "principal": "arn:aws:iam::123456789012:user/s.brennan",
+      "source_ip": "198.51.100.1",
+      "mfa": "false",
+      "policy_change": "None in this window",
+      "access_key_status": "2 active",
+      "risk_flags": [],
+      "activity_rows": [
+        [
+          "2023-10-01T10:12:10Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "AssumeRole",
+          "198.51.100.1"
+        ],
+        [
+          "2023-10-01T10:20:30Z",
+          "arn:aws:iam::123456789012:user/s.brennan",
+          "CreateAccessKey",
+          "198.51.100.1"
+        ]
+      ]
+    }
+  }
+]

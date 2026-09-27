@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloudtrail_logs",
+    "title": "Check CloudTrail Logs",
+    "description": "Search through CloudTrail logs for any new GetObject operations by 'd.okafor'.",
+    "recommended_next_focus": "Look for any new access attempts or changes in permissions.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around UpdateFunctionCode20150331v2",
+    "description": "Investigate the recent activity around the UpdateFunctionCode20150331v2 call by d.okafor.",
+    "recommended_next_focus": "Identify if there are any additional IAM users who might have logged in recently.",
+    "choice_role": "best"
+  },
+  {
+    "id": "examine_access_key_history",
+    "title": "Examine Access Key History",
+    "description": "Review the access key history of 'etl-runner' to see if they've had any recent successful or failed login attempts.",
+    "recommended_next_focus": "Confirm if 'etl-runner' has any active sessions or if their access key has been compromised.",
+    "choice_role": "weak"
+  }
+]

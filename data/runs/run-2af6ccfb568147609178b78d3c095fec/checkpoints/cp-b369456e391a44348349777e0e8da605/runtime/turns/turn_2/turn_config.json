@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Identify the root cause of the increased EC2 spending and correlate it with the suspicious IAM activity.",
+  "known_context": [
+    "The suspicious IAM user 'arn:aws:iam::123456789012:user/customer-api' accessed resources via their console.",
+    "The daily bill for EC2 services increased by 13% compared to the usual $42.75 average.",
+    "A GuardDuty alert indicates Recon:EC2/PortProbeUnprotectedPort for instance i-0a3fb6fce114a107e."
+  ],
+  "coach_guidance": "Focus on correlating the IAM activity with the increased EC2 spending to determine if the unauthorized access caused the cost spike."
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_put_events_logs",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Examine the recent PutEvents call by d.okafor to understand the full context of their IAM activities.",
+    "recommended_next_focus": "Identify any anomalies or patterns that may indicate unauthorized access or misuse of AWS services.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify the status of the access key 'ASIADE13333F8C2F195A'",
+    "description": "Confirm if the access key 'ASIADE13333F8C2F195A' is active and last used recently.",
+    "recommended_next_focus": "Understand the context of d.okafor's IAM activities.",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_alerts",
+    "title": "Check the billing alerts for increased costs",
+    "description": "Review daily spending to ensure there are no unexpected increases in costs associated with d.okafor\u2019s usage.",
+    "recommended_next_focus": "Understand the context of d.okafor's IAM activities.",
+    "choice_role": "weak"
+  }
+]

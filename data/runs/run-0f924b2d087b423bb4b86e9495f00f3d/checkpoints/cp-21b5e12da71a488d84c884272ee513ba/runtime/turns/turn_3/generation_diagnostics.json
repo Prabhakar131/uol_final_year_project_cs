@@ -1,0 +1,21 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on investigating the recent activity around the 'Invoke' call by customer-api, which is similar to the completed turn's phase and action focus.",
+        "The evidence facts are mostly unknown and lack concrete details, making it difficult for the learner to draw conclusions.",
+        "The evidence titles are similar to the completed turn, leading to visual similarity but semantic redundancy.",
+        "The generated turn does not introduce a new investigative purpose or decision point, focusing solely on the same event."
+      ],
+      "retry_instruction": ""
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: swapped best and weak"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on correlating IAM activities and accessing CloudTrail logs, which is similar to the completed turn's phase and action focus.",
+        "The evidence facts lack concrete details, making them less helpful for the learner to make decisions."
+      ],
+      "retry_instruction": "Refocus the investigation to correlate IAM activities and access CloudTrail logs, ensuring each fact includes specific timestamps, services, and regions."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't provide new investigative steps.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, lacking a significant shift in the investigation process."
+      ],
+      "retry_instruction": "Refocus the investigation on the specific IAM activities highlighted in the CloudWatch Log Insights query to understand the scope and source of the threat."
+    },
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive given the learner's previous strong evidence selection.",
+        "The evidence titles and facts remain largely unchanged compared to the completed turn, lacking a significant shift in investigative focus.",
+        "The generated turn does not introduce a new learning purpose or decision point beyond continuing the current investigation."
+      ],
+      "retry_instruction": "Refocus the investigation by narrowing down the IAM activities identified in the CloudWatch Log Insights query to specifically match the unauthorized access attempts highlighted in the query results. Use this narrowed-down list to explore the scope and source of the threat, ensuring a more focused and effective investigation."
+    }
+  ]
+}

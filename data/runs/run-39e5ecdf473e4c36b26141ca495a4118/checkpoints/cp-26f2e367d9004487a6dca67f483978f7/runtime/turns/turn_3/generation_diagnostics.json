@@ -1,0 +1,17 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on scope and blast radius, which is similar to the completed turn's phase. It moves towards the same investigation goal without introducing a new purpose.",
+        "The evidence facts are mostly vague and lack concrete fields, making them difficult for the learner to interpret and reason about."
+      ],
+      "retry_instruction": "Refocus the turn on identifying the source of the `CreateAccessKey` call and assessing the risks associated with it."
+    }
+  ],
+  "anchor_repairs": []
+}

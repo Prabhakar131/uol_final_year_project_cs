@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloudwatch_logs",
+    "title": "Check CloudWatch Logs",
+    "description": "Review the CloudWatch logs for any anomalies around the time of the GuardDuty finding.",
+    "recommended_next_focus": "Identify any suspicious activities or patterns.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_guard_duty",
+    "title": "Verify Activity Around DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by security-ops.",
+    "recommended_next_focus": "Identify the attacker\u2019s method and potential entry point.",
+    "choice_role": "best"
+  },
+  {
+    "id": "inspect_access_key_details",
+    "title": "Inspect Access Key Details",
+    "description": "Review the access key details to understand who accessed the account and when.",
+    "recommended_next_focus": "Confirm the timing and method of the attack.",
+    "choice_role": "partial"
+  }
+]

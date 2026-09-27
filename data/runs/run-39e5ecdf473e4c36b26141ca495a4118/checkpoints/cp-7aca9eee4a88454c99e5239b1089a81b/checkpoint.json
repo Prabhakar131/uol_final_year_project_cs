@@ -1,0 +1,67 @@
+{
+  "id": "cp-7aca9eee4a88454c99e5239b1089a81b",
+  "createdAt": "2026-09-25T12:59:11.376986+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 28,
+    "visibility": 51,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "IAM Activity: s.brennan",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+        "evidence": "Access Key Details",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the GuardDuty findings for s.brennan to understand the nature of the threat.",
+      "id": "investigate_guard_duty_findings",
+      "recommended_next_focus": "Identify the source IP of the `CreateAccessKey` call",
+      "title": "Investigate the High-severity GuardDuty finding for s.brennan"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_3/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of GetBucketLocation by s.brennan from 203.0.113.41 at 09:14 UTC.",
+      "supportRole": "partial",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event Record",
+      "type": "cloudtrail",
+      "whyItMayMatter": "This indicates a bucket location operation performed by s.brennan."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "466cd16cbb53852ae4ca7eb24f1c13a9690da9c7",
+  "codeHasLocalChanges": true
+}

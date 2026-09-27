@@ -1,0 +1,62 @@
+{
+  "id": "cp-7f7b8ab854154b808c6deddb6a728e35",
+  "createdAt": "2026-09-26T04:32:43.125047+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate Suspicious User Activity",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Strong Support",
+        "action_role": "partial"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "partial",
+      "description": "Examine the cost impact of the suspicious activity to understand its financial implications.",
+      "id": "identify_cost_impact",
+      "recommended_next_focus": "Assess the financial impact of the suspicious activity.",
+      "title": "Identify Cost Impact"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_2/billing_daily_spend.png",
+      "summary": "Daily spend $44.62 against a $42.75 average; largest service EC2.",
+      "supportRole": "partial",
+      "template": "billing",
+      "title": "Daily Billing Summary",
+      "type": "billing",
+      "whyItMayMatter": "Indicates significant cost increase due to suspicious activity."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "f63e9fdc38a5a18b43973e04445fe27028abfd67",
+  "codeHasLocalChanges": true
+}

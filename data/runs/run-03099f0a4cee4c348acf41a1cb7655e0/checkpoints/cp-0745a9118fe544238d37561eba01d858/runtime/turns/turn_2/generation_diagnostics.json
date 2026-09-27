@@ -1,0 +1,20 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on revisiting the same event (AssumeRole) and does not introduce a new investigative purpose.",
+        "The evidence titles and facts remain largely unchanged from the completed turn, making them redundant.",
+        "The turn does not provide a clear progression towards the next stage of the scenario."
+      ],
+      "retry_instruction": "Change the turn to focus on a new investigative purpose, such as scope, correlation, credential risk, monitoring gaps, or related activity."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: swapped best and partial"
+  ]
+}

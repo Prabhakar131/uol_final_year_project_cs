@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, and expected outcomes.",
+        "The generated turn introduces weak evidence that does not directly support the best action.",
+        "The generated turn does not provide a meaningful new investigation, response, impact, recovery, escalation, or refocus goal."
+      ],
+      "retry_instruction": "Refocus the investigation towards scope, blast-radius, monitoring, detection, or impact review."
+    }
+  ],
+  "anchor_repairs": []
+}

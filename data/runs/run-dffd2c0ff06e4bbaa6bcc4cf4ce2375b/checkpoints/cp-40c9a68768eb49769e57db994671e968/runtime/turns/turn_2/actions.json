@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloudwatch_logs",
+    "title": "Check CloudWatch Logs",
+    "description": "Search CloudWatch logs for any anomalous activity related to 'd.okafor'.",
+    "recommended_next_focus": "Look for signs of unauthorized access or unusual behavior.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify Access Key Status",
+    "description": "Confirm the status of the access key 'ASIADE13333F8C2F195A' to ensure it hasn't been compromised.",
+    "recommended_next_focus": "Assess the risk associated with the access key.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around UpdateFunctionCode",
+    "description": "Investigate the recent activity around the UpdateFunctionCode call by d.okafor.",
+    "recommended_next_focus": "Identify potential threats or anomalies in IAM activities.",
+    "choice_role": "best"
+  }
+]

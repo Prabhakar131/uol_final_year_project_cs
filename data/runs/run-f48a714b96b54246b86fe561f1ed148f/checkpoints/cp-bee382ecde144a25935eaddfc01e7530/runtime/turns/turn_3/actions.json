@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_iam_activities",
+    "title": "Check IAM Activities",
+    "description": "Inspect the IAM activities of 'd.okafor' to determine if there are any new roles or policies assigned.",
+    "recommended_next_focus": "Identify any new IAM roles or policies assigned to 'd.okafor'.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloud_trail_events",
+    "title": "Investigate CloudTrail Events",
+    "description": "Analyze CloudTrail events to find any unusual activity related to 'd.okafor'.",
+    "recommended_next_focus": "Look for any unusual activity related to 'd.okafor' in CloudTrail logs.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate Activity Around PutEvents",
+    "description": "Investigate the recent activity around the PutEvents call by d.okafor.",
+    "recommended_next_focus": "Review the GuardDuty findings and IAM activities for further insights.",
+    "choice_role": "best"
+  }
+]

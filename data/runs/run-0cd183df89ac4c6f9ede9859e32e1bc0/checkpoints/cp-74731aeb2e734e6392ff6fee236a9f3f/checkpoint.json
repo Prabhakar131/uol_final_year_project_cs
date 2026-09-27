@@ -1,0 +1,67 @@
+{
+  "id": "cp-74731aeb2e734e6392ff6fee236a9f3f",
+  "createdAt": "2026-09-25T14:08:02.723301+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 65,
+    "risk": "Medium",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity for Potential Excess Spending",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Verify the status of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Explore any recent AWS Console activities related to the account where the access key was created to understand if the key was generated as part of the incident.",
+      "id": "check_billing_activity",
+      "recommended_next_focus": "Identify if the key was created as part of the incident or for other reasons",
+      "title": "Review recent AWS Console activities related to the account"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_3/billing_daily_spend.png",
+      "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+      "supportRole": "weak",
+      "template": "billing",
+      "title": "Billing Daily Spend",
+      "type": "billing",
+      "whyItMayMatter": "High spending on S3 service."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

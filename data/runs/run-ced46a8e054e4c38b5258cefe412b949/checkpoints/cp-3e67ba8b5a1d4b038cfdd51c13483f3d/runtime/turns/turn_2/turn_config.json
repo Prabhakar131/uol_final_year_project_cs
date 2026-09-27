@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Continue investigating the GuardDuty finding for 'd.okafor' to identify the root cause of the anomaly.",
+  "known_context": [
+    "The GuardDuty finding indicates unauthorized access attempts by 'd.okafor' from 203.0.113.41.",
+    "Recent IAM activities show multiple unsuccessful login attempts by 'd.okafor'.",
+    "Access key details suggest 'etl-runner' accessed resources via 'd.okafor' on October 1st, 2023."
+  ],
+  "coach_guidance": "Focus on correlating the GuardDuty findings with IAM activities and identifying potential sources of the anomaly."
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_logging_gaps",
+    "title": "Examine Logging Gaps",
+    "description": "Search for any missing or inconsistent logging practices that could indicate a lack of proper monitoring or compliance.",
+    "recommended_next_focus": "Ensure adequate logging and review future changes.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_identity_activity",
+    "title": "Investigate the recent activity around the Invoke call by customer-api",
+    "description": "Examine the recent IAM activities related to the customer-api user to identify the identity responsible for the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the affected assets and assess potential credential risks.",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Review the billing records to understand the financial implications of the unauthorized access attempt.",
+    "recommended_next_focus": "Assess the overall impact and plan further steps.",
+    "choice_role": "partial"
+  }
+]

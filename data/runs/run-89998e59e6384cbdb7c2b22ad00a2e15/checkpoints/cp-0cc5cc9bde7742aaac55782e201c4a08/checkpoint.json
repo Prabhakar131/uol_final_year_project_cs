@@ -1,0 +1,84 @@
+{
+  "id": "cp-0cc5cc9bde7742aaac55782e201c4a08",
+  "createdAt": "2026-09-26T18:24:02.290838+00:00",
+  "kind": "paused",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 58,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support",
+        "action_role": "best"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support",
+        "action_role": "best"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "evaluation",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Investigate the recent activity around the 'PutEvents' call by d.okafor to determine if unauthorized changes were made.",
+      "id": "investigate_put_events_call",
+      "recommended_next_focus": "Identify potential misconfiguration or unauthorized access attempts",
+      "title": "Investigate the recent activity around the PutEvents call by d.okafor"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_3/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of PutEvents by d.okafor from 198.51.100.1 at 10:30 UTC.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: PutEvents",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Shows the event that triggered the investigation."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain how the CloudTrail event supports your action",
+        "text": "Explain how the CloudTrail event supports your selected response action. Connect the visible log fields to the decision you want to take.",
+        "cues": [
+          "event name",
+          "user identity",
+          "source IP",
+          "event time",
+          "MFA status",
+          "region"
+        ],
+        "actionTitle": "Investigate the recent activity around the PutEvents call by d.okafor",
+        "evidenceTitle": "CloudTrail Event: PutEvents",
+        "evidenceType": "cloudtrail"
+      },
+      "transcript": "",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "d8a40938755a58623fc97d0750685c3e42b473a7",
+  "codeHasLocalChanges": true
+}

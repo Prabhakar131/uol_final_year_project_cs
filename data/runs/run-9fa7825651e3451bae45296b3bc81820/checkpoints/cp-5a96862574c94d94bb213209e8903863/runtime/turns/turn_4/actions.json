@@ -1,0 +1,23 @@
+[
+  {
+    "id": "identify_cost_impact",
+    "title": "Identify Cost Impact",
+    "description": "Examine the daily billing summary for the affected account to determine the financial impact of the suspicious activity.",
+    "recommended_next_focus": "Confirm if the access key has been rotated recently and examine associated costs or charges.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloud_trail_logs",
+    "title": "Investigate CloudTrail Logs",
+    "description": "Review CloudTrail logs for the customer-api principal to find any unusual activities.",
+    "recommended_next_focus": "Confirm if the access key has been rotated recently and examine associated costs or charges.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "create_access_key_rotation",
+    "title": "Create Access Key Rotation",
+    "description": "Rotate the access key to prevent future unauthorized access attempts.",
+    "recommended_next_focus": "Confirm if the access key has been rotated recently and examine associated costs or charges.",
+    "choice_role": "best"
+  }
+]

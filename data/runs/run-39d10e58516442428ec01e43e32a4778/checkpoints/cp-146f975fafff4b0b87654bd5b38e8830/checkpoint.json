@@ -1,0 +1,75 @@
+{
+  "id": "cp-146f975fafff4b0b87654bd5b38e8830",
+  "createdAt": "2026-09-19T13:47:42.122646+00:00",
+  "kind": "paused",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities",
+        "evidence": "CloudWatch Log Insight Query",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": 2,
+    "completed": false
+  },
+  "draft": {
+    "screen": "evaluation",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Look at the latest IAM activities to identify potential threats.",
+      "id": "review_iam_activities",
+      "recommended_next_focus": "Identify suspicious IAM activities and their sources.",
+      "title": "Review Recent IAM Activities"
+    },
+    "selectedEvidence": {
+      "id": "cloudwatch_insights_query",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudwatch_insights_query.png",
+      "imageUrl": "/generated_evidence/turn_1/cloudwatch_insights_query.png",
+      "summary": "A CloudWatch log insight query matches multiple entries related to unauthorized access attempts.",
+      "supportRole": "partial",
+      "template": "cloudwatch",
+      "title": "CloudWatch Log Insight Query",
+      "type": "cloudwatch",
+      "whyItMayMatter": "These queries highlight ongoing threats and potential breaches."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain How The Monitoring Evidence Supports Your Action",
+        "text": "Explain how the CloudWatch-style evidence supports your selected response action. Connect the metric or anomaly to what you would investigate or contain.",
+        "cues": [
+          "metric name",
+          "time range",
+          "anomaly",
+          "threshold",
+          "affected resource"
+        ],
+        "actionTitle": "Review Recent IAM Activities",
+        "evidenceTitle": "CloudWatch Log Insight Query",
+        "evidenceType": "cloudwatch"
+      },
+      "transcript": "I selected Review Recent IAM Activities to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "1fa4c1ef10866cf1bd9b279e5ad54d953143fd16",
+  "codeHasLocalChanges": true
+}

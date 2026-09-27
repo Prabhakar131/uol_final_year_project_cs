@@ -1,0 +1,41 @@
+{
+  "id": "cp-7f426dd91247466aab6463a301020652",
+  "createdAt": "2026-09-25T13:49:00.420955+00:00",
+  "kind": "turn_ready",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 34,
+    "visibility": 58,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities of s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Check CloudTrail logs for additional insights",
+        "evidence": "Details of Access Key AKIA6BA26EFDCBD2Q5C5",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "6587a9ea4f6e65735e3fe255066d97b18ba5bdfe",
+  "codeHasLocalChanges": true
+}

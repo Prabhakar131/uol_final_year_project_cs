@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Review CloudTrail logs for any 'PutEvents' calls made by 'd.okafor' from IP 198.51.100.1.",
+    "recommended_next_focus": "Identify potential misconfiguration or unauthorized access attempts",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_put_events_call",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Investigate the recent activity around the 'PutEvents' call by d.okafor to determine if unauthorized changes were made.",
+    "recommended_next_focus": "Identify potential misconfiguration or unauthorized access attempts",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_details",
+    "title": "Check Billing Details",
+    "description": "Review the billing details to understand the financial impact of the unauthorized changes.",
+    "recommended_next_focus": "Understand the cost implications",
+    "choice_role": "partial"
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "cloud_provider": "AWS",
+  "visible_services": [
+    "IAM Identity Center",
+    "IAM",
+    "CloudTrail",
+    "CloudWatch",
+    "Audit Logs"
+  ],
+  "identity_components": [
+    "IAM",
+    "users",
+    "roles",
+    "policies",
+    "Identity Management"
+  ],
+  "compute_components": [],
+  "storage_components": [],
+  "network_components": [],
+  "logging_components": [
+    "CloudTrail",
+    "CloudWatch",
+    "Audit Logs"
+  ],
+  "security_components": [
+    "IAM",
+    "CloudTrail",
+    "CloudWatch",
+    "Audit Logs"
+  ],
+  "external_entities": [
+    "End Users"
+  ],
+  "trust_boundaries": [
+    "AWS Organizations",
+    "Account 1",
+    "Account 2",
+    "Account 3"
+  ],
+  "data_flows": [
+    "Users authenticate -> IAM Identity Center -> IAM Roles -> AWS Organizations -> Account 1, Account 2, Account 3"
+  ],
+  "identity_flows": [
+    "Users authenticate -> IAM Identity Center -> IAM Roles -> AWS Organizations -> Account 1, Account 2, Account 3"
+  ],
+  "security_observations": [
+    "IAM is used for user authentication and role management."
+  ],
+  "possible_investigation_evidence": [
+    "CloudTrail logs",
+    "IAM activity logs",
+    "Audit Logs"
+  ],
+  "architecture_summary": "AWS IAM architecture with user authentication through IAM Identity Center, role management, and monitoring using CloudTrail and CloudWatch."
+}

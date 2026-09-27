@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_cloudtrail_logs",
+    "title": "Review CloudTrail Logs for Activity",
+    "description": "Inspect CloudTrail logs for any additional activity related to the stopped logging operation to confirm if the key was ever active.",
+    "recommended_next_focus": "Confirm if the key was ever active and review any unusual behaviors.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_user_activities",
+    "title": "Investigate User Activities Associated with Access Key",
+    "description": "Explore the user activities associated with the access key to see if there were any unusual behaviors during its lifecycle.",
+    "recommended_next_focus": "Assess the overall security posture of the affected resources.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_access_key_status",
+    "title": "Verify Last Known Active Use of Access Key",
+    "description": "Examine the last known active use of the access key to determine if it was ever active and if there were any unusual behaviors during its lifecycle.",
+    "recommended_next_focus": "Identify the last known active use of the access key and any associated user activities.",
+    "choice_role": "best"
+  }
+]

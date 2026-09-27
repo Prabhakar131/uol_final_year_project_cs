@@ -1,0 +1,61 @@
+{
+  "id": "cp-ede939e4ce044ad5a5e6f2f16effe444",
+  "createdAt": "2026-09-25T11:48:26.610181+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Examine the IAM activity leading up to the unauthorized access attempt.",
+      "id": "investigate_identity_activity",
+      "recommended_next_focus": "Identify the identity responsible for the unauthorized activity",
+      "title": "Investigate the recent activity around the Invoke call by customer-api"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_2/billing_daily_spend.png",
+      "summary": "Daily spend $44.62 against a $42.75 average; largest service EC2.",
+      "supportRole": "partial",
+      "template": "billing",
+      "title": "Daily Billing Summary",
+      "type": "billing",
+      "whyItMayMatter": "Indicates high spending related to the unauthorized activity."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows the UpdateFunctionCode20150331v2 call by d.okafor from 198.51.100.1. This is the step the decision this turn depends on.",
+  "partial_support": "Related to d.okafor or the incident but incomplete: calls GetObject, ListObjectsV2, DescribeInstances by d.okafor from 203.0.113.41 on 2023-09-30. It does not show the UpdateFunctionCode20150331v2 call by d.okafor from 198.51.100.1.",
+  "weak_support": "Plausible cloud evidence that does not show d.okafor's incident activity: access key ASIADE13333F8C2F195A owned by etl-runner, active, last used from 203.0.113.2."
+}

@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "Containment and Remediation",
+  "briefing": "Further investigate the potential unauthorized access attempt involving the CI-Deploy role and the customer-api API call from 203.0.113.10.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/customer-api from 203.0.113.10.",
+    "The IAM user 'customer-api' created an access key ASIA26FE14613C9A445F on 2023-10-01 10:45.",
+    "The access key was used from 198.51.100.5."
+  ],
+  "coach_guidance": "Focus on reviewing CloudWatch logs for specific instances of 'Invoke call by customer-api from 203.0.113.10' to identify any unauthorized access attempts."
+}

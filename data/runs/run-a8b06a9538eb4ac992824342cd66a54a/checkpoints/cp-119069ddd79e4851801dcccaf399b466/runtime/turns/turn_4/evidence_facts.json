@@ -1,0 +1,55 @@
+[
+  {
+    "id": "guardduty_finding",
+    "title": "GuardDuty Finding",
+    "type": "guardduty",
+    "template": "guardduty",
+    "summary": "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for d.okafor.",
+    "why_it_may_matter": "Indicates a low-level anomaly detection by GuardDuty.",
+    "support_role": "partial",
+    "facts": {
+      "finding_type": "Discovery:IAMUser/AnomalousBehavior",
+      "severity": "Low",
+      "resource": "arn:aws:iam::123456789012:user/d.okafor",
+      "principal": "arn:aws:iam::123456789012:user/d.okafor",
+      "remote_ip": "203.0.113.41",
+      "first_seen": "2023-09-30T09:14:05Z",
+      "last_seen": "2023-09-30T10:00:27Z",
+      "summary": "Read-only API calls by d.okafor differed from its usual pattern."
+    }
+  },
+  {
+    "id": "access_key_details",
+    "title": "Access Key Details",
+    "type": "access_key",
+    "template": "access_key",
+    "summary": "Access key AKIA5CDQ3A695EC617EF for d.okafor is Active; last used 2023-10-01 10:40 from 198.51.100.1.",
+    "why_it_may_matter": "Shows the active status of the access key and its last usage date and location.",
+    "support_role": "strong",
+    "facts": {
+      "access_key_id": "AKIA5CDQ3A695EC617EF",
+      "owner": "arn:aws:iam::123456789012:user/d.okafor",
+      "status": "Active",
+      "last_used_service": "lambda.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-10-01T10:40:10Z",
+      "source_ip": "198.51.100.1"
+    }
+  },
+  {
+    "id": "billing_daily_spend",
+    "title": "Daily Billing Summary",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $44.03 against a $42.75 average; largest service S3.",
+    "why_it_may_matter": "Shows the daily spend pattern and identifies the largest service.",
+    "support_role": "weak",
+    "facts": {
+      "current_spend": "$44.03",
+      "previous_average": "$42.75",
+      "largest_service": "S3",
+      "region": "ap-southeast-1",
+      "change": "+3%"
+    }
+  }
+]

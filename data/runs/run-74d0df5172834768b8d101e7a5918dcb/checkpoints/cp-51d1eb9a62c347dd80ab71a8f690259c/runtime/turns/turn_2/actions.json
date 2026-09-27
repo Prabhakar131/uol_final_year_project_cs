@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloudtrail_logs",
+    "title": "Check CloudTrail logs for additional details",
+    "description": "Review the CloudTrail logs for more detailed information about the AssumeRole call.",
+    "recommended_next_focus": "Evaluate the potential impact",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_access_control_policies",
+    "title": "Verify access control policies for the account",
+    "description": "Inspect the access control policies for the account to ensure they do not allow unauthorized access.",
+    "recommended_next_focus": "Confirm the source of the AssumeRole call",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_key",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the recent activity related to the creation of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "best"
+  }
+]

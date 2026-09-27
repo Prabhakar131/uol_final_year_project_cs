@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_ec2_spending",
+    "title": "Check EC2 spending details",
+    "description": "Review the daily spending report to understand the financial implications of the unauthorized activity.",
+    "recommended_next_focus": "Assess potential financial losses",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_guard_duty_findings",
+    "title": "Verify GuardDuty findings",
+    "description": "Confirm the GuardDuty finding regarding the EC2 instance's unprotected port.",
+    "recommended_next_focus": "Assess potential financial losses",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_identity_activity",
+    "title": "Investigate the recent activity around the Invoke call by customer-api",
+    "description": "Examine the IAM activity leading up to the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the identity responsible for the unauthorized activity",
+    "choice_role": "best"
+  }
+]

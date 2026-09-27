@@ -1,0 +1,79 @@
+{
+  "id": "cp-995b276cbff7437e9affae2dceb57ba8",
+  "createdAt": "2026-09-25T14:23:58.881132+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Containment Decision",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Unauthorized Access Attempt",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "action": "Gather Logging Gaps",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 3,
+        "action": "Examine Access Keys",
+        "evidence": "Access Key Status",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 4,
+        "action": "Check the billing activity for the customer-api user",
+        "evidence": "CloudTrail Event: CreateAccessKey",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Examine the recipient account's logs and activities to understand its normal behavior and compare it with the unusual access attempts.",
+      "id": "investigate_recipient_account",
+      "recommended_next_focus": "Identify the source of the unauthorized access",
+      "title": "Investigate Recipient Account"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_5/billing_daily_spend.png",
+      "summary": "Daily spend $44.62 against a $42.75 average; largest service EC2.",
+      "supportRole": "partial",
+      "template": "billing",
+      "title": "Billing Daily Spend",
+      "type": "billing",
+      "whyItMayMatter": "Increased spend indicates potential fraud"
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

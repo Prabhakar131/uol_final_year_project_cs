@@ -1,0 +1,5 @@
+{
+  "strong_support": "Shows the CreateAccessKey call by s.brennan from 198.51.100.1. This is the step the decision this turn depends on.",
+  "partial_support": "Related to s.brennan or the incident but incomplete: an access key owned by s.brennan, active, last used from 203.0.113.41. It does not show the CreateAccessKey call by s.brennan from 198.51.100.1.",
+  "weak_support": "Plausible cloud evidence that does not show s.brennan's incident activity: calls DescribeInstances, ListObjectsV2, GetObject by log-shipper from 203.0.113.2 on 2023-10-01."
+}

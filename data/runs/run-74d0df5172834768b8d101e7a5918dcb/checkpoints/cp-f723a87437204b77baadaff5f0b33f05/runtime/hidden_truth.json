@@ -1,0 +1,24 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "identity-management",
+  "scenario_slug": "identity_management",
+  "scenario_type": "identity-management",
+  "primary_risk": "User impersonation via public endpoint could lead to high confidentiality and integrity breaches.",
+  "affected_assets": [
+    "IAM Identity Center",
+    "Public Authentication Endpoint",
+    "IAM Roles"
+  ],
+  "likely_attack_path": [
+    "Attacker intercepts authentication requests, analyzes token structure, and creates forged tokens to impersonate legitimate users."
+  ],
+  "security_signals": [
+    "Unusual authentication patterns detected by AWS WAF",
+    "Failed multi-factor authentication attempts",
+    "Suspicious token validation errors in CloudTrail logs"
+  ],
+  "hidden_truth_candidates": [
+    "Insufficient token validation could lead to broader exploitation of IAM roles"
+  ],
+  "architecture_summary": "AWS IAM architecture with authentication through IAM Identity Center, role-based access control, and monitoring using CloudTrail and CloudWatch."
+}

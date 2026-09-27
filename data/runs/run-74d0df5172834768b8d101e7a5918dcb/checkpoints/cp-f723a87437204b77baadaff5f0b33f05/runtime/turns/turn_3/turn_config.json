@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Consider reviewing the recent IAM activities of s.brennan to identify the source of the AssumeRole call and assess the potential impact.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "GetBucketLocation operation recorded by s.brennan from 203.0.113.41",
+    "Daily spend $44.03 on S3 service"
+  ],
+  "coach_guidance": "Review the recent IAM activities of s.brennan to determine the source of the AssumeRole call and evaluate the potential impact."
+}

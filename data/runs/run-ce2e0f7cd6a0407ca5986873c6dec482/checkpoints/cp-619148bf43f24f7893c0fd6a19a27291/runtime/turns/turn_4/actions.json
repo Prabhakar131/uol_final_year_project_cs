@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_put_events",
+    "title": "Investigate Activity Around PutEvents",
+    "description": "Further investigate the recent activity around the PutEvents call by d.okafor.",
+    "recommended_next_focus": "Review IAM activities correlated with GuardDuty findings.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_api_calls",
+    "title": "Review Access Key Use",
+    "description": "Review the recent use of d.okafor's access key from 198.51.100.1.",
+    "recommended_next_focus": "Review IAM activities correlated with GuardDuty findings.",
+    "choice_role": "best"
+  },
+  {
+    "id": "look_for_logging_gaps",
+    "title": "Look for Logging Gaps",
+    "description": "Search for any gaps in logging that could lead to unnoticed anomalies.",
+    "recommended_next_focus": "Review IAM activities correlated with GuardDuty findings.",
+    "choice_role": "partial"
+  }
+]

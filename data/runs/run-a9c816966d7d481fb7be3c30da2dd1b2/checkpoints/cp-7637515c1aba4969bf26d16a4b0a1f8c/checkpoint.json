@@ -1,0 +1,73 @@
+{
+  "id": "cp-7637515c1aba4969bf26d16a4b0a1f8c",
+  "createdAt": "2026-09-25T14:02:44.760015+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "action": "Check Billing Activity",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Check CloudWatch Logs",
+        "evidence": "Access Key Details",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "partial",
+      "description": "Examine daily billing activities to understand the financial implications of the unauthorized access attempt.",
+      "id": "investigate_billing_activity",
+      "recommended_next_focus": "Assess the cost and impact of the unauthorized access attempt",
+      "title": "Investigate Billing Activity"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_4/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of CreateAccessKey by customer-api from 203.0.113.10 at 10:50 UTC.",
+      "supportRole": "strong",
+      "template": "cloudtrail",
+      "title": "CloudTrail Event: CreateAccessKey",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Shows the creation of an access key by the customer-api IAM user."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

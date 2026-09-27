@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_billing_activity",
+    "title": "Review the daily spending report for s.brennan",
+    "description": "Analyze the daily spending report for s.brennan to determine if there are any unusual patterns or spikes in costs associated with the unauthorized access attempt.",
+    "recommended_next_focus": "Assess the potential impact on the organization\u2019s financial health and consider implementing cost controls.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_cloud_trail_logs",
+    "title": "Review the CloudTrail logs for the specific CreateAccessKey call by s.brennan",
+    "description": "Inspect the CloudTrail logs for the specific CreateAccessKey call by s.brennan to gather additional details about the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the source of the unauthorized access attempt and assess the potential impact on the organization\u2019s resources.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty findings for s.brennan to understand the nature of the unauthorized access attempt.",
+    "recommended_next_focus": "Identify the source of the unauthorized access attempt and assess the potential impact on the organization\u2019s resources.",
+    "choice_role": "best"
+  }
+]

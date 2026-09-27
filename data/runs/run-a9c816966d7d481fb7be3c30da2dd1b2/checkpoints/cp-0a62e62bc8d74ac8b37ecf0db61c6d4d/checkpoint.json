@@ -1,0 +1,47 @@
+{
+  "id": "cp-0a62e62bc8d74ac8b37ecf0db61c6d4d",
+  "createdAt": "2026-09-25T14:02:44.713732+00:00",
+  "kind": "turn_ready",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 24,
+    "visibility": 43,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 2,
+        "action": "Check Billing Activity",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Check CloudWatch Logs",
+        "evidence": "Access Key Details",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

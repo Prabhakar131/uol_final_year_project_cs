@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "Continue investigating the GuardDuty finding and examine the access key details for clues about the attack. Ensure you have reviewed the CloudWatch logs for any anomalies around the time of the GuardDuty finding.",
+  "known_context": [
+    "The GuardDuty finding indicates an unauthorized login attempt from 198.51.100.1.",
+    "An IAM activity timeline shows a recent GetObject operation by d.okafor from 203.0.113.41 at 09:14 UTC.",
+    "The billing summary shows recent spending of $44.03 against an average of $42.75, with S3 being the largest service."
+  ],
+  "coach_guidance": "Focus on understanding the nature of the attack by examining the GuardDuty finding and the access key details. Look for additional signs in the CloudWatch logs to confirm the involvement of the access key."
+}

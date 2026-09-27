@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "Continue investigating the incident to determine the root cause and mitigate residual risks.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/s.brennan from 198.51.100.1.",
+    "A CloudTrail record shows a DeleteAccessKey operation performed by a security analyst.",
+    "The daily spending report indicates a high cost ($44.03) compared to the usual average ($42.75), with S3 being the largest service."
+  ],
+  "coach_guidance": "Focus on understanding the sequence of events leading to the CreateAccessKey call and how it relates to the deletion of the access key."
+}

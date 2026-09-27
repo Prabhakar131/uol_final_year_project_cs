@@ -1,0 +1,101 @@
+{
+  "turn": 2,
+  "selected_action": {
+    "choice_role": "best",
+    "description": "Compare IAM activity around the suspicious login to see whether the same principal and source IP repeat.",
+    "id": "correlate_identity_timeline",
+    "recommended_next_focus": "Look for login, logging, credential, and caller-identity events in the same incident window.",
+    "title": "Correlate Identity Timeline"
+  },
+  "selected_evidence": {
+    "id": "iam_scope_timeline",
+    "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/iam_scope_timeline.png",
+    "imageUrl": "/generated_evidence/turn_2/iam_scope_timeline.png",
+    "summary": "IAM activity links login, logging, and credential actions to the same principal and source IP.",
+    "supportRole": "strong",
+    "template": "iam_activity",
+    "title": "IAM Scope Timeline",
+    "type": "iam_activity",
+    "whyItMayMatter": "This helps determine whether the suspicious login became a wider identity-risk pattern."
+  },
+  "learner_justification": {
+    "mode": "typed",
+    "prompt": {
+      "title": "Explain How The IAM Activity Supports Your Action",
+      "text": "Explain how the IAM activity evidence supports your selected response action. Connect the identity activity to the response decision.",
+      "cues": [
+        "principal",
+        "action",
+        "timestamp",
+        "source IP",
+        "policy change",
+        "authentication context"
+      ],
+      "actionTitle": "Correlate Identity Timeline",
+      "evidenceTitle": "IAM Scope Timeline",
+      "evidenceType": "iam_activity"
+    },
+    "transcript": "I selected Correlate Identity Timeline and used IAM Scope Timeline. This iam_activity evidence is expected to act as strong support for the decision. I am checking whether the screenshot clearly shows the affected identity, source IP, event timing, service, status, and risk signal. If those details do not directly prove the response action, I would treat it as incomplete context and compare it with another evidence source.",
+    "model": null,
+    "source": "typed_justification"
+  },
+  "vlm_output": {
+    "evidence_type": "iam_activity",
+    "visible_facts_extracted": [
+      "Principal: arn:aws:iam::123456789012:user/admin-test",
+      "Source IP: 185.220.101.42",
+      "Action: ConsoleLogin",
+      "Action: ListTrails",
+      "Action: StopLogging",
+      "Action: CreateAccessKey",
+      "Action: GetCallerIdentity"
+    ],
+    "security_relevance": "strong",
+    "not_proven_by_this_evidence": [
+      "Risk signals such as 'Console login without MFA' and 'Credential actions observed after'"
+    ],
+    "visible_evidence_summary": "IAM activity showing login, logging, and credential actions linked to the same principal and source IP.",
+    "important_visible_fields": [
+      "Principal",
+      "Source IP",
+      "Action"
+    ],
+    "supports_selected_action": "strong",
+    "reason": "The screenshot shows multiple login, logging, and credential actions linked to the same principal and source IP, which supports the correlation of the suspicious login to a broader identity-risk pattern."
+  },
+  "security_output": {
+    "verdict": "Strong Support",
+    "reasoning": "The IAM Scope Timeline evidence clearly shows multiple actions linked to the same principal and source IP, which directly supports the action of correlating the identity timeline to identify potential identity-risk patterns.",
+    "justification_assessment": "The learner's transcript correctly connects the evidence to the action by mentioning the principal, source IP, and actions, which are all visible in the IAM Scope Timeline. However, the learner should be cautious not to overread the evidence, as it does not explicitly mention risk signals like 'Console login without MFA' and 'Credential actions observed after'.",
+    "recommended_next_focus": "Look for additional evidence of risk signals such as MFA status and timing of credential actions to further validate the identity-risk pattern.",
+    "risk_of_wrong_interpretation": "The learner might incorrectly assume that the IAM Scope Timeline includes all risk signals, leading to an incomplete understanding of the incident. It's important to cross-verify with other evidence sources to ensure a comprehensive view of the incident."
+  },
+  "coach_output": {
+    "feedback": "Great work identifying the IAM activities! You're correct that the IAM Scope Timeline provides strong support for correlating the suspicious login to a broader identity-risk pattern. To strengthen your analysis, consider looking for additional evidence of risk signals such as MFA status and timing of credential actions. This will help you make a more informed decision about containment and mitigation strategies.",
+    "next_turn_guidance": "Next, review any logs related to authentication contexts and MFA statuses to gather more information about the identity involved. This will provide a clearer picture of the overall security posture and aid in making a more accurate assessment of containment and remediation steps."
+  },
+  "state_after_turn": {
+    "currentTurn": 2,
+    "maxTurns": 5,
+    "containment": 40,
+    "visibility": 65,
+    "risk": "Medium",
+    "phase": "Focused Investigation",
+    "actionHistory": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities",
+        "evidence": "Unauthorized Access Attempt",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Correlate Identity Timeline",
+        "evidence": "IAM Scope Timeline",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pendingTurn": null,
+    "completed": false
+  }
+}

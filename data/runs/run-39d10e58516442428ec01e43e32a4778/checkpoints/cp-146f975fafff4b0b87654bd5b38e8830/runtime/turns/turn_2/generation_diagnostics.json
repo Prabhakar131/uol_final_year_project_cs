@@ -1,0 +1,35 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on correlating IAM activities and accessing CloudTrail logs, which is similar to the completed turn's phase and action focus.",
+        "The evidence facts lack concrete details and are mostly vague or unknown, making them unsuitable for the learner to make a meaningful decision."
+      ],
+      "retry_instruction": "Refine the evidence facts to include more specific IAM activity timelines and CloudTrail log entries, ensuring they align with the learner's previous choices and provide stronger support for the chosen action."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which feels repetitive given the learner's previous strong CloudTrail evidence.",
+        "The evidence titles and facts are similar to the completed turn, making it hard for the learner to distinguish between the two.",
+        "The turn does not introduce a new investigative purpose beyond continuing the current investigation."
+      ],
+      "retry_instruction": "Introduce a new investigative purpose, such as moving towards scope, blast-radius, credential risk, or monitoring gaps."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and does not move towards the next stage of the scenario progression.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Focus on analyzing the specific IAM activities and their sources rather than reviewing IAM activities generally."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "review_cloud_trail_logs",
+    "title": "ReviewCloudTrailLogs",
+    "description": "Further investigate the recent activity around the PutEvents call by d.okafor.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Confirm if d.okafor used the same access key for multiple activities.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_spending",
+    "title": "CheckBillingSpending",
+    "description": "Verify if the daily spending aligns with typical usage patterns.",
+    "recommended_next_focus": "Identify similar IAM activities involving the same user or IP",
+    "choice_role": "weak"
+  }
+]

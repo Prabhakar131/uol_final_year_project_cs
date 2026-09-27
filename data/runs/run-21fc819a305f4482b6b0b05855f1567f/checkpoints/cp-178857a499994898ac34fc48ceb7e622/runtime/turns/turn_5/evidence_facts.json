@@ -1,0 +1,84 @@
+[
+  {
+    "id": "billing_daily_spend",
+    "title": "Billing Daily Spend",
+    "type": "billing",
+    "template": "billing",
+    "summary": "Daily spend $44.62 against a $42.75 average; largest service EC2.",
+    "why_it_may_matter": "Indicates abnormal spending behavior.",
+    "support_role": "partial",
+    "facts": {
+      "current_spend": "$44.62",
+      "previous_average": "$42.75",
+      "largest_service": "EC2",
+      "region": "ap-southeast-1",
+      "change": "+4%"
+    }
+  },
+  {
+    "id": "iam_principal_activity",
+    "title": "IAM Principal Activity",
+    "type": "iam_activity",
+    "template": "iam_activity",
+    "summary": "Recent IAM activity for CI-Deploy: PutMetricData, ListFunctions20150331, GetObject.",
+    "why_it_may_matter": "Shows potential misuse of resources.",
+    "support_role": "weak",
+    "facts": {
+      "principal": "arn:aws:iam::123456789012:role/CI-Deploy",
+      "source_ip": "198.51.100.5",
+      "mfa": "Unknown",
+      "policy_change": "None in this window",
+      "access_key_status": "1 active",
+      "risk_flags": [],
+      "activity_rows": [
+        [
+          "2023-09-30T22:05:05Z",
+          "arn:aws:iam::123456789012:role/CI-Deploy",
+          "PutMetricData",
+          "198.51.100.5"
+        ],
+        [
+          "2023-10-01T10:15:20Z",
+          "arn:aws:iam::123456789012:role/CI-Deploy",
+          "ListFunctions20150331",
+          "198.51.100.5"
+        ],
+        [
+          "2023-10-01T10:45:20Z",
+          "arn:aws:iam::123456789012:role/CI-Deploy",
+          "GetObject",
+          "198.51.100.5"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cloudwatch_logs_query",
+    "title": "CloudTrail Log Lines",
+    "type": "cloudwatch",
+    "template": "cloudwatch",
+    "summary": "Logs Insights query returning 2 CloudTrail log lines.",
+    "why_it_may_matter": "Shows recent activity around the CreateAccessKey call.",
+    "support_role": "strong",
+    "facts": {
+      "query": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:role/SecurityAnalyst\" | sort @timestamp asc",
+      "log_group": "aws-cloudtrail-logs-123456789012",
+      "matched_records": "2",
+      "scanned_bytes": "0.7 MB",
+      "time_range": "2023-10-01 10:35-10:56 UTC",
+      "alarm_state": "Complete",
+      "log_rows": [
+        [
+          "2023-10-01T10:35:00Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "ListUsers success by arn:aws:iam::123456789012:role/SecurityAnalyst from 198.51.100.4; resource=SecurityAnalyst"
+        ],
+        [
+          "2023-10-01T10:55:40Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "DeleteAccessKey success by arn:aws:iam::123456789012:role/SecurityAnalyst from 198.51.100.4; resource=customer-api"
+        ]
+      ]
+    }
+  }
+]

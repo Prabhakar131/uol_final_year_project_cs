@@ -1,0 +1,61 @@
+{
+  "id": "cp-61794147d5594a94825df992ea87a823",
+  "createdAt": "2026-09-25T13:47:33.161711+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review Recent IAM Activities of s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "partial",
+      "description": "Review the CloudTrail logs for any unexpected or anomalous entries related to the IAM activities.",
+      "id": "check_cloudtrail_logs",
+      "recommended_next_focus": "Identify the source of the CreateAccessKey call and evaluate its risks.",
+      "title": "Check CloudTrail logs for additional insights"
+    },
+    "selectedEvidence": {
+      "id": "access_key_details",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/access_key_details.png",
+      "imageUrl": "/generated_evidence/turn_2/access_key_details.png",
+      "summary": "Access key AKIA6BA26EFDCBD2Q5C5 for s.brennan is Active; last used 2023-09-30 10:00 from 203.0.113.41.",
+      "supportRole": "partial",
+      "template": "access_key",
+      "title": "Details of Access Key AKIA6BA26EFDCBD2Q5C5",
+      "type": "access_key",
+      "whyItMayMatter": "Provides insight into the access key's usage."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "6587a9ea4f6e65735e3fe255066d97b18ba5bdfe",
+  "codeHasLocalChanges": true
+}

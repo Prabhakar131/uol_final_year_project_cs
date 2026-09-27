@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Check the billing activity for potential excess spending",
+    "description": "Verify the billing records to ensure there are no unexpected charges associated with the IAM activity.",
+    "recommended_next_focus": "Confirm whether the costs align with the legitimate activity.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_access_key_usage",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the recent activity related to the creation of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan.",
+    "recommended_next_focus": "Identify any abnormal access patterns or misuse of the access key.",
+    "choice_role": "best"
+  },
+  {
+    "id": "examine_cloudtrail_logs",
+    "title": "Examine the CloudTrail logs for potential anomalies",
+    "description": "Review the CloudTrail logs for any signs of unauthorized access or unusual activity related to the IAM activity.",
+    "recommended_next_focus": "Look for patterns indicating potential breaches or misconfigurations.",
+    "choice_role": "weak"
+  }
+]

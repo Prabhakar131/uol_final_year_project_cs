@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-ea6c3c13fdaa4818b6dd1f23595c6045",
+  "scenarioId": "identity-management",
+  "label": "T1-strong-final-retest",
+  "createdAt": "2026-09-20T04:02:16.308188+00:00",
+  "updatedAt": "2026-09-20T04:08:45.941465+00:00",
+  "status": "paused",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-54851a8a5c694bf497ecc47b4ff3daa3",
+  "turn": 1,
+  "completedTurns": 1
+}

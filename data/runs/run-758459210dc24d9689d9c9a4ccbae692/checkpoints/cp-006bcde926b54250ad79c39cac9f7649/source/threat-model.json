@@ -1,0 +1,375 @@
+[
+  {
+    "threatID": "THREAT-001",
+    "threatName": "User Impersonation via Public Endpoint",
+    "affectedComponents": [
+      "IAM Identity Center",
+      "Public Authentication Endpoint",
+      "IAM Roles"
+    ],
+    "frameworks": {
+      "stride": [
+        "Spoofing",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control",
+        "A07:2021-Identification and Authentication Failures"
+      ],
+      "mitreATT&CK": [
+        "T1078 - Valid Accounts",
+        "T1550 - Use Alternate Authentication Material"
+      ]
+    },
+    "cwe": "CWE-287",
+    "vulnerabilityDetails": {
+      "howItWorks": "The public endpoint for user authentication may not properly validate user identity tokens or implement sufficient authentication controls, allowing attackers to forge or replay authentication requests.",
+      "exploitationScenario": "An attacker intercepts authentication requests, analyzes the token structure, and creates forged tokens to impersonate legitimate users."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Low"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-001-A",
+        "description": "Implement multi-factor authentication (MFA) for all user authentications",
+        "implementationDetails": "Configure IAM Identity Center to enforce MFA for all users. Use hardware security keys or time-based OTP as second factors.",
+        "awsServiceContext": [
+          "IAM Identity Center",
+          "IAM"
+        ]
+      },
+      {
+        "recommendationID": "REC-001-B",
+        "description": "Implement robust token validation",
+        "implementationDetails": "Use short-lived JWT tokens with proper signature validation, implement token binding to prevent token theft and replay attacks.",
+        "awsServiceContext": [
+          "IAM Identity Center",
+          "AWS WAF"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS WAF rules to detect and block suspicious authentication patterns. Enable AWS Shield for DDoS protection on public endpoints. Implement AWS IAM Identity Center's built-in security features including adaptive authentication."
+  },
+  {
+    "threatID": "THREAT-002",
+    "threatName": "Privilege Elevation via Token Spoofing",
+    "affectedComponents": [
+      "IAM Identity Center",
+      "IAM Roles",
+      "AWS Organizations"
+    ],
+    "frameworks": {
+      "stride": [
+        "Tampering",
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control",
+        "A08:2021-Software and Data Integrity Failures"
+      ],
+      "mitreATT&CK": [
+        "T1548 - Abuse Elevation Control Mechanism",
+        "T1134 - Access Token Manipulation"
+      ]
+    },
+    "cwe": "CWE-269",
+    "vulnerabilityDetails": {
+      "howItWorks": "If token validation and identity propagation mechanisms are weak, attackers could modify token claims or attributes to gain access to higher-privileged roles.",
+      "exploitationScenario": "An attacker modifies the group membership claims in their identity token to gain admin privileges in connected AWS accounts."
+    },
+    "impact": {
+      "confidentiality": "Critical",
+      "integrity": "Critical",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-002-A",
+        "description": "Implement proper token signing and validation",
+        "implementationDetails": "Use asymmetric key pairs for token signing, validate all token claims including issuer and audience, implement token binding to prevent token theft.",
+        "awsServiceContext": [
+          "IAM Identity Center"
+        ]
+      },
+      {
+        "recommendationID": "REC-002-B",
+        "description": "Implement least privilege access control",
+        "implementationDetails": "Use AWS Organizations SCPs to enforce maximum permissions boundaries, implement fine-grained IAM policies.",
+        "awsServiceContext": [
+          "AWS Organizations",
+          "IAM"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS IAM Identity Center's built-in attribute-based access control (ABAC) to ensure proper identity propagation. Implement AWS Organizations SCPs to set permission guardrails."
+  },
+  {
+    "threatID": "THREAT-003",
+    "threatName": "Unauthorized Access to AWS Organizations",
+    "affectedComponents": [
+      "AWS Organizations",
+      "Network Infrastructure",
+      "IAM"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Access Control"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control",
+        "A05:2021-Security Misconfiguration"
+      ],
+      "mitreATT&CK": [
+        "T1190 - Exploit Public-Facing Application",
+        "T1133 - External Remote Services"
+      ]
+    },
+    "cwe": "CWE-284",
+    "vulnerabilityDetails": {
+      "howItWorks": "Without proper VPC controls and network segmentation, internal AWS Organizations endpoints might be accessible from the public internet.",
+      "exploitationScenario": "An attacker discovers and attempts to access AWS Organizations management APIs directly from the internet, bypassing intended access controls."
+    },
+    "impact": {
+      "confidentiality": "Critical",
+      "integrity": "Critical",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-003-A",
+        "description": "Implement VPC endpoints for AWS Organizations",
+        "implementationDetails": "Create VPC endpoints for AWS Organizations and restrict access to these endpoints using security groups and NACLs.",
+        "awsServiceContext": [
+          "AWS Organizations",
+          "Amazon VPC"
+        ]
+      },
+      {
+        "recommendationID": "REC-003-B",
+        "description": "Implement network segmentation",
+        "implementationDetails": "Use proper network segmentation with security groups, NACLs, and VPC design to control access to Organizations endpoints.",
+        "awsServiceContext": [
+          "Amazon VPC",
+          "Security Groups",
+          "Network ACLs"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS PrivateLink to establish private connectivity. Implement AWS Network Firewall rules to control traffic to Organizations endpoints."
+  },
+  {
+    "threatID": "THREAT-004",
+    "threatName": "Identity Synchronization Failure",
+    "affectedComponents": [
+      "IAM Identity Center",
+      "AWS Organizations",
+      "Corporate Identity Provider"
+    ],
+    "frameworks": {
+      "stride": [
+        "Information Disclosure",
+        "Denial of Service"
+      ],
+      "owaspTop10": [
+        "A04:2021-Insecure Design",
+        "A07:2021-Identification and Authentication Failures"
+      ],
+      "mitreATT&CK": [
+        "T1078 - Valid Accounts"
+      ]
+    },
+    "cwe": "CWE-287",
+    "vulnerabilityDetails": {
+      "howItWorks": "Identity synchronization issues could result in stale or incorrect access permissions when users' roles or group memberships change.",
+      "exploitationScenario": "A terminated employee retains access to AWS resources due to failed identity synchronization between corporate directory and IAM Identity Center."
+    },
+    "impact": {
+      "confidentiality": "High",
+      "integrity": "High",
+      "availability": "Medium"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-004-A",
+        "description": "Implement robust identity synchronization monitoring",
+        "implementationDetails": "Set up CloudWatch alarms to monitor synchronization events and failures. Implement automated notification and remediation processes.",
+        "awsServiceContext": [
+          "IAM Identity Center",
+          "CloudWatch"
+        ]
+      },
+      {
+        "recommendationID": "REC-004-B",
+        "description": "Implement periodic access reviews",
+        "implementationDetails": "Regular automated comparison of corporate identity permissions against AWS access, with automated revocation of unauthorized access.",
+        "awsServiceContext": [
+          "IAM Identity Center",
+          "AWS Organizations"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS IAM Identity Center's built-in synchronization monitoring and alerting capabilities. Implement automated access reviews using AWS Config Rules."
+  },
+  {
+    "threatID": "THREAT-005",
+    "threatName": "DDoS Attack on Authentication Endpoint",
+    "affectedComponents": [
+      "Public Authentication Endpoint",
+      "IAM Identity Center"
+    ],
+    "frameworks": {
+      "stride": [
+        "Denial of Service"
+      ],
+      "owaspTop10": [
+        "A04:2021-Insecure Design"
+      ],
+      "mitreATT&CK": [
+        "T1498 - Network Denial of Service"
+      ]
+    },
+    "cwe": "CWE-400",
+    "vulnerabilityDetails": {
+      "howItWorks": "Attackers could generate a large volume of authentication requests to overwhelm the service and prevent legitimate authentication attempts.",
+      "exploitationScenario": "A distributed botnet sends thousands of authentication requests per second to the endpoint, causing service degradation."
+    },
+    "impact": {
+      "confidentiality": "Low",
+      "integrity": "Low",
+      "availability": "Critical"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-005-A",
+        "description": "Implement AWS Shield and WAF",
+        "implementationDetails": "Deploy AWS Shield Advanced for DDoS protection and configure AWS WAF rules to filter malicious traffic.",
+        "awsServiceContext": [
+          "AWS Shield",
+          "AWS WAF"
+        ]
+      },
+      {
+        "recommendationID": "REC-005-B",
+        "description": "Implement rate limiting and throttling",
+        "implementationDetails": "Configure rate limiting at the API Gateway level and implement application-level throttling.",
+        "awsServiceContext": [
+          "API Gateway",
+          "AWS WAF"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Shield Advanced for comprehensive DDoS protection. Implement AWS WAF rate-based rules and custom rules to detect and block attack patterns."
+  },
+  {
+    "threatID": "THREAT-006",
+    "threatName": "Insufficient Audit Logging",
+    "affectedComponents": [
+      "CloudTrail",
+      "IAM Identity Center",
+      "DynamoDB Audit Logs"
+    ],
+    "frameworks": {
+      "stride": [
+        "Repudiation"
+      ],
+      "owaspTop10": [
+        "A09:2021-Security Logging and Monitoring Failures"
+      ],
+      "mitreATT&CK": [
+        "T1562.002 - Impair Defenses: Disable Windows Event Logging"
+      ]
+    },
+    "cwe": "CWE-223",
+    "vulnerabilityDetails": {
+      "howItWorks": "Incomplete logging configuration could create blind spots in audit trails, particularly for IAM Identity Center events.",
+      "exploitationScenario": "An attacker performs unauthorized actions through IAM Identity Center, but the activities are not logged for later investigation."
+    },
+    "impact": {
+      "confidentiality": "Medium",
+      "integrity": "High",
+      "availability": "Low"
+    },
+    "likelihood": "High",
+    "recommendations": [
+      {
+        "recommendationID": "REC-006-A",
+        "description": "Enable comprehensive CloudTrail logging",
+        "implementationDetails": "Configure CloudTrail to log all IAM Identity Center events, including read-only operations. Enable log file validation and encrypt log files.",
+        "awsServiceContext": [
+          "CloudTrail",
+          "IAM Identity Center"
+        ]
+      },
+      {
+        "recommendationID": "REC-006-B",
+        "description": "Implement log monitoring and alerting",
+        "implementationDetails": "Create CloudWatch metric filters and alarms for suspicious Identity Center activities. Forward logs to security information and event management (SIEM) system.",
+        "awsServiceContext": [
+          "CloudWatch",
+          "CloudTrail"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Enable CloudTrail Insights for automated detection of unusual API activity. Use AWS EventBridge to route security events to appropriate handling systems."
+  },
+  {
+    "threatID": "THREAT-007",
+    "threatName": "Insufficient Permission Boundaries",
+    "affectedComponents": [
+      "AWS Organizations",
+      "IAM Roles",
+      "Member Accounts"
+    ],
+    "frameworks": {
+      "stride": [
+        "Elevation of Privilege"
+      ],
+      "owaspTop10": [
+        "A01:2021-Broken Access Control"
+      ],
+      "mitreATT&CK": [
+        "T1484 - Domain Policy Modification"
+      ]
+    },
+    "cwe": "CWE-269",
+    "vulnerabilityDetails": {
+      "howItWorks": "Without proper permission boundaries through RCPs and SCPs, users or roles could gain more access than intended through IAM policy modifications.",
+      "exploitationScenario": "A compromised admin account in a member account creates overly permissive IAM roles due to missing SCP restrictions."
+    },
+    "impact": {
+      "confidentiality": "Critical",
+      "integrity": "Critical",
+      "availability": "High"
+    },
+    "likelihood": "Medium",
+    "recommendations": [
+      {
+        "recommendationID": "REC-007-A",
+        "description": "Implement restrictive SCPs",
+        "implementationDetails": "Create and apply SCPs that enforce security guardrails, such as preventing public S3 buckets, requiring encryption, and limiting IAM actions.",
+        "awsServiceContext": [
+          "AWS Organizations",
+          "IAM"
+        ]
+      },
+      {
+        "recommendationID": "REC-007-B",
+        "description": "Implement permission boundaries",
+        "implementationDetails": "Use IAM permission boundaries to limit the maximum permissions that can be granted by IAM roles and users.",
+        "awsServiceContext": [
+          "IAM"
+        ]
+      }
+    ],
+    "awsSpecificConsiderations": "Use AWS Organizations to implement a multi-account strategy with proper segregation of duties. Implement AWS Config rules to monitor compliance with permission boundaries."
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on revisiting the same event and user without providing new insights or focusing on a different investigation goal.",
+        "The evidence titles and facts are largely unchanged from the completed turn, making the generated turn repetitive rather than progressive.",
+        "The generated turn does not introduce a new investigative purpose or decision point beyond the scope of the completed turn."
+      ],
+      "retry_instruction": "Refocus the learner on the identity responsible for the unauthorized access attempt and determine the affected assets and their risks."
+    }
+  ],
+  "anchor_repairs": []
+}

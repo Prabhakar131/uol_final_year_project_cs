@@ -1,0 +1,67 @@
+{
+  "id": "cp-232b13568ad04484bd92d1558325b381",
+  "createdAt": "2026-09-25T11:49:33.366600+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 28,
+    "visibility": 51,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the Invoke call by customer-api",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Confirm the increased daily spend due to the suspicious activity.",
+      "id": "verify_billing_activity",
+      "recommended_next_focus": "Understand the financial implications of the unauthorized access attempt",
+      "title": "Verify billing activity"
+    },
+    "selectedEvidence": {
+      "id": "cloudwatch_logs_query",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/cloudwatch_logs_query.png",
+      "imageUrl": "/generated_evidence/turn_3/cloudwatch_logs_query.png",
+      "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+      "supportRole": "partial",
+      "template": "cloudwatch",
+      "title": "CloudWatch Logs Insights Query",
+      "type": "cloudwatch",
+      "whyItMayMatter": "Shows the presence of suspicious activities in the IAM logs."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "at": "2026-09-24T07:09:24.941369+00:00",
+    "operation": "/api/evaluate-stream",
+    "error": "MPS backend out of memory (MPS allocated: 29.30 GB, other allocations: 8.84 GB, max allowed: 30.19 GB). Tried to allocate 256 bytes on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).",
+    "stages": [
+      {
+        "elapsedSeconds": 0.352,
+        "stage": "started",
+        "label": "AI pipeline started",
+        "output": {
+          "message": "Starting VLM analysis."
+        }
+      },
+      {
+        "elapsedSeconds": 22.468,
+        "stage": "error",
+        "label": "Pipeline error",
+        "output": {
+          "error": "MPS backend out of memory (MPS allocated: 29.30 GB, other allocations: 8.84 GB, max allowed: 30.19 GB). Tried to allocate 256 bytes on shared pool. Use PYTORCH_MPS_HIGH_WATERMARK_RATIO=0.0 to disable upper limit for memory allocations (may cause system failure).",
+          "error_type": "RuntimeError"
+        }
+      }
+    ],
+    "elapsedSeconds": 22.469
+  }
+]

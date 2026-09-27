@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "specific incident response phase",
+  "briefing": "Review logs related to the recipient account and compare it against the unusual access attempts recorded.",
+  "known_context": [
+    "Unauthorized login attempt detected from 203.0.113.10",
+    "CloudTrail event: CreateAccessKey by user/customer-api",
+    "Billing activity showing increased spend recently"
+  ],
+  "coach_guidance": "Focus on identifying the source of the unauthorized access by examining logs related to the recipient account and comparing them with the unusual access attempts recorded."
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "gather_additional_security_signals",
+    "title": "Gather Additional Security Signals",
+    "description": "Explore other security signals such as CloudTrail logs, access keys, and billing data to corroborate the findings.",
+    "recommended_next_focus": "If additional signals confirm the GuardDuty finding, escalate to higher levels.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around UpdateFunctionCode",
+    "description": "Investigate the recent activity around the UpdateFunctionCode call by d.okafor.",
+    "recommended_next_focus": "Identify if there are similar IAM activities involving the same IP or user.",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_guard_duty_signatures",
+    "title": "Verify GuardDuty Signatures",
+    "description": "Confirm the GuardDuty findings match the IAM activities identified during the IAM review.",
+    "recommended_next_focus": "If signatures do not match, investigate further to identify the root cause.",
+    "choice_role": "partial"
+  }
+]

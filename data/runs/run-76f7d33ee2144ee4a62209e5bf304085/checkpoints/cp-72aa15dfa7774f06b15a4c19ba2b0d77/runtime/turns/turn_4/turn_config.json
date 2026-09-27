@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "Containment and Remediation",
+  "briefing": "The incident scope is now clearer. Choose a containment action that is justified by direct credential, access, or monitoring evidence.",
+  "known_context": [
+    "Identity, credential, and monitoring evidence should now be considered together.",
+    "Containment should focus on the affected principal or credentials rather than broad unrelated controls.",
+    "The previous evidence was assessed as Strong Support, so this turn should justify a proportionate remediation step."
+  ],
+  "coach_guidance": "Choose evidence that directly supports containment, such as active credential status, last-used details, or recovery logs."
+}

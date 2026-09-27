@@ -1,0 +1,23 @@
+[
+  {
+    "id": "invoke_inspect_logging",
+    "title": "Inspect CloudTrail Logs for Unauthorized Access Attempts",
+    "description": "Review CloudTrail logs for any attempts to access resources through the console without proper authentication.",
+    "recommended_next_focus": "Find and investigate the specific console login attempts.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "invoke_correlate_iam_activity",
+    "title": "Investigate Activity Around Invoke",
+    "description": "Investigate the recent activity around the Invoke call by customer-api.",
+    "recommended_next_focus": "Identify the specific IAM actions responsible for the EC2 cost spike.",
+    "choice_role": "best"
+  },
+  {
+    "id": "invoke_inspect_billing",
+    "title": "Review Daily Billing for Unusual Costs",
+    "description": "Check the daily billing report for unusual charges related to the suspicious IAM user.",
+    "recommended_next_focus": "Confirm if the unauthorized access led to unexpected expenses.",
+    "choice_role": "weak"
+  }
+]

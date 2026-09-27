@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Verify if the unauthorized access impacts costs associated with the affected resources.",
+    "recommended_next_focus": "Review additional CloudTrail logs for UpdateFunctionCode20150331v2 calls by d.okafor to confirm the specific unauthorized activity.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "update_function_code",
+    "title": "Update Function Code",
+    "description": "Ensure the function code is secure and up-to-date to prevent unauthorized modifications.",
+    "recommended_next_focus": "Review remote access patterns and IAM activity related to the function code update.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_putevents_call",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Review CloudTrail logs for PutEvents calls by d.okafor to understand their frequency and timing.",
+    "recommended_next_focus": "Identify any updates to the function code that might indicate unauthorized access.",
+    "choice_role": "best"
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "id": "cp-67abe93bdd5343868737036415c769cd",
+  "createdAt": "2026-09-26T16:25:08.592198+00:00",
+  "kind": "before_restart",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 40,
+    "visibility": 65,
+    "risk": "Medium",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the Recent Activity Around the AssumeRole Call by s.brennan",
+        "evidence": "CloudTrail Event: AssumeRole",
+        "verdict": "Strong Support",
+        "action_role": "best"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around CreateAccessKey",
+        "evidence": "Recent IAM Activity",
+        "verdict": "Strong Support",
+        "action_role": "best"
+      }
+    ],
+    "pending_turn": 3,
+    "completed": false
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "d8a40938755a58623fc97d0750685c3e42b473a7",
+  "codeHasLocalChanges": true
+}

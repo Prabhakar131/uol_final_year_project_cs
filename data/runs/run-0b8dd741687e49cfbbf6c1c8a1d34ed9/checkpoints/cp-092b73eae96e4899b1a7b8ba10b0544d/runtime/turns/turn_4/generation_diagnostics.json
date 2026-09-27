@@ -1,0 +1,20 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn repeats the same evidence titles and evidence facts from the completed turn.",
+        "The generated turn does not contain a meaningful new investigation, response, impact, recovery, escalation, or refocus goal.",
+        "The generated turn is inconsistent with the scenario progression rules."
+      ],
+      "retry_instruction": "Use different evidence templates and ensure the generated turn introduces a new investigative purpose."
+    }
+  ],
+  "anchor_repairs": [
+    "attempt 1: rewrote the best action"
+  ]
+}

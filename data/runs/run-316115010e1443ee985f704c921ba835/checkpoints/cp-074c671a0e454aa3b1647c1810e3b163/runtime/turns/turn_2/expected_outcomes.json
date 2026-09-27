@@ -1,0 +1,6 @@
+{
+  "strong_support": "Use the CloudTrail log entry showing failed login attempts from the source IP to confirm the unauthorized access attempt.",
+  "partial_support": "Find additional failed authentication attempts from the same IP to corroborate the pattern of unauthorized access.",
+  "weak_support": "Observe increased CPU utilization around the time of the failed attempts to infer heightened system activity.",
+  "unsupported": "No new evidence found beyond the initial CloudTrail logs."
+}

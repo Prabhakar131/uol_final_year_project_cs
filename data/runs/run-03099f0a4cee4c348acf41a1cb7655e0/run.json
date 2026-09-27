@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-03099f0a4cee4c348acf41a1cb7655e0",
+  "scenarioId": "identity-management",
+  "label": "AUTO TEST \u00b7 identity-management \u00b7 partial action \u00b7 rotate evidence path \u00b7 26 Sep \u00b7 after fixes",
+  "createdAt": "2026-09-26T04:16:45.844868+00:00",
+  "updatedAt": "2026-09-26T04:24:42.412930+00:00",
+  "status": "completed",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-8adf99be6609480583069dcef47304e7",
+  "turn": 5,
+  "completedTurns": 5
+}

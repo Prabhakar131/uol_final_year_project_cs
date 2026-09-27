@@ -1,0 +1,61 @@
+{
+  "id": "cp-e5ed76267824426e96c733c72c513542",
+  "createdAt": "2026-09-25T11:54:55.574384+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 2,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 35,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity",
+        "evidence": "CloudTrail Event: PutMetricData",
+        "verdict": "Weak Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Investigate the recent activity around the Invoke call by customer-api.",
+      "id": "check_affected_assets",
+      "recommended_next_focus": "Identify critical systems and applications",
+      "title": "Investigate Activity Around Invoke"
+    },
+    "selectedEvidence": {
+      "id": "guardduty_finding",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_2/guardduty_finding.png",
+      "imageUrl": "/generated_evidence/turn_2/guardduty_finding.png",
+      "summary": "GuardDuty Low finding Recon:EC2/PortProbeUnprotectedPort for i-0a3fb6fce114a107e.",
+      "supportRole": "weak",
+      "template": "guardduty",
+      "title": "GuardDuty Finding",
+      "type": "guardduty",
+      "whyItMayMatter": "Potential threat from unprotected port probing."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

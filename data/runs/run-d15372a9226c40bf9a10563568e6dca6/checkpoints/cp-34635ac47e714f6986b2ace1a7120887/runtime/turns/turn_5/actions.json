@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_spending",
+    "title": "Check the billing spending for any anomalies",
+    "description": "Review the billing data to see if there are any unexpected increases in spending.",
+    "recommended_next_focus": "Analyze the CloudTrail logs for potential anomalies.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "Verify the recent activity around the DeleteAccessKey call by security-analyst",
+    "description": "Confirm the deletion of the access key by checking the CloudTrail record.",
+    "recommended_next_focus": "Review the IAM activity logs for additional details.",
+    "choice_role": "best"
+  },
+  {
+    "id": "monitor_iam_activity",
+    "title": "Monitor the IAM activity logs for additional details",
+    "description": "Inspect the IAM activity logs to look for any new activities related to s.brennan.",
+    "recommended_next_focus": "Review the CloudTrail records for further insights.",
+    "choice_role": "partial"
+  }
+]

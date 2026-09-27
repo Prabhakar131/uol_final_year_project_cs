@@ -1,0 +1,6 @@
+{
+  "strong_support": "Identifying the affected assets and evaluating their criticality provides actionable steps towards securing them.",
+  "partial_support": "Expanding the investigation to explore additional CloudTrail logs allows gathering more context and insights.",
+  "weak_support": "Evaluating logging gaps highlights areas for improvement in logging practices.",
+  "unsupported": "No strong evidence exists to justify focusing on the affected assets or expanding the investigation."
+}

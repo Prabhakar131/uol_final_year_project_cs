@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Consider reviewing the IAM policies and permissions associated with the account where the CreateAccessKey call was issued. This will help identify if there were any changes or new permissions granted around the time of the call.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/s.brennan from 198.51.100.1.",
+    "The user accessed AWS resources via an assumed role.",
+    "There was a high-severity GuardDuty finding related to s.brennan."
+  ],
+  "coach_guidance": "Focus on understanding the IAM activities leading up to the CreateAccessKey call to determine if there were any unauthorized changes or new permissions."
+}

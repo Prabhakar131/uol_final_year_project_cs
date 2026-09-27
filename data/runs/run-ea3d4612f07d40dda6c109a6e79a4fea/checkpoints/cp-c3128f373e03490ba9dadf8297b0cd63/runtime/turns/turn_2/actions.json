@@ -1,0 +1,23 @@
+[
+  {
+    "id": "monitor_cloudtrail_logs",
+    "title": "Monitor CloudTrail Logs for Additional Events",
+    "description": "Review CloudTrail logs for any additional events related to the source IP and s.brennan's activities.",
+    "recommended_next_focus": "Identify any suspicious activities or anomalies in the logs",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_iam_activity",
+    "title": "Investigate Activity Around CreateAccessKey",
+    "description": "Investigate the recent activity around the CreateAccessKey call by s.brennan.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call and check for other related credentials",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_access_keys",
+    "title": "Check Access Keys Created Recently",
+    "description": "Verify if s.brennan created new access keys recently, which could indicate unauthorized activity.",
+    "recommended_next_focus": "Confirm if the newly created access keys are active and linked to the source IP",
+    "choice_role": "partial"
+  }
+]

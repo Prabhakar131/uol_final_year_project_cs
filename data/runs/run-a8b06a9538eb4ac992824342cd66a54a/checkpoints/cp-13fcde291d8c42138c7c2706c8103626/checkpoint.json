@@ -1,0 +1,59 @@
+{
+  "id": "cp-13fcde291d8c42138c7c2706c8103626",
+  "createdAt": "2026-09-25T14:18:32.637635+00:00",
+  "kind": "after_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 48,
+    "visibility": 81,
+    "risk": "Medium",
+    "phase": "Recovery Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Explore Logging Gaps",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Check daily spending on AWS services",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 4,
+        "action": "Further explore the billing patterns to determine the true cost impact",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 5,
+        "action": "Verify if there were any changes in service usage patterns before and after the incident",
+        "evidence": "CloudTrail record of GetObject by d.okafor from 203.0.113.41 at 09:14 UTC",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": 5,
+    "completed": true
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

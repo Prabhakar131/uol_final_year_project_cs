@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_iam_activities",
+    "title": "Check Recent IAM Activities",
+    "description": "Look for any unusual IAM activities associated with 'd.okafor', including failed login attempts, policy changes, or access key usage.",
+    "recommended_next_focus": "Identify any anomalous behavior that could indicate unauthorized access.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail Logs",
+    "description": "Search through CloudTrail logs for any entries related to 'd.okafor', focusing on recent accesses and permissions changes.",
+    "recommended_next_focus": "Identify any unexpected access patterns or resource modifications.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_guard_duty",
+    "title": "Investigate the GuardDuty Finding",
+    "description": "Review the GuardDuty finding for 'd.okafor' to determine the nature of the anomaly.",
+    "recommended_next_focus": "Correlate the GuardDuty finding with IAM activities and other security signals.",
+    "choice_role": "best"
+  }
+]

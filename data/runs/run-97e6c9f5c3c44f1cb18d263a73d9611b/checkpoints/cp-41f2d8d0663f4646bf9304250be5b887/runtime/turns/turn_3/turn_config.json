@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "scope_and_blast_radius",
+  "briefing": "Review the latest CloudTrail records and examine the IAM activity to understand the broader impact of the incident.",
+  "known_context": [
+    "The account ID is 123456789012, located in the ap-southeast-1 region, and managed by Production.",
+    "The user 'd.okafor' accessed the system via the IP address 198.51.100.1.",
+    "There was a GuardDuty finding related to IAM user 'd.okafor', indicating unauthorized access attempts."
+  ],
+  "coach_guidance": "Continue investigating the IAM activity and CloudTrail logs to identify any additional sources of unauthorized access."
+}

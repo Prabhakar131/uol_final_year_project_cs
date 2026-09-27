@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Consider reviewing the IAM activity logs for s.brennan to identify if there were any anomalous IAM operations around the time of the unexpected spend spike. This will help determine whether the increased spend is linked to the unauthorized access attempt described by GuardDuty.",
+  "known_context": [
+    "ARN: aws:iam::123456789012:user/admin-test accessed resources from 198.51.100.1",
+    "Event Name: CreateAccessKey occurred on 2023-10-01 10:50",
+    "Source IP: 198.51.100.1"
+  ],
+  "coach_guidance": "Focus on understanding the nature of the unauthorized access attempts and correlating them with the billing anomalies."
+}

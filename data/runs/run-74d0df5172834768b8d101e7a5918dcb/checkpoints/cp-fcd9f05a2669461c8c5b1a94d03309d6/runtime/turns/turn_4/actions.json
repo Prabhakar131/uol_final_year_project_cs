@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_cloudwatch_logs",
+    "title": "Examine the CloudWatch logs for s.brennan",
+    "description": "Review the CloudWatch logs for s.brennan to find any suspicious activity or anomalies.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_access_key_usage",
+    "title": "Investigate the recent use of s.brennan's access key from 198.51.100.1",
+    "description": "Review the IAM activity related to s.brennan's access key usage to identify any unusual patterns.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_spending",
+    "title": "Check the daily spending on S3 services",
+    "description": "Review the daily spending on S3 services to see if there are any unexpected increases.",
+    "recommended_next_focus": "Identify the source of the AssumeRole call",
+    "choice_role": "weak"
+  }
+]

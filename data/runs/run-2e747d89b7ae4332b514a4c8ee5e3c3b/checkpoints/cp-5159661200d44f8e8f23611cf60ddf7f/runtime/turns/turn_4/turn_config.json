@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Review CloudTrail logs for recent updates to the function code and correlate them with the observed billing pattern.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for d.okafor",
+    "Daily spend $44.03 against a $42.75 average; largest service S3"
+  ],
+  "coach_guidance": "Identify any unauthorized modifications to the function code and correlate them with the observed billing pattern to strengthen your case for updating the function code."
+}

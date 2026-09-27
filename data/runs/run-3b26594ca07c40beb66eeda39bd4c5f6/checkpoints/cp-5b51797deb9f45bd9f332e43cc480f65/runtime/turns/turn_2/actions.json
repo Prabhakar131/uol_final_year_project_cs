@@ -1,0 +1,23 @@
+[
+  {
+    "id": "monitor_guardduty",
+    "title": "Monitor GuardDuty Alerts",
+    "description": "Check GuardDuty alerts for any anomalous behavior related to the stopped access key.",
+    "recommended_next_focus": "Discover if there are any external threats targeting the user or their resources.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "check_iam_logs",
+    "title": "Review IAM Activity History",
+    "description": "Examine the IAM activity history for the user 'admin-test' to find any recent access attempts.",
+    "recommended_next_focus": "Identify if there are any new or suspicious IAM activities since the access key became inactive.",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_cloudtrail",
+    "title": "Review CloudTrail Logs",
+    "description": "Search through CloudTrail logs for any events related to the stopped access key to gather additional context.",
+    "recommended_next_focus": "Find out if the access key was used during the time period when it was active.",
+    "choice_role": "partial"
+  }
+]

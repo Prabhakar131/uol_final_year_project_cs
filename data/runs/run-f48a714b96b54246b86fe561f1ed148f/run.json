@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-f48a714b96b54246b86fe561f1ed148f",
+  "scenarioId": "automated-security-response",
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 weak evidence path \u00b7 25 Sep",
+  "createdAt": "2026-09-25T11:37:25.828045+00:00",
+  "updatedAt": "2026-09-25T11:43:23.942041+00:00",
+  "status": "completed",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-fe7602c647be4a129ecde5428dc0a506",
+  "turn": 5,
+  "completedTurns": 5
+}

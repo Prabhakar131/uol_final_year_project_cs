@@ -1,0 +1,97 @@
+[
+  {
+    "id": "access_key_details",
+    "title": "Access Key Details",
+    "type": "access_key",
+    "template": "access_key",
+    "summary": "Access key ASIADE13333F8C2F195A for etl-runner is Active; last used 2023-10-01 10:50 from 203.0.113.2.",
+    "why_it_may_matter": "Shows recent access to the same IP address used in the GuardDuty finding.",
+    "support_role": "weak",
+    "facts": {
+      "access_key_id": "ASIADE13333F8C2F195A",
+      "owner": "arn:aws:iam::123456789012:role/etl-runner",
+      "status": "Active",
+      "last_used_service": "lambda.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-10-01T10:50:30Z",
+      "source_ip": "203.0.113.2"
+    }
+  },
+  {
+    "id": "cloudtrail_event_record",
+    "title": "CloudTrail Event: GetObject",
+    "type": "cloudtrail",
+    "template": "cloudtrail",
+    "summary": "CloudTrail record of GetObject by d.okafor from 203.0.113.41 at 09:14 UTC.",
+    "why_it_may_matter": "Indicates a recent attempt to modify resources owned by 'd.okafor'.",
+    "support_role": "partial",
+    "facts": {
+      "event_name": "GetObject",
+      "event_source": "s3.amazonaws.com",
+      "user": "arn:aws:iam::123456789012:user/d.okafor",
+      "source_ip": "203.0.113.41",
+      "mfa": "true",
+      "event_time": "2023-09-30T09:14:05Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Success",
+      "event_id": "6d50d431-071e-4b9d-a2ad-30f53fd72f4a",
+      "user_agent": "aws-cli/2.15.30 Python/3.11.8",
+      "recipient_account_id": "123456789012",
+      "request_parameters": "-",
+      "resources": "None recorded",
+      "related_events": [
+        [
+          "2023-09-30T09:14:05Z",
+          "GetObject",
+          "arn:aws:iam::123456789012:user/d.okafor",
+          "203.0.113.41",
+          "Success"
+        ],
+        [
+          "2023-09-30T09:37:16Z",
+          "ListObjectsV2",
+          "arn:aws:iam::123456789012:user/d.okafor",
+          "203.0.113.41",
+          "Success"
+        ],
+        [
+          "2023-09-30T10:00:27Z",
+          "DescribeInstances",
+          "arn:aws:iam::123456789012:user/d.okafor",
+          "203.0.113.41",
+          "Success"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cloudwatch_logs_query",
+    "title": "CloudWatch Logs Insights Query",
+    "type": "cloudwatch",
+    "template": "cloudwatch",
+    "summary": "Logs Insights query returning 2 CloudTrail log lines.",
+    "why_it_may_matter": "Shows CloudTrail logs indicating recent attempts to modify resources owned by 'd.okafor'.",
+    "support_role": "strong",
+    "facts": {
+      "query": "fields @timestamp, @message | filter userIdentity.arn = \"arn:aws:iam::123456789012:user/d.okafor\" | sort @timestamp asc",
+      "log_group": "aws-cloudtrail-logs-123456789012",
+      "matched_records": "2",
+      "scanned_bytes": "0.7 MB",
+      "time_range": "2023-10-01 10:12-10:21 UTC",
+      "alarm_state": "Complete",
+      "log_rows": [
+        [
+          "2023-10-01T10:12:10Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "PutRule success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=rule/CheckStateTrigger"
+        ],
+        [
+          "2023-10-01T10:20:30Z",
+          "123456789012_CloudTrail_ap-southeast-1",
+          "UpdateFunctionCode20150331v2 success by arn:aws:iam::123456789012:user/d.okafor from 198.51.100.1; resource=function/CheckStateLambda"
+        ]
+      ]
+    }
+  }
+]

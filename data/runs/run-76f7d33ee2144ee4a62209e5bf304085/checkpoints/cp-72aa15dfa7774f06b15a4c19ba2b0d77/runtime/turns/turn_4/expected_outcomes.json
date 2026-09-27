@@ -1,0 +1,6 @@
+{
+  "strong_support": "The learner identifies the GuardDuty finding as part of a larger IAM activity pattern.",
+  "partial_support": "The learner notices inconsistencies between GuardDuty findings and CloudTrail logs.",
+  "weak_support": "The learner observes unusual CloudWatch metrics correlating with the GuardDuty finding.",
+  "unsupported": "The learner fails to find any significant evidence linking the GuardDuty finding to the IAM activities."
+}

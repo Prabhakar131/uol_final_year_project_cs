@@ -1,0 +1,13 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "identity-management",
+  "scenario_slug": "identity_management",
+  "source_file": "data/acse_eval.jsonl",
+  "case": {
+    "name": "identity-management",
+    "architecture": "identity-management/architecture.png",
+    "architecture_description": "identity-management/diagram.py",
+    "threat_model": "identity-management/threat-model.json",
+    "infra_as_code": "identity-management/cdk/"
+  }
+}

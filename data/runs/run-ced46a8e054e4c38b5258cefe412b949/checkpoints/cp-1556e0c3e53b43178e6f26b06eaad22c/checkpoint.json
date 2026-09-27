@@ -1,0 +1,67 @@
+{
+  "id": "cp-1556e0c3e53b43178e6f26b06eaad22c",
+  "createdAt": "2026-09-25T09:00:15.207743+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 3,
+    "max_turns": 5,
+    "containment": 28,
+    "visibility": 51,
+    "risk": "High",
+    "phase": "Focused Investigation",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode20150331v2",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the latest CloudTrail event records to understand the full picture of d.okafor\u2019s recent activities.",
+      "id": "investigate_cloudtrail_events",
+      "recommended_next_focus": "Identify potential sources of unauthorized access through further investigation.",
+      "title": "Investigate the recent activity around the PutEvents call by d.okafor"
+    },
+    "selectedEvidence": {
+      "id": "cloudwatch_logs_query",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_3/cloudwatch_logs_query.png",
+      "imageUrl": "/generated_evidence/turn_3/cloudwatch_logs_query.png",
+      "summary": "Logs Insights query returning 3 CloudTrail log lines.",
+      "supportRole": "partial",
+      "template": "cloudwatch",
+      "title": "CloudWatch Logs Insights Query",
+      "type": "cloudwatch",
+      "whyItMayMatter": "Indicates ongoing activity that could be linked to the unauthorized access."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "14534964a57e75e031eb8a3f26af5ecebbbde3d4",
+  "codeHasLocalChanges": true
+}

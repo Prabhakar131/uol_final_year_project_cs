@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "scope_and_blast_radius",
+  "briefing": "Consider reviewing the CloudTrail logs for specific instances of 'Invoke call by customer-api from 203.0.113.10' to assess the extent of the unauthorized access attempt.",
+  "known_context": [
+    "The suspicious principal is arn:aws:iam::123456789012:user/customer-api from 203.0.113.10.",
+    "The daily spend increased by $48.10 against a $42.75 average; largest service EC2.",
+    "There are 3 CloudTrail log lines returned by the logs insights query."
+  ],
+  "coach_guidance": "Focus on identifying the specific instances of the Invoke call by customer-api from 203.0.113.10 to determine the full extent of the unauthorized access attempt."
+}

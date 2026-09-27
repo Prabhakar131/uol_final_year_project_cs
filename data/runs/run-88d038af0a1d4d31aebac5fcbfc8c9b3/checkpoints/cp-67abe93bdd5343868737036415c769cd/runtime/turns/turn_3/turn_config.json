@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "scope_and_blast_radius",
+  "briefing": "This turn should focus on Scope And Blast Radius: Help the learner decide how far the incident may have spread across credentials, workloads, logs, or cost impact. Continue investigating the recent IAM activities of s.brennan to identify any patterns or anomalies related to the AssumeRole call. Look for additional IAM calls such as GetBucketLocation, DescribeVolumes, and PutObject to confirm the scope of the role assignment.",
+  "known_context": [
+    "The recent IAM activity includes an AssumeRole call by s.brennan from 203.0.113.41 at 10:46 UTC.",
+    "An IAM activity record shows a GetBucketLocation operation by s.brennan from 203.0.113.41 at 09:14 UTC.",
+    "There is a daily spending report indicating $44.03 spent on S3 services."
+  ],
+  "coach_guidance": "Focus on identifying any potential breaches or misconfigurations related to the AssumeRole call. Ensure you investigate further IAM operations to determine if they align with the assumed role."
+}

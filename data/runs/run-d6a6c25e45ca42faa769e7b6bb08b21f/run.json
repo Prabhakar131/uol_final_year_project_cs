@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "run-d6a6c25e45ca42faa769e7b6bb08b21f",
+  "scenarioId": "identity-management",
+  "label": "t1-weak-prompt-v3",
+  "createdAt": "2026-09-24T04:19:31.776264+00:00",
+  "updatedAt": "2026-09-24T04:25:59.581509+00:00",
+  "status": "paused",
+  "resumable": true,
+  "testMode": true,
+  "parent": {
+    "runId": "run-3ffea6c1186e4d6b977db68773424705",
+    "checkpointId": "cp-7bc2d318aa56466db7f17342ecbe43e8"
+  },
+  "latestCheckpoint": "cp-6ea8ee9a8c6942c8bd2293715880007e",
+  "turn": 1,
+  "completedTurns": 1
+}

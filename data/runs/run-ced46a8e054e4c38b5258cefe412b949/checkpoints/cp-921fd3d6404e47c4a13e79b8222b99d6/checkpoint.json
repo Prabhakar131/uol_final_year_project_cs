@@ -1,0 +1,73 @@
+{
+  "id": "cp-921fd3d6404e47c4a13e79b8222b99d6",
+  "createdAt": "2026-09-25T09:20:00.800454+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 4,
+    "max_turns": 5,
+    "containment": 32,
+    "visibility": 59,
+    "risk": "High",
+    "phase": "Scope Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate the GuardDuty Finding",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate Activity Around UpdateFunctionCode20150331v2",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Investigate the recent activity around the PutEvents call by d.okafor",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review the recent use of access key AKIA5CDQ3A695EC617EF.",
+      "id": "investigate_cloudtrail_events",
+      "recommended_next_focus": "Identify potential unauthorized access points through detailed examination of CloudTrail events.",
+      "title": "Review Access Key Use"
+    },
+    "selectedEvidence": {
+      "id": "guardduty_finding",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_4/guardduty_finding.png",
+      "imageUrl": "/generated_evidence/turn_4/guardduty_finding.png",
+      "summary": "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for d.okafor.",
+      "supportRole": "partial",
+      "template": "guardduty",
+      "title": "GuardDuty Finding",
+      "type": "guardduty",
+      "whyItMayMatter": "It shows what threat detection flagged and for which resource."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "14534964a57e75e031eb8a3f26af5ecebbbde3d4",
+  "codeHasLocalChanges": true
+}

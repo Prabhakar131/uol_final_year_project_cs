@@ -1,0 +1,18 @@
+{
+  "attempts": 1,
+  "outcome": "accepted_timeline_turn",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn repeats the completed turn's phase, briefing, action focus, evidence titles, evidence purpose, and expected outcomes.",
+        "The generated turn introduces weak evidence that does not directly support the chosen action.",
+        "The generated turn does not introduce a new investigative purpose or decision point."
+      ],
+      "retry_instruction": "Refocus the learner on reviewing the access key's activity logs and examining any suspicious entries around the time of the increased spend. Ensure the evidence includes specific details such as the access key's status, last used time, service, region, and source IP."
+    }
+  ],
+  "anchor_repairs": []
+}

@@ -1,0 +1,6 @@
+{
+  "strong_support": "Identifying the source of the stoplogging operation and understanding its impact on other accounts.",
+  "partial_support": "Learning about the recipient account and assessing the risks associated with the stoplogging operation.",
+  "weak_support": "Recovering monitoring data to gauge the extent of the stoplogging operation\u2019s impact.",
+  "unsupported": "Not enough evidence to conclusively determine the nature of the stoplogging operation."
+}

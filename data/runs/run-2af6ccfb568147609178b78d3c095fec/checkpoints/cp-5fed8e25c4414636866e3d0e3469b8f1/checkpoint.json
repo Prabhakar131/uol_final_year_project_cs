@@ -1,0 +1,64 @@
+{
+  "id": "cp-5fed8e25c4414636866e3d0e3469b8f1",
+  "createdAt": "2026-09-26T04:57:28.450598+00:00",
+  "kind": "before_operation",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 20,
+    "visibility": 89,
+    "risk": "High",
+    "phase": "Recovery Review",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Analyze CloudTrail Log",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Strong Support",
+        "action_role": "weak"
+      },
+      {
+        "turn": 2,
+        "action": "Review Daily Billing for Unusual Costs",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support",
+        "action_role": "weak"
+      },
+      {
+        "turn": 3,
+        "action": "Review GuardDuty Findings",
+        "evidence": "Access Key Details",
+        "verdict": "Partial Support",
+        "action_role": "weak"
+      },
+      {
+        "turn": 4,
+        "action": "Gather Billing Data",
+        "evidence": "CloudTrail Event: CreateAccessKey",
+        "verdict": "Strong Support",
+        "action_role": "weak"
+      },
+      {
+        "turn": 5,
+        "action": "Investigate Activity Around DeleteAccessKey",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support",
+        "action_role": "weak"
+      }
+    ],
+    "pending_turn": 5,
+    "completed": true
+  },
+  "draft": {},
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "f63e9fdc38a5a18b43973e04445fe27028abfd67",
+  "codeHasLocalChanges": true
+}

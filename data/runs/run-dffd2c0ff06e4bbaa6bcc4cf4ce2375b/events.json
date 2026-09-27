@@ -1,0 +1,14 @@
+[
+  {
+    "at": "2026-09-25T10:00:02.005881+00:00",
+    "operation": "/api/evaluate",
+    "stages": [],
+    "elapsedSeconds": 156.088
+  },
+  {
+    "at": "2026-09-25T10:00:02.404692+00:00",
+    "operation": "/api/continue",
+    "stages": [],
+    "elapsedSeconds": 0.255
+  }
+]

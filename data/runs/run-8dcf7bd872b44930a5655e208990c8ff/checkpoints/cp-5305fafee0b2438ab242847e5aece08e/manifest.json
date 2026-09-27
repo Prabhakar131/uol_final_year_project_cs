@@ -1,0 +1,18 @@
+{
+  "evidence/turn_1/access_key_creation.png": "4f1eb7764794d506ded642151c3a19d412a1c8d21996f94141c951cf2a037100",
+  "evidence/turn_1/cloudwatch_insights_query.png": "4ef58d16579bcf3f4becb69ca780c9286b99df37014e11a91ea69cf1da46686a",
+  "evidence/turn_1/cloudtrail_log_anomaly.png": "ce0e479df4459d45d7372d745e0f63fcbd8c9227e3b0345cef10ec4c0194f3b0",
+  "source/.DS_Store": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3",
+  "source/threat-model.json": "832edd64274f8008dbc92e1a17d01e776d2ca79611710e1b2c6a830185ebb752",
+  "source/architecture.png": "5cab900c5286cb8c43a3f8bca775cf29651e4d29116d180434020ffcaf91227f",
+  "runtime/scenario_config.json": "f3a58a769bdd1fe3720f59d86ea26923e58e9671b5304fa3ee4994f415488250",
+  "runtime/hidden_truth.json": "9c573a66e5833caa73d4a81e11ff311ded2512a73b04562cf02ceef1fffc1b73",
+  "runtime/scenario_seed.json": "f6c9b2f7588055e78a6215d457fea7b8a7d61b49a52758059135e82a5322d4a6",
+  "runtime/turns/turn_1/evidence_facts.json": "46b8a1bf8407f8301063701d0c0540cf2107c4d148b27cac211940cd49e50942",
+  "runtime/turns/turn_1/expected_outcomes.json": "b8d1a550dadd86decccd44a6e9228139b2dda3f38b8decfce959b098312544e6",
+  "runtime/turns/turn_1/actions.json": "fc72c4cd522353fac831d3c46ab0e690fc7a199e72b12bc274f5faa23c2eadf8",
+  "runtime/turns/turn_1/turn_config.json": "d286a66e4d88a68eff8d350b5289b7dc01ff3a267bad583d504745178385bd99",
+  "processed/selected_acse_case.json": "f25fa6137f2fa42dd1b3af58b51d753adc56003f127212dff4b26ea6c94dcc0f",
+  "processed/normalised_threat_model.json": "ce38ff5882539164f3ba5c20e32918103b247f520e02ef0480d4bbed863ff018",
+  "processed/architecture_facts.json": "325f9a06986cbf26d110dca5e5add35a3f22ab1e0f59574e65582ae21cb01627"
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-c143f769a5a84072a4c9610a4e2d50c6",
+  "scenarioId": "cost-management",
+  "label": "AUTO TEST \u00b7 cost-management \u00b7 weak evidence path \u00b7 25 Sep",
+  "createdAt": "2026-09-25T11:53:34.872058+00:00",
+  "updatedAt": "2026-09-25T12:25:05.138007+00:00",
+  "status": "completed",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-b21fa0f0ce9a4a8d828b838b17cb9414",
+  "turn": 5,
+  "completedTurns": 5
+}

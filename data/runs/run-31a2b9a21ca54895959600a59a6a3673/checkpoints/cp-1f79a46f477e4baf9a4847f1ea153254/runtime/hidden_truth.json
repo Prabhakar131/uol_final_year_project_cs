@@ -1,0 +1,24 @@
+{
+  "dataset": "ACSE-Eval",
+  "scenario_id": "automated-security-response",
+  "scenario_slug": "automated_security_response",
+  "scenario_type": "automated-security-response",
+  "primary_risk": "Lambda functions are vulnerable to code injection via Security Hub findings, leading to potential high confidentiality and integrity breaches.",
+  "affected_assets": [
+    "SecurityHub",
+    "EventBridge",
+    "CheckStateLambda",
+    "ExecuteRemediationLambda"
+  ],
+  "likely_attack_path": [
+    "Compromise member account -> Create malicious Security Hub finding -> Exploit Lambda functions via injection payload"
+  ],
+  "security_signals": [
+    "Unusual Lambda function execution patterns",
+    "Security Hub findings with suspicious content"
+  ],
+  "hidden_truth_candidates": [
+    "Lambda functions should implement strict input validation and sanitization for Security Hub finding fields"
+  ],
+  "architecture_summary": "AWS Automated Security Response Architecture utilizing Security Hub, EventBridge, Step Functions Orchestrator, Lambda Functions, SNS Notifications, CloudWatch Logs, Kinesis Firehose, and Metrics Bucket for automated security response and monitoring."
+}

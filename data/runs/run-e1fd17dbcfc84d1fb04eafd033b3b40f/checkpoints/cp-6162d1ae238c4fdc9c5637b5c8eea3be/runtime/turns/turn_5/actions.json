@@ -1,0 +1,23 @@
+[
+  {
+    "id": "examine_access_keys",
+    "title": "Examine Access Keys",
+    "description": "Further examine the access keys used by the customer-api user to ensure they match their credentials.",
+    "recommended_next_focus": "Confirm the legitimacy of the access keys.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_cloud_trail_logs",
+    "title": "Verify CloudTrail Logs",
+    "description": "Review CloudTrail logs for any suspicious activity related to the customer-api user.",
+    "recommended_next_focus": "Identify anomalous behavior or unauthorized access attempts.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_ec2_billing_logs",
+    "title": "Verify Activity Around DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by SecurityAnalyst.",
+    "recommended_next_focus": "Identify abnormal resource usage or unexpected access attempts.",
+    "choice_role": "best"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "run-17ae93d7a1704574b4f15c6d2172f31b",
+  "scenarioId": "automated-security-response",
+  "label": "AUTO TEST \u00b7 automated-security-response \u00b7 strong evidence path \u00b7 25 Sep",
+  "createdAt": "2026-09-25T08:41:06.647260+00:00",
+  "updatedAt": "2026-09-25T08:41:37.592151+00:00",
+  "status": "paused",
+  "resumable": true,
+  "testMode": true,
+  "parent": null,
+  "latestCheckpoint": "cp-6e3da75cc87b400a94043c5a2010579d",
+  "turn": 1,
+  "completedTurns": 0
+}

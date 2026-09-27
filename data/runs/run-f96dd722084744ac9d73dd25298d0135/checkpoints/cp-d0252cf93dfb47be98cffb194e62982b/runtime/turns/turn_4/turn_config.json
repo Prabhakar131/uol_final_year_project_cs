@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "The previous evidence choice did not fully resolve the investigation path, so this turn should refocus the learner on the missing evidence before moving forward. Consider investigating further into the recent activity around the PutEvents call by d.okafor to understand the full extent of unauthorized updates to function code.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "GuardDuty Low finding Discovery:IAMUser/AnomalousBehavior for d.okafor",
+    "Daily spend $44.03 against a $42.75 average; largest service S3"
+  ],
+  "coach_guidance": "Look for additional IAM activities performed by d.okafor within the same time frame to identify broader unauthorized access attempts."
+}

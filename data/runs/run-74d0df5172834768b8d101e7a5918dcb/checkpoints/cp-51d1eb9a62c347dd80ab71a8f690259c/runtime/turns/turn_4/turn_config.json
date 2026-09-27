@@ -1,0 +1,11 @@
+{
+  "turn": 4,
+  "phase": "containment_and_remediation",
+  "briefing": "Continue investigating the recent IAM activities of s.brennan to identify the source of the AssumeRole call and assess the potential impact.",
+  "known_context": [
+    "ARN:AWS/IAM/AccountID/UserName",
+    "SourceIP:198.51.100.1",
+    "EventTime:UTC"
+  ],
+  "coach_guidance": "Look for unusual patterns or anomalies in the IAM activities to determine if there are any signs of unauthorized access attempts."
+}

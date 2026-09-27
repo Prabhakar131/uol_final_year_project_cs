@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_user_activity",
+    "title": "Explore User Activity",
+    "description": "Review IAM activity logs for any unusual activity associated with the suspicious principal.",
+    "recommended_next_focus": "Review IAM activity logs for anomalies",
+    "choice_role": "weak"
+  },
+  {
+    "id": "identify_suspicious_access_keys",
+    "title": "Identify Suspicious Access Keys",
+    "description": "Examine active access keys to see if they match the pattern of anomalous behavior.",
+    "recommended_next_focus": "Review IAM activity logs for anomalies",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_cloud_trail_logs",
+    "title": "Investigate Activity Around CreateAccessKey",
+    "description": "Investigate the recent activity around the CreateAccessKey call by customer-api.",
+    "recommended_next_focus": "Identify potential modifications or disabling of logging activities",
+    "choice_role": "best"
+  }
+]

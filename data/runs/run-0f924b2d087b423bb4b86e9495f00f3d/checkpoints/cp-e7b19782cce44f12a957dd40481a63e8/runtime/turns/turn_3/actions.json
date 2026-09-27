@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_access_keys",
+    "title": "Investigate Access Keys",
+    "description": "Review the active access keys associated with the customer-api user to determine if they match the suspicious principal.",
+    "recommended_next_focus": "Identify potential compromised credentials",
+    "choice_role": "weak"
+  },
+  {
+    "id": "examine_cloud_trail_logs",
+    "title": "Examine CloudTrail Logs",
+    "description": "Review CloudTrail logs for any unusual activity involving the customer-api user.",
+    "recommended_next_focus": "Identify anomalous access patterns",
+    "choice_role": "partial"
+  },
+  {
+    "id": "check_billing_activity",
+    "title": "Check Billing Activity",
+    "description": "Review the billing activity for the customer-api user to see if there are any unexpected charges.",
+    "recommended_next_focus": "Confirm if the costs align with usage",
+    "choice_role": "best"
+  }
+]

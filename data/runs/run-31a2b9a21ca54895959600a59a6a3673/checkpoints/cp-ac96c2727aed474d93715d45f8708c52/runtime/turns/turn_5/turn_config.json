@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "This turn should focus on Recovery And Final Debrief: Help the learner verify recovery, residual risk, and final incident reporting evidence before closing the scenario. Continue investigating the recent activity around the PutEvents call by d.okafor to understand the context of their IAM activities.",
+  "known_context": [
+    "Unauthorized login attempt detected by GuardDuty",
+    "CloudTrail event recording of ObjectGet operation by d.okafor",
+    "Billing alert indicating increased daily spending"
+  ],
+  "coach_guidance": "Focus on gathering more comprehensive IAM audit trails or reviewing any recent changes made by 'd.okafor' to understand his activities better. This will help us determine whether the access key 'ASIADE13333F8C2F195A' is still active and last used recently."
+}

@@ -1,0 +1,33 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Focus on correlating the current IAM activity with other CloudTrail logs and examining the last known active use of the access key."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't align with the progression rules."
+      ],
+      "retry_instruction": "Move towards scope, blast-radius, monitoring, detection, or impact review."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities and stopping logging, which is similar to the completed turn's phase and action focus.",
+        "The evidence titles and facts are mostly identical to the completed turn, lacking a distinct new investigative purpose."
+      ],
+      "retry_instruction": "Refocus the investigation towards scope, correlation, credential risk, or monitoring gaps while ensuring the evidence reflects the current state of the investigation."
+    }
+  ]
+}

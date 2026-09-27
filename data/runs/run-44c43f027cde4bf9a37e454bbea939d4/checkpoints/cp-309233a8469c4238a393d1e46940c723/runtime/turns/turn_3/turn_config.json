@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "scope_and_blast_radius",
+  "briefing": "Continue investigating the unauthorized IAM activities identified by GuardDuty. Identify any unauthorized changes or failed attempts beyond just the 'UpdateFunctionCode' call.",
+  "known_context": [
+    "Unauthorized login attempt detected by GuardDuty on 198.51.100.1 at 09:14 UTC.",
+    "CloudTrail records show multiple PutEvents operations by d.okafor.",
+    "Billing details indicate high daily spending on S3 services."
+  ],
+  "coach_guidance": "Focus on uncovering any unauthorized IAM changes or failed attempts beyond the 'UpdateFunctionCode' call. Look for patterns or anomalies in IAM access logs and review failed login attempts or unusual API calls made by 'd.okafor'. This will help ensure a comprehensive investigation."
+}

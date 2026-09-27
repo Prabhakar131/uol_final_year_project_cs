@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_cloudtrail_logs",
+    "title": "Check CloudTrail logs for anomalies related to s.brennan",
+    "description": "Review the CloudTrail logs for any unexpected activity or changes in s.brennan's access key usage.",
+    "recommended_next_focus": "Detect potential breaches or unauthorized access attempts",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify the status of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan",
+    "description": "Confirm the active status of the access key AKIA6BA26EFDCBD2Q5C5 for s.brennan to rule out accidental deletion.",
+    "recommended_next_focus": "Ensure the key remains active for legitimate purposes",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_key",
+    "title": "Investigate the recent activity around the CreateAccessKey call by s.brennan",
+    "description": "Examine the recent creation of an access key for s.brennan to assess whether it aligns with their usual behavior.",
+    "recommended_next_focus": "Identify anomalous access key usage patterns",
+    "choice_role": "best"
+  }
+]

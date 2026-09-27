@@ -1,0 +1,11 @@
+{
+  "turn": 5,
+  "phase": "recovery_and_final_debrief",
+  "briefing": "This turn should focus on Recovery And Final Debrief: Help the learner verify recovery, residual risk, and final incident reporting evidence before closing the scenario. Continue investigating the GuardDuty finding for 'd.okafor' to identify potential anomalous behavior.",
+  "known_context": [
+    "The GuardDuty finding indicates unusual activity involving d.okafor's account.",
+    "The account has been accessed from multiple sources including 198.51.100.1.",
+    "There have been put events recorded by AWS Lambda."
+  ],
+  "coach_guidance": "Focus on correlating GuardDuty findings with IAM activities around function updates and put events to better understand the context and risks."
+}

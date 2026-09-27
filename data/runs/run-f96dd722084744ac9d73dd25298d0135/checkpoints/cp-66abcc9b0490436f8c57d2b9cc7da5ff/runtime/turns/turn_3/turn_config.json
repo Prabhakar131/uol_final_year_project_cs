@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "Consider investigating further into the recent activity around the PutEvents call by d.okafor to understand the full extent of unauthorized updates to function code.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "GuardDuty found a potential threat signal related to d.okafor",
+    "CloudTrail recorded multiple GetObject operations by d.okafor"
+  ],
+  "coach_guidance": "Focus on identifying similar IAM activities involving the same user or IP to better understand the broader impact of the incident."
+}

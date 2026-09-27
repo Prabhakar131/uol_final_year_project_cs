@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "correlation_and_scope",
+  "briefing": "Consider correlating the GuardDuty finding with IAM activities and other security signals to gather more context and verify its severity.",
+  "known_context": [
+    "Unauthorized login attempt detected from 198.51.100.1",
+    "GetObject operation by d.okafor from 203.0.113.41",
+    "Access key details for etl-runner"
+  ],
+  "coach_guidance": "To better understand the GuardDuty finding, consider how it relates to IAM activities and other security signals."
+}

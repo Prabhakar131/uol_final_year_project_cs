@@ -1,0 +1,97 @@
+[
+  {
+    "id": "cloudwatch_insights_query",
+    "title": "CloudWatch Log Insight Query",
+    "type": "cloudwatch",
+    "summary": "A CloudWatch log insight query matches multiple entries related to unauthorized access attempts.",
+    "why_it_may_matter": "These queries highlight ongoing threats and potential breaches.",
+    "support_role": "partial",
+    "template": "cloudwatch",
+    "facts": {
+      "log_rows": [
+        [
+          "2023-10-01T10:12:10Z",
+          "auth/identity-center",
+          "ConsoleLogin success for arn:aws:iam::123456789012:user/admin-test from 185.220.101.42; mfaAuthenticated=false"
+        ],
+        [
+          "2023-10-01T10:18:44Z",
+          "cloudtrail/audit",
+          "ListTrails called by arn:aws:iam::123456789012:user/admin-test from 185.220.101.42"
+        ],
+        [
+          "2023-10-01T10:21:35Z",
+          "cloudtrail/audit",
+          "StopLogging called on prod-org-trail by arn:aws:iam::123456789012:user/admin-test"
+        ],
+        [
+          "2023-10-01T10:24:02Z",
+          "iam/credential-monitor",
+          "CreateAccessKey succeeded for arn:aws:iam::123456789012:user/admin-test; key status Active"
+        ],
+        [
+          "2023-10-01T10:26:11Z",
+          "security/correlation",
+          "Same source IP 185.220.101.42 observed across authentication and credential events"
+        ]
+      ],
+      "query": "Insight query showing unauthorized access attempts across various regions.",
+      "log_group": "/aws/cloudtrail/organization/prod",
+      "matched_records": "5",
+      "scanned_bytes": "1.4 MB",
+      "time_range": "2023-10-01 10:10-10:30 UTC",
+      "alarm_state": "Identity correlation signal"
+    }
+  },
+  {
+    "id": "access_key_info",
+    "title": "Access Key Information",
+    "type": "access_key",
+    "summary": "An access key associated with an IAM user is marked as inactive.",
+    "why_it_may_matter": "Inactivating an active access key reduces exposure.",
+    "support_role": "weak",
+    "template": "access_key",
+    "facts": {
+      "access_key_id": "AKIA4Z7EXAMPLE92K",
+      "owner": "arn:aws:iam::123456789012:user/admin-test",
+      "status": "Inactive",
+      "last_used_service": "iam.amazonaws.com",
+      "last_used_region": "ap-southeast-1",
+      "last_used_time": "2023-10-01T10:24:02Z",
+      "source_ip": "185.220.101.42"
+    }
+  },
+  {
+    "id": "cloudtrail_log_row",
+    "title": "Unauthorized Access Attempt",
+    "type": "cloudtrail",
+    "summary": "A CloudTrail log entry shows an attempt to stop logging from an unknown IP.",
+    "why_it_may_matter": "This indicates a potential threat where sensitive data might be exfiltrated.",
+    "support_role": "strong",
+    "template": "cloudtrail",
+    "facts": {
+      "event_name": "StopLogging",
+      "event_source": "cloudtrail.amazonaws.com",
+      "user": "arn:aws:iam::123456789012:user/admin-test",
+      "source_ip": "185.220.101.42",
+      "mfa": "false",
+      "event_time": "2023-10-01T10:21:35Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Attempt to stop logging could expose sensitive data.",
+      "event_id": "8f42b4ac-9f1b-4d1a-a3c8-5df2c9a71c03",
+      "user_agent": "signin.amazonaws.com",
+      "recipient_account_id": "123456789012",
+      "request_parameters": "trailName=prod-org-trail, userName=arn:aws:iam::123456789012:user/admin-test",
+      "related_events": [
+        [
+          "2023-10-01T10:21:35Z",
+          "StopLogging",
+          "arn:aws:iam::123456789012:user/admin-test",
+          "185.220.101.42",
+          "Success"
+        ]
+      ]
+    }
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "strong_support": "Continuing to monitor GuardDuty and CloudTrail logs for any new activity involving the stopped access key.",
+  "partial_support": "Finding that the stopped access key was not used recently helps mitigate the immediate threat.",
+  "weak_support": "Receiving no GuardDuty alerts means there are no external threats currently targeting the user or their resources.",
+  "unsupported": "Not finding any CloudTrail records showing recent activity indicates the key was not in use, reducing the immediate concern."
+}

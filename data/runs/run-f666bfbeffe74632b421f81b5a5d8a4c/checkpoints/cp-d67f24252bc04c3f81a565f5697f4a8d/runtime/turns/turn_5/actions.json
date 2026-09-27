@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_guard_duty",
+    "title": "Examine the GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty finding to understand the nature of the threat or vulnerability related to s.brennan's access key.",
+    "recommended_next_focus": "Understand the threat or vulnerability",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "Verify the recent activity around the DeleteAccessKey call by s.brennan",
+    "description": "Review the recent IAM activities and access key details to ensure proper cleanup and prevent future misuse.",
+    "recommended_next_focus": "Review IAM activities and access key details",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_billing",
+    "title": "Confirm the billing activity for s.brennan",
+    "description": "Ensure there are no unexpected charges or unusual spending patterns related to s.brennan's account.",
+    "recommended_next_focus": "Review billing activity",
+    "choice_role": "weak"
+  }
+]

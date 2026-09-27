@@ -1,0 +1,79 @@
+{
+  "id": "cp-6162d1ae238c4fdc9c5637b5c8eea3be",
+  "createdAt": "2026-09-25T11:52:32.869603+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 36,
+    "visibility": 67,
+    "risk": "High",
+    "phase": "Containment Decision",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Check Billing Activity",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 2,
+        "action": "Investigate the recent activity around the Invoke call by customer-api",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Verify billing activity",
+        "evidence": "CloudWatch Logs Insights Query",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 4,
+        "action": "Investigate Activity Around CreateAccessKey",
+        "evidence": "GuardDuty findings",
+        "verdict": "Partial Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Verify the recent activity around the DeleteAccessKey call by SecurityAnalyst.",
+      "id": "investigate_ec2_billing_logs",
+      "recommended_next_focus": "Identify abnormal resource usage or unexpected access attempts.",
+      "title": "Verify Activity Around DeleteAccessKey"
+    },
+    "selectedEvidence": {
+      "id": "billing_daily_spend",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/billing_daily_spend.png",
+      "imageUrl": "/generated_evidence/turn_5/billing_daily_spend.png",
+      "summary": "Daily spend $44.62 against a $42.75 average; largest service EC2.",
+      "supportRole": "partial",
+      "template": "billing",
+      "title": "Daily Billing Summary",
+      "type": "billing",
+      "whyItMayMatter": "Indicates unusual spending pattern."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "8bd97b73bfcdc732a5875584b1bfb30d46df495f",
+  "codeHasLocalChanges": true
+}

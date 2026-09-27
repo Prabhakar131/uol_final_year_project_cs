@@ -1,0 +1,23 @@
+[
+  {
+    "id": "investigate_cloudtrail_events",
+    "title": "Investigate the recent activity around the PutEvents call by d.okafor",
+    "description": "Review CloudTrail events related to the PutEvents call by d.okafor to understand the context of his IAM activities.",
+    "recommended_next_focus": "Check the billing alerts for increased costs",
+    "choice_role": "partial"
+  },
+  {
+    "id": "verify_access_key_status",
+    "title": "Verify Activity Around DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by security-ops.",
+    "recommended_next_focus": "Review IAM activity related to 'd.okafor'",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_billing_alerts",
+    "title": "Check the billing alerts for increased costs",
+    "description": "Review the billing alerts for increased costs to identify potential financial impacts.",
+    "recommended_next_focus": "Revisit the IAM activity related to 'd.okafor'",
+    "choice_role": "weak"
+  }
+]

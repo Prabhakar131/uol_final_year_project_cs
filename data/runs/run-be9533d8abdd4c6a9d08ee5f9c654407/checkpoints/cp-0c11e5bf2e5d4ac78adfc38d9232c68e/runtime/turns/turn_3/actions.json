@@ -1,0 +1,23 @@
+[
+  {
+    "id": "update_function_code",
+    "title": "Update Function Code",
+    "description": "Ensure there are no unauthorized updates to function code or other sensitive operations.",
+    "recommended_next_focus": "Revert changes and restore original function code",
+    "choice_role": "weak"
+  },
+  {
+    "id": "review_cloudtrail_logs",
+    "title": "Review CloudTrail logs",
+    "description": "Look for similar IAM activities in the cloud trail logs to confirm the GuardDuty findings.",
+    "recommended_next_focus": "Confirm the anomaly by correlating with GuardDuty findings",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_iam_activities",
+    "title": "Investigate Activity Around PutEvents",
+    "description": "Investigate the recent activity around the PutEvents call by d.okafor.",
+    "recommended_next_focus": "Identify potential updates to function code or other sensitive operations",
+    "choice_role": "best"
+  }
+]

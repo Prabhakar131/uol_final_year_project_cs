@@ -1,0 +1,11 @@
+{
+  "turn": 2,
+  "phase": "Correlation and Scope",
+  "briefing": "Identify the specific IAM activities associated with the unauthorized access attempts shown in the CloudWatch Log Insight Query. Narrow down these activities to pinpoint the root cause of the threat.",
+  "known_context": [
+    "Unauthorized access attempts occurred on various IAM activities across different regions.",
+    "The CloudTrail logs show multiple failed authentication attempts from the specified IP address.",
+    "The IAM user 'admin-test' accessed resources in the Production account."
+  ],
+  "coach_guidance": "Focus on correlating the IAM activities with the CloudTrail events to understand how they relate to the unauthorized access attempts. Look for patterns or anomalies in the IAM logs that might indicate the source of the threat."
+}

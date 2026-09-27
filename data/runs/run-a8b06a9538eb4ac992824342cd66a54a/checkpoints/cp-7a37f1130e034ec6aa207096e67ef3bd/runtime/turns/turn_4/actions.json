@@ -1,0 +1,23 @@
+[
+  {
+    "id": "explore_billing_patterns",
+    "title": "Further explore the billing patterns to determine the true cost impact",
+    "description": "Look into the billing patterns to assess the true cost impact of the unauthorized access attempt.",
+    "recommended_next_focus": "Confirm the extent of the impact",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_cloudwatch_usage",
+    "title": "Verify if there were any changes in service usage patterns before and after the incident",
+    "description": "Review the CloudWatch logs to check for any changes in service usage before and after the unauthorized access attempt.",
+    "recommended_next_focus": "Understand the broader impact",
+    "choice_role": "partial"
+  },
+  {
+    "id": "check_access_key_logs",
+    "title": "Review the recent use of d.okafor's access key from 198.51.100.1",
+    "description": "Examine the access key logs to find any anomalies or unusual activities related to the unauthorized access attempt.",
+    "recommended_next_focus": "Identify potential sources of increased charges",
+    "choice_role": "best"
+  }
+]

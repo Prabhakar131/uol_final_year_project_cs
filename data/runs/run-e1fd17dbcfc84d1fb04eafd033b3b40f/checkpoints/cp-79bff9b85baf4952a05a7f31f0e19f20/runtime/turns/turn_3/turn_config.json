@@ -1,0 +1,11 @@
+{
+  "turn": 3,
+  "phase": "specific incident response phase",
+  "briefing": "Review the recent activity around the Invoke call by customer-api and investigate if there are any additional signs of unauthorized access.",
+  "known_context": [
+    "The suspicious principal 'arn:aws:iam::123456789012:user/customer-api' accessed the system from IP address 203.0.113.10.",
+    "The daily spend increased by $5.37 compared to the usual $42.75 average, indicating higher costs related to the suspicious activity.",
+    "An IAM activity log entry shows the principal performing an 'Invoke' operation."
+  ],
+  "coach_guidance": "Focus on examining the IAM activity logs to find further clues about the unauthorized access attempt."
+}

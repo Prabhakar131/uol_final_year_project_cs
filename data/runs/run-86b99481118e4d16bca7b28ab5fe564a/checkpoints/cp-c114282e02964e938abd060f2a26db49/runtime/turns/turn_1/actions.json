@@ -1,0 +1,23 @@
+[
+  {
+    "id": "identify_unauthorized_access",
+    "title": "Identify Unauthorized Access Attempts",
+    "description": "Based on the CloudTrail logs, pinpoint the source of unauthorized access attempts.",
+    "recommended_next_focus": "Secure the identified accounts and prevent further attacks.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "review_iam_activities",
+    "title": "Review Recent IAM Activities",
+    "description": "Look at the latest IAM activities to identify potential threats.",
+    "recommended_next_focus": "Identify suspicious IAM activities and their sources.",
+    "choice_role": "best"
+  },
+  {
+    "id": "check_cloudtrail_logs",
+    "title": "Check CloudTrail Logs",
+    "description": "Search CloudTrail logs for patterns indicating unauthorized access attempts.",
+    "recommended_next_focus": "Identify specific IAM activities and their origins.",
+    "choice_role": "partial"
+  }
+]

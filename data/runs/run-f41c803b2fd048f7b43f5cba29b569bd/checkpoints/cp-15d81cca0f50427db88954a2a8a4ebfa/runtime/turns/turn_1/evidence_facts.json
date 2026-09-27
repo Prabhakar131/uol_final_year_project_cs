@@ -1,0 +1,109 @@
+[
+  {
+    "id": "cloudwatch_insights_query",
+    "title": "Analyze CloudTrail Query Results",
+    "type": "cloudwatch",
+    "summary": "A CloudWatch Insights query reveals that the IAM user has been accessing resources in multiple regions.",
+    "why_it_may_matter": "This suggests cross-account access, which could indicate malicious intent.",
+    "support_role": "weak",
+    "template": "cloudwatch",
+    "facts": {
+      "query": "SELECT * FROM 'aws.cloudtrail.logs' WHERE 'EventName' = 'ServiceRequest' AND 'SourceIPAddress' IN ('192.0.2.1') AND 'Region' IN ('us-east-1', 'eu-west-1');",
+      "log_group": "logs/aws/cloudtrail/us-east-1",
+      "matched_records": "10",
+      "scanned_bytes": "100000000",
+      "time_range": "2023-10-01T00:00:00Z to 2023-10-02T00:00:00Z",
+      "alarm_state": "Normal",
+      "log_rows": [
+        [
+          "2023-10-01T12:00:00Z",
+          "logs/aws/cloudtrail/us-east-1",
+          "ServiceRequest: Access Requested to s3.amazonaws.com"
+        ],
+        [
+          "2023-10-01T12:01:00Z",
+          "logs/aws/cloudtrail/us-east-1",
+          "ServiceRequest: Access Requested to ec2.amazonaws.com"
+        ],
+        [
+          "2023-10-01T12:02:00Z",
+          "logs/aws/cloudtrail/us-east-1",
+          "ServiceRequest: Access Requested to rds.amazonaws.com"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "cloudtrail_log_anomaly",
+    "title": "Anomalies in CloudTrail Logs",
+    "type": "cloudtrail",
+    "summary": "CloudTrail logs indicate frequent failed login attempts from a specific IP address associated with an IAM user.",
+    "why_it_may_matter": "This suggests a potential attempt to bypass authentication controls.",
+    "support_role": "strong",
+    "template": "cloudtrail",
+    "facts": {
+      "event_name": "Failed Login Attempt",
+      "event_source": "CloudTrail",
+      "user": "IAM User X",
+      "source_ip": "185.220.101.42",
+      "mfa": "false",
+      "event_time": "2023-10-01T12:00:00Z",
+      "region": "ap-southeast-1",
+      "error_code": "-",
+      "risk_signal": "Unauthorized access attempted",
+      "event_id": "C0000001",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36",
+      "recipient_account_id": "1234567890",
+      "request_parameters": "No parameters provided",
+      "related_events": [
+        [
+          "2023-10-01T11:59:59Z",
+          "Failed Login Attempt",
+          "IAM User X",
+          "185.220.101.42",
+          "Failed"
+        ],
+        [
+          "2023-10-01T12:00:01Z",
+          "Failed Login Attempt",
+          "IAM User X",
+          "185.220.101.42",
+          "Failed"
+        ]
+      ]
+    }
+  },
+  {
+    "id": "access_key_creation",
+    "title": "Check IAM User Access Key Creation",
+    "type": "iam_activity",
+    "summary": "An IAM user created two new access keys within a week, which is unusual given typical usage patterns.",
+    "why_it_may_matter": "This indicates potential misuse of access keys.",
+    "support_role": "partial",
+    "template": "iam_activity",
+    "facts": {
+      "activity_rows": [
+        [
+          "2023-10-01T10:00:00Z",
+          "IAM User Y",
+          "Create Access Key",
+          "185.220.101.42"
+        ],
+        [
+          "2023-10-01T11:00:00Z",
+          "IAM User Y",
+          "Create Access Key",
+          "185.220.101.42"
+        ]
+      ],
+      "principal": "IAM User Y",
+      "source_ip": "Unknown",
+      "mfa": "Unknown",
+      "policy_change": "Increased permissions granted",
+      "access_key_status": "Created New Keys",
+      "risk_flags": [
+        "Unauthorized Key Creation"
+      ]
+    }
+  }
+]

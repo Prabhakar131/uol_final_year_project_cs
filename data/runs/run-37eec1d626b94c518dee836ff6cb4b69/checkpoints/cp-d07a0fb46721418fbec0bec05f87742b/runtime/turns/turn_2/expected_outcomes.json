@@ -1,0 +1,6 @@
+{
+  "strong_support": "Review CloudTrail logs and verify access key status to confirm unauthorized access attempts.",
+  "partial_support": "Review IAM activity history and check access key status for clues about recent changes or attempts.",
+  "weak_support": "Use access key deactivation details to infer the key's current inactivity.",
+  "unsupported": "No strong evidence exists to support the chosen action."
+}

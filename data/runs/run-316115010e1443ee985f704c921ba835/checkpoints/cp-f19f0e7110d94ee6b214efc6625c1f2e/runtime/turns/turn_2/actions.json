@@ -1,0 +1,23 @@
+[
+  {
+    "id": "query_security_logs",
+    "title": "Query Security Logs",
+    "description": "Use CloudWatch or GuardDuty signals to validate whether the identity activity appears across monitoring sources.",
+    "recommended_next_focus": "Use monitoring evidence to support or challenge the CloudTrail and IAM timeline.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "correlate_identity_timeline",
+    "title": "Correlate Identity Timeline",
+    "description": "Compare IAM activity around the suspicious login to see whether the same principal and source IP repeat.",
+    "recommended_next_focus": "Look for login, logging, credential, and caller-identity events in the same incident window.",
+    "choice_role": "best"
+  },
+  {
+    "id": "review_access_key_risk",
+    "title": "Review Access Key Risk",
+    "description": "Check whether a new or recently used access key appears after the suspicious identity activity.",
+    "recommended_next_focus": "Confirm whether credential creation or usage increases the containment priority.",
+    "choice_role": "partial"
+  }
+]

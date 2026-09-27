@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_iam_operations",
+    "title": "Review IAM Operations",
+    "description": "Inspect IAM operations performed by s.brennan to verify their alignment with the assumed role.",
+    "recommended_next_focus": "Look for additional IAM calls such as GetBucketLocation, DescribeVolumes, and PutObject.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Investigate the High-severity GuardDuty finding for s.brennan",
+    "description": "Review the GuardDuty findings for s.brennan to assess the risk associated with the unauthorized access.",
+    "recommended_next_focus": "Identify any potential breaches or misconfigurations related to the AssumeRole call.",
+    "choice_role": "best"
+  },
+  {
+    "id": "review_billing_spending",
+    "title": "Review Daily Spending Report",
+    "description": "Analyze the daily spending report to detect unusual activity related to s.brennan.",
+    "recommended_next_focus": "Confirm the scope of the role assignment through further investigations.",
+    "choice_role": "weak"
+  }
+]

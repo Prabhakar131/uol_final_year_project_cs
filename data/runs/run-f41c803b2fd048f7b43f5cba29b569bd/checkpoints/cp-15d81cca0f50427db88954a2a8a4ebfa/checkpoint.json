@@ -1,0 +1,75 @@
+{
+  "id": "cp-15d81cca0f50427db88954a2a8a4ebfa",
+  "createdAt": "2026-09-24T11:26:07.808308+00:00",
+  "kind": "paused",
+  "state": {
+    "current_turn": 1,
+    "max_turns": 5,
+    "containment": 30,
+    "visibility": 50,
+    "risk": "High",
+    "phase": "Initial Triage",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Investigate Suspicious IAM User Activity",
+        "evidence": "Analyze CloudTrail Query Results",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "evaluation",
+    "selectedAction": {
+      "choice_role": "best",
+      "description": "Review IAM user activity logs for signs of unauthorized access or data exfiltration.",
+      "id": "detect_unauthorized_access",
+      "recommended_next_focus": "Identify the root cause of the suspicious IAM user behavior.",
+      "title": "Investigate Suspicious IAM User Activity"
+    },
+    "selectedEvidence": {
+      "id": "cloudwatch_insights_query",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_1/cloudwatch_insights_query.png",
+      "imageUrl": "/generated_evidence/turn_1/cloudwatch_insights_query.png",
+      "summary": "A CloudWatch Insights query reveals that the IAM user has been accessing resources in multiple regions.",
+      "supportRole": "weak",
+      "template": "cloudwatch",
+      "title": "Analyze CloudTrail Query Results",
+      "type": "cloudwatch",
+      "whyItMayMatter": "This suggests cross-account access, which could indicate malicious intent."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": {
+        "title": "Explain How The Monitoring Evidence Supports Your Action",
+        "text": "Explain how the CloudWatch-style evidence supports your selected response action. Connect the metric or anomaly to what you would investigate or contain.",
+        "cues": [
+          "metric name",
+          "time range",
+          "anomaly",
+          "threshold",
+          "affected resource"
+        ],
+        "actionTitle": "Investigate Suspicious IAM User Activity",
+        "evidenceTitle": "Analyze CloudTrail Query Results",
+        "evidenceType": "cloudwatch"
+      },
+      "transcript": "I selected Investigate Suspicious IAM User Activity to investigate this incident. I chose this screenshot because it might help review the recent activity. I will check the visible identity, source IP, event time, service, status, and risk signal to see what the evidence actually establishes. If those details do not prove the action, I would compare this with another source before drawing a conclusion.",
+      "model": null,
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "dc0af94f3f07d852a671cf8829dfed7725e55c39",
+  "codeHasLocalChanges": true
+}

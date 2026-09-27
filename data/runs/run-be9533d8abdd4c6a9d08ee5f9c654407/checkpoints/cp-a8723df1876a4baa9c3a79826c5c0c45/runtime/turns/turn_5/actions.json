@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_access_key_details",
+    "title": "Check Access Key Details",
+    "description": "Verify the access key details for 'd.okafor' to understand their usage patterns.",
+    "recommended_next_focus": "Confirm if 'GetObject' operations are part of GuardDuty findings",
+    "choice_role": "partial"
+  },
+  {
+    "id": "investigate_guard_duty_findings",
+    "title": "Verify Activity Around DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by security-ops.",
+    "recommended_next_focus": "Identify if 'GetObject' operations are part of GuardDuty findings",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_object_get_operations",
+    "title": "Verify 'GetObject' Operations",
+    "description": "Search for 'GetObject' operations related to 'd.okafor' to confirm if they match any GuardDuty findings.",
+    "recommended_next_focus": "Confirm if 'GetObject' operations are part of GuardDuty findings",
+    "choice_role": "weak"
+  }
+]

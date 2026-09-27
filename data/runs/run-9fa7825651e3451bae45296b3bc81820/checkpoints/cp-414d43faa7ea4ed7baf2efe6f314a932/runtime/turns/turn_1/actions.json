@@ -1,0 +1,23 @@
+[
+  {
+    "id": "analyze_cloud_trail_log",
+    "title": "Analyze CloudTrail Log",
+    "description": "Look for patterns in CloudTrail logs related to the suspicious user.",
+    "recommended_next_focus": "Correlate the CloudTrail log entries with IAM activities.",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_suspicious_user",
+    "title": "Investigate Suspicious User Activity",
+    "description": "Identify the IAM user responsible for the suspicious activity.",
+    "recommended_next_focus": "Review IAM activities and associated costs.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "review_billing_activity",
+    "title": "Review Billing Activity",
+    "description": "Check the daily spend and identify any anomalies.",
+    "recommended_next_focus": "Compare the current spend with previous averages.",
+    "choice_role": "best"
+  }
+]

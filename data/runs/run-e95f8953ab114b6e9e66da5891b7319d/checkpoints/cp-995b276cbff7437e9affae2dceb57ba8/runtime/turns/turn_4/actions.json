@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_activity",
+    "title": "Check the billing activity for the customer-api user",
+    "description": "Review the billing activity for the customer-api user to see if there have been any unexpected increases in spend. This could indicate potential misuse or fraudulent activity.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "weak"
+  },
+  {
+    "id": "investigate_access_logs",
+    "title": "Investigate the recent activity around the CreateAccessKey call by customer-api",
+    "description": "Review the console logs and AWS account activities for any unusual patterns or anomalies related to the customer-api user. This could include monitoring for new services being accessed, changes in usage patterns, or any suspicious login attempts.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "best"
+  },
+  {
+    "id": "examine_suspicious_services",
+    "title": "Examine the suspicious services accessed by customer-api",
+    "description": "Review the console logs and AWS account activities for any suspicious services accessed by the customer-api user. This could include monitoring for new services being accessed, changes in usage patterns, or any suspicious login attempts.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "partial"
+  }
+]

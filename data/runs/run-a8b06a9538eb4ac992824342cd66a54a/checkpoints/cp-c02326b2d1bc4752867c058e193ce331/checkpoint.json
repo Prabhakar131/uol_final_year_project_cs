@@ -1,0 +1,79 @@
+{
+  "id": "cp-c02326b2d1bc4752867c058e193ce331",
+  "createdAt": "2026-09-25T14:17:12.710157+00:00",
+  "kind": "before_turn",
+  "state": {
+    "current_turn": 5,
+    "max_turns": 5,
+    "containment": 44,
+    "visibility": 73,
+    "risk": "Medium",
+    "phase": "Containment Decision",
+    "action_history": [
+      {
+        "turn": 1,
+        "action": "Review CloudTrail Logs",
+        "evidence": "GuardDuty Finding",
+        "verdict": "Strong Support"
+      },
+      {
+        "turn": 2,
+        "action": "Explore Logging Gaps",
+        "evidence": "CloudTrail Event: GetObject",
+        "verdict": "Partial Support"
+      },
+      {
+        "turn": 3,
+        "action": "Check daily spending on AWS services",
+        "evidence": "Daily Billing Summary",
+        "verdict": "Weak Support"
+      },
+      {
+        "turn": 4,
+        "action": "Further explore the billing patterns to determine the true cost impact",
+        "evidence": "Access Key Details",
+        "verdict": "Strong Support"
+      }
+    ],
+    "pending_turn": null,
+    "completed": false
+  },
+  "draft": {
+    "screen": "justification",
+    "selectedAction": {
+      "choice_role": "weak",
+      "description": "Analyze the historical data to see if there were any significant changes in service usage patterns leading up to the incident.",
+      "id": "verify_service_usage",
+      "recommended_next_focus": "Review the recent use of d.okafor's access key from 198.51.100.1",
+      "title": "Verify if there were any changes in service usage patterns before and after the incident"
+    },
+    "selectedEvidence": {
+      "id": "cloudtrail_event_record",
+      "imagePath": "/Users/karunanidhiprabhakar/Desktop/FYP/output/generated_evidence/turn_5/cloudtrail_event_record.png",
+      "imageUrl": "/generated_evidence/turn_5/cloudtrail_event_record.png",
+      "summary": "CloudTrail record of GetObject by d.okafor from 203.0.113.41 at 09:14 UTC.",
+      "supportRole": "partial",
+      "template": "cloudtrail",
+      "title": "CloudTrail record of GetObject by d.okafor from 203.0.113.41 at 09:14 UTC",
+      "type": "cloudtrail",
+      "whyItMayMatter": "Shows the specific source IP involved."
+    },
+    "justification": {
+      "mode": "typed",
+      "prompt": "",
+      "transcript": "I chose this evidence because it shows what the selected action needs to check.",
+      "source": "typed_justification"
+    }
+  },
+  "note": "",
+  "models": {
+    "HF_IMAGE_MODEL_ID": "Qwen/Qwen2.5-VL-3B-Instruct",
+    "HF_SECURITY_MODEL_ID": "fdtn-ai/Foundation-Sec-8B-Instruct",
+    "HF_COACH_MODEL_ID": "Qwen/Qwen2.5-1.5B-Instruct",
+    "HF_VOICE_MODEL_ID": "openai/whisper-base",
+    "HF_NEXT_TURN_MAX_NEW_TOKENS": "1600"
+  },
+  "testMode": true,
+  "codeVersion": "eea253f0eeccd5f47c7df618b591545fdd0607c9",
+  "codeHasLocalChanges": true
+}

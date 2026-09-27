@@ -1,0 +1,23 @@
+[
+  {
+    "id": "check_billing_spending",
+    "title": "CheckBillingSpending",
+    "description": "Review the billing details to assess the financial impact of the incident.",
+    "recommended_next_focus": "Document the findings for future reference.",
+    "choice_role": "partial"
+  },
+  {
+    "id": "delete_access_key",
+    "title": "DeleteAccessKey",
+    "description": "Confirm the deletion of the access key related to the CreateAccessKey call.",
+    "recommended_next_focus": "Identify the next steps for mitigating residual risks.",
+    "choice_role": "best"
+  },
+  {
+    "id": "verify_user_identity",
+    "title": "VerifyUserIdentity",
+    "description": "Ensure the user identity matches the expected behavior.",
+    "recommended_next_focus": "Revisit IAM policies and permissions.",
+    "choice_role": "weak"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "compare_access_attempts",
+    "title": "Compare Access Attempts",
+    "description": "Compare the unusual access attempts recorded in CloudTrail with the recipient account's normal behavior.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "partial"
+  },
+  {
+    "id": "examine_billing_activity",
+    "title": "Verify Activity Around DeleteAccessKey",
+    "description": "Verify the recent activity around the DeleteAccessKey call by SecurityAnalyst.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "best"
+  },
+  {
+    "id": "investigate_recipient_account",
+    "title": "Investigate Recipient Account",
+    "description": "Examine the recipient account's logs and activities to understand its normal behavior and compare it with the unusual access attempts.",
+    "recommended_next_focus": "Identify the source of the unauthorized access",
+    "choice_role": "weak"
+  }
+]

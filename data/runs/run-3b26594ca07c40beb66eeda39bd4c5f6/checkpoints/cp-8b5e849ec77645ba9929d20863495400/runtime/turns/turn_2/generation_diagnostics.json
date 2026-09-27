@@ -1,0 +1,34 @@
+{
+  "attempts": 3,
+  "outcome": "best_valid_attempt",
+  "validation_errors": [],
+  "quality_reviews": [
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Focus on correlating the current IAM activity with other CloudTrail logs and GuardDuty findings to understand the broader impact of the incident."
+    },
+    {
+      "pass": false,
+      "quality_score": 65,
+      "issues": [
+        "The generated turn focuses on reviewing IAM activities again, which is repetitive and doesn't align with the progression rules.",
+        "The evidence titles and facts are similar to the completed turn, making them redundant and less helpful for the learner."
+      ],
+      "retry_instruction": "Ensure the turn introduces a new investigative purpose or goal, avoids repetition, and includes diverse evidence types."
+    },
+    {
+      "pass": false,
+      "quality_score": 60,
+      "issues": [
+        "The generated turn focuses on reviewing IAM logs and accessing key usage, which is similar to the completed turn's phase and action focus.",
+        "The evidence facts lack concrete fields and are mostly vague, making them unsuitable for the learner to make a meaningful decision."
+      ],
+      "retry_instruction": "Refine the evidence facts to include more concrete fields and timelines, ensuring they align with the current investigation goal."
+    }
+  ]
+}
