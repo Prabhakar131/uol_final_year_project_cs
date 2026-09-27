@@ -77,11 +77,6 @@ def text_width(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont) 
     return bbox[2] - bbox[0]
 
 
-def text_height(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.ImageFont) -> int:
-    bbox = draw.textbbox((0, 0), str(text), font=font)
-    return bbox[3] - bbox[1]
-
-
 def clean_text(value: Any, default: str = "Unknown") -> str:
     if value in [None, "", [], {}]:
         return default
@@ -241,10 +236,6 @@ def draw_panel(
     draw.line((x1, line_y, x2, line_y), fill=COLORS["border"], width=1)
 
 
-def draw_section_label(draw: ImageDraw.ImageDraw, x: int, y: int, text: str) -> None:
-    draw.text((x, y), text, fill=COLORS["text"], font=load_font(16, bold=True))
-
-
 def draw_status_pill(
     draw: ImageDraw.ImageDraw,
     x: int,
@@ -365,77 +356,6 @@ def draw_table(
             current_x += width
 
         y += row_height
-
-
-def draw_metric_card(
-    draw: ImageDraw.ImageDraw,
-    box: tuple[int, int, int, int],
-    label: str,
-    value: Any,
-    tone: str = "blue",
-) -> None:
-    x1, y1, x2, y2 = box
-
-    tone_color = {
-        "blue": COLORS["blue"],
-        "green": COLORS["green"],
-        "red": COLORS["red"],
-        "yellow": COLORS["yellow"],
-        "purple": COLORS["purple"],
-    }.get(tone, COLORS["blue"])
-
-    draw.rounded_rectangle(
-        box,
-        radius=12,
-        fill=COLORS["surface_alt"],
-        outline=COLORS["border"],
-        width=1,
-    )
-
-    draw.text((x1 + 16, y1 + 14), label, fill=COLORS["muted"], font=load_font(13, bold=True))
-    draw_wrapped_text(
-        draw=draw,
-        xy=(x1 + 16, y1 + 42),
-        text=clean_text(value),
-        max_width=(x2 - x1) - 32,
-        font=load_font(18, bold=True),
-        fill=tone_color,
-        line_gap=4,
-        max_lines=2,
-    )
-
-
-def draw_code_block(
-    draw: ImageDraw.ImageDraw,
-    box: tuple[int, int, int, int],
-    lines: list[str],
-    title: str | None = None,
-) -> None:
-    x1, y1, x2, y2 = box
-
-    draw.rounded_rectangle(
-        box,
-        radius=10,
-        fill=COLORS["code_bg"],
-        outline=COLORS["border"],
-        width=1,
-    )
-
-    y = y1 + 14
-
-    if title:
-        draw.text((x1 + 16, y), title, fill=COLORS["muted"], font=load_font(12, bold=True))
-        y += 28
-
-    font = load_font(13)
-
-    for line in lines:
-        fitted = fit_text_to_width(draw, line, font, (x2 - x1) - 32)
-        draw.text((x1 + 16, y), fitted, fill=COLORS["text"], font=font)
-        y += 22
-
-        if y > y2 - 24:
-            break
 
 
 def save_image(image: Image.Image, output_path: Path) -> None:

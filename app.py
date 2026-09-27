@@ -23,12 +23,11 @@ from cloudir.scenario.scenario_state import ScenarioState
 from cloudir.scenario.turn_payload_loader import load_turn_payload
 
 from cloudir.dataset_preparation import stream_build_acse_dataset_scenario
-from cloudir.paths import FRONTEND_DIR, GENERATED_EVIDENCE_DIR, RUNTIME_DATA_DIR, WORKSPACE_ROOT, SOURCE_DATA_DIR
+from cloudir.paths import FRONTEND_DIR, GENERATED_EVIDENCE_DIR, RUNTIME_DATA_DIR, WORKSPACE_ROOT
 
 
 ROOT_DIR = WORKSPACE_ROOT
 UI_DIR = FRONTEND_DIR
-DATASET_SOURCE_ASSETS_DIR = SOURCE_DATA_DIR
 DEFAULT_DATASET_SCENARIO = "identity-management"
 
 

@@ -132,19 +132,6 @@ def _cloudtrail_result(error_code: Any) -> str:
     return "Success" if _is_placeholder_value(code) or code == "-" else code
 
 
-def _log_rows_are_generic(rows: list[list[str]]) -> bool:
-    generic_terms = [
-        "my-log-group",
-        "public endpoint",
-        "event detected",
-        "attempt to access",
-        "timestamp log stream message",
-        "log stream",
-    ]
-    row_text = " ".join(" ".join(row) for row in rows).lower()
-    return any(term in row_text for term in generic_terms)
-
-
 def _is_automated_response_text(text: str) -> bool:
     return any(
         term in text
@@ -159,16 +146,6 @@ def _is_automated_response_text(text: str) -> bool:
             "workflow",
         ]
     )
-
-
-def _automated_response_log_rows() -> list[list[str]]:
-    return [
-        ["2023-10-01T10:19:15Z", "check-state/[$LATEST]a1", "Received Security Hub finding custom-finding-7421"],
-        ["2023-10-01T10:19:17Z", "check-state/[$LATEST]a1", "Validated remediationTarget against allowlist"],
-        ["2023-10-01T10:20:02Z", "check-state/[$LATEST]a1", "Sanitised optional note field before workflow handoff"],
-        ["2023-10-01T10:21:35Z", "workflow/execution", "Started Step Functions execution securityhub-remediation-7421"],
-        ["2023-10-01T10:24:44Z", "workflow/control", "Manual approval required before Systems Manager remediation"],
-    ]
 
 
 def _clean_access_key_id(value: Any, default: str = DEFAULT_ACCESS_KEY_ID) -> str:

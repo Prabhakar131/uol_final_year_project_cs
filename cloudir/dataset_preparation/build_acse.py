@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import importlib
-import inspect
 import json
 import random
 import shutil
@@ -11,7 +10,7 @@ from cloudir.ai_models.coach_model import generate_initial_turn_from_dataset
 from cloudir.ai_models.coach_model import unload_coach_model
 from cloudir.ai_models.image_model import unload_image_model
 from cloudir.ai_models.security_model import unload_security_model, write_incident_timeline
-from cloudir.paths import GENERATED_EVIDENCE_DIR, PROCESSED_DATA_DIR, WORKSPACE_ROOT as PROJECT_ROOT
+from cloudir.paths import GENERATED_EVIDENCE_DIR, WORKSPACE_ROOT as PROJECT_ROOT
 from cloudir.scenario.evidence_template_strategy import apply_evidence_template_strategy
 from cloudir.scenario.incident_timeline import (
     TIMELINE_FILE,
@@ -410,130 +409,6 @@ def move_best_item_away_from_first(items: list[Any], key: str) -> None:
     items.insert(insert_at, best_item)
 
 
-def apply_initial_turn_scenario_repair(
-    turn_1: dict[str, Any],
-    scenario_id: str,
-) -> None:
-    scenario_key = scenario_id.strip().lower().replace("_", "-")
-
-    if scenario_key != "automated-security-response":
-        return
-
-    if not automated_security_response_initial_turn_needs_repair(turn_1):
-        return
-
-    turn_1["turn_config"] = _automated_security_response_turn_config()
-    turn_1["actions"] = _automated_security_response_actions()
-    turn_1["evidence_facts"] = _automated_security_response_evidence()
-    turn_1["expected_outcomes"] = _automated_security_response_expected_outcomes()
-
-
-def automated_security_response_initial_turn_needs_repair(turn_1: dict[str, Any]) -> bool:
-    text = json.dumps(turn_1, default=str).lower()
-
-    identity_drift_terms = (
-        "admin-test",
-        "member-account",
-        "consolelogin",
-        "stoplogging",
-        "iam activity",
-        "identity timeline",
-        "same source ip",
-    )
-    automation_terms = (
-        "securityhub",
-        "security hub",
-        "eventbridge",
-        "step functions",
-        "state machine",
-        "lambda",
-        "remediation",
-        "workflow",
-    )
-
-    if any(term in text for term in identity_drift_terms):
-        return True
-
-    if not any(term in text for term in automation_terms):
-        return True
-
-    evidence_items = turn_1.get("evidence_facts")
-
-    if not isinstance(evidence_items, list) or len(evidence_items) < 3:
-        return True
-
-    templates = {
-        clean_generated_template(item)
-        for item in evidence_items
-        if isinstance(item, dict)
-    }
-
-    return not templates.intersection({"guardduty", "cloudwatch", "access_key", "cloudtrail"})
-
-
-def clean_generated_template(item: dict[str, Any]) -> str:
-    return str(item.get("template") or item.get("type") or "").strip().lower()
-
-
-def _automated_security_response_turn_config() -> dict[str, Any]:
-    return {
-        "turn": 1,
-        "phase": "Security Automation Triage",
-        "briefing": (
-            "A Security Hub finding has triggered the automated remediation workflow. "
-            "Before trusting the response path, investigate whether the finding input, "
-            "EventBridge trigger, Lambda processing, and remediation role are safe."
-        ),
-        "known_context": [
-            "Security Hub findings are routed through EventBridge into a Step Functions remediation workflow.",
-            "Lambda functions inspect findings and can trigger Systems Manager remediation actions.",
-            "The remediation role has broad permissions, so a crafted finding could cause unsafe automated changes.",
-        ],
-        "coach_guidance": (
-            "Start with evidence that shows whether the automation was triggered by a legitimate Security Hub "
-            "finding and whether the remediation role was used safely."
-        ),
-    }
-
-
-def _automated_security_response_actions() -> list[dict[str, Any]]:
-    return [
-        {
-            "id": "review_security_finding_trigger",
-            "title": "Review Security Finding Trigger",
-            "description": (
-                "Check the security finding that caused the automated remediation workflow to start."
-            ),
-            "recommended_next_focus": (
-                "Confirm the finding type, affected resource, severity, and automation target."
-            ),
-            "choice_role": "best",
-        },
-        {
-            "id": "inspect_lambda_validation_logs",
-            "title": "Inspect Lambda Validation Logs",
-            "description": (
-                "Review CloudWatch logs from the validation Lambda to see how the finding payload was handled."
-            ),
-            "recommended_next_focus": (
-                "Look for payload validation, sanitisation, rejected fields, or unexpected remediation input."
-            ),
-            "choice_role": "partial",
-        },
-        {
-            "id": "check_remediation_role_access",
-            "title": "Check Remediation Role Access",
-            "description": (
-                "Review the remediation role and temporary credential activity linked to the automation path."
-            ),
-            "recommended_next_focus": (
-                "Identify whether broad permissions or active credentials increase the blast radius."
-            ),
-            "choice_role": "weak",
-        },
-    ]
-
-
 def _automated_security_response_evidence() -> list[dict[str, Any]]:
     return [
         {
@@ -619,23 +494,6 @@ def _automated_security_response_evidence() -> list[dict[str, Any]]:
             },
         },
     ]
-
-
-def _automated_security_response_expected_outcomes() -> dict[str, str]:
-    return {
-        "strong_support": (
-            "Security finding evidence identifies the automation-triggering finding, resource, severity, and risk context."
-        ),
-        "partial_support": (
-            "CloudTrail or workflow trigger evidence helps trace execution but needs finding content for full justification."
-        ),
-        "weak_support": (
-            "Credential or role review shows blast-radius risk but does not confirm the automation trigger was unsafe."
-        ),
-        "unsupported": (
-            "Evidence is unsupported if it does not connect the finding, trigger, workflow, or remediation role."
-        ),
-    }
 
 
 def _render_turn_1_evidence() -> dict[str, Any]:

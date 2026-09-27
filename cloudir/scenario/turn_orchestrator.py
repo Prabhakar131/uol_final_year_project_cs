@@ -79,63 +79,6 @@ def turn_files_exist(root_dir: Path, turn_number: int) -> bool:
     return True
 
 
-def generate_initial_turn_if_missing(
-    root_dir: Path,
-    current_state: dict[str, Any],
-) -> dict[str, Any] | None:
-    if turn_files_exist(root_dir=root_dir, turn_number=1):
-        return None
-
-    scenario_config = read_json(root_dir / "data" / "runtime" / "scenario_config.json")
-    hidden_truth = read_json(root_dir / "data" / "runtime" / "hidden_truth.json")
-
-    completed_turn = {
-        "note": "This is the initial turn. No learner action has been completed yet."
-    }
-
-    selected_action = {
-        "note": "No selected action yet. Generate the first learner decision point."
-    }
-
-    selected_evidence = {
-        "note": "No selected evidence yet. Generate initial evidence options."
-    }
-
-    vlm_output = {
-        "note": "No VLM output yet because this is the initial turn."
-    }
-
-    security_output = {
-        "note": "No security evaluation yet because this is the initial turn."
-    }
-
-    coach_output = {
-        "note": "No coach feedback yet because this is the initial turn."
-    }
-
-    generated_turn = generate_turn_with_quality_retry(
-        scenario_config=scenario_config,
-        hidden_truth=hidden_truth,
-        current_state=current_state,
-        completed_turn=completed_turn,
-        selected_action=selected_action,
-        selected_evidence=selected_evidence,
-        vlm_output=vlm_output,
-        security_output=security_output,
-        coach_output=coach_output,
-        next_turn_number=1,
-        timeline=load_incident_timeline(root_dir / "data" / "runtime", scenario_config.get("scenario_id")),
-    )
-
-    save_generated_turn(
-        root_dir=root_dir,
-        turn_number=1,
-        generated_turn=generated_turn,
-    )
-
-    return generated_turn
-
-
 def generate_and_save_next_turn(
     root_dir: Path,
     current_state: dict[str, Any],

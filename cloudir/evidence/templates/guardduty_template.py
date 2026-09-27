@@ -11,7 +11,6 @@ from cloudir.evidence.templates.base_template import (
     draw_panel,
     draw_status_pill,
     draw_wrapped_text,
-    fit_text_to_width,
     load_font,
     save_image,
 )

@@ -6,8 +6,6 @@ from typing import Any
 
 from cloudir.paths import ACSE_DATASET_FILE, PROCESSED_DATA_DIR, WORKSPACE_ROOT as PROJECT_ROOT, SOURCE_DATA_DIR
 
-DATASET_ROOT = PROJECT_ROOT / "data"
-
 TRAINING_SCENARIO_ALLOWLIST = {
     "automated-security-response",
     "cost-management",

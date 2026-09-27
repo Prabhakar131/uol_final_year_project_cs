@@ -10,7 +10,6 @@ from cloudir.paths import (
     PREPARED_DATA_DIR,
     PROCESSED_DATA_DIR,
     RUNTIME_DATA_DIR,
-    SOURCE_DATA_DIR,
 )
 from cloudir.dataset_preparation.select_case import (
     list_available_acse_scenarios,
