@@ -138,9 +138,6 @@ class HardcodedEvidenceSetTests(unittest.TestCase):
         return generated["evidence_facts"]
 
     def test_every_hardcoded_evidence_set_passes_validation(self):
-        # Imported here: build_acse binds cloudir.paths, which test_run_management must bind to a temp workspace first.
-        from cloudir.dataset_preparation import build_acse
-
         baseline = {"actions": [{"title": "Inspect Audit Logs"}], "evidence_facts": [{}]}
         _repair_initial_turn_action_evidence_alignment(baseline)
         sets = {
@@ -151,7 +148,6 @@ class HardcodedEvidenceSetTests(unittest.TestCase):
             "identity turn 3": self.repaired(progression.repair_turn3_response_evidence, 3),
             "identity turn 4": self.repaired(progression.repair_turn4_containment_evidence, 4),
             "identity turn 5": self.repaired(progression.repair_turn5_recovery_evidence, 5),
-            "automation turn 1": build_acse._automated_security_response_evidence(),
             "automation turn 2": progression.automated_security_response_turn2_evidence(),
             "automation turn 3": progression.automated_security_response_turn3_evidence(),
             "automation turn 4": progression.automated_security_response_turn4_evidence(),

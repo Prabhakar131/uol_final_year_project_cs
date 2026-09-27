@@ -24,7 +24,6 @@ let activeScenarioId = "identity-management";
 const MAX_JUSTIFICATION_RECORDING_MS = 45_000;
 const TEST_MODE_STORAGE_KEY = "cloudirTestMode";
 const SKIP_NEXT_TURN_STORAGE_KEY = "cloudirSkipNextTurn";
-const DEFAULT_SCENARIO_ID = "identity-management";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -106,72 +105,6 @@ async function readEventStream(path, body, onEvent) {
   }
 }
 
-// Plain-text renderings of each model's output, used by Test Mode and saved-run details.
-function formatVlmOutput(vlm) {
-  const visibleFacts = Array.isArray(vlm.visible_facts_extracted)
-    ? vlm.visible_facts_extracted
-    : Array.isArray(vlm.visible_facts)
-      ? vlm.visible_facts
-      : vlm.visibleFacts || [];
-
-  const warnings = Array.isArray(vlm.extraction_warnings)
-    ? vlm.extraction_warnings : [];
-  const rows = Array.isArray(vlm.event_rows) ? vlm.event_rows : null;
-
-  return [
-    `Evidence type: ${vlm.evidence_type || vlm.evidenceTitle || "Unknown"}`,
-    "",
-    "Summary:",
-    vlm.visible_evidence_summary || "No summary returned.",
-    ...(rows === null ? [] : [
-      "", "Query editor text (not an event):", vlm.query_text ?? "Unreadable / not extracted",
-      `Time range: ${vlm.time_range ?? "Unreadable / not extracted"}`,
-      `Log group: ${vlm.log_group ?? "Unreadable / not extracted"}`,
-      `Matched records badge: ${vlm.matched_records ?? "Unknown"}; extracted rows: ${rows.length}`,
-    ]),
-    "",
-    rows === null ? "Visible facts extracted:" : "Visible event rows:",
-    ...(rows === null ? visibleFacts.map((fact) => `✓ ${fact}`) : rows.flatMap((row, i) => [
-      `${i + 1}. ${row.timestamp ?? "Unreadable time"} | ${row.log_stream ?? "Unreadable stream"}`,
-      `${row.message ?? "Unreadable message"}${row.truncated ? " [truncated in screenshot]" : ""}`,
-    ])),
-    "",
-    "Extraction warnings:",
-    ...(warnings.length ? warnings.map((item) => `• ${item}`) : ["None reported"]),
-  ].join("\n");
-}
-
-function formatSecurityOutput(security) {
-  return [
-    `Verdict: ${security.verdict}`,
-    "",
-    "Reasoning:",
-    security.reasoning,
-    ...(Array.isArray(security.supporting_row_numbers) ? [
-      `Supporting event rows: ${security.supporting_row_numbers.join(", ") || "None"}`,
-    ] : []),
-    "",
-    "Justification assessment:",
-    security.justification_assessment || security.justificationAssessment || "No learner justification assessment returned.",
-    "",
-    "Recommended next focus:",
-    security.recommended_next_focus || security.recommendedNextFocus || "",
-    "",
-    "Risk of wrong interpretation:",
-    security.risk_of_wrong_interpretation || "",
-  ].join("\n");
-}
-
-function formatCoachOutput(coach) {
-  return [
-    coach.feedback || "",
-    "",
-    coach.next_turn_guidance
-      ? `Coach nudge: ${coach.next_turn_guidance}`
-      : "",
-  ].join("\n").trim();
-}
-
 // ---------- adapters: server payloads to the shapes the interface draws ----------
 const clean = s => String(s ?? "").replace(/\*\*/g, "").replace(/\s+/g, " ").trim();
 const stateOf = s => s ? { c: Number(s.containment ?? 0), v: Number(s.visibility ?? 0), risk: s.risk || "Unknown", phase: s.phase || "" } : null;
@@ -179,7 +112,6 @@ const maxTurns = () => Number(appState?.maxTurns) || 5;
 const turnNo = () => Number(appState?.currentTurn) || 1;
 const getActionChoiceRole = a => String(a?.choiceRole || a?.choice_role || "").trim().toLowerCase();
 const getEvidenceSupportRole = e => String(e?.supportRole || e?.support_role || "").trim().toLowerCase();
-const getEvidenceWhyItMayMatter = e => e?.why_it_may_matter || e?.whyItMayMatter || e?.why_it_matters || e?.reason || "";
 const evidenceTemplate = e => String(e?.template || e?.type || "").toLowerCase();
 
 function adaptVlm(o = {}) {
@@ -998,8 +930,6 @@ function updateChecks() {
   $("#submitHint").textContent = open ? `${open} check${open > 1 ? "s" : ""} open. You can still submit.` : "Ready to submit.";
   $("#submitBtn").disabled = !selectedAction || !selectedEvidence || isEvaluatingTurn;
 }
-// Kept for run_controls.js, which restores a saved draft.
-const updateReadinessChecklist = updateChecks;
 tx.addEventListener("input", () => { transcripts[txKey()] = tx.value; if (learnerJustification && tx.value.trim() !== (learnerJustification.transcript || "").trim()) learnerJustification = { ...learnerJustification, source: "edited_transcript" }; updateChecks(); $$("[data-stepper]", pageEls.reasoning).forEach(renderStepper); });
 $("#tpFill").onclick = () => {
   if (!selectedAction || !selectedEvidence) return;

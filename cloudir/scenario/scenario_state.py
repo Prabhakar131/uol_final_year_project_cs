@@ -99,12 +99,6 @@ class ScenarioState:
         if self.visibility >= 80 and self.containment >= 70:
             self.risk = "Reduced"
 
-    def prepare_next_turn(self) -> None:
-        if self.current_turn < self.max_turns:
-            self.pending_turn = self.current_turn + 1
-        else:
-            self.pending_turn = self.current_turn
-
     def commit_pending_turn(self) -> None:
         if self.pending_turn is not None:
             self.current_turn = self.pending_turn
