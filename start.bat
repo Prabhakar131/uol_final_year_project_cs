@@ -5,7 +5,11 @@ setlocal
 cd /d "%~dp0"
 
 if not exist .venv\Scripts\python.exe goto needsetup
+if not exist .venv\Scripts\ffmpeg.exe goto needsetup
 if not exist .env goto needsetup
+
+rem Whisper decodes recorded answers with ffmpeg, which setup.bat puts in .venv\Scripts.
+set "PATH=%~dp0.venv\Scripts;%PATH%"
 
 if not defined CLOUDIR_PORT set "CLOUDIR_PORT=5000"
 set "URL=http://127.0.0.1:%CLOUDIR_PORT%"
@@ -20,6 +24,6 @@ pause
 exit /b 0
 
 :needsetup
-echo Run setup.bat first.
+echo Setup is not finished. Run setup.bat first, then start.bat again.
 pause
 exit /b 1

@@ -210,9 +210,10 @@ uol_final_year_project_cs/
 
 ### Requirements
 
-- **Python 3.10, 3.11 or 3.12** (3.11 is tested). The pinned PyTorch has no builds for Python 3.13 or newer.
-- **A C/C++ compiler**, because `llama-cpp-python` compiles during installation: the Xcode Command Line Tools on macOS (`xcode-select --install`), Visual Studio Build Tools with "Desktop development with C++" on Windows, or `build-essential` on Ubuntu/Debian.
+- **Python 3.10, 3.11 or 3.12, 64-bit** (3.11 is tested). The pinned PyTorch has no builds for Python 3.13 or newer. On Windows, install it from [python.org](https://www.python.org/downloads/).
 - **About 25 GB of free disk space** for the packages and models, and ideally 24 GB of memory (see the measurements below).
+- **Windows: nothing else.** `setup.bat` installs only ready-built packages, so no compiler is needed, and it installs the Microsoft Visual C++ Redistributable if it is missing. Keep the project in a short folder such as `C:\cloudir` (see [Windows troubleshooting](#windows-troubleshooting)).
+- **macOS and Linux: a C/C++ compiler**, because `llama-cpp-python` compiles during installation: the Xcode Command Line Tools on macOS (`xcode-select --install`) or `build-essential` on Ubuntu/Debian. Recording a spoken answer also needs `ffmpeg` (`brew install ffmpeg` or `sudo apt install ffmpeg`); typed answers work without it.
 
 ### Quick start
 
@@ -230,9 +231,23 @@ bash setup.sh
 bash start.sh
 ```
 
-On Windows, double-click `setup.bat` once, then `start.bat` (or run them from Command Prompt).
+On Windows, double-click `setup.bat` once, then `start.bat`. Or run them from the project folder in Command Prompt:
 
-The setup script runs once. It finds a supported Python, creates the `.venv` environment, installs `requirements.txt`, creates `.env` from `.env.example`, and downloads the models. To skip the model download and let each model download on first use instead, run `bash setup.sh --skip-models` (`setup.bat --skip-models` on Windows).
+```bat
+setup.bat
+start.bat
+```
+
+In PowerShell, put `.\` in front:
+
+```powershell
+.\setup.bat
+.\start.bat
+```
+
+The setup script runs once. It finds a supported Python, creates the `.venv` environment, installs the packages, creates `.env` from `.env.example`, and downloads the models (about 20 GB). `--skip-models` (`bash setup.sh --skip-models`, `setup.bat --skip-models` or `.\setup.bat --skip-models`) does everything except the model download. Nothing is missing afterwards, but each model then downloads the first time the app needs it, so the first evaluation takes much longer.
+
+On Windows, `setup.bat` installs `llama-cpp-python` 0.3.19 from the project's ready-built Windows wheels instead of compiling the 0.3.35 in `requirements.txt`, which macOS and Linux build. A Turn 1 evaluation gave the same verdict and word-for-word the same coach feedback on both versions. It also puts a copy of `ffmpeg` in `.venv\Scripts` for recorded answers.
 
 The start script runs the app and opens `http://127.0.0.1:5000` in the browser once it is ready. Press Ctrl+C to stop it. Use `127.0.0.1` rather than `localhost`: on macOS, AirPlay Receiver answers `localhost:5000`. If another program uses port 5000, choose another port with `CLOUDIR_PORT=5050 bash start.sh` (on Windows, `set CLOUDIR_PORT=5050`, then `start.bat`).
 
@@ -240,16 +255,40 @@ All three scenarios come already built (`data/prepared/`), so **Start Scenario**
 
 ### Manual setup
 
-The scripts run these steps, which can also be run by hand:
+The scripts run these steps, which can also be run by hand. On macOS or Linux:
 
 ```bash
 python3.11 -m venv .venv
-source .venv/bin/activate          # Windows PowerShell: .venv\Scripts\Activate.ps1
-cp .env.example .env               # Windows PowerShell: Copy-Item .env.example .env
-python -m pip install -r requirements.txt
-python download_models.py
-python app.py
+cp .env.example .env
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python download_models.py
+.venv/bin/python app.py
 ```
+
+On Windows, in PowerShell from the project folder. These commands call the environment's own Python, so nothing needs activating:
+
+```powershell
+py -3.11 -m venv .venv
+if (-not (Test-Path .env)) { Copy-Item .env.example .env }
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+Get-Content requirements.txt | Where-Object { $_ -notmatch '^llama-cpp-python' } | Set-Content "$env:TEMP\cloudir-requirements.txt"
+.\.venv\Scripts\python.exe -m pip install --only-binary=:all: -r "$env:TEMP\cloudir-requirements.txt"
+.\.venv\Scripts\python.exe -m pip install --only-binary=:all: --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu llama-cpp-python==0.3.19 imageio-ffmpeg==0.6.0
+.\.venv\Scripts\python.exe -c "import imageio_ffmpeg, shutil; shutil.copy(imageio_ffmpeg.get_ffmpeg_exe(), r'.venv\Scripts\ffmpeg.exe')"
+.\.venv\Scripts\python.exe download_models.py
+$env:PATH = "$PWD\.venv\Scripts;$env:PATH"
+.\.venv\Scripts\python.exe app.py
+```
+
+`download_models.py` is optional in both, as with `--skip-models`.
+
+### Windows troubleshooting
+
+- **"This folder's path is … characters long", or a "No such file or directory" error while installing.** Windows limits file paths to 260 characters, and the installed packages use about 160 of them inside the project folder. Move the folder somewhere short, such as `C:\cloudir`, delete `.venv`, and run `setup.bat` again. Extracting the GitHub ZIP with File Explorer nests the folder twice under Downloads, which can be too long. Alternatively, an administrator can enable long paths by running `New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name LongPathsEnabled -Value 1 -PropertyType DWORD -Force` in an administrator PowerShell, then restarting Windows.
+- **"No matching distribution found".** Python must be 64-bit 3.10, 3.11 or 3.12. Delete `.venv`, install Python 3.11 (64-bit), and run `setup.bat` again.
+- **"DLL load failed".** Install the [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe). `setup.bat` does this itself when the runtime files are missing.
+- **Transcribe says "ffmpeg was not found".** Start the app with `start.bat`, which puts the bundled `ffmpeg` on the path. If you set up before this was added, run `setup.bat` again.
+- **Slow evaluations.** Without an NVIDIA GPU, every model runs on the CPU, so an evaluation takes much longer than on Apple silicon or a GPU. It still completes.
 
 ### Models
 
@@ -264,7 +303,7 @@ The model weights are not stored in this repository: together they are about 20 
 
 The script is optional: without it, each model downloads the first time a scenario needs it, and the first evaluation waits on that download without showing progress. Allow about 25 GB of free disk space. `.env`, `.venv`, and the model cache stay on the local computer.
 
-`llama-cpp-python` builds with Metal on Apple silicon and for the CPU elsewhere. To build it for an NVIDIA GPU, set `CMAKE_ARGS="-DGGML_CUDA=on"` before running the setup script.
+On macOS and Linux, `llama-cpp-python` builds with Metal on Apple silicon and for the CPU elsewhere. To build it for an NVIDIA GPU, set `CMAKE_ARGS="-DGGML_CUDA=on"` before running `setup.sh`. On Windows, `setup.bat` installs the ready-built CPU version.
 
 Measured on a 24 GB Apple-silicon Mac (24 Sep 2026): the 8-bit security model uses about 9–10 GB. It normalised the identity-management threat model in 18 s and replayed a saved evaluation in 13 s, without growing swap. The 16-bit weights stalled the same normalisation for more than 3 minutes while swapping. The vision model's CloudWatch extraction is now the memory peak, at about 15 GB of GPU memory, so machines with less than 24 GB may still swap during that step.
 
